@@ -833,6 +833,91 @@ footer.entry-meta .meta-in {
 /*********************************************************************
 
 
+                                TIMELINE
+
+
+**********************************************************************/
+#timeline {
+    font-size: 20px;
+    font-weight: 300;
+}
+@media (min-width: 768px) {
+    .timelineitem:nth-child(odd) {
+      margin-left: 50%;
+      border-left: 5px solid #333;
+      text-align: left;
+    }
+    .timelineitem:nth-child(even) {
+      margin-right: 50%;
+      margin-left: 5px;
+      border-right: 5px solid #333;
+      text-align: right;
+    }
+    .timelineitem {
+      width: 50%;
+      position: relative;
+      padding: 30px;
+    }
+    .timelineitem:nth-child(odd):before {
+      left: -8px;
+    }
+    .timelineitem:nth-child(even):before {
+      right: -8px;
+    }
+}
+
+.timelineitem:before {
+    width: 11px;
+    height: 11px;
+    background: #333;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    border-radius: 5px;
+} 
+
+@media (max-width: 768px) {
+    .timelineitem {
+      border-left: 5px solid #333;
+      text-align: left;
+      margin-left: 10px;
+      padding: 5px;
+      position: relative;
+    } 
+    .timelineitem:before {
+      left: -8px;
+    } 
+}
+
+.tdate {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 5px;
+    color: rgb(132,0,0);
+} 
+.ttitle {
+    font-size: 20px;
+    font-weight: 400;
+} 
+.tdesc {
+    font-size: 18px;
+    font-weight: 300;
+}
+@media (max-width: 768px) {
+    .tdate {
+      font-size: 16px;
+    } 
+    .ttitle {
+      font-size: 16px;
+    } 
+    .tdesc {
+      font-size: 16px;
+    } 
+}
+/*********************************************************************
+
+
                                 FOOTER
 
 
