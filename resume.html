@@ -11,6 +11,42 @@
 		$("#footer").load("footer.html") });
 	</script>
 
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('visualization', '1', {'packages':['corechart', 'bar']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Language', 'University', 'Work', 'Hobby'],
+                ['Java', 4, 0, 0.5],
+                ['Python', 2, 0, 2],
+                ['C++', 0, 1, 0.5],
+                ['Octave', 3, 0, 0],
+                ['SQL', 1.5, 0, 0.5]
+            ]);
+
+            var options = {
+                chart: {
+                    title: 'Programming Language Experience',
+                    subtitle: 'separated in categories, in years',
+                },
+                isStacked: true,
+                colors: ['#346ac9', '#279423', '#fc9826'],
+                legend: { position: 'top', maxLines: 3 },
+                hAxis: {
+                    title: 'Years',
+                    format: 'short',
+                }
+            };
+
+            var chart = new google.visualization.BarChart(document.getElementById('languages'));
+
+            chart.draw(data, options);
+        }
+    </script>
+
 	<link rel="stylesheet" href="assets/css/styles.css">
 
 	<!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
@@ -127,6 +163,10 @@
 	</div>	<!-- /container -->
 	
 </main>
+
+<h3 align="center">Experience with various programming languages</h3>
+
+<div id="languages" style="width: 800px; height: 500px; margin:10px auto;"></div>
 
 <div id="footer"></div>
 
