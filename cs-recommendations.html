@@ -7,9 +7,17 @@
 	<!-- include other html files -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js" ></script>
 	<script>
-		$(function(){ $("head").load("header.html");
-		$("#footer").load("footer.html") });
+		$(function(){
+			$("head").load("header.html");
+			$("#footer").load("footer.html");
+		});
+
+		function getArticle(htmlFile) {
+			$("#article").load(htmlFile)
+		}
 	</script>
+
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
 
 	<!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
 </head>
@@ -37,9 +45,8 @@
 					<li><a href="index.html">Home</a></li>
 					<li><a href="blog.html">Blog</a></li>
 					<li class="dropdown">
-						<a href="resources.html" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
+						<a href="" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="resources.html">Resources</a></li>
 							<li><a href="resume.html">Resume</a></li>
 							<li class="active"><a href="cs-recommendations.html">CompSci Links</a></li>
 							<li><a href="maps.html">Maps</a></li>
@@ -58,21 +65,50 @@
 
 		<div class="row topspace">
 
-			<div class="col-sm-8 col-sm-offset-2">
-					
-				<article class="post">
-					<header class="entry-header">
-						<div class="entry-meta" id="cs-recommendations"> 
-							<span class="posted-on"><time class="entry-date published" date="2017-01-21">Last updated January 21, 2017</time></span>			
-						</div>
-						<h1 class="entry-title">Coming soon! Under construction...</h1>
-					</header>
-					<div class="entry-content">
-						<p>I'm currently moving the content over from wix.com. Stay tuned! In the meanwhile, check out <a href="https://softwareengineeringdaily.com/">Software Engineering Daily</a>!</p>
-						<p><img src="assets/images/bricks.jpg" alt="" class="" width="100%" ></p>
-					</div>
-				</article>
+			<!-- Sidebar -->
+			<aside class="col-md-4 sidebar sidebar-left">
 
+				<div class="row widget">
+					<div class="col-xs-12">
+						<h4>Topics</h4>
+						<ul>
+							<li><a onclick="getArticle('compsci/introduction-to-x.html')">Introduction to X</a></li>
+							<li><a onclick="getArticle('compsci/research.html')">Research</a></li>
+							<li><a onclick="getArticle('compsci/books.html')">Books</a></li>
+							<li><a onclick="getArticle('compsci/podcasts.html')">Podcasts</a></li>
+							<li><a onclick="getArticle('compsci/websites.html')">Websites</a></li>
+							<li><a onclick="getArticle('compsci/interviewing.html')">Interviewing</a></li>
+							<li><a onclick="getArticle('compsci/programming-languages.html')">Programming Languages</a></li>
+							<li><a onclick="getArticle('compsci/design-patterns.html')">Design Patterns</a></li>
+							<li><a onclick="getArticle('compsci/scripting.html')">Scripting</a></li>
+							<li><a onclick="getArticle('compsci/unix-commands.html')">UNIX commands</a></li>
+							<li><a onclick="getArticle('compsci/version-control.html')">Version Control</a></li>
+							<li><a onclick="getArticle('compsci/data-structures.html')">Data Structures</a></li>
+							<li><a onclick="getArticle('compsci/distributed-systems.html')">Distributed Systems</a></li>
+							<li><a onclick="getArticle('compsci/machine-learning.html')">Machine Learning</a></li>
+						</ul>
+					</div>
+				</div>
+			</aside>
+			<!-- /Sidebar -->
+
+			<div class="col-sm-8 maincontent">
+					
+				<div id="article">
+					<article class="post">
+						<header class="entry-header">
+							<div class="entry-meta" id="research">
+								<span class="posted-on"><time class="entry-date published" date="2018-01-21">Last updated January 21, 2018</time></span>
+							</div>
+							<h1 class="entry-title">Computer Science Resources</h1>
+						</header>
+						<div class="entry-content">
+							<p>Over the years I've accumulated quite a substantial amount of links, books, videos, articles and classes that I can recommend to CS students. I've grouped them by topic, so just click on the text in the left sidebar to navigate to your topic of choice! You strongly feel like something should be added? Let me know by filing an issue on GitHub and I'll take a look.</p>
+						</div>
+					</article>
+				</div>
+
+			</div>
 		</div>
 	</div>	<!-- /container -->
 	

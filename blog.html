@@ -37,9 +37,8 @@
 					<li><a href="index.html">Home</a></li>
 					<li class="active"><a href="blog.html">Blog</a></li>
 					<li class="dropdown">
-						<a href="resources.html" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
+						<a href="" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="resources.html">Resources</a></li>
 							<li><a href="resume.html">Resume</a></li>
 							<li><a href="cs-recommendations.html">CompSci Links</a></li>
 							<li><a href="maps.html">Maps</a></li>
@@ -58,17 +57,36 @@
 		<div class="row topspace">
 			<div class="col-sm-8 col-sm-offset-2">
 
-				<article class="post" id="map-tool">
+
+				<article class="post" id="breakingthemold">
                     <header class="entry-header">
-                        <div class="entry-meta" id="coursera-ml">
-                            <span class="posted-on"><time class="entry-date published" date="2017-06-18">June 18, 2017</time></span>
+                        <div class="entry-meta" id="breakingthemold">
+                            <span class="posted-on"><time class="entry-date published" date="2018-03-11">March 11, 2018</time></span>
                         </div>
-                        <h1 class="entry-title">Visualizing with maps!</h1>
+                        <h1 class="entry-title">MIT Breaking the Mold Hackathon for Inclusion</h1>
                     </header>
                     <div class="entry-content">
-                        <p>I found that Google provides quite a few tools to create nice visualizations for your website through <a href="https://developers.google.com/chart/">developers.google.com/chart</a>. I'll show some of my favorites <a href="maps.html">here</a>.</p>
+						<p>What a weekend it has been! Participating at <a href="http://www.mitbreakingthemold.com/challenges/">MIT's Breaking the Mold Hackathon for Inclusion</a> was truly a blessing. With so many truly difficult problems to tackle, it is fantastic to see all the ideas people came up with.</p>
+						<p>Big shoutout to MIT for organizing this, Microsoft for the venue (and encouraging me to go!), and Amazon for sending two inspiring mentors for my team all the way from Seattle! Thanks also to my team for creating a creative environment where everybody could express their ideas. I learned a ton from all of you, and winning 3rd prize tops it all off.</p>
+						<p>I hope everybody takes some time to think about Machine Learning Bias. With ML becoming increasingly prevalent, it is more important than ever to take bias into account.</p>
                     </div>
                 </article>
+
+                <hr class="gradient"><br>
+
+				<article class="post" id="compsci-resources">
+                    <header class="entry-header">
+                        <div class="entry-meta" id="compsci-resources">
+                            <span class="posted-on"><time class="entry-date published" date="2018-01-22">January 22, 2018</time></span>
+                        </div>
+                        <h1 class="entry-title">Computer Science Resources</h1>
+                    </header>
+                    <div class="entry-content">
+                        <p>Over the years I've accumulated quite a substantial amount of links, books, videos, articles and classes that I can recommend to CS students. Find them <a href="cs-recommendations.html">here</a>.</p>
+                    </div>
+                </article>
+
+                <hr class="gradient"><br>
 
 				<article class="post" id="coursera-ml">
                     <header class="entry-header">
@@ -97,6 +115,20 @@
                     </div>
                 </article>
                     
+                <hr class="gradient"><br>
+
+				<article class="post" id="bias-in-ml">
+                    <header class="entry-header">
+                        <div class="entry-meta" id="bias-in-ml">
+                            <span class="posted-on"><time class="entry-date published" date="2017-05-12">May 12, 2017</time></span>
+                        </div>
+                        <h1 class="entry-title">Hacking Bias in Machine Learning</h1>
+                    </header>
+                    <div class="entry-content">
+                        <p>Yesterday I participated in the <a href="https://www.eventbrite.com/e/new-england-machine-learning-hackathon-hacking-bias-in-ml-tickets-32951771636?aff=NEML">Hacking Bias in ML</a> workshop at Microsoft's New England Research and Development Center (full disclosure: I work there as well). Bias is natural to Machine Learning models, of course. Generally speaking, the idea is always to find certain properties of the provided data that indicate belonging to a specific group or class. For example, we might find that success in European soccer is strongly correlated with a team's budget. The budget will therefore serve as an important feature for our success prediction model. But what if the environment changes? Say, hypothetically, that the European soccer leagues decide to enforce a salary cap similar to American sports leagues (note: This is simply a hypothetical scenario and does not reflect the author's opinion). Using the same model suddenly makes no sense anymore, we have to adjust. A somewhat similar, albeit much more consequential change has happened in our society as well. Discrimination based on gender, race, and many other traits is not acceptable. While the law slowly adapts to equality and tolerance, ML models are still trained with the same old data that reflects these biases. Since there is no actual magic in the models, they will represent that bias in the results they provide. This poses the danger of carrying these models/views/biases into the future, possibly without realizing that we are subconsciously biased. My group specifically looked at gender bias in texts, and since explaining word embeddings in a short post is a tall order, let's just say it's a way of mapping words to vectors in a multi-dimensional space whose relative locations represent certain relationships. With that we can find that some words are generally more used in connection with men ("smart"), some more with women ("lovely"). You can play around with the tool resulting from the workshop <a href="https://mdml.github.io/hacking-bias-in-word-choice/#">here</a>. While this is only a little prototype, let's all try to work on our subconscious biases, shall we?</p>
+                    </div>
+                </article>
+
                 <hr class="gradient"><br>
 
                 <article class="post" id="rise-quant-athlete">
