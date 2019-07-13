@@ -1,5 +1,5 @@
 ---
-title: Home
+title: Maps
 ---
 # Welcome to MkDocs
 

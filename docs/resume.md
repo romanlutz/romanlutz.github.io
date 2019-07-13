@@ -1,5 +1,5 @@
 ---
-title: Home
+title: Resume
 ---
 # Welcome to MkDocs
 

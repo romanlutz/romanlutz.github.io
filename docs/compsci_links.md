@@ -1,5 +1,5 @@
 ---
-title: Home
+title: CompSci Links
 ---
 # Welcome to MkDocs
 

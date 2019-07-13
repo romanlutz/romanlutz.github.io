@@ -1,5 +1,5 @@
 ---
-title: Home
+title: Blog
 ---
 # Welcome to MkDocs
 
