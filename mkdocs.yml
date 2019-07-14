@@ -1,7 +1,8 @@
 site_name: Roman Lutz
-name: Roman Lutz
-job_title: Software Engineer
-degree: Master of Science in Computer Science
+extra:
+  name: Roman Lutz
+  job_title: Software Engineer
+  degree: Master of Science in Computer Science
 theme:
   name: null
   custom_dir: 'custom_theme/'
