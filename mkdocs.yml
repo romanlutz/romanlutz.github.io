@@ -229,14 +229,14 @@ extra:
           - name: "WY"
             visited: true
   resume:
-    linkedinNote: 'Here's a rough outline of my resume. Please find the comprehensive version at <a href="https://www.linkedin.com/in/romanlutz">linkedin.com/in/romanlutz</a>'
+    linkedinNote: 'Here`s a rough outline of my resume. Please find the comprehensive version at <a href="https://www.linkedin.com/in/romanlutz">linkedin.com/in/romanlutz</a>'
     timeline:
       - timePeriod: "July 2017 - present"
         titles: 
           - "Software Engineer at Microsoft"
         descriptions:
           - "Azure Machine Learning - Services"
-            "Microsoft New England Research and Development Center (NERD), Cambridge, MA"
+          - "Microsoft New England Research and Development Center (NERD), Cambridge, MA"
       - timePeriod: "June 2016 - June 2017"
         titles: 
           - "Software Engineer at Microsoft"
