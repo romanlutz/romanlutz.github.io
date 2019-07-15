@@ -1,3 +1,4 @@
 ---
 title: Maps
+isMap: true
 ---
