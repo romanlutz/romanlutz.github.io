@@ -36,13 +36,9 @@
 
             var data = google.visualization.arrayToDataTable([
                 ['Language', 'University', 'Work', 'Hobby'],
-                ['Python', 2, 3, 5],
-                ['Java', 4, 0, 0.5],
-                ['C#', 0, 3, 0],
-                ['C++', 0, 1, 0.5],
-                ['Octave', 3, 0, 0],
-                ['Haskell', 1, 0, 0],
-                ['Prolog', 0.5, 0, 0]
+				{% for language_entry in config.extra.resume.languages %}
+				['{{ language_entry.name }}', {{ language_entry.universityExperience }}, {{ language_entry.workExperience }}, {{ language_entry.hobbyExperience }}],
+				{% endfor %}
             ]);
 
             var options = {

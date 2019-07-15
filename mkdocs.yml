@@ -272,6 +272,35 @@ extra:
           - "University of Ulm Mathematics Bachelor student"
         descriptions:
           - "Minor in Computer Science, switched major and minor after two semesters"
+    languages:
+      - name: 'Python'
+        universityExperience: 2
+        workExperience: 3
+        hobbyExperience: 5
+      - name: 'Java'
+        universityExperience: 4
+        workExperience: 0
+        hobbyExperience: 0.5
+      - name: 'C#'
+        universityExperience: 0
+        workExperience: 3
+        hobbyExperience: 0
+      - name: 'C++'
+        universityExperience: 0
+        workExperience: 1
+        hobbyExperience: 0.5
+      - name: 'Octave'
+        universityExperience: 3
+        workExperience: 0
+        hobbyExperience: 0
+      - name: 'Haskell'
+        universityExperience: 1
+        workExperience: 0
+        hobbyExperience: 0
+      - name: 'Prolog'
+        universityExperience: 0.5
+        workExperience: 0
+        hobbyExperience: 0
 
 theme:
   name: null
