@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 	
-	<title>{{ config.extra.name }} - {{ page.title }}</title>
-	
-	<!-- include other html files -->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js" ></script>
+  <title>{{ config.extra.name }} - {{ page.title }}</title>
+
+  <!-- include other html files -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js" ></script>
   
   <meta charset="utf-8">
   <meta name="viewport"    content="width=device-width, initial-scale=1.0">
@@ -26,7 +26,47 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
   {% endif %}
 
-	<!--[if lt IE 9]> <script src="js/html5shiv.js"></script> <![endif]-->
+  {% if page.meta.isResume %}
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+        google.charts.load('visualization', '1', {'packages':['corechart', 'bar']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Language', 'University', 'Work', 'Hobby'],
+                ['Python', 2, 3, 5],
+                ['Java', 4, 0, 0.5],
+                ['C#', 0, 3, 0],
+                ['C++', 0, 1, 0.5],
+                ['Octave', 3, 0, 0],
+                ['Haskell', 1, 0, 0],
+                ['Prolog', 0.5, 0, 0]
+            ]);
+
+            var options = {
+                chart: {
+                    title: 'Programming Language Experience',
+                    subtitle: 'separated in categories, in years',
+                },
+                isStacked: true,
+                colors: ['#346ac9', '#279423', '#fc9826'],
+                legend: { position: 'top', maxLines: 3 },
+                hAxis: {
+                    title: 'Years',
+                    format: 'short',
+                }
+            };
+
+            var chart = new google.visualization.BarChart(document.getElementById('languages'));
+
+            chart.draw(data, options);
+        }
+  </script>
+  {% endif %}
+
+  <!--[if lt IE 9]> <script src="js/html5shiv.js"></script> <![endif]-->
 </head>
 <body class="home">
 
@@ -65,6 +105,7 @@
 	{% include "homepage.html" %}
 	{% include "blog.html" %}
 	{% include "maps.html" %}
+	{% include "resume.html" %}
 </main>
 
 <div id="footer"></div>

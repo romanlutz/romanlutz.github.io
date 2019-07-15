@@ -1,0 +1,84 @@
+{% if page.meta.isResume %}
+
+	<div class="container">
+
+		<div class="row section topspace">
+			<div class="panel panel-cta">
+				<div class="panel-body">
+					<div class="col-lg-12">
+						<p>
+							{{ config.extra.resume.linkedinNote }}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div> <!-- /section -->
+
+		<div class="row topspace">
+
+			<!-- Article main content -->
+			<article class="col-sm-15 maincontent">  
+
+			    <div class="container">
+                    <div id="timeline">
+                        {% for timelineItem in config.extra.resume.timeline %}
+                        <div class="timelineitem">
+                            <div class="tdate">{{ timelineItem.timePeriod }}</div>
+                            {% for timelineItemTitle in timelineItem.titles %}
+                            <div class="ttitle">{{ timelineItemTitle }}</div>
+                            {% endfor %}
+                            {% for timelineItemDescription in timelineItem.descriptions %}
+                            <div class="tdesc">{{ timelineItemDescription }}</div>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                        <div class="timelineitem">
+                            <div class="tdate">June 2016 - June 2017</div>
+                            <div class="ttitle">Software Engineer at Microsoft</div>
+                            <div class="tdesc">Enhancing collaboration capabilities of Microsoft Office through the Share feature.</div>
+                            <div class="tdesc">Microsoft New England Research and Development Center (NERD), Cambridge, MA</div>
+                        </div>
+                        <div class="timelineitem">
+                            <div class="tdate">Fall 2015 - Spring 2016</div>
+                            <div class="ttitle">University of Massachusetts Amherst</div>
+                            <div class="ttitle">Master of Science in Computer Science</div>
+                            <div class="tdesc">Focus on Systems, Software Eng. and Machine Learning</div>
+                            <div class="tdesc">Research Assistant in the <a href="http://www-net.cs.umass.edu/networks/people.html">Computer Networking Lab</a> working with Professor <a href="https://www.cs.umass.edu/faculty/directory/towsley_donald">Don Towsley</a> and Professor <a href="http://www2.ic.uff.br/~arocha/">Antonio Rocha</a> on the <span class="thigh">Simulation of Cache Networks.</span> </div>
+                        </div>
+                        <div class="timelineitem">
+                            <div class="tdate">June 2015 - August 2015</div>
+                            <div class="ttitle">Systems Engineering Intern at Cisco Systems</div>
+                            <div class="tdesc">Eschborn, Germany</div>
+                        </div>
+                        <div class="timelineitem">
+                            <div class="tdate">Fall 2014 - Spring 2015</div>
+                            <div class="ttitle">Graduate Exchange Student at University of Massachusetts Amherst</div>
+                            <div class="tdesc">took part in Baden-W&#252;rttemberg Exchange between University of Ulm and University of Massachusetts Amherst</div>
+                        </div>
+                        <div class="timelineitem">
+                            <div class="tdate">Fall 2012 - Summer 2014</div>
+                            <div class="ttitle">University of Ulm</div>
+                            <div class="ttitle">BSc Computer Science with honors</div>
+                            <div class="tdesc">Covered basics in Systems, AI and Theory</div>
+                            <div class="tdesc">innoWake Best Bachelor Thesis Award</div>
+                        </div>
+                        <div class="timelineitem">
+                            <div class="tdate">Fall 2011 - Summer 2012</div>
+                            <div class="ttitle">University of Ulm Mathematics Bachelor student</div>
+                            <div class="tdesc">Minor in Computer Science, switched major and minor after two semesters</div>
+                        </div>
+                    </div>
+				</div>
+				</p>
+			</article>
+			<!-- /Article -->
+			
+		</div>
+	</div>	<!-- /container -->
+	
+
+    <h3 align="center">Experience with various programming languages</h3>
+
+    <div id="languages" style="width: 800px; height: 500px; margin:10px auto;"></div>
+
+{% endif %}
