@@ -1,4 +1,0 @@
----
-title: Maps
-isMap: true
----
