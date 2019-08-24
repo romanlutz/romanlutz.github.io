@@ -1,66 +1,9 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-	
-	<title>Roman Lutz - Home</title>
-	
-	<!-- include other html files -->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js" ></script>
-	<script>
-		$(function(){ $("head").load("header.html");
-		$("#footer").load("footer.html") });
-	</script>
-
-	<!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
-</head>
-<body class="home">
-
-<header id="header">
-	<div id="head" class="parallax" parallax-speed="5">
-		<h1 id="logo" class="text-center">
-			<img class="img-circle" src="assets/images/profile.png" alt="">
-			<span class="title">Roman Lutz</span>
-			<span class="tagline">
-				Software Engineer<br>
-                Master of Science in Computer Science
-			</span>
-		</h1>
-	</div>
-
-	<nav class="navbar navbar-default navbar-sticky">
-		<div class="container-fluid">
-			
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-			</div>
-			
-			<div class="navbar-collapse collapse">
-				
-				<ul class="nav navbar-nav">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="blog.html">Blog</a></li>
-					<li class="dropdown">
-						<a href="" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="resume.html">Resume</a></li>
-							<li><a href="cs-recommendations.html">CompSci Links</a></li>
-							<li><a href="maps.html">Maps</a></li>
-						</ul>
-					</li>
-				</ul>
-			
-			</div><!--/.nav-collapse -->			
-		</div>	
-	</nav>
-</header>
-
-<main id="main">
-
+{% if page.meta.isHomepage %}
 	<div class="container">
-		
+
 		<div class="row section topspace">
 			<div class="col-md-12">
-				<p class="lead text-center text-muted">As a Software Engineer at Microsoft I work on the services for Azure Machine Learning Workbench. My interests are broadly in Distributed Systems and Data Science. </p>
+				<p class="lead text-center text-muted">{{ page.meta.homepageDescription }}</p>
 			</div>
 		</div> <!-- / section -->
 		
@@ -70,7 +13,7 @@
 				<div class="col-sm-6 col-md-6">
 					<h3 class="text-center">Blog</h3>
 					<p>In my blog I write about recent experiences, projects and useful knowledge.</p>
-					<p class="text-center"><a href="blog.html" class="btn btn-action">Read more</a></p>
+					<p class="text-center"><a href="blog" class="btn btn-action">Read more</a></p>
 				</div>
 				<div class="col-sm-6 col-md-6">
 					<h3 class="text-center">Education</h3>
@@ -87,9 +30,9 @@
 			<div class="thumbnails recentworks row">
 				
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a class="thumbnail" href="blog.html#caching-research">
+					<a class="thumbnail" href="blog#caching-research">
 						<span class="img img-300-0">
-							<img src="assets/images/typewriter.png" alt="Typewriter" width="30%">
+							<img src="{{ "images/typewriter.png"|url }}" alt="Typewriter" width="30%">
 							<span class="source source-black">source: pixabay.com/en/typewriter-antique-old-machine-159878 (CC0 Public Domain)</span>
 							<span class="cover cover-300-0"><span class="more">See details &rarr;</span></span>
 						</span>
@@ -99,9 +42,9 @@
 				</div>
 				
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a class="thumbnail" href="blog.html#nfl-play-prediction">
+					<a class="thumbnail" href="blog#nfl-play-prediction">
 						<span class="img img-300-0">
-							<img src="assets/images/pete-carroll.jpg" alt="Pete Carroll - coach" width="30%">
+							<img src="{{ "images/pete-carroll.jpg"|url }}" alt="Pete Carroll - coach" width="30%">
 							<span class="source source-white">source: flickr.com/photos/painting-with-pixels/6291589242/ (CC0 Public Domain)</span>
 							<span class="cover cover-300-0"><span class="more">See details &rarr;</span></span>
 						</span>
@@ -111,9 +54,9 @@
 				</div>
 
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a class="thumbnail" href="blog.html#fantasy-football-prediction">
+					<a class="thumbnail" href="blog#fantasy-football-prediction">
 						<span class="img img-300-0">
-							<img src="assets/images/thomas-rawls.jpg" alt="Thomas Rawls - player" width="23%">
+							<img src="{{ "images/thomas-rawls.jpg"|url }}" alt="Thomas Rawls - player" width="23%">
 							<span class="source source-black">source: flickr.com/photos/painting-with-pixels/22981081819 (CC0 Public Domain)</span>
 							<span class="cover cover-300-0"><span class="more">See details &rarr;</span></span>
 						</span>
@@ -130,9 +73,9 @@
 			<div class="thumbnails recentworks row">
 				
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a class="thumbnail" href="blog.html#security-privacy-fia">
+					<a class="thumbnail" href="blog#security-privacy-fia">
 						<span class="img img-275-25">
-							<img src="assets/images/ccn.png" alt="Content Centric Networks" width="30%">
+							<img src="{{ "images/ccn.png"|url }}" alt="Content Centric Networks" width="30%">
 							<span class="source source-black">source: https://arxiv.org/pdf/1601.01278v2.pdf</span>
 							<span class="cover cover-275-25"><span class="more">See details &rarr;</span></span>
 						</span>
@@ -142,9 +85,9 @@
 				</div>
 				
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a class="thumbnail" href="blog.html#alns">
+					<a class="thumbnail" href="blog#alns">
 						<span class="img img-275-25">
-							<img src="assets/images/alns.png" alt="Adaptive Large Neighborhood Search - Destory and Repair" width="30%">
+							<img src="{{ "images/alns.png"|url }}" alt="Adaptive Large Neighborhood Search - Destory and Repair" width="30%">
 							<span class="source source-black">source: http://dx.doi.org/10.18725/OPARU-3237</span>
 							<span class="cover cover-275-25"><span class="more">See details &rarr;</span></span>
 						</span>
@@ -154,9 +97,9 @@
 				</div>
 
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a class="thumbnail" href="blog.html#ads-ta">
+					<a class="thumbnail" href="blog#ads-ta">
 						<span class="img img-250-50">
-							<img src="assets/images/graph.svg" alt="Graph" width="30%">
+							<img src="{{ "images/graph.svg"|url }}" alt="Graph" width="30%">
 							<span class="source source-black">source: flickr.com/photos/painting-with-pixels/22981081819 (CC0 Public Domain)</span>
 							<span class="cover cover-250-50"><span class="more">See details &rarr;</span></span>
 						</span>
@@ -168,14 +111,4 @@
 		</div> <!-- /section -->
 
 	</div>	<!-- /container -->
-
-</main>
-
-<div id="footer"></div>
-
-<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="assets/js/template.js"></script>
-</body>
-</html>
+	{% endif %}
