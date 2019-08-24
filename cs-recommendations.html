@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<title>Roman Lutz - Resources</title>
+	
+	<!-- include other html files -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js" ></script>
+	<script>
+		$(function(){
+			$("head").load("header.html");
+			$("#footer").load("footer.html");
+		});
+
+		function getArticle(htmlFile) {
+			$("#article").load(htmlFile)
+		}
+	</script>
+
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+
+	<!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
+</head>
+<body class="home">
+
+<header id="header">
+	<div id="head" class="parallax" parallax-speed="5">
+		<h1 id="logo" class="text-center">
+			<img class="img-circle" src="assets/images/profile.png" alt="">
+			<span class="title">Roman Lutz</span>
+			<span class="tagline">Resources, Recommendations and Learnings</span>
+		</h1>
+	</div>
+
+	<nav class="navbar navbar-default navbar-sticky">
+		<div class="container-fluid">
+			
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			</div>
+			
+			<div class="navbar-collapse collapse">
+				
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li class="dropdown">
+						<a href="" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="resume.html">Resume</a></li>
+							<li class="active"><a href="cs-recommendations.html">CompSci Links</a></li>
+							<li><a href="maps.html">Maps</a></li>
+						</ul>
+					</li>
+				</ul>
+			
+			</div><!--/.nav-collapse -->			
+		</div>	
+	</nav>
+</header>
+
+<main id="main">
+
+	<div class="container">
+
+		<div class="row topspace">
+
+			<!-- Sidebar -->
+			<aside class="col-md-4 sidebar sidebar-left">
+
+				<div class="row widget">
+					<div class="col-xs-12">
+						<h4>Topics</h4>
+						<ul>
+							<li><a onclick="getArticle('compsci/introduction-to-x.html')">Introduction to X</a></li>
+							<li><a onclick="getArticle('compsci/research.html')">Research</a></li>
+							<li><a onclick="getArticle('compsci/books.html')">Books</a></li>
+							<li><a onclick="getArticle('compsci/podcasts.html')">Podcasts</a></li>
+							<li><a onclick="getArticle('compsci/websites.html')">Websites</a></li>
+							<li><a onclick="getArticle('compsci/interviewing.html')">Interviewing</a></li>
+                            <li><a onclick="getArticle('compsci/general-engineering.html')">General Engineering</a></li>
+							<li><a onclick="getArticle('compsci/programming-languages.html')">Programming Languages</a></li>
+							<li><a onclick="getArticle('compsci/design-patterns-and-architecture.html')">Design Patterns and Architecture</a></li>
+							<li><a onclick="getArticle('compsci/scripting.html')">Scripting</a></li>
+							<li><a onclick="getArticle('compsci/unix-commands.html')">UNIX commands</a></li>
+							<li><a onclick="getArticle('compsci/version-control.html')">Version Control</a></li>
+							<li><a onclick="getArticle('compsci/data-structures.html')">Data Structures</a></li>
+							<li><a onclick="getArticle('compsci/distributed-systems.html')">Distributed Systems</a></li>
+							<li><a onclick="getArticle('compsci/machine-learning.html')">Machine Learning</a></li>
+							<li><a onclick="getArticle('compsci/security.html')">Security</a></li>
+						</ul>
+					</div>
+				</div>
+			</aside>
+			<!-- /Sidebar -->
+
+			<div class="col-sm-8 maincontent">
+					
+				<div id="article">
+					<article class="post">
+						<header class="entry-header">
+							<div class="entry-meta" id="research">
+								<span class="posted-on"><time class="entry-date published" date="2018-07-09">Last updated July 9, 2018</time></span>
+							</div>
+							<h1 class="entry-title">Computer Science Resources</h1>
+						</header>
+						<div class="entry-content">
+							<p>Over the years I've accumulated quite a substantial amount of links, books, videos, articles and classes that I can recommend to CS students. I've grouped them by topic, so just click on the text in the left sidebar to navigate to your topic of choice! You strongly feel like something should be added? Let me know by filing an issue on GitHub and I'll take a look.</p>
+						</div>
+					</article>
+				</div>
+
+			</div>
+		</div>
+	</div>	<!-- /container -->
+	
+</main>
+
+<div id="footer"></div>
+
+<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="assets/js/template.js"></script>
+</body>
+</html>
