@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<title>{{ config.extra.name }} - {{ page.title }}</title>
+
+	<!-- include other html files -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js" ></script>
+	
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="{{ config.extra.name }}">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css">
+	<!-- Icon font -->
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- Fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alice|Open+Sans:400,300,700">
+	<!-- Custom styles -->
+	<link rel="stylesheet" href="{{ "css/styles.css"|url }}">
+
+	{% if page.meta.isMap %}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+	{% endif %}
+
+	{% if page.meta.isResume %}
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+        google.charts.load('visualization', '1', {'packages':['corechart', 'bar']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Language', 'University', 'Work', 'Hobby'],
+				{% for language_entry in config.extra.resume.languages %}
+				['{{ language_entry.name }}', {{ language_entry.universityExperience }}, {{ language_entry.workExperience }}, {{ language_entry.hobbyExperience }}],
+				{% endfor %}
+            ]);
+
+            var options = {
+                chart: {
+                    title: 'Programming Language Experience',
+                    subtitle: 'separated in categories, in years',
+                },
+                isStacked: true,
+                colors: ['#346ac9', '#279423', '#fc9826'],
+                legend: { position: 'top', maxLines: 3 },
+                hAxis: {
+                    title: 'Years',
+                    format: 'short',
+                }
+            };
+
+            var chart = new google.visualization.BarChart(document.getElementById('languages'));
+
+            chart.draw(data, options);
+        }
+	</script>
+	{% endif %}
+
+	{% if page.meta.isCompsciLinks %}
+	<script type="text/javascript">
+		function getArticle(htmlFile) {
+			$("#article").load(htmlFile)
+		}
+	</script>
+	{% endif %}
+
+  <!--[if lt IE 9]> <script src="js/html5shiv.js"></script> <![endif]-->
+</head>
+<body class="home">
+
+<header id="header">
+	<div id="head" class="parallax" parallax-speed="5">
+		<h1 id="logo" class="text-center">
+			<img class="img-circle" src="{{ "images/profile.png"|url }}" alt="">
+			<span class="title">{{ config.extra.name }}</span>
+			<span class="tagline">
+				{{ config.extra.job_title }}<br>
+        {{ config.extra.degree }}
+			</span>
+		</h1>
+	</div>
+
+	<nav class="navbar navbar-default navbar-sticky">
+		<div class="container-fluid">
+			
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			</div>
+			
+			<div class="navbar-collapse collapse">
+				
+				<ul class="nav navbar-nav">
+					{% for nav_item in nav %}
+						{% include "nav.html" %}
+					{% endfor %}
+				</ul>
+			</div><!--/.nav-collapse -->			
+		</div>	
+  </nav>
+</header>
+
+<main id="main">
+	{% include "homepage.html" %}
+	{% include "blog.html" %}
+	{% include "maps.html" %}
+	{% include "resume.html" %}
+	{% include "compsci_links.html" %}
+</main>
+
+<div id="footer"></div>
+
+<footer id="footer">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-3 widget">
+				<h3 class="widget-title">Follow me</h3>
+				<div class="widget-body">
+					<p class="follow-me-icons">
+						<a href="https://github.com/romanlutz"><i class="fa fa-github fa-2"></i></a>
+						<a href="https://linkedin.com/in/romanlutz"><i class="fa fa-linkedin fa-2"></i></a>
+						<a href="https://twitter.com/romanlutz13"><i class="fa fa-twitter fa-2"></i></a>
+						<a href="https://stackoverflow.com/users/11971317/roman-lutz"><i class="fa fa-stack-overflow fa-2"></i></a>
+					</p>
+				</div>
+			</div>
+
+		</div> <!-- /row of widgets -->
+	</div>
+</footer>
+
+<footer id="underfooter">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-6 widget">
+				<div class="widget-body">
+					<p class="text-right">
+						Copyright &copy; 2019, Roman Lutz<br> 
+						Design: <a href="http://www.gettemplate.com" rel="designer">Initio by GetTemplate</a> </p>
+				</div>
+			</div>
+
+		</div> <!-- /row of widgets -->
+	</div>
+</footer>
+
+<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="{{ "js/template.js"|url }}"></script>
+</body>
+</html>
