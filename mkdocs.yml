@@ -5,6 +5,12 @@ extra:
   degree: Master of Science in Computer Science
 
   blogs:
+    - id: "mkdocs"
+      date: "2019-08-24"
+      dateText: "August 24, 2019"
+      title: "Migrated website's HTML files to MkDocs"
+      content:
+        - I just finished migrating this website's HTML files to <a href="https://www.mkdocs.org/">MkDocs</a>. This allows for easy templating and reuse. It's not 100% complete at this point since this is just a hobby, but I'm still quite proud of how much duplicated boilerplate HTML is now gone.
     - id: "breakingthemold"
       date: "2018-03-11"
       dateText: "March 11, 2018"
