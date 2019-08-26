@@ -21,7 +21,7 @@ Depending on your situation, you may or may not have the luxury to take a struct
 
 ## Version Control
 Quite possibly the most widely used and at the same time least acknowledged technology, version control has saved me from myself more times than I can count. I use Git on a daily basis and still marvel at the capabilities. There's countless ways of learning it, like this [Udacity course](https://www.udacity.com/course/how-to-use-git-and-github--ud775). Git is the most popular system, and if you get frustrated initially, maybe this will help:
-<img src="../../images/git.jpg" alt="" class="" width="100%"/>
+![](../images/git.jpg)
 from Navin Narra's [Tweet](https://twitter.com/navinnarra/status/842112112176513024)
 
 And finally a few articles and opinions about git:
