@@ -191,6 +191,16 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+h6 { /* hack to get date formatted from markdown */
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-style: italic;
+  font-weight: normal;
+  color: #a5a5a5;
+  margin: 0 0 15px 0;
+}
 a {
   color: #bd1550;
 }
