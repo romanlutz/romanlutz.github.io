@@ -27,7 +27,7 @@ Tech company blogs have high quality standards, so it's worth checking them ever
 - [Hakka Labs](https://www.hakkalabs.co/) is a community for Data Engineers.
 - [DataQuest](https://www.dataquest.io) has lots of broadly data science related articles, e.g. [this one](https://www.dataquest.io/blog/making-538-plots/) on data visualization.
 
-At some point you'll want to set up your own webpage. In any case, a simple tool to get started is by hosting it through [GitHub Pages](http://romantsegelskyi.github.io/blog/2015/07/26/personal-page-blog/). I've had a great experience with it, even though I haven't used a lot of its functionalities since I brought my own template.
+At some point you'll want to set up your own webpage. In any case, a simple tool to get started is by hosting it through [GitHub Pages](http://romantsegelskyi.github.io/blog/2015/07/26/personal-page-blog/). I've had a great experience with it, even though I haven't used a lot of its functionalities since I brought my own template. I created a few backgrounds using [cool-backgrounds.io](https://coolbackgrounds.io/), some of which are featured on this webpage.
 
 ## Podcasts
 
