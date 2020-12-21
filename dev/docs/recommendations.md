@@ -33,8 +33,8 @@ At some point you'll want to set up your own webpage. In any case, a simple tool
 
 Let's start with the tech/software/data related podcasts:
 
+- The [Radical AI Podcast](https://www.radicalai.org/) regularly hosts people from the Responsible AI space. They really embrace the idea that Responsible (or Radical) AI is not possible without diversity of perspectives, fields, etc. and they have been very successful in attracting fantastic speakers (every episode I have listened to so far would have been an absolute highlight on any podcast). Plus, the hosts Dylan and Jess guide the interviews really well and give the guests a lot of space to express their thoughts (which is refreshing compared to other more host-centric podcasts).
 - The [Microsoft Research Podcast](https://www.microsoft.com/en-us/research/blog/category/podcast/) is pretty interesting, because you otherwise only rarely get researchers talking about their journey on podcasts.
-- [Masters of Scale](https://mastersofscale.com) by Reid Hoffman does a great job at conveying a message while telling a story in a compelling and entertaining way. Plus, the guests alone are worth tuning in, with Sheryl Sandberg and Reed Hastings to name a few.
 - [Packet Pushers - Datanauts](http://packetpushers.net/series/datanauts-podcast/) mostly focuses on infrastructure (cloud networking, storage, compute, etc.)
 - [PodCtl](https://blog.openshift.com/tag/podctl/) covers the latest in the Kubernetes ecosystem.
 - Various O'Reilly podcasts such as

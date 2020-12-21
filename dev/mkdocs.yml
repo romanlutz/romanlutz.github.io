@@ -293,8 +293,8 @@ extra:
     languages:
       - name: 'Python'
         universityExperience: 2
-        workExperience: 3
-        hobbyExperience: 5
+        workExperience: 4
+        hobbyExperience: 6
       - name: 'Java'
         universityExperience: 4
         workExperience: 0
@@ -318,6 +318,10 @@ extra:
       - name: 'Prolog'
         universityExperience: 0.5
         workExperience: 0
+        hobbyExperience: 0
+      - name: 'Typescript'
+        universityExperience: 0
+        workExperience: 0.5
         hobbyExperience: 0
 
 theme:

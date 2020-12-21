@@ -13,13 +13,14 @@ Our world is full of Machine Learning and Data Science, so it's best to stay inf
 - [Machine Learning](https://www.coursera.org/learn/machine-learning) by Andrew Ng (Stanford / Coursera) is the perfect course to start with ML if you know basic calculus, linear algebra and programming.
 - [TensorFlow World Resources](http://tensorflow-world-resources.readthedocs.io/en/latest/) is a collection of resources curated by Amirsina Torfi.
 
-## Fairness in Machine Learning
+## Responsible AI
 
-Fairness has become a hot topic, since we want (or rather need) to ensure we don't propagate biases in our data.
+To me, Responsible AI is one of the defining (research) areas of our time with the potential to have a positive impact on people's lives. This is includes topics like fairness, interpretability & explainability, differential privacy, and several related ones. Below are some of the best resources I've come across:
 
 - [Fairness and Machine Learning](https://fairmlbook.org/) by Solon Barocas, Moritz Hardt, and Arvind Narayanan is currently still a work in progress, but what I've seen from it seemed extremely promising.
 - [Algorithmic Fairness](https://algorithmicfairness.wordpress.com/) is a blog with lots of articles about the topic by Suresh Venkatasubramanian.
 - [Moritz Hardt's class website for Fairness in Machine Learning](https://fairmlclass.github.io/) has a great collection of material.
+- In [Black Mirror, Light Mirror: Teaching Technology Ethics Through Speculation](https://howwegettonext.com/the-black-mirror-writers-room-teaching-technology-ethics-through-speculation-f1a9e2deccf4), [Casey Fiesler](https://caseyfiesler.com/about/) walks through some thought-provoking ways of thinking about tech ethics including the "Black Mirror Writers' Room". 
 
 ## Datasets
 
