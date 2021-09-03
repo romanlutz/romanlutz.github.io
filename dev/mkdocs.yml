@@ -248,7 +248,13 @@ extra:
   resume:
     linkedinNote: 'Here`s a rough outline of my resume. Please find the comprehensive version at <a href="https://www.linkedin.com/in/romanlutz">linkedin.com/in/romanlutz</a>'
     timeline:
-      - timePeriod: "July 2017 - present"
+      - timePeriod: "September 2021 - present"
+        titles: 
+          - 'PhD student at the Max Planck Institute for Intelligent Systems (MPI-IS)'
+        descriptions:
+          - 'working with <a href="https://sites.google.com/site/ssamadi/">Dr. Samira Samadi</a> on fairness in machine learning'
+          - "Tübingen, Germany"
+      - timePeriod: "July 2017 - August 2021"
         titles: 
           - "Software Engineer at Microsoft"
         descriptions:
@@ -294,7 +300,7 @@ extra:
       - name: 'Python'
         universityExperience: 2
         workExperience: 4
-        hobbyExperience: 6
+        hobbyExperience: 7
       - name: 'Java'
         universityExperience: 4
         workExperience: 0
@@ -307,6 +313,10 @@ extra:
         universityExperience: 0
         workExperience: 1
         hobbyExperience: 0.5
+      - name: 'Typescript'
+        universityExperience: 0
+        workExperience: 1.5
+        hobbyExperience: 0
       - name: 'Octave'
         universityExperience: 3
         workExperience: 0
@@ -318,10 +328,6 @@ extra:
       - name: 'Prolog'
         universityExperience: 0.5
         workExperience: 0
-        hobbyExperience: 0
-      - name: 'Typescript'
-        universityExperience: 0
-        workExperience: 0.5
         hobbyExperience: 0
 
 theme:
