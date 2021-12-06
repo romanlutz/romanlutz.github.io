@@ -263,7 +263,7 @@ extra:
           - <img src="../images/mpg.svg" alt="Max Planck logo" width="50%" class="center">
           - 'Graduate student at the Max Planck Institute for Intelligent Systems (MPI-IS)'
         descriptions:
-          - 'working with <a href="https://sites.google.com/site/ssamadi/">Dr. Samira Samadi</a> on fairness in machine learning'
+          - 'working on fairness in machine learning'
           - "Tübingen, Germany"
       - timePeriod: "July 2017 - August 2021"
         titles:
