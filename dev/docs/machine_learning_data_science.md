@@ -15,12 +15,13 @@ Our world is full of Machine Learning and Data Science, so it's best to stay inf
 
 ## Responsible AI
 
-To me, Responsible AI is one of the defining (research) areas of our time with the potential to have a positive impact on people's lives. This is includes topics like fairness, interpretability & explainability, differential privacy, and several related ones. Below are some of the best resources I've come across:
+To me, Responsible AI (RAI) is one of the defining (research) areas of our time with the potential to have a positive impact on people's lives. This is includes topics like fairness, interpretability & explainability, differential privacy, and several related ones. Below are some of the best resources I've come across:
 
 - [Fairness and Machine Learning](https://fairmlbook.org/) by Solon Barocas, Moritz Hardt, and Arvind Narayanan is currently still a work in progress, but what I've seen from it seemed extremely promising.
 - [Algorithmic Fairness](https://algorithmicfairness.wordpress.com/) is a blog with lots of articles about the topic by Suresh Venkatasubramanian.
 - [Moritz Hardt's class website for Fairness in Machine Learning](https://fairmlclass.github.io/) has a great collection of material.
 - In [Black Mirror, Light Mirror: Teaching Technology Ethics Through Speculation](https://howwegettonext.com/the-black-mirror-writers-room-teaching-technology-ethics-through-speculation-f1a9e2deccf4), [Casey Fiesler](https://caseyfiesler.com/about/) walks through some thought-provoking ways of thinking about tech ethics including the "Black Mirror Writers' Room". 
+- The [AI Ethics Weekly newsletter](https://lighthouse3.com/newsletter/) curated by Lighthouse3 keeps you up-to-date on the latest RAI jobs, news, and comments by RAI experts.
 
 ## Datasets
 
