@@ -1,10 +1,20 @@
 site_name: Roman Lutz
 extra:
   name: Roman Lutz
-  job_title: PhD student
+  job_title: Software engineer
   degree: Open source maintainer
 
   blogs:
+    - id: "responsible-ai-twitter"
+      date: "2021-12-06"
+      dateText: "December 6, 2021"
+      title: "Responsible AI Twitter"
+      content:
+      - Twitter is a great place to stay up to date on progress and updates in Responsible AI. I'll list a few resources that may be of interest below.
+      - '<img src="../images/fairlearn-twitter.png" alt="fairlearn twitter" width="100%" class="center">'
+      - Naturally, the <a href="https://twitter.com/fairlearn">Fairlearn account</a> is a great way to hear all about updates related to the Fairlearn community.
+      - I use <a href="https://twitter.com/romanlutz13">my own account</a> to post on topics related to open source and Responsible AI as well.
+      - Finally, I've been curating a <a href="https://twitter.com/i/lists/1167589008119087105?s=20">list of people and organizations working on Responsible AI</a> for a while. As of today it contains 739 accounts with the caveat that people who aren't on Twitter can't be represented.
     - id: "responsible-ai-initial"
       date: "2019-11-07"
       dateText: "November 7, 2019"
@@ -248,17 +258,17 @@ extra:
   resume:
     linkedinNote: 'Here`s a rough outline of my resume. Please find the comprehensive version at <a href="https://www.linkedin.com/in/romanlutz">linkedin.com/in/romanlutz</a>'
     timeline:
-      - timePeriod: "September 2021 - present"
+      - timePeriod: "September 2021 - November 2021"
         titles:
           - <img src="../images/mpg.svg" alt="Max Planck logo" width="50%" class="center">
-          - 'PhD student at the Max Planck Institute for Intelligent Systems (MPI-IS)'
+          - 'Graduate student at the Max Planck Institute for Intelligent Systems (MPI-IS)'
         descriptions:
           - 'working with <a href="https://sites.google.com/site/ssamadi/">Dr. Samira Samadi</a> on fairness in machine learning'
           - "Tübingen, Germany"
       - timePeriod: "July 2017 - August 2021"
         titles:
           - <img src="../images/msft.svg" alt="Microsoft logo" width="100%" class="center">
-          - "Software Engineer at Microsoft"
+          - "Software Engineer 2 at Microsoft"
         descriptions:
           - "Azure Machine Learning"
           - "Microsoft New England Research and Development Center (NERD), Cambridge, MA (until 2020)"
@@ -331,10 +341,6 @@ extra:
         hobbyExperience: 0
       - name: 'Haskell'
         universityExperience: 1
-        workExperience: 0
-        hobbyExperience: 0
-      - name: 'Prolog'
-        universityExperience: 0.5
         workExperience: 0
         hobbyExperience: 0
 
