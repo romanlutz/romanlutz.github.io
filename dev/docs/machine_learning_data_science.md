@@ -12,6 +12,7 @@ Our world is full of Machine Learning and Data Science, so it's best to stay inf
 - [Neural Networks and Deep Learning](https://neuralnetworksanddeeplearning.com) by Michael Nielsen (Y Combinator) is a free online book. On many occasions I've landed on this page to get a better understanding about neural networks, and it's helped almost always.
 - [Machine Learning](https://www.coursera.org/learn/machine-learning) by Andrew Ng (Stanford / Coursera) is the perfect course to start with ML if you know basic calculus, linear algebra and programming.
 - [TensorFlow World Resources](http://tensorflow-world-resources.readthedocs.io/en/latest/) is a collection of resources curated by Amirsina Torfi.
+- [Jay Alammar's website](https://jalammar.github.io/) contains lots of useful resources, e.g., an [explanation of transformers](https://jalammar.github.io/illustrated-transformer/) among many others!
 
 ## Responsible AI
 
