@@ -21,7 +21,8 @@ To me, Responsible AI (RAI) is one of the defining (research) areas of our time 
 - [Algorithmic Fairness](https://algorithmicfairness.wordpress.com/) is a blog with lots of articles about the topic by Suresh Venkatasubramanian.
 - [Moritz Hardt's class website for Fairness in Machine Learning](https://fairmlclass.github.io/) has a great collection of material.
 - In [Black Mirror, Light Mirror: Teaching Technology Ethics Through Speculation](https://howwegettonext.com/the-black-mirror-writers-room-teaching-technology-ethics-through-speculation-f1a9e2deccf4), [Casey Fiesler](https://caseyfiesler.com/about/) walks through some thought-provoking ways of thinking about tech ethics including the "Black Mirror Writers' Room". 
-- The [AI Ethics Weekly newsletter](https://lighthouse3.com/newsletter/) curated by Lighthouse3 keeps you up-to-date on the latest RAI jobs, news, and comments by RAI experts.
+- The [AI Ethics Weekly newsletter](https://lighthouse3.com/newsletter/) curated by Lighthouse3 keeps you up-to-date on the latest RAI jobs, news, and articles by RAI experts.
+- The [Montreal AI Ethics Institute](https://montrealethics.ai) is building a community of people in AI Ethics through events, articles, and research. For a good overview, I highly recommend their newsletter.
 
 ## Datasets
 
