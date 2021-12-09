@@ -18,6 +18,7 @@ Our world is full of Machine Learning and Data Science, so it's best to stay inf
 
 To me, Responsible AI (RAI) is one of the defining (research) areas of our time with the potential to have a positive impact on people's lives. This is includes topics like fairness, interpretability & explainability, differential privacy, and several related ones. Below are some of the best resources I've come across:
 
+- Partnership on AI is maintaining a [database of AI incidents](https://www.partnershiponai.org/aiincidentdatabase/). The incidents are crowd-sourced and I have contributed a few myself. It's super useful if you're exploring the harms caused by AI systems in the past to avoid them in the future.
 - [Fairness and Machine Learning](https://fairmlbook.org/) by Solon Barocas, Moritz Hardt, and Arvind Narayanan is currently still a work in progress, but what I've seen from it seemed extremely promising.
 - [Algorithmic Fairness](https://algorithmicfairness.wordpress.com/) is a blog with lots of articles about the topic by Suresh Venkatasubramanian.
 - [Moritz Hardt's class website for Fairness in Machine Learning](https://fairmlclass.github.io/) has a great collection of material.

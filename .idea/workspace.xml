@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4649d3ea-3a48-4fc8-9441-8fb890cdacf6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/dev/docs/machine_learning_data_science.md" afterPath="$PROJECT_DIR$/dev/docs/machine_learning_data_science.md" />
     </list>
     <ignored path="romanlutz.github.io.iws" />
@@ -54,8 +55,8 @@
       <file leaf-file-name="machine_learning_data_science.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dev/docs/machine_learning_data_science.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="180" lean-forward="false" selection-start-line="14" selection-start-column="180" selection-end-line="14" selection-end-column="180" />
+            <state relative-caret-position="300">
+              <caret line="20" column="296" lean-forward="false" selection-start-line="20" selection-start-column="296" selection-end-line="20" selection-end-column="296" />
               <folding />
             </state>
           </provider>
@@ -113,10 +114,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="303" />
     <option name="width" value="1280" />
-    <option name="height" value="709" />
+    <option name="height" value="717" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -339,8 +340,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="303" width="1280" height="717" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -713,8 +715,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dev/docs/machine_learning_data_science.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="180" lean-forward="false" selection-start-line="14" selection-start-column="180" selection-end-line="14" selection-end-column="180" />
+        <state relative-caret-position="300">
+          <caret line="20" column="296" lean-forward="false" selection-start-line="20" selection-start-column="296" selection-end-line="20" selection-end-column="296" />
           <folding />
         </state>
       </provider>
