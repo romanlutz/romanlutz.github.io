@@ -3,7 +3,7 @@
 		<div class="row topspace">
 			<div class="col-sm-8 col-sm-offset-2">
 
-				{% for blog_entry in config.extra.blogs %}
+				{% for blog_entry in page.meta.blogs %}
 				<article class="post" id="{{ blog_entry.id }}">
                     <header class="entry-header">
                         <div class="entry-meta" id="{{ blog_entry.id }}">

@@ -7,7 +7,7 @@
 				<div class="panel-body">
 					<div class="col-lg-12">
 						<p>
-							{{ config.extra.resume.linkedinNote }}
+							{{ page.meta.resume.linkedinNote }}
 						</p>
 					</div>
 				</div>
@@ -21,7 +21,7 @@
 
 			    <div class="container">
                     <div id="timeline">
-                        {% for timelineItem in config.extra.resume.timeline %}
+                        {% for timelineItem in page.meta.resume.timeline %}
                         <div class="timelineitem">
                             <div class="tdate">{{ timelineItem.timePeriod }}</div>
                             {% for timelineItemTitle in timelineItem.titles %}

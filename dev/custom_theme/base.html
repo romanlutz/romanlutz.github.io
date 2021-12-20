@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	
-	<title>{{ config.extra.name }} - {{ page.title }}</title>
+	<title>{{ config.extra.name }} - {{ page.title }} </title>
 
 	<!-- include other html files -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js" ></script>
@@ -36,7 +36,7 @@
 
             var data = google.visualization.arrayToDataTable([
                 ['Language', 'University', 'Work', 'Hobby'],
-				{% for language_entry in config.extra.resume.languages %}
+				{% for language_entry in page.meta.resume.languages %}
 				['{{ language_entry.name }}', {{ language_entry.universityExperience }}, {{ language_entry.workExperience }}, {{ language_entry.hobbyExperience }}],
 				{% endfor %}
             ]);
