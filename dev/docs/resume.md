@@ -4,6 +4,13 @@ isResume: true
 resume:
     linkedinNote: 'Here`s a rough outline of my resume. Please find the comprehensive version at <a href="https://www.linkedin.com/in/romanlutz">linkedin.com/in/romanlutz</a>'
     timeline:
+      - timePeriod: "December 2021 - present"
+        titles:
+          - <img src="../images/msft.svg" alt="Microsoft logo" width="100%" class="center">
+          - "Software Engineer 2 at Microsoft"
+        descriptions:
+          - "Azure Machine Learning"
+          - "Microsoft New England Research and Development Center (NERD), Cambridge, MA"
       - timePeriod: "September 2021 - November 2021"
         titles:
           - <img src="../images/mpg.svg" alt="Max Planck logo" width="50%" class="center">

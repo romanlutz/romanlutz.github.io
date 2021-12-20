@@ -2,6 +2,15 @@
 title: Blog
 isBlog: true
 blogs:
+    - id: "responsible-ai-dashboard-release"
+      date: "2021-12-20"
+      dateText: "December 20, 2021"
+      title: "Responsible AI Dashboard release"
+      content:
+      - '<img src="../images/rai-dashboard-release.png" alt="RAI dashboard view of error analysis tool" width="100%" class="center">'
+      - Earlier this month, the <a href="https://blogs.microsoft.com/ai-for-business/building-ai-responsibly-from-research-to-practice/">Responsible AI dashboard was released</a>. As one of the key contributors on the engineering side I am really proud of this milestone. Of course, this is only where it really starts as we can now iterate on the first version. Make sure to <a href="https://responsibleaitoolbox.ai">try it</a> and leave some feedback!
+      - The functionality is better captured by the blog and website, but something not mentioned there that I am really excited about is that we pulled this off in the open <a href="https://github.com/microsoft/responsible-ai-toolbox">on GitHub</a>. That means anyone can see what goes into this, ask for features, or even contribute bugfixes.
+      - Doing impactful work is awesome, but seeing the recognition in the entire company takes this to a whole different level. For example, I have seen tweets about this by <a href="https://twitter.com/kevin_scott/status/1468279751785828353">Microsoft CTO Kevin Scott</a> and <a href="https://twitter.com/erichorvitz/status/1468286435052572678?s=20">Chief Scientific Officer Eric Horvitz</a>.
     - id: "responsible-ai-twitter"
       date: "2021-12-06"
       dateText: "December 6, 2021"
