@@ -1,10 +1,9 @@
 ---
 title: Software Engineering
 isMarkdown: true
-lastUpdate: "August 26, 2019"
+lastUpdate: "December 24, 2022"
 ---
 # Software Engineering
-###### August 26, 2019
 
 ## Data Structures
 There's no way you'll get around data structures as a Software Engineer. However, some people mistake "data structures" for those obscure ones that take an hour to explain and another to find a good use case for. Various lists, hash maps, trees, hash maps, arrays, and hash maps are your daily bread and butter. Did I mention hash maps? You should know these inside out, with complexity trade-offs etc. You'll probably encounter more complex scenarios that require more specialized data structures as well. If you know your basic ones, it's usually relatively easy to understand what's required in the advanced case.
@@ -51,9 +50,10 @@ Since I've been working on microservices for a little while, here are a few reso
 - [Martin Fowler](https://martinfowler.com/microservices/)
 - A great article on [Testing Microservices, the sane way](https://medium.com/@copyconstruct/testing-microservices-the-sane-way-9bb31d158c16?_hsenc=p2ANqtz-9g6uVUYGrgsuF6aoFHOTSplbJB232RwmKYBKUzQS5jCwhE2JXhYCWY_0t038ZZJmdqj7vdK0ONRmBX3IcDMdQ3bdu38w&_hsmi=60140430) by Cindy Sridharan.
 
-## Work Environment
+## Work environment / organizations
 - Paul Graham's [Maker's Schedule, Manager's Schedule](http://paulgraham.com/makersschedule.html) captures the effect of meetings on an engineer's day at work. There's certainly different kinds of roles and various kinds of meetings, but the general idea is still valid: engineers need large continuous chunks of time to get things done.
 - [Get happy developers to do what you want](https://sdtimes.com/softwaredev/get-happy-developers-to-do-what-you-want/) by Jessica Kerr talks about how removing friction is the right way to get people to do things, instead of settings rules or (potentially misguided) incentives.
+- [An Elegant Puzzle - Systems of Engineering Management](https://www.amazon.com/Elegant-Puzzle-Systems-Engineering-Management/dp/1732265186) by [Will Larson](https://lethain.com/about/)
 
 ## Interviewing
 Coming soon!

@@ -7,3 +7,20 @@ extra:
 theme:
   name: null
   custom_dir: 'custom_theme/'
+
+nav:
+- 'index.md'
+- 'blog.md'
+- 'maps.md'
+- 'resume.md'
+- 'Links':
+  - 'software_engineering.md'
+  - 'tech_blogs.md'
+  - 'podcasts.md'
+  - 'online_courses.md'
+  - 'data_visualization.md'
+  - 'machine_learning_data_science.md'
+  - 'art.md'
+  - 'sports_analytics.md'
+
+  
