@@ -23,6 +23,9 @@ As this is a fairly new topic, most rules and laws will probably be set in the f
 ## Art with (non-AI) tech
 
 - [Observable examples](https://observablehq.com/@makio135/creative-coding) by Lionel Radisson
+- [Generative Art](https://faculty.cc.gatech.edu/~parikh/art.html) by [Devi Parikh](https://faculty.cc.gatech.edu/~parikh/)
+- [Projects by Michael Fogleman](https://www.michaelfogleman.com/projects/)
 - [Visualizing Algorithms](https://bost.ocks.org/mike/algorithms/) by [Mike Bostock](https://bost.ocks.org/mike/)
 - [Wave Function Collapse](https://github.com/mxgmn/WaveFunctionCollapse)
 - [The Book of Shaders](https://thebookofshaders.com/) by Patricio Gonzalez Vivo and Jen Lowe
+- [That Creative Code Page](https://www.notion.so/That-Creative-Code-Page-c5550ef2f7574126bdc77b09ed76651b)

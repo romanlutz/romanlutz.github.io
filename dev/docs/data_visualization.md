@@ -36,9 +36,13 @@ Courses:
 
 Interesting maps and articles:
 
+- [Ridge plots of ridges](https://github.com/ColCarroll/ridge_map/blob/master/README.md)
 - [Histomap: Visualizing the 4,000 Year History of Global Power](https://www.visualcapitalist.com/histomap/)
 - [A Map of every building in America](https://www.nytimes.com/interactive/2018/10/12/us/map-of-every-building-in-the-united-states.html)
+- [Cartographic visualization](https://observablehq.com/@uwdata/cartographic-visualization) using Vega Lite by the UW Interactive Data Lab
+- [Creating a chloropleth map of the US](https://observablehq.com/@d3/choropleth) using Observable, in this example for unemployment
 - [Wizards, Moomins and pirates: the magic and mystery of literary maps](https://www.theguardian.com/books/2018/sep/22/wizards-moomins-and-gold-the-magic-and-mysteries-of-maps)
 - [Middle Earth Map Style](https://adventuresinmapping.com/2018/09/10/middle-earth-map-style/) including [this amazing map of the Americas](https://adventuresinmapping.com/2018/09/14/lotr-americas/)!
 - [Medieval fantasy city generator](https://watabou.itch.io/medieval-fantasy-city-generator)
+- [Pirate Treasure Maps](https://github.com/fogleman/PirateMap)
 - [Archie's Press](https://archiespress.com/)

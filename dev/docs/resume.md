@@ -10,7 +10,7 @@ resume:
           - "Software Engineer 2 at Microsoft"
         descriptions:
           - "Azure Machine Learning"
-          - "Microsoft New England Research and Development Center (NERD), Cambridge, MA"
+          - "Remote (MA)"
       - timePeriod: "September 2021 - November 2021"
         titles:
           - <img src="../images/mpg.svg" alt="Max Planck logo" width="50%" class="center">
