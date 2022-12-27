@@ -7,6 +7,7 @@ lastUpdate: "December 27, 2022"
 
 This section is broken down into several subpages:
 
+- [Tech blogs](./tech_blogs.md)
 - [Data structures](./data_structures.md)
 - [Programming Languages](./programming_languages.md)
 - [Version Control](./version_control.md)
