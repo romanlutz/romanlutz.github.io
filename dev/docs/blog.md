@@ -2,6 +2,13 @@
 title: Blog
 isBlog: true
 blogs:
+    - id: "mastodon"
+      date: "2022-01-16"
+      dateText: "January 16, 2022"
+      title: "Mastodon"
+      content:
+      - '<img src="../images/twitter-mastodon.png" alt="An elefant sitting on a bird. The bird represents Twitter, the elefant Mastodon." width="100%" class="center">'
+      - As part of the Twitter migration, I moved over to Mastodon. You can find my account on at <a href="https://fosstodon.org/@romanlutz">@romanlutz@fosstodon.org</a>. While Twitter has provided <a href="https://twitterisgoinggreat.com/">plenty of excellent reasons to leave</a> I will add that having a decentralized social network is a fabulous idea to avoid being locked in in the future. If my current server operates in a way that does not mesh with my priorities and values I can always go elsewhere or start my own.
     - id: "responsible-ai-dashboard-release"
       date: "2021-12-20"
       dateText: "December 20, 2021"
