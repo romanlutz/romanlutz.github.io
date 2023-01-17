@@ -939,8 +939,14 @@ footer.entry-meta .meta-in {
 #footer a {
   color: #ccc;
 }
+#footer a svg {
+  fill: #ccc;
+}
 #footer a:hover {
   color: #fff;
+}
+#footer a:hover svg {
+  fill: #fff;
 }
 #footer h3.widget-title {
   font-size: 15px;
