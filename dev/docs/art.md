@@ -12,6 +12,7 @@ I'm personally interested in AI-generated Art because it empowers everyone to cr
 Some resources I recommend on this topic are below:
 
 - [DALL-E 2](https://openai.com/dall-e-2/) by OpenAI
+- [Midjourney](https://www.midjourney.com/)
 - [From Deep Learning Foundations to Stable Diffusion](https://www.fast.ai/posts/part2-2022.html) course by Jeremy Howard, recordings should be available sometime in 2023.
 - [Magenta](https://magenta.tensorflow.org)
 - [Generative Design](https://canvas.ucsc.edu/courses/25531) course by Adam Smith at UCSC
