@@ -133,7 +133,7 @@ blogs:
       content:
         - '<img src="../images/alns.png" alt="Adaptive Large Neighborhood Search - Destory and Repair" width="100%">'
         - "The goal of my Bachelor's thesis was to implement the Adaptive Large Neighborhood Search (ALNS) heuristic and possibly come up with improvements. ALNS was described first by S. Ropke and D. Pisinger and is based on P. Shaw's Large Neighborhood Search. The idea is that some problems are difficult to solve with basic local search algorithms because of a tightly constrained search space. Small changes to a solution will rarely bring improvements. As a consequence, LNS and ALNS change larger parts based on different heuristics."
-        - 'For this thesis I was awarded the innoWake Award 2015. <a href="http://www.innowake.com">innoWake</a> is a software modernization company based in Austin, TX and has a number of branch offices including one in Germany. Their <a href="http://www.ride-the-wake.de/lernen/">German webpage</a> describes the award itself.'
+        - 'For this thesis I was awarded the innoWake Award 2015. <a href="http://www.innowake.com">innoWake</a> was a software modernization company based in Austin, TX and had a number of branch offices including one in Germany. They have since been acquired by Deloitte.'
     - id: se-project
       date: "2014-08-01"
       dateText: "August 1, 2014"
