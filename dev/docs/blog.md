@@ -3,8 +3,8 @@ title: Blog
 isBlog: true
 blogs:
     - id: "mastodon"
-      date: "2022-01-16"
-      dateText: "January 16, 2022"
+      date: "2023-01-16"
+      dateText: "January 16, 2023"
       title: "Mastodon"
       content:
       - '<img src="../images/twitter-mastodon.png" alt="An elefant sitting on a bird. The bird represents Twitter, the elefant Mastodon." width="100%" class="center">'
