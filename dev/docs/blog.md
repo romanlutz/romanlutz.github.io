@@ -2,6 +2,14 @@
 title: Blog
 isBlog: true
 blogs:
+    - id: "fairlearn-jmlr"
+      date: "2023-08-15"
+      dateText: "August 15, 2023"
+      title: "Fairlearn paper accepted to JMLR"
+      content:
+      - The new <a href="https://jmlr.org/papers/v24/23-0389.html">Fairlearn paper</a> is now in the Journal for Machine Learning Research (Open Source Software section)!
+      - '<img src="../images/JMLR.png" alt="A screenshot from the JMLR website showing the new Fairlearn paper title with authors." width="100%" class="center">'
+      - It captures our change from being a project under Microsoft governance to being a true open source project with open governance. As of today, half the maintainers are employed by Microsoft (including myself). Also, the focus of the project has shifted significantly since the original whitepaper. Back then, the Python toolkit was the main focus whereas now the educational materials are being prioritized.
     - id: "mastodon"
       date: "2023-01-16"
       dateText: "January 16, 2023"
