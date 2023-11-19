@@ -24,17 +24,17 @@ Sadly, plenty of tech companies still rely on obscure coding puzzles in intervie
 What to do about this? Well, you basically have three options:
 
 1. Study on your own using one of the many books or online interview training services.
-  - [Leetcode](https://leetcode.com/)
-  - [Cracking the Coding Interview](https://www.crackingthecodinginterview.com/) by Gayle Laakmann McDowell, and the corresponding [Python solutions to Cracking the Coding Interview](https://github.com/careercup/CtCI-6th-Edition-Python)
-  - [De-Coding the Technical Interview Process](https://technicalinterviews.dev/) by Emma Bostian
-  - [Collection of interview questions broken down into many categories](https://github.com/MaximAbramchuck/awesome-interview-questions) - keep in mind most of these are not the kind you would actually be asked in an interview. It is typically more "here is a problem, please solve it" and less "look at this contrived example program, what is the output?"
-  - [Vanquish whiteboard interview puzzles with test-driven development](https://codewithoutrules.com/2016/04/04/interview-puzzles/) by Itamar Turner-Trauring
-  - [This thread by Jaana Dogan](https://twitter.com/rakyll/status/1058433116002381824)
-  - [Orr Sella's Software Engineering Interview Preparation](https://orrsella.gitbooks.io/soft-eng-interview-prep/content/)
+    - [Leetcode](https://leetcode.com/)
+    - [Cracking the Coding Interview](https://www.crackingthecodinginterview.com/) by Gayle Laakmann McDowell, and the corresponding [Python solutions to Cracking the Coding Interview](https://github.com/careercup/CtCI-6th-Edition-Python)
+    - [De-Coding the Technical Interview Process](https://technicalinterviews.dev/) by Emma Bostian
+    - [Collection of interview questions broken down into many categories](https://github.com/MaximAbramchuck/awesome-interview-questions) - keep in mind most of these are not the kind you would actually be asked in an interview. It is typically more "here is a problem, please solve it" and less "look at this contrived example program, what is the output?"
+    - [Vanquish whiteboard interview puzzles with test-driven development](https://codewithoutrules.com/2016/04/04/interview-puzzles/) by Itamar Turner-Trauring
+    - [This thread by Jaana Dogan](https://twitter.com/rakyll/status/1058433116002381824)
+    - [Orr Sella's Software Engineering Interview Preparation](https://orrsella.gitbooks.io/soft-eng-interview-prep/content/)
 2. Take the help of a service like [interviewing.io](https://interviewing.io/), or ask your friends to interview you (assuming you have friends with corresponding experience who you feel comfortable asking)!
 3. Avoid coding puzzle interviews altogether. This means ruling out a lot of companies, perhaps some you definitely had on your list (including most big tech companies). To find such companies you can consult one of the following websites:
-  - [Hiring without whiteboards](https://github.com/poteto/hiring-without-whiteboards)
-  - [noWhiteboard.org](https://www.nowhiteboard.org/)
+    - [Hiring without whiteboards](https://github.com/poteto/hiring-without-whiteboards)
+    - [noWhiteboard.org](https://www.nowhiteboard.org/)
 
 Of course, these puzzles are not the only thing being asked in a technical interview. The other main category of questions is about system design, particularly for any roles that are more senior than entry-level, and also particularly for the interviews where they don't ask about puzzles. These questions can be quite hard, too, but they are often open-ended and allow for a lot more creativity. Additionally, this is a lot closer to actual engineering tasks and most people agree that it is highly relevant for the job. Luckily, there are many resources to prep for this type of question, too:
 
