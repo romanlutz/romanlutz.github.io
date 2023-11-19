@@ -2,6 +2,19 @@
 title: Blog
 isBlog: true
 blogs:
+    - id: "new-job-ai-red-team-msft"
+      date: "2023-11-06"
+      dateText: "November 6, 2023"
+      title: "Starting a new job on the AI Red Team!"
+      content:
+      - Today is my first day on a new team at Microsoft! After about 4 years on the Responsible AI tooling team within Azure Machine Learning / AI Platform I am moving to the AI Red Team. The way Responsible AI is perceived today is very different from when I entered this space back in 2019. Back then, lots of people dismissed some of the warnings and did not want to even assess their models for problems. Flash forward 4 years later (and certainly accelerated by the rise of LLMs) and you would be hard-pressed to find people who can ignore RAI (although they may call it Ethical AI, AI Safety, etc.). Teams like Microsoft's AI Red Team are seen as essential to identify risks with AI systems before they are deployed to give product teams the opportunity to address problems and avoid real-world harms. If you have not heard of AI Red Teams before, see these articles for some background <a href="https://www.microsoft.com/en-us/security/blog/2023/08/07/microsoft-ai-red-team-building-future-of-safer-ai/">[1]</a>, <a href="https://www.wired.com/story/microsoft-ai-red-team/">[2]</a>, and <a href="https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/red-teaming">[3]</a>. I will still be working on tooling but instead of building tools for machine learning practitioners I will primarily focus on tooling for AI Red Teams.
+    - id: "auto-measure-llm-harms-arxiv"
+      date: "2023-10-26"
+      dateText: "October 26, 2023"
+      title: "A Framework for Automated Measurement of Responsible AI Harms in Generative AI Applications"
+      content:
+      - '<img src="../images/lasertag-pipeline.png" alt="A screenshot from the JMLR website showing the new Fairlearn paper title with authors." width="100%" class="center">'
+      - Our new paper is on ArXiv! Titled <a href="https://jmlr.org/papers/v24/23-0389.html">A Framework for Automated Measurement of Responsible AI Harms in Generative AI Applications</a>, it talks about some of the ways we've been evaluating LLMs. This was a joint effort of many teams at Microsoft and Microsoft Research. I am particularly happy with the emphasis on domain experts' input. This is merely a tool to help speed up evaluations, but the actual decisions about mitigations and whether a system is deployed remains (and should remain) with humans.
     - id: "fairlearn-jmlr"
       date: "2023-08-15"
       dateText: "August 15, 2023"
