@@ -14,6 +14,10 @@ Some interesting job boards I have come across over the years:
 - [More than code](https://morethancode.cc/orglist/)
 - [NumFocus Jobs](https://jobs.numfocus.org/)
 - [Jobs for new Data Scientists](https://www.jobsfornewdatascientists.com/)
+- [NoWhiteboard.org](https://www.nowhiteboard.org/)
+- [Climate Tech List](https://www.climatetechlist.com/)
+- [Key Values](http://keyvalues.com/)
+- [Breakout List](https://www.breakoutlist.com/)
 
 Sadly, plenty of tech companies still rely on obscure coding puzzles in interviews. These puzzles are perhaps fun to solve in your free time, but I have yet to hear of anyone whose job actually resembles such tasks. This makes it more likely to get people hired that are not actually suited for the tasks the position really requires, and more people who are actually suited for the position do not get hired because they just so happened not to solve the puzzle as well. Having done many such puzzles myself (via interview prep and actual interviews) there is always some luck involved. You might get a puzzle you have solved before. That is why I would always recommend scheduling several interviews. While there is a decent chance you will get some tricky question in every interview loop, with enough interviews you will increase your chances of having an entire loop with mostly favorable questions, too.
 
