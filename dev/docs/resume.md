@@ -4,13 +4,21 @@ isResume: true
 resume:
     linkedinNote: 'Here`s a rough outline of my resume. Please find the comprehensive version at <a href="https://www.linkedin.com/in/romanlutz">linkedin.com/in/romanlutz</a>'
     timeline:
-      - timePeriod: "December 2021 - present"
+      - timePeriod: "November 2023 - present"
+        titles:
+          - <img src="../images/msft.svg" alt="Microsoft logo" width="100%" class="center">
+          - "Responsible AI Engineer at Microsoft"
+        descriptions:
+          - "AI Red Team"
+          - "Remote (MA) until November 2023"
+          - "Remote (WA) since February 2024"
+      - timePeriod: "December 2021 - November 2023"
         titles:
           - <img src="../images/msft.svg" alt="Microsoft logo" width="100%" class="center">
           - "Responsible AI Engineer at Microsoft"
         descriptions:
           - "Azure Machine Learning"
-          - "Remote (MA / WA)"
+          - "Remote (MA)"
       - timePeriod: "September 2021 - November 2021"
         titles:
           - <img src="../images/mpg.svg" alt="Max Planck logo" width="50%" class="center">
