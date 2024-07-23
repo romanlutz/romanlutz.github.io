@@ -2,18 +2,12 @@
 title: Maps
 isMap: true
 maps:
-    - id: missingmaps
-      date: "2018-01-13"
-      dateText: "January 13, 2018"
-      title: "Missing Maps Project"
-      content:
-        - 'I am a big fan of the <a href="http://www.missingmaps.org">Missing Maps Project</a>. They help map the whole world for humanitarian reasons, e.g. in order to make it easier for helpers to find specific locations in emergency situations. There are still many areas without detailed maps. Missing Maps provides the tools to help out in creating those maps. It is even possible to contribute through the smart phone with <a href="http://mapswipe.org">Mapswipe</a>. The whole effort is a collaboration of local and remote people, with numerous events to increase involvement. With OpenStreetMap and specifically the Humanitarian OpenStreetMap team, the Red Cross as well as Doctors without Borders, there`s a strong backing of the project. I personally love using Mapswipe while commuting. I just recently reached a big milestone with 500 square kilometers of mapped area, mostly in Angola and Chad.'
     - id: world-map
-      date: "2018-01-13"
-      dateText: "January 13, 2018"
+      date: "2024-07-23"
+      dateText: "July 23, 2024"
       title: "Map of the places I've visited"
       content:
-        - 'The following map shows the places I`ve been to (red) or traveled through (yellow). It`s extremely easy to make with <a href="http://datamaps.github.io">DataMaps</a>.'
+        - 'The following map shows the places I`ve been to (dark green) or traveled through (yellow/green). It`s extremely easy to make with <a href="http://datamaps.github.io">DataMaps</a>.'
       mapConfiguration:
         scope: "world"
         labels: false
@@ -50,6 +44,12 @@ maps:
             visited: true
           - name: "VAT"
             visited: true
+    - id: missingmaps
+      date: "2018-01-13"
+      dateText: "January 13, 2018"
+      title: "Missing Maps Project"
+      content:
+        - 'I am a big fan of the <a href="http://www.missingmaps.org">Missing Maps Project</a>. They help map the whole world for humanitarian reasons, e.g. in order to make it easier for helpers to find specific locations in emergency situations. There are still many areas without detailed maps. Missing Maps provides the tools to help out in creating those maps. It is even possible to contribute through the smart phone with <a href="http://mapswipe.org">Mapswipe</a>. The whole effort is a collaboration of local and remote people, with numerous events to increase involvement. With OpenStreetMap and specifically the Humanitarian OpenStreetMap team, the Red Cross as well as Doctors without Borders, there`s a strong backing of the project. I personally love using Mapswipe while commuting. I just recently reached a big milestone with 500 square kilometers of mapped area, mostly in Angola and Chad.'
     - id: us-map
       date: "2018-01-13"
       dateText: "January 13, 2018"
