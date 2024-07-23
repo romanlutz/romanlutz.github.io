@@ -7,10 +7,10 @@ resume:
       - timePeriod: "December 2021 - present"
         titles:
           - <img src="../images/msft.svg" alt="Microsoft logo" width="100%" class="center">
-          - "Software Engineer 2 at Microsoft"
+          - "Responsible AI Engineer at Microsoft"
         descriptions:
           - "Azure Machine Learning"
-          - "Remote (MA)"
+          - "Remote (MA / WA)"
       - timePeriod: "September 2021 - November 2021"
         titles:
           - <img src="../images/mpg.svg" alt="Max Planck logo" width="50%" class="center">
@@ -21,7 +21,7 @@ resume:
       - timePeriod: "July 2017 - August 2021"
         titles:
           - <img src="../images/msft.svg" alt="Microsoft logo" width="100%" class="center">
-          - "Software Engineer 2 at Microsoft"
+          - "Responsible AI Engineer at Microsoft"
         descriptions:
           - "Azure Machine Learning"
           - "Microsoft New England Research and Development Center (NERD), Cambridge, MA (until 2020)"

@@ -2,6 +2,13 @@
 title: Blog
 isBlog: true
 blogs:
+    - id: "pyrit"
+      date: "2024-07-22"
+      dateText: "July 22, 2024"
+      title: "Python Risk Identification Toolkit (PyRIT) for generative AI systems"
+      content:
+      - It's been a busy few months on the AI Red Team. Back in Febuary, <a href="https://www.microsoft.com/en-us/security/blog/2024/02/22/announcing-microsofts-open-automation-framework-to-red-team-generative-ai-systems/?msockid=221eb3d972cd620f327ea74e7345632e">we released PyRIT</a>. Since then, we've been expanding its capabilities to allow for probing multimodal generative AI systems (rather than just text-based ones). Another focus area has been state-of-the-art attack techniques. This space moves pretty fast, but we've added (or are in the process of adding) PAIR, TAP, GCG, Crescendo, Skeleton Key, and several others. Some of these are our own contributions, some of them happened via collaborations or contributions facilitated via the open source repository. I'll update this post with more details shortly!
+      - One of the highlights from my perspective was going to the Microsoft //Build conference to talk to customers about PyRIT. After just about eight (!) years at Microsoft this was my first //Build conference. My colleagues Tori Westerhoff and Pete Bryan did an amazing job talking about the work of the AI Red Team in <a href="https://build.microsoft.com/en-US/sessions/0106b5b1-d727-4240-bb2e-dea325cb8519?source=sessions">their session</a>.
     - id: "new-job-ai-red-team-msft"
       date: "2023-11-06"
       dateText: "November 6, 2023"
