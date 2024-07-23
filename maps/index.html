@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="icon" type="image/png" sizes="32x32" href="/images/nature_banner.png">
+	
+	<title>Roman Lutz - Maps </title>
+
+	<!-- include other html files -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js" ></script>
+	
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="Roman Lutz">
+	
+	<link href="https://github.com/romanlutz" rel="me">
+        <link href="https://romanlutz.github.io/" rel="me">
+	<link href="https://fosstodon.org/@romanlutz" rel="me">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css">
+	<!-- Icon font -->
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- Fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alice|Open+Sans:400,300,700">
+	<!-- Custom styles -->
+	<link rel="stylesheet" href="../css/styles.css">
+
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+	
+
+	
+
+	
+
+  <!--[if lt IE 9]> <script src="js/html5shiv.js"></script> <![endif]-->
+</head>
+<body class="home">
+
+<header id="header">
+	<div id="head" class="parallax" parallax-speed="5">
+		<h1 id="logo" class="text-center">
+			<img class="img-circle" src="../images/profile.jfif" alt="">
+			<span class="title">Roman Lutz</span>
+			<span class="tagline">
+				Responsible AI engineer<br>
+                Open source maintainer
+			</span>
+		</h1>
+	</div>
+
+	<nav class="navbar navbar-default navbar-sticky">
+		<div class="container-fluid">
+			
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			</div>
+			
+			<div class="navbar-collapse collapse" id="navbar-collapse">
+				
+				<ul class="nav navbar-nav">
+					
+						<!--
+
+-->
+
+<li >
+    <a href="..">Home</a>
+</li>
+
+					
+						<!--
+
+-->
+
+<li >
+    <a href="../blog/">Blog</a>
+</li>
+
+					
+						<!--
+
+-->
+
+<li class="active">
+    <a href="./">Maps</a>
+</li>
+
+					
+						<!--
+
+-->
+
+<li >
+    <a href="../resume/">Resume</a>
+</li>
+
+					
+						<!--
+
+-->
+
+  <li class="dropdown">
+    <a href="" class="dropdown-toggle" data-toggle="dropdown">Links <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        
+            <!--
+
+-->
+
+<li >
+    <a href="../software_engineering/">Software Engineering</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li >
+    <a href="../podcasts/">Podcasts</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li >
+    <a href="../online_courses/">Online courses</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li >
+    <a href="../data_visualization/">Data visualization</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li >
+    <a href="../machine_learning_data_science/">ML & Data Science</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li >
+    <a href="../art/">Art</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li >
+    <a href="../sports_analytics/">Sports analytics</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+					
+				</ul>
+			</div><!--/.nav-collapse -->			
+		</div>	
+  </nav>
+</header>
+
+<main id="main">
+	
+	
+	
+	<div class="container">
+		<div class="row topspace">
+			<div class="col-sm-8 col-sm-offset-2">
+
+				
+				<article class="post" id="world-map">
+                    <header class="entry-header">
+                        <div class="entry-meta" id="world-map">
+                            <span class="posted-on"><time class="entry-date published" date="2024-07-23">July 23, 2024</time></span>
+                        </div>
+                        <h1 class="entry-title">Map of the places I've visited</h1>
+                    </header>
+                    <div class="entry-content">
+						
+						<p>The following map shows the places I`ve been to (dark green) or traveled through (yellow/green). It`s extremely easy to make with <a href="http://datamaps.github.io">DataMaps</a>.</p>
+						
+						
+						<script src="https://rawgit.com/markmarkoh/datamaps/v0.5.0/dist/datamaps.world.min.js"></script>
+                        <div id="world_map" style="position: relative; width: 700px; height: 500px;"></div>
+                        <script>
+                            var world_map = new Datamap({
+                                scope: 'world',
+                                element: document.getElementById('world_map'),
+                                fills: {
+                                    defaultFill: "#FFA056",
+                                    authorHasTraveledTo: "#0C9C00",
+									authorHasTraveledThrough: "#D0D600"
+                                },
+
+                                data: {
+									
+									"AUT": {"fillKey": "authorHasTraveledTo"},
+									
+									"BEL": {"fillKey": "authorHasTraveledThrough"},
+									
+									"CAN": {"fillKey": "authorHasTraveledTo"},
+									
+									"CHE": {"fillKey": "authorHasTraveledTo"},
+									
+									"DEU": {"fillKey": "authorHasTraveledTo"},
+									
+									"GBR": {"fillKey": "authorHasTraveledTo"},
+									
+									"FIN": {"fillKey": "authorHasTraveledTo"},
+									
+									"FRA": {"fillKey": "authorHasTraveledThrough"},
+									
+									"HUN": {"fillKey": "authorHasTraveledTo"},
+									
+									"ISL": {"fillKey": "authorHasTraveledThrough"},
+									
+									"IND": {"fillKey": "authorHasTraveledTo"},
+									
+									"ITA": {"fillKey": "authorHasTraveledTo"},
+									
+									"POL": {"fillKey": "authorHasTraveledTo"},
+									
+									"SMR": {"fillKey": "authorHasTraveledTo"},
+									
+									"USA": {"fillKey": "authorHasTraveledTo"},
+									
+									"VAT": {"fillKey": "authorHasTraveledTo"},
+									
+                                }
+                            });
+                            
+                        </script>
+						
+					</div>
+                </article>
+
+				<hr class="gradient"><br>
+				
+				<article class="post" id="missingmaps">
+                    <header class="entry-header">
+                        <div class="entry-meta" id="missingmaps">
+                            <span class="posted-on"><time class="entry-date published" date="2018-01-13">January 13, 2018</time></span>
+                        </div>
+                        <h1 class="entry-title">Missing Maps Project</h1>
+                    </header>
+                    <div class="entry-content">
+						
+						<p>I am a big fan of the <a href="http://www.missingmaps.org">Missing Maps Project</a>. They help map the whole world for humanitarian reasons, e.g. in order to make it easier for helpers to find specific locations in emergency situations. There are still many areas without detailed maps. Missing Maps provides the tools to help out in creating those maps. It is even possible to contribute through the smart phone with <a href="http://mapswipe.org">Mapswipe</a>. The whole effort is a collaboration of local and remote people, with numerous events to increase involvement. With OpenStreetMap and specifically the Humanitarian OpenStreetMap team, the Red Cross as well as Doctors without Borders, there`s a strong backing of the project. I personally love using Mapswipe while commuting. I just recently reached a big milestone with 500 square kilometers of mapped area, mostly in Angola and Chad.</p>
+						
+						
+					</div>
+                </article>
+
+				<hr class="gradient"><br>
+				
+				<article class="post" id="us-map">
+                    <header class="entry-header">
+                        <div class="entry-meta" id="us-map">
+                            <span class="posted-on"><time class="entry-date published" date="2018-01-13">January 13, 2018</time></span>
+                        </div>
+                        <h1 class="entry-title">Map of the US states I've visited</h1>
+                    </header>
+                    <div class="entry-content">
+						
+						<p>The following map shows the states I`ve been to (red) or traveled through (yellow). It`s extremely easy to make with <a href="http://datamaps.github.io">DataMaps</a>.</p>
+						
+						
+						<script src="https://rawgit.com/markmarkoh/datamaps/v0.5.0/dist/datamaps.usa.min.js"></script>
+                        <div id="usa_map" style="position: relative; width: 700px; height: 500px;"></div>
+                        <script>
+                            var usa_map = new Datamap({
+                                scope: 'usa',
+                                element: document.getElementById('usa_map'),
+                                fills: {
+                                    defaultFill: "#FFA056",
+                                    authorHasTraveledTo: "#0C9C00",
+									authorHasTraveledThrough: "#D0D600"
+                                },
+
+                                data: {
+									
+									"AK": {"fillKey": "authorHasTraveledTo"},
+									
+									"CA": {"fillKey": "authorHasTraveledTo"},
+									
+									"CO": {"fillKey": "authorHasTraveledTo"},
+									
+									"CT": {"fillKey": "authorHasTraveledTo"},
+									
+									"DC": {"fillKey": "authorHasTraveledTo"},
+									
+									"DE": {"fillKey": "authorHasTraveledTo"},
+									
+									"FL": {"fillKey": "authorHasTraveledTo"},
+									
+									"ID": {"fillKey": "authorHasTraveledTo"},
+									
+									"MA": {"fillKey": "authorHasTraveledTo"},
+									
+									"MD": {"fillKey": "authorHasTraveledTo"},
+									
+									"ME": {"fillKey": "authorHasTraveledTo"},
+									
+									"MT": {"fillKey": "authorHasTraveledTo"},
+									
+									"NH": {"fillKey": "authorHasTraveledTo"},
+									
+									"NJ": {"fillKey": "authorHasTraveledTo"},
+									
+									"NY": {"fillKey": "authorHasTraveledTo"},
+									
+									"OR": {"fillKey": "authorHasTraveledTo"},
+									
+									"PA": {"fillKey": "authorHasTraveledTo"},
+									
+									"RI": {"fillKey": "authorHasTraveledTo"},
+									
+									"SD": {"fillKey": "authorHasTraveledTo"},
+									
+									"UT": {"fillKey": "authorHasTraveledTo"},
+									
+									"VT": {"fillKey": "authorHasTraveledTo"},
+									
+									"WA": {"fillKey": "authorHasTraveledTo"},
+									
+									"WY": {"fillKey": "authorHasTraveledTo"},
+									
+                                }
+                            });
+                            
+							usa_map.labels();
+							
+                        </script>
+						
+					</div>
+                </article>
+
+				<hr class="gradient"><br>
+				
+
+			</div> 
+		</div>
+
+	</div>	<!-- /container -->
+
+	
+	
+</main>
+
+<div id="footer"></div>
+
+<footer id="footer">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-3 widget">
+				<h3 class="widget-title">Follow me</h3>
+				<div class="widget-body">
+					<p class="follow-me-icons">
+						<a href="https://github.com/romanlutz"><i class="fa fa-github fa-2"></i></a>
+						<a href="https://linkedin.com/in/romanlutz"><i class="fa fa-linkedin fa-2"></i></a>
+						<a href="https://fosstodon.org/@romanlutz">
+							<i>
+								<svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 0 448 512">
+									<path d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"/>
+								</svg>
+							</i>
+						</a>
+						<a href="https://stackoverflow.com/users/11971317/roman-lutz"><i class="fa fa-stack-overflow fa-2"></i></a>
+					</p>
+				</div>
+			</div>
+
+		</div> <!-- /row of widgets -->
+	</div>
+</footer>
+
+<footer id="underfooter">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-6 widget">
+				<div class="widget-body">
+					<p class="text-right">
+						Copyright &copy; 2019, Roman Lutz<br> 
+						Design: <a href="http://www.gettemplate.com" rel="designer">Initio by GetTemplate</a> </p>
+				</div>
+			</div>
+
+		</div> <!-- /row of widgets -->
+	</div>
+</footer>
+
+<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="../js/template.js"></script>
+</body>
+</html>
