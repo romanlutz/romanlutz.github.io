@@ -2,6 +2,21 @@
 title: Blog
 isBlog: true
 blogs:
+    - id: "red-teaming-lessons-paper"
+      date: "2025-01-22"
+      dateText: "January 22, 2025"
+      title: "Lessons Learned from Red Teaming 100 Generative AI Products"
+      content:
+      - '<img src="../images/8_lessons_airt.webp" alt="The header image of the Microsoft blog post saying 8 lessons from the front lines of AI red teaming" width="100%" class="center">'
+      - We published a new whitepaper titled "<a href="https://aka.ms/AIRTLessonsPaper">Lessons Learned from Red Teaming 100 Generative AI Products</a>" as described in <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2025/01/14/enhancing-ai-safety-insights-and-lessons-from-red-teaming/?msockid=3b9f50fd6689604c2c934393670361be">this Microsoft blog</a>.
+      - I had a good laugh some of the news coverage. The funniest headlines were <a href="https://www.techradar.com/pro/security/microsofts-own-baddy-team-attacked-more-than-100-generative-ai-products-heres-what-they-learnt">Microsoft's own baddy team attacked more than 100 generative AI products - here's what they learnt</a> and <a href="https://www.theregister.com/2025/01/17/microsoft_ai_redteam_infosec_warning/?td=rt-3a">Microsoft eggheads say AI can never be made secure – after testing Redmond's own products</a>.
+    - id: "bluesky"
+      date: "2025-01-22"
+      dateText: "January 22, 2025"
+      title: "Bluesky"
+      content:
+      - '<div style="text-align: center; color: lightblue"><i class="fab fa-bluesky fa-10x center"></i></div>'
+      - After migrating from Twitter to Mastodon in 2023 I moved to Bluesky in late 2024. My Mastodon account still exists but it's a bit too quiet there these days. Bluesky feels a lot like earlier Twitter and has finally gained critical mass. You can find me at <a href="https://bsky.app/profile/romanlutz.bsky.social">https://bsky.app/profile/romanlutz.bsky.social</a>.
     - id: "pyrit"
       date: "2024-07-22"
       dateText: "July 22, 2024"
