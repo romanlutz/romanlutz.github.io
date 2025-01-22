@@ -12,10 +12,14 @@ maps:
         scope: "world"
         labels: false
         places:
+          - name: "ARE"
+            visited: false
           - name: "AUT"
             visited: true
           - name: "BEL"
             visited: false
+          - name: "BHS"
+            visited: true
           - name: "CAN"
             visited: true
           - name: "CHE"
@@ -35,6 +39,8 @@ maps:
           - name: "IND"
             visited: true
           - name: "ITA"
+            visited: true
+          - name: "NLD"
             visited: true
           - name: "POL"
             visited: true
@@ -62,6 +68,8 @@ maps:
         places:
           - name: "AK"
             visited: true
+          - name: "AZ"
+            visited: false
           - name: "CA"
             visited: true
           - name: "CO"
@@ -76,12 +84,16 @@ maps:
             visited: true
           - name: "ID"
             visited: true
+          - name: "IL"
+            visited: false
           - name: "MA"
             visited: true
           - name: "MD"
             visited: true
           - name: "ME"
             visited: true
+          - name: "MN"
+            visited: false
           - name: "MT"
             visited: true
           - name: "NH"
