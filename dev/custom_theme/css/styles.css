@@ -259,7 +259,7 @@ a:hover {
 #head .title {
   font-family: Alice, Georgia, serif;
   font-size: 3.0625rem;
-  color: black;
+  color: #333333;
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 #head .title a {
@@ -271,7 +271,7 @@ a:hover {
   display: block;
   font-size: 0.875rem;
   line-height: 1.2em;
-  color: black;
+  color: #333333;
   margin: 5px 0 0;
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
