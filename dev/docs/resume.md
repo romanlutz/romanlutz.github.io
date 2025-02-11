@@ -6,7 +6,7 @@ resume:
     timeline:
       - timePeriod: "November 2023 - present"
         titles:
-          - <img src="../images/msft.svg" alt="Microsoft logo" width="100%" class="center">
+          - <img src="../images/msft.svg" alt="Microsoft logo" height="40px" class="left">
           - "Responsible AI Engineer at Microsoft"
         descriptions:
           - "AI Red Team"
@@ -14,21 +14,21 @@ resume:
           - "Remote (WA) since February 2024"
       - timePeriod: "December 2021 - November 2023"
         titles:
-          - <img src="../images/msft.svg" alt="Microsoft logo" width="100%" class="center">
+          - <img src="../images/msft.svg" alt="Microsoft logo" height="40px" class="left">
           - "Responsible AI Engineer at Microsoft"
         descriptions:
           - "Azure Machine Learning"
           - "Remote (MA)"
       - timePeriod: "September 2021 - November 2021"
         titles:
-          - <img src="../images/mpg.svg" alt="Max Planck logo" width="50%" class="center">
+          - <img src="../images/mpg.svg" alt="Max Planck logo" height="60px" class="left">
           - 'Graduate student at the Max Planck Institute for Intelligent Systems (MPI-IS)'
         descriptions:
           - 'working on fairness in machine learning'
           - "Tübingen, Germany"
       - timePeriod: "July 2017 - August 2021"
         titles:
-          - <img src="../images/msft.svg" alt="Microsoft logo" width="100%" class="center">
+          - <img src="../images/msft.svg" alt="Microsoft logo" height="40px" class="left">
           - "Responsible AI Engineer at Microsoft"
         descriptions:
           - "Azure Machine Learning"
@@ -36,14 +36,14 @@ resume:
           - "Bellevue, WA (2020-2021)"
       - timePeriod: "June 2016 - June 2017"
         titles:
-          - <img src="../images/msft.svg" alt="Microsoft logo" width="100%" class="center">
+          - <img src="../images/msft.svg" alt="Microsoft logo" height="40px" class="left">
           - "Software Engineer at Microsoft"
         descriptions:
           - "Enhancing collaboration capabilities of Microsoft Office through the Share feature."
           - "Microsoft New England Research and Development Center (NERD), Cambridge, MA"
       - timePeriod: "Fall 2015 - Spring 2016"
         titles:
-          - <img src="../images/umass-amherst.png" alt="UMass Amherst logo" width="100%" class="center">
+          - <img src="../images/umass-amherst.png" alt="UMass Amherst logo" height="60px" class="left">
           - "University of Massachusetts Amherst"
           - "Master of Science in Computer Science"
         descriptions:
@@ -51,19 +51,19 @@ resume:
           - 'Research Assistant in the <a href="http://www-net.cs.umass.edu/networks/people.html">Computer Networking Lab</a> working with Professor <a href="https://www.cs.umass.edu/faculty/directory/towsley_donald">Don Towsley</a> and Professor <a href="http://www2.ic.uff.br/~arocha/">Antonio Rocha</a> on the <span class="thigh">Simulation of Cache Networks.</span>'
       - timePeriod: "June 2015 - August 2015"
         titles:
-          - <img src="../images/cisco.png" alt="Cisco Systems logo" width="80%" class="center">
+          - <img src="../images/cisco.png" alt="Cisco Systems logo" height="40px" class="left">
           - "Systems Engineering Intern at Cisco Systems"
         descriptions:
           - "Eschborn, Germany"
       - timePeriod: "Fall 2014 - Spring 2015"
         titles:
-          - <img src="../images/umass-amherst.png" alt="UMass Amherst logo" width="100%" class="center">
+          - <img src="../images/umass-amherst.png" alt="UMass Amherst logo" height="60px" class="left">
           - "Graduate Exchange Student at University of Massachusetts Amherst"
         descriptions:
           - "took part in Baden-W&#252;rttemberg Exchange between University of Ulm and University of Massachusetts Amherst"
       - timePeriod: "Fall 2012 - Summer 2014"
         titles:
-          - <img src="../images/uni-ulm.svg" alt="Uni Ulm logo" width="100%" class="center">
+          - <img src="../images/uni-ulm.svg" alt="Uni Ulm logo" height="40px" class="left">
           - "University of Ulm"
           - "BSc Computer Science with honors"
         descriptions:
@@ -71,9 +71,9 @@ resume:
           - "innoWake Best Bachelor Thesis Award"
       - timePeriod: "Fall 2011 - Summer 2012"
         titles:
-          - <img src="../images/uni-ulm.svg" alt="Uni Ulm logo" width="100%" class="center">
+          - <img src="../images/uni-ulm.svg" alt="Uni Ulm logo" height="40px" class="left">
           - "University of Ulm Mathematics Bachelor student"
         descriptions:
-          - "Minor in Computer Science, switched major and minor after two semesters"
+          - "Minor in Computer Science, swapped major and minor after two semesters"
 
 ---
