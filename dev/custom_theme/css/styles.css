@@ -863,25 +863,36 @@ footer.entry-meta .meta-in {
       width: 100%;
       position: relative;
       padding: 30px;
-      background-color: rgba(235, 234, 234, 0.966);
+      background-color: white;
       border-radius: 20px;
       margin-bottom: 50px;
+      box-shadow: 1px 2px 3px 4px rgba(20,20,20,0.4);
     }
     .timelineitem:before {
       left: -8px;
+    }
+    .timelineitemlevel {
+      display: flex;
+      margin-bottom: 10px;
     }
 }
 
 .tdate {
     font-size: 18px;
     font-weight: 400;
-    margin-bottom: 5px;
     color: rgb(132,0,0);
+    width: 30%;
 } 
 .ttitle {
     font-size: 20px;
     font-weight: 400;
+    width: 35%;
+    text-align: right;
 } 
+.tlogo {
+    width: 35%;
+    text-align: center;
+}
 .tdesc {
     font-size: 18px;
     font-weight: 300;
