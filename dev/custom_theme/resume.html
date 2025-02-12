@@ -23,14 +23,17 @@
                     <div id="timeline">
                         {% for timelineItem in page.meta.resume.timeline %}
                         <div class="timelineitem">
-                            <div class="tdate">{{ timelineItem.timePeriod }}</div>
-                            {% for timelineItemTitle in timelineItem.titles %}
-                            <div class="ttitle">{{ timelineItemTitle }}</div>
-                            {% endfor %}
-                            {% for timelineItemDescription in timelineItem.descriptions %}
-                            <div class="tdesc">{{ timelineItemDescription }}</div>
-                            {% endfor %}
-                        </div>
+							<div class="timelineitemlevel">
+								<div class="tdate">{{ timelineItem.timePeriod }}<br>{{ timelineItem.location}}</div>
+								<div class="tlogo">{{ timelineItem.logo }}</div>
+								<div class="ttitle">{{ timelineItem.title }}</div>
+							</div>
+							<div class="timelineitemlevel">
+	                            {% for timelineItemDescription in timelineItem.descriptions %}
+    	                        <div class="tdesc">{{ timelineItemDescription }}</div>
+        	                    {% endfor %}
+							</div>
+						</div>
                         {% endfor %}
                     </div>
 				</div>
