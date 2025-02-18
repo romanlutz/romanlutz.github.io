@@ -7,10 +7,3 @@ extra:
 theme:
   name: null
   custom_dir: 'custom_theme/'
-
-nav:
-- 'index.md'
-- 'blog.md'
-- 'maps.md'
-- 'resume.md'
-
