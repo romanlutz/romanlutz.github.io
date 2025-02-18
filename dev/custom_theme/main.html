@@ -1,1 +1,335 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{{ config.extra.name }} - {{ page.title }} </title>
+
+	<!-- include other html files -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js" ></script>
+	
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="{{ config.extra.name }}">
+	
+	<link href="https://github.com/romanlutz" rel="me">
+	<link href="https://romanlutz.github.io/" rel="me">
+	<link href="https://fosstodon.org/@romanlutz" rel="me">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css">
+	<!-- Fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alice|Open+Sans:400,300,700">
+	<!-- Custom styles -->
+	<link rel="stylesheet" href="{{ "css/styles.css"|url }}">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+</head>
+<body class="home">
+
+<header id="header">
+	<div id="head" class="parallax" parallax-speed="5">
+		<div id="headbox">
+			<h1 id="logo" class="text-center">
+				<img class="img-circle" src="{{ "images/profile.jfif"|url }}" alt="">
+				<span class="title">{{ config.extra.name }}</span>
+				<span class="tagline">
+					{{ config.extra.job_title }}<br>
+					{{ config.extra.degree }}
+				</span>
+			</h1>
+		</div>
+	</div>
+
+	<nav class="navbar navbar-default navbar-sticky">
+		<div class="container-fluid">
+			
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			</div>
+			
+			<div class="navbar-collapse collapse" id="navbar-collapse">
+				
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="index.html">HOME</a>
+					</li>
+                    <li>
+                        <a href="index.html#timeline">TIMELINE</a>
+                    </li>
+                    <li>
+                        <a href="index.html#us-map">MAPS</a>
+                    </li>
+                    <li>
+                        <a href="index.html#miscellaneous">MISC</a>
+				</ul>
+			</div><!--/.nav-collapse -->			
+		</div>	
+  </nav>
+</header>
+
+<main id="main">
+	<div class="container">
+
+		<div class="row section topspace">
+			<div class="col-md-12">
+				<p class="lead text-center text-muted">{{ page.meta.homepageDescription }}</p>
+			</div>
+		</div> <!-- / section -->
+	
+		<div class="row topspace">
+	
+			<!-- Article main content -->
+			<article class="col-sm-15 maincontent">  
+	
+				<div class="container">
+					<div id="timeline">
+						{% for timelineItem in page.meta.resume.timeline %}
+						<div class="timelineitem">
+							<div class="timelineitemlevel">
+								<div class="tdate">{{ timelineItem.timePeriod }}<br>{{ timelineItem.location}}</div>
+								<div class="tlogo">{{ timelineItem.logo }}</div>
+								<div class="ttitle">{{ timelineItem.title }}</div>
+							</div>
+							{% for timelineItemDescription in timelineItem.descriptions %}
+							<hr class="gradient"><br>
+							<div class="timelineitemlevel">
+								<div class="tdesc">{{ timelineItemDescription }}</div>
+							</div>
+							{% endfor %}
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+				</p>
+			</article>
+			<!-- /Article -->	
+		</div>
+	
+		<div class="row topspace">
+			<div class="col-sm-8 col-sm-offset-2">
+	
+				{% for map_entry in page.meta.maps %}
+				<article class="post" id="{{ map_entry.id }}">
+					<header class="entry-header">
+						<div class="entry-meta" id="{{ map_entry.id }}">
+							<span class="posted-on"><time class="entry-date published" date="{{ map_entry.date }}">{{ map_entry.dateText }}</time></span>
+						</div>
+						<h1 class="entry-title">{{ map_entry.title }}</h1>
+					</header>
+					<div class="entry-content">
+						{% for content_paragraph in map_entry.content %}
+						<p>{{ content_paragraph }}</p>
+						{% endfor %}
+						{% if map_entry.mapConfiguration %}
+						<script src="https://rawgit.com/markmarkoh/datamaps/v0.5.0/dist/datamaps.{{ map_entry.mapConfiguration.scope }}.min.js"></script>
+						<div id="{{ map_entry.mapConfiguration.scope }}_map" style="position: relative; width: 700px; height: 500px;"></div>
+						<script>
+							var {{ map_entry.mapConfiguration.scope }}_map = new Datamap({
+								scope: '{{ map_entry.mapConfiguration.scope }}',
+								element: document.getElementById('{{ map_entry.mapConfiguration.scope }}_map'),
+								fills: {
+									defaultFill: "#FFA056",
+									authorHasTraveledTo: "#0C9C00",
+									authorHasTraveledThrough: "#D0D600"
+								},
+	
+								data: {
+									{% for place in map_entry.mapConfiguration.places %}
+									"{{ place.name }}": {"fillKey": {% if place.visited %}"authorHasTraveledTo"{% else %}"authorHasTraveledThrough"{% endif %}},
+									{% endfor %}
+								}
+							});
+							{% if map_entry.mapConfiguration.labels %}
+							{{ map_entry.mapConfiguration.scope }}_map.labels();
+							{% endif %}
+						</script>
+						{% endif %}
+					</div>
+				</article>
+	
+				<hr class="gradient"><br>
+				{% endfor %}
+	
+			</div> 
+		</div>
+	
+	</div>	<!-- /container -->
+	
+	<div class="container">
+		<div class="row topspace">
+			<div class="col-sm-8 col-sm-offset-2">
+				<article class="post" id="us-map">
+					<header class="entry-header">
+						<h1 class="entry-title">Map of the US states I have visited</h1>
+					</header>
+					<div class="entry-content">
+						<p>green = visited, light green = transit only, peach = not visited</p>
+						<script src="https://rawgit.com/markmarkoh/datamaps/v0.5.0/dist/datamaps.usa.min.js"></script>
+						<div id="usa_map" style="position: relative; width: 700px; height: 500px;"></div>
+						<script>
+							var usa_map = new Datamap({
+								scope: 'usa',
+								element: document.getElementById('usa_map'),
+								fills: {
+									defaultFill: "#FFA056",
+									authorHasTraveledTo: "#0C9C00",
+									authorHasTraveledThrough: "#D0D600"
+								},
+	
+								data: {
+									"AK": {"fillKey": "authorHasTraveledTo"},
+									"AZ": {"fillKey": "authorHasTraveledThrough"},
+									"CA": {"fillKey": "authorHasTraveledTo"},
+									"CO": {"fillKey": "authorHasTraveledTo"},
+									"CT": {"fillKey": "authorHasTraveledTo"},
+									"DC": {"fillKey": "authorHasTraveledTo"},
+									"DE": {"fillKey": "authorHasTraveledTo"},
+									"FL": {"fillKey": "authorHasTraveledTo"},
+									"ID": {"fillKey": "authorHasTraveledTo"},
+									"IL": {"fillKey": "authorHasTraveledThrough"},
+									"MA": {"fillKey": "authorHasTraveledTo"},
+									"MD": {"fillKey": "authorHasTraveledTo"},
+									"ME": {"fillKey": "authorHasTraveledTo"},
+									"MN": {"fillKey": "authorHasTraveledThrough"},
+									"MT": {"fillKey": "authorHasTraveledTo"},
+									"NH": {"fillKey": "authorHasTraveledTo"},
+									"NJ": {"fillKey": "authorHasTraveledTo"},
+									"NY": {"fillKey": "authorHasTraveledTo"},
+									"OR": {"fillKey": "authorHasTraveledTo"},
+									"PA": {"fillKey": "authorHasTraveledTo"},
+									"RI": {"fillKey": "authorHasTraveledTo"},
+									"SD": {"fillKey": "authorHasTraveledTo"},
+									"UT": {"fillKey": "authorHasTraveledTo"},
+									"VT": {"fillKey": "authorHasTraveledTo"},
+									"WA": {"fillKey": "authorHasTraveledTo"},
+									"WY": {"fillKey": "authorHasTraveledTo"}
+								}
+							});
+							usa_map.labels();
+						</script>
+					</div>
+				</article>
+	
+				<hr class="gradient"><br>
+	
+				<article class="post" id="world-map">
+					<header class="entry-header">
+						<h1 class="entry-title">Map of the countries I have visited</h1>
+					</header>
+					<div class="entry-content">
+						<script src="https://rawgit.com/markmarkoh/datamaps/v0.5.0/dist/datamaps.world.min.js"></script>
+						<div id="world_map" style="position: relative; width: 700px; height: 500px;"></div>
+						<script>
+							var world_map = new Datamap({
+								scope: 'world',
+								element: document.getElementById('world_map'),
+								fills: {
+									defaultFill: "#FFA056",
+									authorHasTraveledTo: "#0C9C00",
+									authorHasTraveledThrough: "#D0D600"
+								},
+	
+								data: {
+									"ARE": {"fillKey": "authorHasTraveledThrough"},
+									"AUT": {"fillKey": "authorHasTraveledTo"},
+									"BEL": {"fillKey": "authorHasTraveledThrough"},
+									"BHS": {"fillKey": "authorHasTraveledTo"},
+									"CAN": {"fillKey": "authorHasTraveledTo"},
+									"CHE": {"fillKey": "authorHasTraveledTo"},
+									"DEU": {"fillKey": "authorHasTraveledTo"},
+									"GBR": {"fillKey": "authorHasTraveledTo"},
+									"FIN": {"fillKey": "authorHasTraveledTo"},
+									"FRA": {"fillKey": "authorHasTraveledThrough"},
+									"HUN": {"fillKey": "authorHasTraveledTo"},
+									"ISL": {"fillKey": "authorHasTraveledThrough"},
+									"IND": {"fillKey": "authorHasTraveledTo"},
+									"ITA": {"fillKey": "authorHasTraveledTo"},
+									"NLD": {"fillKey": "authorHasTraveledTo"},
+									"POL": {"fillKey": "authorHasTraveledTo"},
+									"SMR": {"fillKey": "authorHasTraveledTo"},
+									"USA": {"fillKey": "authorHasTraveledTo"},
+									"VAT": {"fillKey": "authorHasTraveledTo"}
+								}
+							});
+						</script>
+					</div>
+				</article>
+			</div> 
+		</div>
+	
+	</div>	<!-- /container -->
+
+    <div class="container" id="miscellaneous">
+		<div class="row topspace">
+			<div class="col-sm-8 col-sm-offset-2">
+				<article class="post" id="us-map">
+					<header class="entry-header">
+						<h1 class="entry-title">Miscellaneous</h1>
+					</header>
+                </article>
+            </div>
+		
+			<!-- Article main content -->
+			<article class="col-sm-15 maincontent">  
+	
+				<div class="container">
+					<img src="../images/git.jpg" alt="The 5 stages of git, from Navin Narra's tweet." width="80%" class="center">
+				</div>
+                <div align="center">
+                    <p>from Navin Narra's <a href="https://twitter.com/navinnarra/status/842112112176513024">tweet</a></p>
+                <p>
+			</article>
+			<!-- /Article -->	
+		</div>
+    </div>
+</main>
+
+<div id="footer"></div>
+
+<footer id="footer">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-3 widget">
+				<h3 class="widget-title">Follow me</h3>
+				<div class="widget-body">
+					<p class="follow-me-icons">
+						<a href="https://github.com/romanlutz"><i class="fa fa-github fa-2"></i></a>
+						<a href="https://linkedin.com/in/romanlutz"><i class="fa fa-linkedin fa-2"></i></a>
+						<a href="https://bsky.app/profile/romanlutz.bsky.social"><i class="fab fa-bluesky fa-2"></i></a>
+						<a href="https://fosstodon.org/@romanlutz"><i class="fab fa-mastodon fa-2"></i></a>
+						<a href="https://stackoverflow.com/users/11971317/roman-lutz"><i class="fa fa-stack-overflow fa-2"></i></a>
+					</p>
+				</div>
+			</div>
+
+		</div> <!-- /row of widgets -->
+	</div>
+</footer>
+
+<footer id="underfooter">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-6 widget">
+				<div class="widget-body">
+					<p class="text-right">
+						Copyright &copy; 2019, Roman Lutz<br> 
+						Design: <a href="http://www.gettemplate.com" rel="designer">Initio by GetTemplate</a> </p>
+				</div>
+			</div>
+
+		</div> <!-- /row of widgets -->
+	</div>
+</footer>
+
+<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<!-- Icon font -->
+<script src="https://kit.fontawesome.com/a85684746e.js" crossorigin="anonymous"></script>
+
+<script src="{{ "js/template.js"|url }}"></script>
+</body>
+</html>
