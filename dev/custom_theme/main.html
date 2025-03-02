@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js" ></script>
 	
 	<meta charset="utf-8">
-	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="description" content="">
 	<meta name="author"      content="{{ config.extra.name }}">
 	
@@ -166,7 +166,7 @@
 					<div class="entry-content">
 						<p>green = visited, light green = transit only, peach = not visited</p>
 						<script src="https://rawgit.com/markmarkoh/datamaps/v0.5.0/dist/datamaps.usa.min.js"></script>
-						<div id="usa_map" style="position: relative; width: 700px; height: 500px;"></div>
+						<div id="usa_map" style="position: relative; width: 100%; height: 300px;"></div>
 						<script>
 							var usa_map = new Datamap({
 								scope: 'usa',
@@ -219,7 +219,7 @@
 					</header>
 					<div class="entry-content">
 						<script src="https://rawgit.com/markmarkoh/datamaps/v0.5.0/dist/datamaps.world.min.js"></script>
-						<div id="world_map" style="position: relative; width: 700px; height: 500px;"></div>
+						<div id="world_map" style="position: relative; width: 100%; height: 300px;"></div>
 						<script>
 							var world_map = new Datamap({
 								scope: 'world',
