@@ -1,5 +1,6 @@
 html {
   font-size: 100%;
+  width: 100%;
 }
 body {
   font-size: 15px;
@@ -242,7 +243,7 @@ a:hover {
 }
 #headbox {
   background-color: rgba(255, 255, 255, 0.5);
-  width: 500px;
+  max-width: 500px;
   margin: 0 auto;
   border-radius: 20px;
   padding-top: 10px;
@@ -857,24 +858,22 @@ footer.entry-meta .meta-in {
     font-size: 20px;
     font-weight: 300;
 }
-@media (min-width: 768px) {
-    .timelineitem {
-      text-align: left;
-      width: 100%;
-      position: relative;
-      padding: 30px;
-      background-color: white;
-      border-radius: 20px;
-      margin-bottom: 50px;
-      box-shadow: 1px 2px 3px 4px rgba(20,20,20,0.4);
-    }
-    .timelineitem:before {
-      left: -8px;
-    }
-    .timelineitemlevel {
-      display: flex;
-      margin-bottom: 10px;
-    }
+.timelineitem {
+  text-align: left;
+  width: 100%;
+  position: relative;
+  padding: 30px;
+  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 50px;
+  box-shadow: 1px 2px 3px 4px rgba(20,20,20,0.4);
+}
+.timelineitem:before {
+  left: -8px;
+}
+.timelineitemlevel {
+  display: flex;
+  margin-bottom: 10px;
 }
 
 .tdate {
@@ -890,7 +889,9 @@ footer.entry-meta .meta-in {
     text-align: right;
 } 
 .tlogo {
-    width: 35%;
+    width: 29%;
+    padding-left: 3%;
+    padding-right: 3%;
     text-align: center;
 }
 .tdesc {

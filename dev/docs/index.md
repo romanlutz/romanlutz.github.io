@@ -44,7 +44,7 @@ resume:
           - "<b>June 2016</b>: I have joined the Docs team within Microsoft Office. We enhance collaboration capabilities through the Share feature in all Office apps."
       - timePeriod: "Fall 2015 - Spring 2016"
         location: "Amherst, MA"
-        logo: <img src="../images/umass-amherst.png" alt="UMass Amherst logo" height="60px" class="left">
+        logo: <img src="../images/umass-amherst.png" alt="UMass Amherst logo" height="48px" class="left">
         title: "MS in Computer Science, Focus on Distributed Systems and ML"
         descriptions:
           - '<img src="../images/cache-networks-simulation-results.png" alt="Cache Networks Simulation Results" width="40%" class="center"><br>I had the pleasure of working as a Research Assistant in the <a href="http://www-net.cs.umass.edu/networks/people.html">Computer Networking Lab</a> with Professor <a href="https://www.cs.umass.edu/faculty/directory/towsley_donald">Don Towsley</a> and Professor <a href="http://www2.ic.uff.br/~arocha/">Antonio Rocha</a> on the Simulation of Cache Networks. The results still remain to be published, so I will write about it if that happens. Separately, I conducted experiments with cache networks for a graduate seminar on distributed systems. You can download my project report <a href="https://github.com/romanlutz/romanlutz.github.io/blob/gh-pages/other/CacheNetworkSimulation.pdf">here</a>.'
@@ -56,7 +56,7 @@ resume:
         title: "Systems Engineering Intern"
       - timePeriod: "Fall 2014 - Spring 2015"
         location: "Amherst, MA"
-        logo: <img src="../images/umass-amherst.png" alt="UMass Amherst logo" height="60px" class="left">
+        logo: <img src="../images/umass-amherst.png" alt="UMass Amherst logo" height="48px" class="left">
         title: "Graduate Exchange Student"
         descriptions:
           - "I took part in Baden-W&#252;rttemberg Exchange between University of Ulm and University of Massachusetts Amherst."
