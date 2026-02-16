@@ -18,7 +18,9 @@
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css">
 	<!-- Fonts -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alice|Open+Sans:400,300,700">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 	<!-- Custom styles -->
 	<link rel="stylesheet" href="{{ "css/styles.css"|url }}">
 
@@ -34,8 +36,7 @@
 				<img class="img-circle" src="{{ "images/profile.jfif"|url }}" alt="">
 				<span class="title">{{ config.extra.name }}</span>
 				<span class="tagline">
-					{{ config.extra.job_title }}<br>
-					{{ config.extra.degree }}
+					{% for title in config.extra.titles %}{% if not loop.first %} <span class="tagline-sep">|</span> {% endif %}{{ title }}{% endfor %}
 				</span>
 			</h1>
 		</div>
@@ -71,9 +72,40 @@
 <main id="main">
 	<div class="container">
 
-		<div class="row section topspace">
-			<div class="col-md-12">
-				<p class="lead text-center text-muted">{{ page.meta.homepageDescription }}</p>
+		<div class="link-cards-wrapper topspace">
+				<div class="link-cards">
+					<a href="https://github.com/romanlutz" class="link-card" target="_blank">
+						<i class="fa fa-github"></i>
+						<span class="link-card-label">GitHub</span>
+					</a>
+					<a href="https://azure.github.io/PyRIT" class="link-card" target="_blank">
+						<img src="{{ "images/pyrit-icon.png"|url }}" alt="PyRIT" class="link-card-img">
+						<span class="link-card-label">PyRIT</span>
+					</a>
+					<a href="https://fairlearn.github.io" class="link-card" target="_blank">
+						<img src="{{ "images/fairlearn-favicon.ico"|url }}" alt="Fairlearn" class="link-card-img vt-event-img-invert">
+						<span class="link-card-label">Fairlearn</span>
+					</a>
+					<a href="https://linkedin.com/in/romanlutz" class="link-card" target="_blank">
+						<i class="fa fa-linkedin"></i>
+						<span class="link-card-label">LinkedIn</span>
+					</a>
+					<a href="https://scholar.google.com/citations?user=romanlutz" class="link-card" target="_blank">
+						<img src="{{ "images/google-scholar-favicon.ico"|url }}" alt="Google Scholar" class="link-card-img">
+						<span class="link-card-label">Google Scholar</span>
+					</a>
+					<a href="https://www.semanticscholar.org/author/Roman-Lutz/2291415464" class="link-card" target="_blank">
+						<img src="{{ "images/semantic-scholar-favicon.ico"|url }}" alt="Semantic Scholar" class="link-card-img">
+						<span class="link-card-label">Semantic Scholar</span>
+					</a>
+					<a href="https://bsky.app/profile/romanlutz.bsky.social" class="link-card" target="_blank">
+						<i class="fab fa-bluesky"></i>
+						<span class="link-card-label">Bluesky</span>
+					</a>
+					<a href="https://stackoverflow.com/users/11971317/roman-lutz" class="link-card" target="_blank">
+						<img src="{{ "images/stackoverflow-favicon.ico"|url }}" alt="Stack Overflow" class="link-card-img">
+						<span class="link-card-label">Stack Overflow</span>
+					</a>
 			</div>
 		</div> <!-- / section -->
 	
@@ -83,25 +115,64 @@
 			<article class="col-sm-15 maincontent">  
 	
 				<div class="container">
-					<div id="timeline">
+					<div id="timeline" class="vt">
 						{% for timelineItem in page.meta.resume.timeline %}
-						<div class="timelineitem">
-							<div class="timelineitemlevel">
-								<div class="tdate">{{ timelineItem.timePeriod }}<br>{{ timelineItem.location}}</div>
-								<div class="tlogo">{{ timelineItem.logo }}</div>
-								<div class="ttitle">{{ timelineItem.title }}</div>
+						<div class="vt-section{% if not timelineItem.events %} vt-section--no-events{% endif %}">
+							<div class="vt-major-node">
+								<div class="vt-node-dot vt-node-dot--major"></div>
+								<div class="vt-major-card">
+									<div class="vt-major-header">
+										<img src="../images/{{ timelineItem.logo }}" alt="{{ timelineItem.logoAlt }}" class="vt-major-logo{% if timelineItem.logoInvert %} vt-event-img-invert{% endif %}{% if timelineItem.logoLarge %} vt-major-logo--lg{% endif %}">
+										<div class="vt-major-info">
+											<div class="vt-major-title">{{ timelineItem.title }}</div>
+											<div class="vt-major-meta">{{ timelineItem.timePeriod }} &middot; {{ timelineItem.location }}</div>
+										</div>
+									</div>
+									{% if timelineItem.events %}
+									<div class="vt-events">
+										<div class="vt-outer-mask"></div>
+										<div class="vt-branch-in"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M1.5,0 Q1.5,10 11,10 L54.5,10 Q65.5,10 65.5,20" stroke="#238636" stroke-width="3" fill="none"/></svg></div>
+										{% if not loop.last %}<div class="vt-branch-out"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M65.5,1.5 Q65.5,10 54.5,10 L11,10 Q1.5,10 1.5,20" stroke="#238636" stroke-width="3" fill="none"/></svg></div>{% endif %}
+										{% for event in timelineItem.events %}
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">{{ event.date }}</div>
+												<div class="vt-event-title">{{ event.title }}</div>
+												{% if event.youtube %}
+												<div class="vt-event-media">
+													<iframe src="{{ event.youtube }}" title="{{ event.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="vt-event-youtube"></iframe>
+												</div>
+												<div class="vt-event-desc">{{ event.description }}</div>
+												{% elif event.image and event.imageLayout == 'side' %}
+												<div class="vt-event-body-side">
+													<img src="../images/{{ event.image }}" alt="{{ event.imageAlt }}" class="vt-event-img-side{% if event.imageInvert %} vt-event-img-invert{% endif %}">
+													<div class="vt-event-desc">{{ event.description }}</div>
+												</div>
+												{% elif event.image and event.imageLayout == 'side-md' %}
+												<div class="vt-event-body-side">
+													<img src="../images/{{ event.image }}" alt="{{ event.imageAlt }}" class="vt-event-img-side-md{% if event.imageInvert %} vt-event-img-invert{% endif %}">
+													<div class="vt-event-desc">{{ event.description }}</div>
+												</div>
+												{% elif event.image %}
+												<div class="vt-event-media">
+													<img src="../images/{{ event.image }}" alt="{{ event.imageAlt }}" class="vt-event-img">
+												</div>
+												<div class="vt-event-desc">{{ event.description }}</div>
+												{% else %}
+												<div class="vt-event-desc">{{ event.description }}</div>
+												{% endif %}
+											</div>
+										</div>
+										{% endfor %}
+									</div>
+									{% endif %}
+								</div>
 							</div>
-							{% for timelineItemDescription in timelineItem.descriptions %}
-							<hr class="gradient"><br>
-							<div class="timelineitemlevel">
-								<div class="tdesc">{{ timelineItemDescription }}</div>
-							</div>
-							{% endfor %}
 						</div>
 						{% endfor %}
 					</div>
 				</div>
-				</p>
 			</article>
 			<!-- /Article -->	
 		</div>
@@ -128,10 +199,17 @@
 							var {{ map_entry.mapConfiguration.scope }}_map = new Datamap({
 								scope: '{{ map_entry.mapConfiguration.scope }}',
 								element: document.getElementById('{{ map_entry.mapConfiguration.scope }}_map'),
+								geographyConfig: {
+									highlightOnHover: false,
+									popupOnHover: true,
+									popupTemplate: function(geography, data) {
+										return '<div class="hoverinfo">' + geography.properties.name + '</div>';
+									}
+								},
 								fills: {
-									defaultFill: "#FFA056",
-									authorHasTraveledTo: "#0C9C00",
-									authorHasTraveledThrough: "#D0D600"
+									defaultFill: "#21262d",
+									authorHasTraveledTo: "#2da44e",
+									authorHasTraveledThrough: "#7ee787"
 								},
 	
 								data: {
@@ -141,7 +219,7 @@
 								}
 							});
 							{% if map_entry.mapConfiguration.labels %}
-							{{ map_entry.mapConfiguration.scope }}_map.labels();
+							{{ map_entry.mapConfiguration.scope }}_map.labels({labelColor: function(datum) { return (datum && datum.fillKey) ? '#0d1117' : '#8b949e'; }});
 							{% endif %}
 						</script>
 						{% endif %}
@@ -164,17 +242,24 @@
 						<h1 class="entry-title">Map of the US states I have visited</h1>
 					</header>
 					<div class="entry-content">
-						<p>green = visited, light green = transit only, peach = not visited</p>
+						<p>green = visited, light green = transit only, dark gray = not visited</p>
 						<script src="https://cdn.jsdelivr.net/npm/datamaps@0.5.9/dist/datamaps.usa.min.js"></script>
 						<div id="usa_map" style="position: relative; width: 100%; height: 300px;"></div>
 						<script>
 							var usa_map = new Datamap({
 								scope: 'usa',
 								element: document.getElementById('usa_map'),
+								geographyConfig: {
+									highlightOnHover: false,
+									popupOnHover: true,
+									popupTemplate: function(geography, data) {
+										return '<div class="hoverinfo">' + geography.properties.name + '</div>';
+									}
+								},
 								fills: {
-									defaultFill: "#FFA056",
-									authorHasTraveledTo: "#0C9C00",
-									authorHasTraveledThrough: "#D0D600"
+									defaultFill: "#21262d",
+									authorHasTraveledTo: "#2da44e",
+									authorHasTraveledThrough: "#7ee787"
 								},
 	
 								data: {
@@ -206,7 +291,7 @@
 									"WY": {"fillKey": "authorHasTraveledTo"}
 								}
 							});
-							usa_map.labels();
+							usa_map.labels({labelColor: function(datum) { return (datum && datum.fillKey) ? '#0d1117' : '#8b949e'; }});
 						</script>
 					</div>
 				</article>
@@ -224,10 +309,17 @@
 							var world_map = new Datamap({
 								scope: 'world',
 								element: document.getElementById('world_map'),
+								geographyConfig: {
+									highlightOnHover: false,
+									popupOnHover: true,
+									popupTemplate: function(geography, data) {
+										return '<div class="hoverinfo">' + geography.properties.name + '</div>';
+									}
+								},
 								fills: {
-									defaultFill: "#FFA056",
-									authorHasTraveledTo: "#0C9C00",
-									authorHasTraveledThrough: "#D0D600"
+									defaultFill: "#21262d",
+									authorHasTraveledTo: "#2da44e",
+									authorHasTraveledThrough: "#7ee787"
 								},
 	
 								data: {
@@ -251,7 +343,8 @@
 									"POL": {"fillKey": "authorHasTraveledTo"},
 									"SMR": {"fillKey": "authorHasTraveledTo"},
 									"USA": {"fillKey": "authorHasTraveledTo"},
-									"VAT": {"fillKey": "authorHasTraveledTo"}
+									"VAT": {"fillKey": "authorHasTraveledTo"},
+								"MEX": {"fillKey": "authorHasTraveledTo"}
 								}
 							});
 						</script>
@@ -275,8 +368,8 @@
 			<!-- Article main content -->
 			<article class="col-sm-15 maincontent">  
 	
-				<div class="container">
-					<img src="../images/git.jpg" alt="The 5 stages of git, from Navin Narra's tweet." width="80%" class="center">
+				<div class="container git-img-wrapper">
+					<img src="../images/git.jpg" alt="The 5 stages of git, from Navin Narra's tweet." width="80%" class="center vt-event-img-invert git-img-blend">
 				</div>
                 <div align="center">
                     <p>from Navin Narra's <a href="https://twitter.com/navinnarra/status/842112112176513024">tweet</a></p>
@@ -289,27 +382,6 @@
 
 <div id="footer"></div>
 
-<footer id="footer">
-	<div class="container">
-		<div class="row">
-
-			<div class="col-md-3 widget">
-				<h3 class="widget-title">Follow me</h3>
-				<div class="widget-body">
-					<p class="follow-me-icons">
-						<a href="https://github.com/romanlutz"><i class="fa fa-github fa-2"></i></a>
-						<a href="https://linkedin.com/in/romanlutz"><i class="fa fa-linkedin fa-2"></i></a>
-						<a href="https://bsky.app/profile/romanlutz.bsky.social"><i class="fab fa-bluesky fa-2"></i></a>
-						<a href="https://fosstodon.org/@romanlutz"><i class="fab fa-mastodon fa-2"></i></a>
-						<a href="https://stackoverflow.com/users/11971317/roman-lutz"><i class="fa fa-stack-overflow fa-2"></i></a>
-					</p>
-				</div>
-			</div>
-
-		</div> <!-- /row of widgets -->
-	</div>
-</footer>
-
 <footer id="underfooter">
 	<div class="container">
 		<div class="row">
@@ -317,8 +389,7 @@
 			<div class="col-md-6 widget">
 				<div class="widget-body">
 					<p class="text-right">
-						Copyright &copy; 2019, Roman Lutz<br> 
-						Design: <a href="http://www.gettemplate.com" rel="designer">Initio by GetTemplate</a> </p>
+						Copyright &copy; 2026, Roman Lutz</p>
 				</div>
 			</div>
 

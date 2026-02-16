@@ -1,8 +1,11 @@
 site_name: Roman Lutz
 extra:
   name: Roman Lutz
-  job_title: Responsible AI engineer
-  degree: Open source maintainer
+  titles:
+    - Responsible AI Engineering Lead
+    - AI Red Teaming
+    - Trust and Safety
+    - Open Source
 
 theme:
   name: null
