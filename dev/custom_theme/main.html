@@ -39,11 +39,6 @@
 
 	<nav class="navbar navbar-sticky">
 		<div class="navbar-inner">
-			<button type="button" class="navbar-toggle" aria-label="Toggle navigation">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
 			<ul class="navbar-nav">
 				{% for nav_item in page.meta.nav %}
 				<li><a href="{{ nav_item.href }}">{{ nav_item.label }}</a></li>
@@ -192,11 +187,6 @@
 
 <!-- Icon font -->
 <script src="https://kit.fontawesome.com/a85684746e.js" crossorigin="anonymous"></script>
-<script>
-document.querySelector('.navbar-sticky').classList.add('stick');
-document.querySelector('.navbar-toggle').addEventListener('click', function() {
-  document.querySelector('.navbar-nav').classList.toggle('open');
-});
-</script>
+<script>document.querySelector('.navbar-sticky').classList.add('stick');</script>
 </body>
 </html>
