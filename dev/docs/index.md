@@ -2,6 +2,32 @@
 title: Home
 isHomepage: true
 homepageDescription: As a Responsible AI Engineer at Microsoft, I work on the AI Red Team to identify vulnerabilities of generative AI systems in terms of AI safety and security. A huge part of this is building and maintaining our open source AI Red Teaming tookit <a href="https://github.com/Azure/PyRIT">PyRIT</a>. I am also a maintainer of the <a href="https://fairlearn.github.io">Fairlearn</a> project.
+links:
+  - url: https://github.com/romanlutz
+    label: GitHub
+    icon: fa fa-github
+  - url: https://azure.github.io/PyRIT
+    label: PyRIT
+    image: pyrit-icon.png
+  - url: https://fairlearn.github.io
+    label: Fairlearn
+    image: fairlearn-favicon.ico
+    invert: true
+  - url: https://linkedin.com/in/romanlutz
+    label: LinkedIn
+    icon: fa fa-linkedin
+  - url: https://scholar.google.com/citations?user=romanlutz
+    label: Google Scholar
+    image: google-scholar-favicon.ico
+  - url: https://www.semanticscholar.org/author/Roman-Lutz/40451032
+    label: Semantic Scholar
+    image: semantic-scholar-favicon.ico
+  - url: https://bsky.app/profile/romanlutz.bsky.social
+    label: Bluesky
+    icon: fab fa-bluesky
+  - url: https://stackoverflow.com/users/11971317/roman-lutz
+    label: Stack Overflow
+    image: stackoverflow-favicon.ico
 resume:
   timeline:
   - timePeriod: November 2023 - present

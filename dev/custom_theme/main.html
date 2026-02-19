@@ -72,38 +72,16 @@
 	<div class="container">
 
 		<div class="link-cards topspace">
-			<a href="https://github.com/romanlutz" class="link-card" target="_blank">
-				<i class="fa fa-github"></i>
-				<span class="link-card-label">GitHub</span>
+			{% for link in page.meta.links %}
+			<a href="{{ link.url }}" class="link-card" target="_blank">
+				{% if link.icon %}
+				<i class="{{ link.icon }}"></i>
+				{% elif link.image %}
+				<img src="{{ ("images/" ~ link.image)|url }}" alt="{{ link.label }}" class="link-card-img{% if link.invert %} vt-event-img-invert{% endif %}">
+				{% endif %}
+				<span class="link-card-label">{{ link.label }}</span>
 			</a>
-			<a href="https://azure.github.io/PyRIT" class="link-card" target="_blank">
-				<img src="{{ "images/pyrit-icon.png"|url }}" alt="PyRIT" class="link-card-img">
-				<span class="link-card-label">PyRIT</span>
-			</a>
-			<a href="https://fairlearn.github.io" class="link-card" target="_blank">
-				<img src="{{ "images/fairlearn-favicon.ico"|url }}" alt="Fairlearn" class="link-card-img vt-event-img-invert">
-				<span class="link-card-label">Fairlearn</span>
-			</a>
-			<a href="https://linkedin.com/in/romanlutz" class="link-card" target="_blank">
-				<i class="fa fa-linkedin"></i>
-				<span class="link-card-label">LinkedIn</span>
-			</a>
-			<a href="https://scholar.google.com/citations?user=romanlutz" class="link-card" target="_blank">
-				<img src="{{ "images/google-scholar-favicon.ico"|url }}" alt="Google Scholar" class="link-card-img">
-				<span class="link-card-label">Google Scholar</span>
-			</a>
-			<a href="https://www.semanticscholar.org/author/Roman-Lutz/40451032" class="link-card" target="_blank">
-				<img src="{{ "images/semantic-scholar-favicon.ico"|url }}" alt="Semantic Scholar" class="link-card-img">
-				<span class="link-card-label">Semantic Scholar</span>
-			</a>
-			<a href="https://bsky.app/profile/romanlutz.bsky.social" class="link-card" target="_blank">
-				<i class="fab fa-bluesky"></i>
-				<span class="link-card-label">Bluesky</span>
-			</a>
-			<a href="https://stackoverflow.com/users/11971317/roman-lutz" class="link-card" target="_blank">
-				<img src="{{ "images/stackoverflow-favicon.ico"|url }}" alt="Stack Overflow" class="link-card-img">
-				<span class="link-card-label">Stack Overflow</span>
-			</a>
+			{% endfor %}
 		</div>
 	
 		<div class="row topspace">
