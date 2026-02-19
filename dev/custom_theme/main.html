@@ -61,6 +61,7 @@
                     </li>
                     <li>
                         <a href="index.html#miscellaneous">MISC</a>
+                    </li>
 				</ul>
 			</div><!--/.nav-collapse -->			
 		</div>	
@@ -109,10 +110,7 @@
 	
 		<div class="row topspace">
 	
-			<article>
-	
-				<div class="container">
-					<div id="timeline" class="vt">
+				<div id="timeline" class="vt">
 						{% for timelineItem in page.meta.resume.timeline %}
 						<div class="vt-section{% if not timelineItem.events %} vt-section--no-events{% endif %}">
 							<div class="vt-major-node">
@@ -169,18 +167,14 @@
 						</div>
 						{% endfor %}
 					</div>
-				</div>
-			</article>
-	</div>
+		</div>
 	
 	<div class="row topspace">
 			<div class="col-sm-8 col-sm-offset-2">
 	
 				{% for map_entry in page.meta.maps %}
-				<article class="post" id="{{ map_entry.id }}">
-					<header class="entry-header">
+				<article id="{{ map_entry.id }}">
 						<h1 class="entry-title">{{ map_entry.title }}</h1>
-					</header>
 					<div class="entry-content">
 						{% for content_paragraph in map_entry.content %}
 						<p>{{ content_paragraph }}</p>
@@ -229,10 +223,8 @@
     <div class="container" id="miscellaneous">
 		<div class="row topspace">
 			<div class="col-sm-8 col-sm-offset-2">
-				<article class="post" id="misc-section">
-				<header class="entry-header">
+				<article id="misc-section">
 					<h1 class="entry-title">Miscellaneous</h1>
-				</header>
 				<div class="container git-img-wrapper">
 					<img src="../images/git.jpg" alt="The 5 stages of git, from Navin Narra's tweet." width="80%" class="center vt-event-img-invert git-img-blend">
 				</div>
@@ -240,7 +232,7 @@
                     <p>from Navin Narra's <a href="https://twitter.com/navinnarra/status/842112112176513024">tweet</a></p>
                 </div>
 			</article>
-			<!-- /Article -->	
+			</div>
 		</div>
     </div>
 </main>

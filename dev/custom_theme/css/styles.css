@@ -144,12 +144,6 @@ h1#logo .title {
 h1#logo .tagline {
   white-space: normal;
 }
-#head {
-  background: #0d1117;
-  border-bottom: none;
-  color: #e6edf3;
-  padding: 60px 0 30px;
-}
 #headbox {
   max-width: none;
   margin: 0 auto;
@@ -286,22 +280,14 @@ img.center {
 /*********************************************************************
 
 
-                                 BLOG
+                                SECTIONS (Maps, Misc)
 
 
 **********************************************************************/
 .entry-title {
-  display: block;
-  width: 100%;
-  overflow: hidden;
-  margin: 0px 0 16px;
-  text-align: center;
   font-weight: 600;
-  text-transform: none;
   font-size: 1.5em;
   letter-spacing: -0.01em;
-  border-bottom: 1px solid #21262d;
-  padding-bottom: .3em;
 }
 .entry-content {
   margin: 0 0 40px 0;
