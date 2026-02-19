@@ -36,10 +36,8 @@ body {
 }
 .navbar-collapse {
   border-radius: 0;
-  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-weight: 500;
   font-size: 14px;
-  text-transform: none;
 }
 .navbar-collapse .navbar-nav {
   float: none;
@@ -100,7 +98,6 @@ ol {
   margin: 0 0 16px 0;
 }
 h1 {
-  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-weight: 700;
   color: #c9d1d9;
   display: block;
@@ -109,7 +106,6 @@ h1 {
   margin: 0px 0 16px;
   padding-bottom: .3em;
   text-align: center;
-  text-transform: none;
   letter-spacing: -0.02em;
   border-bottom: 1px solid #21262d;
 }
@@ -188,17 +184,12 @@ h1#logo .tagline {
 
 
 **********************************************************************/
-.link-cards-wrapper {
-  max-width: 1012px;
-  margin: 0 auto;
-  padding: 0;
-  margin-bottom: 80px;
-}
 .link-cards {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
   gap: 12px;
-  width: 100%;
+  max-width: 1012px;
+  margin: 0 auto 80px;
 }
 .link-card {
   display: flex;
@@ -246,7 +237,6 @@ h1#logo .tagline {
   border-radius: 4px;
 }
 .link-card-label {
-  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 15px;
   font-weight: 500;
   color: #e6edf3;
@@ -412,7 +402,6 @@ img.center {
 }
 
 .vt-major-title {
-    font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-weight: 600;
     color: #e6edf3;
@@ -529,7 +518,6 @@ img.center {
 }
 
 .vt-event-title {
-    font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 15px;
     font-weight: 600;
     color: #c9d1d9;
