@@ -212,7 +212,7 @@ h1#logo .title {
   margin-top: 20px;
 }
 h1#logo .tagline {
-  white-space: nowrap;
+  white-space: normal;
 }
 #head {
   background: #0d1117;
