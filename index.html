@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Roman Lutz - Home </title>
+
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="author"      content="Roman Lutz">
+	
+	<link href="https://github.com/romanlutz" rel="me">
+	<link href="https://romanlutz.github.io/" rel="me">
+	<link href="https://fosstodon.org/@romanlutz" rel="me">
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+	<!-- Custom styles -->
+	<link rel="stylesheet" href="styles.css">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+</head>
+<body>
+
+<div id="head">
+	<div id="headbox">
+		<h1 id="logo">
+			<img class="profile-img" src="images/profile.jfif" alt="">
+			<span class="title">Roman Lutz</span>
+			<span class="tagline">
+				Responsible AI Engineering Lead <span class="tagline-sep">|</span> AI Red Teaming <span class="tagline-sep">|</span> Trust and Safety <span class="tagline-sep">|</span> Open Source
+			</span>
+		</h1>
+	</div>
+</div>
+
+<main id="main">
+	<div class="container">
+
+		<div class="link-cards topspace">
+			
+			<a href="https://github.com/romanlutz" class="link-card" target="_blank">
+				
+				<span class="link-card-icon" style="color:var(--text-white)"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></span>
+				
+				<span class="link-card-label">GitHub</span>
+			</a>
+			
+			<a href="https://azure.github.io/PyRIT" class="link-card" target="_blank">
+				
+				<img src="images/pyrit-icon.png" alt="PyRIT" class="link-card-img">
+				
+				<span class="link-card-label">PyRIT</span>
+			</a>
+			
+			<a href="https://fairlearn.github.io" class="link-card" target="_blank">
+				
+				<img src="images/fairlearn-favicon.ico" alt="Fairlearn" class="link-card-img vt-event-img-invert">
+				
+				<span class="link-card-label">Fairlearn</span>
+			</a>
+			
+			<a href="https://linkedin.com/in/romanlutz" class="link-card" target="_blank">
+				
+				<span class="link-card-icon" style="color:var(--text-white)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span>
+				
+				<span class="link-card-label">LinkedIn</span>
+			</a>
+			
+			<a href="https://scholar.google.com/citations?user=romanlutz" class="link-card" target="_blank">
+				
+				<img src="images/google-scholar-favicon.ico" alt="Google Scholar" class="link-card-img">
+				
+				<span class="link-card-label">Google Scholar</span>
+			</a>
+			
+			<a href="https://www.semanticscholar.org/author/Roman-Lutz/40451032" class="link-card" target="_blank">
+				
+				<img src="images/semantic-scholar-favicon.ico" alt="Semantic Scholar" class="link-card-img">
+				
+				<span class="link-card-label">Semantic Scholar</span>
+			</a>
+			
+			<a href="https://bsky.app/profile/romanlutz.bsky.social" class="link-card" target="_blank">
+				
+				<span class="link-card-icon" style="color:var(--bluesky)"><svg viewBox="0 0 568 501" fill="currentColor"><path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.21C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C507.222 323.8 536.444 388.56 473.333 453.32c-119.86 122.992-172.272-30.859-185.702-70.281-2.462-7.227-3.614-10.608-3.631-7.733-.017-2.875-1.169.506-3.631 7.733-13.43 39.422-65.842 193.273-185.702 70.281-63.111-64.76-33.889-129.52 80.986-149.071-65.72 11.185-139.6-7.295-159.875-79.748C10.945 203.659 1 75.291 1 57.946 1-28.906 76.134-1.612 123.121 33.664z"/></svg></span>
+				
+				<span class="link-card-label">Bluesky</span>
+			</a>
+			
+			<a href="https://stackoverflow.com/users/11971317/roman-lutz" class="link-card" target="_blank">
+				
+				<img src="images/stackoverflow-favicon.ico" alt="Stack Overflow" class="link-card-img">
+				
+				<span class="link-card-label">Stack Overflow</span>
+			</a>
+			
+		</div>
+	
+		<div class="topspace">
+				<div id="timeline" class="vt">
+						
+						<div class="vt-section">
+							<div class="vt-major-node">
+								<div class="vt-node-dot vt-node-dot--major"></div>
+								<div class="vt-major-card">
+									<div class="vt-major-header">
+										<img src="../images/msft.svg" alt="Microsoft logo" class="vt-major-logo">
+										<div class="vt-major-info">
+											<div class="vt-major-title">Responsible AI Engineer on the AI Red Team at Microsoft</div>
+											<div class="vt-major-meta">November 2023 - present &middot; Remote (WA)</div>
+										</div>
+									</div>
+									
+									<div class="vt-events">
+										<div class="vt-outer-mask"></div>
+										<div class="vt-branch-in"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M1.5,0 Q1.5,10 11,10 L54.5,10 Q65.5,10 65.5,20"/></svg></div>
+										<div class="vt-branch-out"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M65.5,1.5 Q65.5,10 54.5,10 L11,10 Q1.5,10 1.5,20"/></svg></div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">November 2025</div>
+												<div class="vt-event-title">PyData Seattle talk</div>
+												
+												<div class="vt-event-media">
+													<iframe src="https://www.youtube.com/embed/oehEhQ93HiM?si=Iyp9nnl_k5uRoJRm" title="PyData Seattle talk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="vt-event-youtube"></iframe>
+												</div>
+												<div class="vt-event-desc">I spoke about <em>Red Teaming AI: Getting Started with PyRIT for Safer Generative AI Systems</em> at PyData Seattle!</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">October 2025</div>
+												<div class="vt-event-title">Blind Goal-Directedness paper accepted at ICLR 2026</div>
+												
+												<div class="vt-event-media">
+													<img src="../images/blind_goal_directedness_paper.png" alt="Overview graphic of the pre-print including examples of blind goal-directedness in computer-use agents, the benchmark design, as well as evaluation and findings" class="vt-event-img">
+												</div>
+												<div class="vt-event-desc">Our paper "<a href="https://arxiv.org/abs/2510.01670">Just Do It!? Computer-Use Agents Exhibit Blind Goal-Directedness</a>" has been accepted at ICLR 2026! This was a collaboration between the AI Red Team and our friends at Microsoft Research AI Frontiers, based on Erfan Shayegani&#x27;s summer internship.</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">May 2025</div>
+												<div class="vt-event-title">Build 2025 Lab</div>
+												
+												<div class="vt-event-body-side">
+													<img src="../images/build2025labcrew.jpg" alt="The crew supporting our lab at the Microsoft Build conference 2025 called AI security testing with PyRIT" class="vt-event-img-side-md">
+													<div class="vt-event-desc">After attending //Build for the first time last year, I co-presented the same lab on "AI security testing with PyRIT" twice, once with Rich Lundeen and once with Nina Chikanov. It was fun to see people try out PyRIT, learn about this new area, and get feedback. Shoutout to Sarah Young, Sydney Lister, Joylynn Kirui, Justin Song, and JP Hernandez for supporting the sessions.</div>
+												</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">April 2025</div>
+												<div class="vt-event-title">Taxonomy of Failure Modes in Agentic AI</div>
+												
+												<div class="vt-event-desc">Our new whitepaper "<a href="https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Taxonomy-of-Failure-Mode-in-Agentic-AI-Systems-Whitepaper.pdf">Taxonomy of Failure Modes in Agentic AI Systems</a>" is out! For a high-level idea, check out <a href="https://www.microsoft.com/en-us/security/blog/2025/04/24/new-whitepaper-outlines-the-taxonomy-of-failure-modes-in-ai-agents/?msockid=025deda99e1e63193accfbd59fce6243">this Microsoft blog</a>.</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">January 2025</div>
+												<div class="vt-event-title">Lessons from Red Teaming 100 GenAI Products</div>
+												
+												<div class="vt-event-body-side">
+													<img src="../images/8_lessons_airt.webp" alt="The header image of the Microsoft blog post saying 8 lessons from the front lines of AI red teaming" class="vt-event-img-side">
+													<div class="vt-event-desc">We published a new whitepaper titled "<a href="https://aka.ms/AIRTLessonsPaper">Lessons Learned from Red Teaming 100 Generative AI Products</a>" as described in <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2025/01/14/enhancing-ai-safety-insights-and-lessons-from-red-teaming/?msockid=3b9f50fd6689604c2c934393670361be">this Microsoft blog</a>.</div>
+												</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">July 2024</div>
+												<div class="vt-event-title">Phi-3 Safety Post-Training</div>
+												
+												<div class="vt-event-desc">PyRIT was a key part of Phi-3 Safety Post-Training which is highlighted in the associated paper <a href="https://arxiv.org/abs/2407.13833">Phi-3 Safety Post-Training: Aligning Language Models with a "Break-Fix" Cycle</a></div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">May 2024</div>
+												<div class="vt-event-title">Microsoft //Build 2024</div>
+												
+												<div class="vt-event-desc">One of the highlights from my perspective was going to the Microsoft //Build conference in May to talk to customers about PyRIT. After just about eight (!) years at Microsoft this was my first //Build conference. My colleagues Tori Westerhoff and Pete Bryan did an amazing job talking about the work of the AI Red Team in <a href="https://build.microsoft.com/en-US/sessions/0106b5b1-d727-4240-bb2e-dea325cb8519?source=sessions">their session</a>.</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">February 2024</div>
+												<div class="vt-event-title">PyRIT release</div>
+												
+												<div class="vt-event-body-side">
+													<img src="../images/pyrit-icon-256.png" alt="The PyRIT project mascot, a raccoon named Roakey, in pirate clothes with a parrot on her shoulder." class="vt-event-img-side">
+													<div class="vt-event-desc"><a href="https://www.microsoft.com/en-us/security/blog/2024/02/22/announcing-microsofts-open-automation-framework-to-red-team-generative-ai-systems/?msockid=221eb3d972cd620f327ea74e7345632e">We released PyRIT</a>! Since then, we have been expanding its capabilities to allow for probing multimodal generative AI systems (rather than just text-based ones). Another focus area has been state-of-the-art attack techniques. This space moves pretty fast, but we have added (or are in the process of adding) <a href="https://arxiv.org/abs/2310.08419">PAIR</a>, <a href="https://arxiv.org/abs/2312.02119">Tree of attacks with pruning</a>, <a href="https://arxiv.org/abs/2307.15043">GCG</a>, <a href="https://arxiv.org/abs/2404.01833">Crescendo</a>, <a href="https://www.microsoft.com/en-us/security/blog/2024/06/26/mitigating-skeleton-key-a-new-type-of-generative-ai-jailbreak-technique/?msockid=221eb3d972cd620f327ea74e7345632e">Skeleton Key</a>, and several others. Some of these are our own contributions, some of them happened via collaborations or contributions facilitated via the open source repository.</div>
+												</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">November 2023</div>
+												<div class="vt-event-title">Joined the AI Red Team</div>
+												
+												<div class="vt-event-desc">I have joined the <a href="https://learn.microsoft.com/en-us/security/ai-red-team/">AI Red Team</a>. See these articles for some background <a href="https://www.microsoft.com/en-us/security/blog/2023/08/07/microsoft-ai-red-team-building-future-of-safer-ai/">[1]</a>, <a href="https://www.wired.com/story/microsoft-ai-red-team/">[2]</a>, and <a href="https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/red-teaming">[3]</a>.</div>
+												
+											</div>
+										</div>
+										
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						
+						<div class="vt-section">
+							<div class="vt-major-node">
+								<div class="vt-node-dot vt-node-dot--major"></div>
+								<div class="vt-major-card">
+									<div class="vt-major-header">
+										<img src="../images/msft.svg" alt="Microsoft logo" class="vt-major-logo">
+										<div class="vt-major-info">
+											<div class="vt-major-title">Responsible AI Engineer on the Azure AI team at Microsoft</div>
+											<div class="vt-major-meta">December 2021 - November 2023 &middot; Remote (MA)</div>
+										</div>
+									</div>
+									
+									<div class="vt-events">
+										<div class="vt-outer-mask"></div>
+										<div class="vt-branch-in"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M1.5,0 Q1.5,10 11,10 L54.5,10 Q65.5,10 65.5,20"/></svg></div>
+										<div class="vt-branch-out"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M65.5,1.5 Q65.5,10 54.5,10 L11,10 Q1.5,10 1.5,20"/></svg></div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">October 2023</div>
+												<div class="vt-event-title">LLM Evaluation Framework paper</div>
+												
+												<div class="vt-event-media">
+													<img src="../images/lasertag-pipeline.png" alt="A screenshot from the JMLR website showing the new Fairlearn paper title with authors." class="vt-event-img">
+												</div>
+												<div class="vt-event-desc">Our new paper is on ArXiv! Titled <a href="https://jmlr.org/papers/v24/23-0389.html">A Framework for Automated Measurement of Responsible AI Harms in Generative AI Applications</a>, it talks about some of the ways we have been evaluating LLMs. This was a joint effort of many teams at Microsoft and Microsoft Research. I am particularly happy with the emphasis on input from domain experts. This is merely a tool to help speed up evaluations, but the actual decisions about mitigations and whether a system is deployed remains (and should remain) with humans.</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">August 2023</div>
+												<div class="vt-event-title">Fairlearn JMLR paper</div>
+												
+												<div class="vt-event-media">
+													<img src="../images/JMLR.png" alt="A screenshot from the JMLR website showing the new Fairlearn paper title with authors." class="vt-event-img">
+												</div>
+												<div class="vt-event-desc">The new <a href="https://jmlr.org/papers/v24/23-0389.html">Fairlearn paper</a> is now in the Journal for Machine Learning Research (Open Source Software section)! It captures our change from being a project under Microsoft governance to being a true open source project with open governance. As of today, half the maintainers are employed by Microsoft (including myself). Also, the focus of the project has shifted significantly since the original whitepaper. Back then, the Python toolkit was the main focus whereas now the educational materials are being prioritized. This aims to acknowledge the sociotechnical nature of fairness.</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">December 2021</div>
+												<div class="vt-event-title">Responsible AI Dashboard release</div>
+												
+												<div class="vt-event-media">
+													<img src="../images/rai-dashboard-release.png" alt="RAI dashboard view of error analysis tool" class="vt-event-img">
+												</div>
+												<div class="vt-event-desc">We released the <a href="https://blogs.microsoft.com/ai-for-business/building-ai-responsibly-from-research-to-practice/">Responsible AI dashboard</a>. As one of the key contributors on the engineering side I am really proud of this milestone. Of course, this is only where it really starts as we can now iterate on the first version. Make sure to <a href="https://responsibleaitoolbox.ai">try it</a> and leave some feedback! The functionality is better captured by the blog and website, but something not mentioned there that I am really excited about is that we pulled this off in the open <a href="https://github.com/microsoft/responsible-ai-toolbox">on GitHub</a>. That means anyone can see what goes into this, ask for features, or even contribute bugfixes. Doing impactful work is awesome, but seeing the recognition in the entire company takes this to a whole different level. For example, I have seen tweets about this by <a href="https://twitter.com/kevin_scott/status/1468279751785828353">Microsoft CTO Kevin Scott</a> and <a href="https://twitter.com/erichorvitz/status/1468286435052572678?s=20">Chief Scientific Officer Eric Horvitz</a>.</div>
+												
+											</div>
+										</div>
+										
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						
+						<div class="vt-section vt-section--no-events">
+							<div class="vt-major-node">
+								<div class="vt-node-dot vt-node-dot--major"></div>
+								<div class="vt-major-card">
+									<div class="vt-major-header">
+										<img src="../images/mpg.svg" alt="Max Planck logo" class="vt-major-logo vt-major-logo--lg">
+										<div class="vt-major-info">
+											<div class="vt-major-title">Graduate student at the Max Planck Institute for Intelligent Systems</div>
+											<div class="vt-major-meta">September 2021 - November 2021 &middot; Tübingen, Germany</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						
+						<div class="vt-section">
+							<div class="vt-major-node">
+								<div class="vt-node-dot vt-node-dot--major"></div>
+								<div class="vt-major-card">
+									<div class="vt-major-header">
+										<img src="../images/msft.svg" alt="Microsoft logo" class="vt-major-logo">
+										<div class="vt-major-info">
+											<div class="vt-major-title">Responsible AI Engineer on the Azure ML team at Microsoft</div>
+											<div class="vt-major-meta">July 2017 - August 2021 &middot; Cambridge, MA (until 2020), Bellevue, WA (2020-2021)</div>
+										</div>
+									</div>
+									
+									<div class="vt-events">
+										<div class="vt-outer-mask"></div>
+										<div class="vt-branch-in"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M1.5,0 Q1.5,10 11,10 L54.5,10 Q65.5,10 65.5,20"/></svg></div>
+										<div class="vt-branch-out"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M65.5,1.5 Q65.5,10 54.5,10 L11,10 Q1.5,10 1.5,20"/></svg></div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">November 2019</div>
+												<div class="vt-event-title">Fairlearn announced at Ignite</div>
+												
+												<div class="vt-event-media">
+													<img src="../images/fairlearn-repo.PNG" alt="fairlearn repository" class="vt-event-img">
+												</div>
+												<div class="vt-event-desc">For a little while now I have been working on <a href="https://www.microsoft.com/en-us/AI/our-approach-to-ai">Responsible AI at Microsoft</a>. Now that <a href="https://myignite.techcommunity.microsoft.com/sessions/81147">Sarah Bird announced our tools at Ignite</a> I can finally point to our tools publicly. A lot of my time over the past months went into <a href="https://github.com/fairlearn/fairlearn">Fairlearn</a>, our open source toolkit for fairness assessment and unfairness mitigation. We just released v0.3.0, so there is a lot more to come in the next months. I will be in Vancouver for NeurIPS in December to demo our tools around fairness and interpretability. Talk to me if you will be there!</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">November 2019</div>
+												<div class="vt-event-title">Responsible AI reading group</div>
+												
+												<div class="vt-event-body-side">
+													<img src="../images/abstraction-fairml.PNG" alt="Abstraction in Fairness-aware Machine Learning" class="vt-event-img-side-md">
+													<div class="vt-event-desc">Since fairness is tricky to get right we have been meeting bi-weekly as a Responsible AI reading group. Today I had the honor to lead the discussion about <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3265913">"Fairness and Abstraction in Sociotechnical Systems"</a> by Andrew D. Selbst, danah boyd, Sorelle A. Friedler, Suresh Venkatasubramanian, and Janet Vertesi. I highly encourage everyone to read this paper to avoid the mentioned abstraction traps when building machine learning systems. Maybe this should be part of a mandatory checklist before releasing models... If you are interested in my slides you may download them <a href="https://github.com/romanlutz/romanlutz.github.io/blob/gh-pages/other/FairnessAndAbstractionInSociotechnicalSystems.pdf">here</a>.</div>
+												</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">March 2018</div>
+												<div class="vt-event-title">MIT Breaking the Mold Hackathon</div>
+												
+												<div class="vt-event-desc">Participating at <a href="http://www.mitbreakingthemold.com/challenges/">MIT`s Breaking the Mold Hackathon for Inclusion</a> was truly a blessing. With so many truly difficult problems to tackle, it is fantastic to see all the ideas people came up with. Big shoutout to MIT for organizing this, Microsoft for the venue (and encouraging me to go!), and Amazon for sending two inspiring mentors for my team all the way from Seattle! Thanks also to my team for creating a creative environment where everybody could express their ideas. I learned a ton from all of you, and winning 3rd prize tops it all off. I hope everybody takes some time to think about Machine Learning Bias. With ML becoming increasingly prevalent, it is more important than ever to take bias into account.</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">July 2017</div>
+												<div class="vt-event-title">Joined Azure Machine Learning team</div>
+												
+												<div class="vt-event-desc">After a year on the Office team, I moved to the Azure Machine Learning team. We are building the infrastructure and services from scratch using lots of open source (e.g., Kubernetes, Linux, .NET core).</div>
+												
+											</div>
+										</div>
+										
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						
+						<div class="vt-section">
+							<div class="vt-major-node">
+								<div class="vt-node-dot vt-node-dot--major"></div>
+								<div class="vt-major-card">
+									<div class="vt-major-header">
+										<img src="../images/msft.svg" alt="Microsoft logo" class="vt-major-logo">
+										<div class="vt-major-info">
+											<div class="vt-major-title">Software Engineer at Microsoft Office (Docs)</div>
+											<div class="vt-major-meta">June 2016 - June 2017 &middot; Cambridge, MA</div>
+										</div>
+									</div>
+									
+									<div class="vt-events">
+										<div class="vt-outer-mask"></div>
+										<div class="vt-branch-in"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M1.5,0 Q1.5,10 11,10 L54.5,10 Q65.5,10 65.5,20"/></svg></div>
+										<div class="vt-branch-out"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M65.5,1.5 Q65.5,10 54.5,10 L11,10 Q1.5,10 1.5,20"/></svg></div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">May 2017</div>
+												<div class="vt-event-title">Hacking Bias in ML workshop</div>
+												
+												<div class="vt-event-desc">I participated in the <a href="https://www.eventbrite.com/e/new-england-machine-learning-hackathon-hacking-bias-in-ml-tickets-32951771636?aff=NEML">Hacking Bias in ML</a> workshop at Microsoft`s New England Research and Development Center (which happens to be my office, too). My group specifically looked at gender bias in text through word embeddings. We found lots of evidence of gender bias, e.g., some words are generally more used in connection with men ("smart"), some more with women ("lovely"). You can play around with the tool resulting from the workshop <a href="https://mdml.github.io/hacking-bias-in-word-choice/#">here</a>.</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">June 2016</div>
+												<div class="vt-event-title">Joined Microsoft Office Docs</div>
+												
+												<div class="vt-event-desc">I have joined the Docs team within Microsoft Office. We enhance collaboration capabilities through the Share feature in all Office apps.</div>
+												
+											</div>
+										</div>
+										
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						
+						<div class="vt-section">
+							<div class="vt-major-node">
+								<div class="vt-node-dot vt-node-dot--major"></div>
+								<div class="vt-major-card">
+									<div class="vt-major-header">
+										<img src="../images/umass-amherst.png" alt="UMass Amherst logo" class="vt-major-logo vt-event-img-invert">
+										<div class="vt-major-info">
+											<div class="vt-major-title">MS in Computer Science, Focus on Distributed Systems and ML</div>
+											<div class="vt-major-meta">Fall 2015 - Spring 2016 &middot; Amherst, MA</div>
+										</div>
+									</div>
+									
+									<div class="vt-events">
+										<div class="vt-outer-mask"></div>
+										<div class="vt-branch-in"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M1.5,0 Q1.5,10 11,10 L54.5,10 Q65.5,10 65.5,20"/></svg></div>
+										<div class="vt-branch-out"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M65.5,1.5 Q65.5,10 54.5,10 L11,10 Q1.5,10 1.5,20"/></svg></div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">Fall 2015 - Spring 2016</div>
+												<div class="vt-event-title">Cache Networks research</div>
+												
+												<div class="vt-event-body-side">
+													<img src="../images/cache-networks-simulation-results.png" alt="Cache Networks Simulation Results" class="vt-event-img-side">
+													<div class="vt-event-desc">I had the pleasure of working as a Research Assistant in the <a href="http://www-net.cs.umass.edu/networks/people.html">Computer Networking Lab</a> with Professor <a href="https://www.cs.umass.edu/faculty/directory/towsley_donald">Don Towsley</a> and Professor <a href="http://www2.ic.uff.br/~arocha/">Antonio Rocha</a> on the Simulation of Cache Networks. The results still remain to be published, so I will write about it if that happens. Separately, I conducted experiments with cache networks for a graduate seminar on distributed systems. You can download my project report <a href="https://github.com/romanlutz/romanlutz.github.io/blob/gh-pages/other/CacheNetworkSimulation.pdf">here</a>.</div>
+												</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">January 2016</div>
+												<div class="vt-event-title">Content-Centric Networking paper</div>
+												
+												<div class="vt-event-body-side">
+													<img src="../images/ccn.png" alt="Content Centric Networking" class="vt-event-img-side">
+													<div class="vt-event-desc">There are several NSF-funded Future Internet Architecture research projects in the US. Their focus is mostly on improving the scalability and efficiency. I am interested in how the different approaches affect (or do not affect) the privacy of users in comparison to the current Internet. My main focus was the feasibility of censorship circumvention. As an example, I picked Content-oriented Networking. See the full paper at <a href="https://arxiv.org/abs/1601.01278">arxiv.org/abs/1601.01278</a>.</div>
+												</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">January 2016</div>
+												<div class="vt-event-title">NFL play prediction paper</div>
+												
+												<div class="vt-event-body-side">
+													<img src="../images/pete-carroll.jpg" alt="Pete Carroll - coach" class="vt-event-img-side">
+													<div class="vt-event-desc">Based on NFL game data we try to predict the outcome of a play in multiple different ways including Decision and Classification Trees, Nearest Neighbors, Naive Bayes, Linear Discriminant Analysis, Support Vector Machines and Regression, and Artificial Neural Networks. An application of this is the following: by plugging in various play options one could determine the best play for a given situation in real time. While the outcome of a play can be described in many ways we had the most promising results with a newly defined measure that we call "progress". We see this work as a first step to include predictive analysis into NFL playcalling. See the full paper at <a href="https://arxiv.org/abs/1601.00574">arxiv.org/abs/1601.00574</a>; in collaboration with Brendan Teich and Valentin Kassarnig.</div>
+												</div>
+												
+											</div>
+										</div>
+										
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						
+						<div class="vt-section vt-section--no-events">
+							<div class="vt-major-node">
+								<div class="vt-node-dot vt-node-dot--major"></div>
+								<div class="vt-major-card">
+									<div class="vt-major-header">
+										<img src="../images/cisco.png" alt="Cisco Systems logo" class="vt-major-logo">
+										<div class="vt-major-info">
+											<div class="vt-major-title">Systems Engineering Intern</div>
+											<div class="vt-major-meta">June 2015 - August 2015 &middot; Eschborn, Germany</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						
+						<div class="vt-section">
+							<div class="vt-major-node">
+								<div class="vt-node-dot vt-node-dot--major"></div>
+								<div class="vt-major-card">
+									<div class="vt-major-header">
+										<img src="../images/umass-amherst.png" alt="UMass Amherst logo" class="vt-major-logo vt-event-img-invert">
+										<div class="vt-major-info">
+											<div class="vt-major-title">Graduate Exchange Student</div>
+											<div class="vt-major-meta">Fall 2014 - Spring 2015 &middot; Amherst, MA</div>
+										</div>
+									</div>
+									
+									<div class="vt-events">
+										<div class="vt-outer-mask"></div>
+										<div class="vt-branch-in"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M1.5,0 Q1.5,10 11,10 L54.5,10 Q65.5,10 65.5,20"/></svg></div>
+										<div class="vt-branch-out"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M65.5,1.5 Q65.5,10 54.5,10 L11,10 Q1.5,10 1.5,20"/></svg></div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">Fall 2014 - Spring 2015</div>
+												<div class="vt-event-title">Baden-Württemberg Exchange</div>
+												
+												<div class="vt-event-desc">I took part in Baden-Württemberg Exchange between University of Ulm and University of Massachusetts Amherst.</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">May 2015</div>
+												<div class="vt-event-title">Fantasy Football prediction paper</div>
+												
+												<div class="vt-event-body-side">
+													<img src="../images/thomas-rawls.jpg" alt="Thomas Rawls - player" class="vt-event-img-side">
+													<div class="vt-event-desc">New paper! The ubiquity of professional sports and specifically the NFL have lead to an increase in popularity for Fantasy Football. Users have many tools at their disposal: statistics, predictions, rankings of experts and even recommendations of peers. There are issues with all of these, though. Especially since many people pay money to play, the prediction tools should be enhanced as they provide unbiased and easy-to-use assistance for users. This paper provides and discusses approaches to predict Fantasy Football scores of Quarterbacks with relatively limited data. See the full paper at <a href="https://arxiv.org/abs/1505.06918">arxiv.org/abs/1505.06918</a>.</div>
+												</div>
+												
+											</div>
+										</div>
+										
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						
+						<div class="vt-section">
+							<div class="vt-major-node">
+								<div class="vt-node-dot vt-node-dot--major"></div>
+								<div class="vt-major-card">
+									<div class="vt-major-header">
+										<img src="../images/uni-ulm.svg" alt="Uni Ulm logo" class="vt-major-logo vt-event-img-invert">
+										<div class="vt-major-info">
+											<div class="vt-major-title">University of Ulm</div>
+											<div class="vt-major-meta">Fall 2011 - Summer 2014 &middot; Ulm, Germany</div>
+										</div>
+									</div>
+									
+									<div class="vt-events">
+										<div class="vt-outer-mask"></div>
+										<div class="vt-branch-in"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M1.5,0 Q1.5,10 11,10 L54.5,10 Q65.5,10 65.5,20"/></svg></div>
+										
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">Fall 2011 - Summer 2014</div>
+												<div class="vt-event-title">BSc in Computer Science</div>
+												
+												<div class="vt-event-desc">After a year of studying in the Mathematics Bachelor`s program with a minor in Computer Science I decided to swap major and minor. I still graduated with a BSc in Computer Science with honors. The courses covered basics in Systems, AI, and Theory.</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">2014</div>
+												<div class="vt-event-title">Bachelor`s thesis: Adaptive Large Neighborhood Search</div>
+												
+												<div class="vt-event-media">
+													<img src="../images/alns.png" alt="Adaptive Large Neighborhood Search - Destroy and Repair" class="vt-event-img">
+												</div>
+												<div class="vt-event-desc">The goal of my Bachelor`s thesis was to implement the Adaptive Large Neighborhood Search (ALNS) heuristic and possibly come up with improvements. ALNS was described first by S. Ropke and D. Pisinger and is based on P. Shaw`s Large Neighborhood Search. The idea is that some problems are difficult to solve with basic local search algorithms because of a tightly constrained search space. Small changes to a solution will rarely bring improvements. As a consequence, LNS and ALNS change larger parts based on different heuristics. For this thesis, I received the innoWake Award 2015. <a href="http://www.innowake.com">innoWake</a> was a software modernization company based in Austin, TX and had a number of branch offices including one in Germany. They have since been acquired by Deloitte.</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">2013</div>
+												<div class="vt-event-title">Teaching Assistant for Algorithms and Data Structures</div>
+												
+												<div class="vt-event-body-side">
+													<img src="../images/graph.svg" alt="Graph from http://commons.wikimedia.org/wiki/File:Dinic_algorithm_Gf2.svg, public domain" class="vt-event-img-side vt-event-img-invert">
+													<div class="vt-event-desc">As a teaching assistant for Prof. Jacobo Toran, Gunnar Völkel and Dominikus Krüger, I explained the solutions to weekly assignments to a group of 20 students whose work I also graded. In addition to that, I often gave a review of the material presented in class. It made me very happy to see the attendance rate constantly high throughout the semester and especially the positive feedback at the end of the course.</div>
+												</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">2013</div>
+												<div class="vt-event-title">Nature-Inspired Metaheuristics: Artificial Bee Colony</div>
+												
+												<div class="vt-event-body-side">
+													<img src="../images/bees.jpg" alt="Bees from https://pixabay.com/en/queen-cup-honeycomb-honey-bee-337695/, CC0 Public Domain" class="vt-event-img-side">
+													<div class="vt-event-desc">As part of a seminar at Uni Ulm, I implemented and evaluated the Artificial Bee Colony (ABC) meta-heuristic by D. Karaboga. ABC is a nature-inspired metaheuristic that projects the foraging behavior of bees on an algorithm in order to solve optimization problems. The idea behind such approaches is that many kinds of behavior of animals, bacteria etc. in nature have adapted to their specific environment due to evolution — in a way, an optimization process has taken place.</div>
+												</div>
+												
+											</div>
+										</div>
+										
+										<div class="vt-event">
+											<div class="vt-node-dot vt-node-dot--minor"></div>
+											<div class="vt-event-card">
+												<div class="vt-event-date">2012</div>
+												<div class="vt-event-title">Concurrent Programming in Java seminar</div>
+												
+												<div class="vt-event-body-side">
+													<img src="../images/traffic.jpg" alt="Traffic from https://pixabay.com/en/traffic-highway-lights-night-road-332857/, CC0 Public Domain" class="vt-event-img-side">
+													<div class="vt-event-desc">Under the guidance of Christian Spann, I read up on different ways to implement concurrent programs in Java, from Threads, Runnables and Executors to thread-safe versions of data structures. Finally, I presented the different approaches and techniques in a seminar talk.</div>
+												</div>
+												
+											</div>
+										</div>
+										
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						
+					</div>
+		</div>
+	
+	<div class="section-content topspace">
+
+			
+			<article id="us-map">
+					<h1 class="entry-title">Map of the US states I have visited</h1>
+				<div class="entry-content">
+					
+					<p>green = visited, light green = transit only, dark gray = not visited</p>
+					
+					
+					<script src="https://cdn.jsdelivr.net/npm/datamaps@0.5.9/dist/datamaps.usa.min.js"></script>
+					<div id="usa_map" style="position: relative; width: 100%; height: 300px;"></div>
+					<script>
+						var usa_map = new Datamap({
+							scope: 'usa',
+							element: document.getElementById('usa_map'),
+							geographyConfig: {
+								highlightOnHover: false,
+								popupOnHover: true,
+								popupTemplate: function(geography, data) {
+									return '<div class="hoverinfo">' + geography.properties.name + '</div>';
+								}
+							},
+							fills: {
+								defaultFill: "#21262d",
+								authorHasTraveledTo: "#2da44e",
+								authorHasTraveledThrough: "#7ee787"
+							},
+							data: {
+								
+								"AK": {"fillKey": "authorHasTraveledTo"},
+								
+								"AZ": {"fillKey": "authorHasTraveledThrough"},
+								
+								"CA": {"fillKey": "authorHasTraveledTo"},
+								
+								"CO": {"fillKey": "authorHasTraveledTo"},
+								
+								"CT": {"fillKey": "authorHasTraveledTo"},
+								
+								"DC": {"fillKey": "authorHasTraveledTo"},
+								
+								"DE": {"fillKey": "authorHasTraveledTo"},
+								
+								"FL": {"fillKey": "authorHasTraveledTo"},
+								
+								"ID": {"fillKey": "authorHasTraveledTo"},
+								
+								"IL": {"fillKey": "authorHasTraveledThrough"},
+								
+								"MA": {"fillKey": "authorHasTraveledTo"},
+								
+								"MD": {"fillKey": "authorHasTraveledTo"},
+								
+								"ME": {"fillKey": "authorHasTraveledTo"},
+								
+								"MN": {"fillKey": "authorHasTraveledThrough"},
+								
+								"MT": {"fillKey": "authorHasTraveledTo"},
+								
+								"NH": {"fillKey": "authorHasTraveledTo"},
+								
+								"NJ": {"fillKey": "authorHasTraveledTo"},
+								
+								"NY": {"fillKey": "authorHasTraveledTo"},
+								
+								"OR": {"fillKey": "authorHasTraveledTo"},
+								
+								"PA": {"fillKey": "authorHasTraveledTo"},
+								
+								"RI": {"fillKey": "authorHasTraveledTo"},
+								
+								"SD": {"fillKey": "authorHasTraveledTo"},
+								
+								"UT": {"fillKey": "authorHasTraveledTo"},
+								
+								"VT": {"fillKey": "authorHasTraveledTo"},
+								
+								"WA": {"fillKey": "authorHasTraveledTo"},
+								
+								"WY": {"fillKey": "authorHasTraveledTo"},
+								
+							}
+						});
+						
+						usa_map.labels({labelColor: function(datum) { return (datum && datum.fillKey) ? '#0d1117' : '#8b949e'; }});
+						
+					</script>
+					
+				</div>
+			</article>
+
+			<hr class="gradient"><br>
+			
+			<article id="world-map">
+					<h1 class="entry-title">Map of the countries I have visited</h1>
+				<div class="entry-content">
+					
+					
+					<script src="https://cdn.jsdelivr.net/npm/datamaps@0.5.9/dist/datamaps.world.min.js"></script>
+					<div id="world_map" style="position: relative; width: 100%; height: 300px;"></div>
+					<script>
+						var world_map = new Datamap({
+							scope: 'world',
+							element: document.getElementById('world_map'),
+							geographyConfig: {
+								highlightOnHover: false,
+								popupOnHover: true,
+								popupTemplate: function(geography, data) {
+									return '<div class="hoverinfo">' + geography.properties.name + '</div>';
+								}
+							},
+							fills: {
+								defaultFill: "#21262d",
+								authorHasTraveledTo: "#2da44e",
+								authorHasTraveledThrough: "#7ee787"
+							},
+							data: {
+								
+								"ARE": {"fillKey": "authorHasTraveledThrough"},
+								
+								"AUT": {"fillKey": "authorHasTraveledTo"},
+								
+								"BEL": {"fillKey": "authorHasTraveledThrough"},
+								
+								"BHS": {"fillKey": "authorHasTraveledTo"},
+								
+								"CAN": {"fillKey": "authorHasTraveledTo"},
+								
+								"CHE": {"fillKey": "authorHasTraveledTo"},
+								
+								"DEU": {"fillKey": "authorHasTraveledTo"},
+								
+								"ESP": {"fillKey": "authorHasTraveledTo"},
+								
+								"GBR": {"fillKey": "authorHasTraveledTo"},
+								
+								"FIN": {"fillKey": "authorHasTraveledTo"},
+								
+								"FRA": {"fillKey": "authorHasTraveledTo"},
+								
+								"HUN": {"fillKey": "authorHasTraveledTo"},
+								
+								"ISL": {"fillKey": "authorHasTraveledThrough"},
+								
+								"IND": {"fillKey": "authorHasTraveledTo"},
+								
+								"ITA": {"fillKey": "authorHasTraveledTo"},
+								
+								"MEX": {"fillKey": "authorHasTraveledTo"},
+								
+								"MLT": {"fillKey": "authorHasTraveledTo"},
+								
+								"NLD": {"fillKey": "authorHasTraveledTo"},
+								
+								"POL": {"fillKey": "authorHasTraveledTo"},
+								
+								"SMR": {"fillKey": "authorHasTraveledTo"},
+								
+								"USA": {"fillKey": "authorHasTraveledTo"},
+								
+								"VAT": {"fillKey": "authorHasTraveledTo"},
+								
+							}
+						});
+						
+					</script>
+					
+				</div>
+			</article>
+
+			
+			
+
+		</div>
+	
+		<div class="section-content topspace" id="miscellaneous">
+			<article id="misc-section">
+				<h1 class="entry-title">Miscellaneous</h1>
+				<div class="git-img-wrapper">
+					<img src="../images/git.jpg" alt="The 5 stages of git, from Navin Narra's tweet." width="80%" class="center vt-event-img-invert git-img-blend">
+				</div>
+				<p class="text-center">from Navin Narra's <a href="https://twitter.com/navinnarra/status/842112112176513024">tweet</a></p>
+			</article>
+		</div>
+
+	</div>	<!-- /container -->
+</main>
+
+<footer id="underfooter">
+	<div class="container">
+		<p class="text-center">Copyright &copy; 2026, Roman Lutz</p>
+	</div>
+</footer>
+
+</body>
+</html>
