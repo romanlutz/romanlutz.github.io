@@ -793,33 +793,6 @@ img.center {
 
 
 **********************************************************************/
-#footer {
-  background: #0d1117;
-  padding: 24px 0;
-  font-size: 14px;
-  color: #8b949e;
-  border-top: 1px solid #21262d;
-}
-#footer a {
-  color: #58a6ff;
-}
-#footer a svg {
-  fill: #8b949e;
-}
-#footer a:hover {
-  color: #79c0ff;
-}
-#footer a:hover svg {
-  fill: #79c0ff;
-}
-#footer h3.widget-title {
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #e6edf3;
-  margin: 0 0 12px;
-  letter-spacing: 0.5px;
-}
 #underfooter {
   background: #010409;
   padding: 16px 0;
@@ -835,14 +808,6 @@ img.center {
 }
 #underfooter p {
   margin: 0;
-}
-.follow-me-icons {
-  font-size: 24px;
-}
-.follow-me-icons i {
-  float: left;
-  margin: 0 12px 0 0;
-  transition: color 0.15s ease;
 }
 /* Max page width
 /////////////////////////////////////////////////////////////////////*/

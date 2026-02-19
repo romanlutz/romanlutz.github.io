@@ -3,8 +3,6 @@
 <head>
 	<title>{{ config.extra.name }} - {{ page.title }} </title>
 
-	<!-- include other html files -->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js" ></script>
 	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -30,7 +28,7 @@
 <body class="home">
 
 <header id="header">
-	<div id="head" class="parallax" parallax-speed="5">
+	<div id="head">
 		<div id="headbox">
 			<h1 id="logo" class="text-center">
 				<img class="img-circle" src="{{ "images/profile.jfif"|url }}" alt="">
@@ -111,8 +109,7 @@
 	
 		<div class="row topspace">
 	
-			<!-- Article main content -->
-			<article class="col-sm-15 maincontent">  
+			<article>
 	
 				<div class="container">
 					<div id="timeline" class="vt">
@@ -174,10 +171,9 @@
 					</div>
 				</div>
 			</article>
-			<!-- /Article -->	
-		</div>
+	</div>
 	
-		<div class="row topspace">
+	<div class="row topspace">
 			<div class="col-sm-8 col-sm-offset-2">
 	
 				{% for map_entry in page.meta.maps %}
@@ -358,42 +354,30 @@
     <div class="container" id="miscellaneous">
 		<div class="row topspace">
 			<div class="col-sm-8 col-sm-offset-2">
-				<article class="post" id="us-map">
-					<header class="entry-header">
-						<h1 class="entry-title">Miscellaneous</h1>
-					</header>
-                </article>
-            </div>
-		
-			<!-- Article main content -->
-			<article class="col-sm-15 maincontent">  
-	
+				<article class="post" id="misc-section">
+				<header class="entry-header">
+					<h1 class="entry-title">Miscellaneous</h1>
+				</header>
 				<div class="container git-img-wrapper">
 					<img src="../images/git.jpg" alt="The 5 stages of git, from Navin Narra's tweet." width="80%" class="center vt-event-img-invert git-img-blend">
 				</div>
                 <div align="center">
                     <p>from Navin Narra's <a href="https://twitter.com/navinnarra/status/842112112176513024">tweet</a></p>
-                <p>
+                </div>
 			</article>
 			<!-- /Article -->	
 		</div>
     </div>
 </main>
 
-<div id="footer"></div>
-
 <footer id="underfooter">
 	<div class="container">
 		<div class="row">
-
-			<div class="col-md-6 widget">
-				<div class="widget-body">
-					<p class="text-right">
-						Copyright &copy; 2026, Roman Lutz</p>
-				</div>
+			<div class="col-md-6">
+				<p class="text-right">
+					Copyright &copy; 2026, Roman Lutz</p>
 			</div>
-
-		</div> <!-- /row of widgets -->
+		</div>
 	</div>
 </footer>
 
@@ -403,6 +387,6 @@
 <!-- Icon font -->
 <script src="https://kit.fontawesome.com/a85684746e.js" crossorigin="anonymous"></script>
 
-<script src="{{ "js/template.js"|url }}"></script>
+<script>document.querySelector('.navbar-sticky').classList.add('stick');</script>
 </body>
 </html>

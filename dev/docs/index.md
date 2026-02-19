@@ -186,7 +186,7 @@ resume:
       image: bees.jpg
       imageLayout: side
       imageAlt: Bees from https://pixabay.com/en/queen-cup-honeycomb-honey-bee-337695/, CC0 Public Domain
-      description: We can observe many kinds of behavior of animals, bacteria etc. in nature where an adaption to the specific environment has taken place due to evolution. In a way, an optimization process has taken place. This idea is the basis for so-called nature-inspired metaheuristics. The Artificial Bee Colony (ABC) meta-heuristic by D. Karaboga is such a nature-inspired metaheuristic. It projects the foraging behavior of bees on an algorithm in order to solve optimization problems.
+      description: As part of a seminar at Uni Ulm, I implemented and evaluated the Artificial Bee Colony (ABC) meta-heuristic by D. Karaboga. ABC is a nature-inspired metaheuristic that projects the foraging behavior of bees on an algorithm in order to solve optimization problems. The idea behind such approaches is that many kinds of behavior of animals, bacteria etc. in nature have adapted to their specific environment due to evolution — in a way, an optimization process has taken place.
     - date: '2012'
       title: Concurrent Programming in Java seminar
       image: traffic.jpg
