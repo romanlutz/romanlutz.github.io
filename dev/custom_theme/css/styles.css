@@ -303,14 +303,6 @@ img.center {
   border-bottom: 1px solid #21262d;
   padding-bottom: .3em;
 }
-.entry-header .entry-meta {
-  text-align: center;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: normal;
-  color: #8b949e;
-  margin: 0 0 12px 0;
-}
 .entry-content {
   margin: 0 0 40px 0;
 }

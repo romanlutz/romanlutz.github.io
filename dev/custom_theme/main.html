@@ -179,9 +179,6 @@
 				{% for map_entry in page.meta.maps %}
 				<article class="post" id="{{ map_entry.id }}">
 					<header class="entry-header">
-						<div class="entry-meta" id="{{ map_entry.id }}">
-							<span class="posted-on"><time class="entry-date published" date="{{ map_entry.date }}">{{ map_entry.dateText }}</time></span>
-						</div>
 						<h1 class="entry-title">{{ map_entry.title }}</h1>
 					</header>
 					<div class="entry-content">
@@ -190,7 +187,7 @@
 						{% endfor %}
 						{% if map_entry.mapConfiguration %}
 						<script src="https://cdn.jsdelivr.net/npm/datamaps@0.5.9/dist/datamaps.{{ map_entry.mapConfiguration.scope }}.min.js"></script>
-						<div id="{{ map_entry.mapConfiguration.scope }}_map" style="position: relative; width: 700px; height: 500px;"></div>
+						<div id="{{ map_entry.mapConfiguration.scope }}_map" style="position: relative; width: 100%; height: 300px;"></div>
 						<script>
 							var {{ map_entry.mapConfiguration.scope }}_map = new Datamap({
 								scope: '{{ map_entry.mapConfiguration.scope }}',
@@ -207,7 +204,6 @@
 									authorHasTraveledTo: "#2da44e",
 									authorHasTraveledThrough: "#7ee787"
 								},
-	
 								data: {
 									{% for place in map_entry.mapConfiguration.places %}
 									"{{ place.name }}": {"fillKey": {% if place.visited %}"authorHasTraveledTo"{% else %}"authorHasTraveledThrough"{% endif %}},
@@ -221,131 +217,10 @@
 						{% endif %}
 					</div>
 				</article>
-	
-				<hr class="gradient"><br>
+
+				{% if not loop.last %}<hr class="gradient"><br>{% endif %}
 				{% endfor %}
 	
-			</div> 
-		</div>
-	
-	</div>	<!-- /container -->
-	
-	<div class="container">
-		<div class="row topspace">
-			<div class="col-sm-8 col-sm-offset-2">
-				<article class="post" id="us-map">
-					<header class="entry-header">
-						<h1 class="entry-title">Map of the US states I have visited</h1>
-					</header>
-					<div class="entry-content">
-						<p>green = visited, light green = transit only, dark gray = not visited</p>
-						<script src="https://cdn.jsdelivr.net/npm/datamaps@0.5.9/dist/datamaps.usa.min.js"></script>
-						<div id="usa_map" style="position: relative; width: 100%; height: 300px;"></div>
-						<script>
-							var usa_map = new Datamap({
-								scope: 'usa',
-								element: document.getElementById('usa_map'),
-								geographyConfig: {
-									highlightOnHover: false,
-									popupOnHover: true,
-									popupTemplate: function(geography, data) {
-										return '<div class="hoverinfo">' + geography.properties.name + '</div>';
-									}
-								},
-								fills: {
-									defaultFill: "#21262d",
-									authorHasTraveledTo: "#2da44e",
-									authorHasTraveledThrough: "#7ee787"
-								},
-	
-								data: {
-									"AK": {"fillKey": "authorHasTraveledTo"},
-									"AZ": {"fillKey": "authorHasTraveledThrough"},
-									"CA": {"fillKey": "authorHasTraveledTo"},
-									"CO": {"fillKey": "authorHasTraveledTo"},
-									"CT": {"fillKey": "authorHasTraveledTo"},
-									"DC": {"fillKey": "authorHasTraveledTo"},
-									"DE": {"fillKey": "authorHasTraveledTo"},
-									"FL": {"fillKey": "authorHasTraveledTo"},
-									"ID": {"fillKey": "authorHasTraveledTo"},
-									"IL": {"fillKey": "authorHasTraveledThrough"},
-									"MA": {"fillKey": "authorHasTraveledTo"},
-									"MD": {"fillKey": "authorHasTraveledTo"},
-									"ME": {"fillKey": "authorHasTraveledTo"},
-									"MN": {"fillKey": "authorHasTraveledThrough"},
-									"MT": {"fillKey": "authorHasTraveledTo"},
-									"NH": {"fillKey": "authorHasTraveledTo"},
-									"NJ": {"fillKey": "authorHasTraveledTo"},
-									"NY": {"fillKey": "authorHasTraveledTo"},
-									"OR": {"fillKey": "authorHasTraveledTo"},
-									"PA": {"fillKey": "authorHasTraveledTo"},
-									"RI": {"fillKey": "authorHasTraveledTo"},
-									"SD": {"fillKey": "authorHasTraveledTo"},
-									"UT": {"fillKey": "authorHasTraveledTo"},
-									"VT": {"fillKey": "authorHasTraveledTo"},
-									"WA": {"fillKey": "authorHasTraveledTo"},
-									"WY": {"fillKey": "authorHasTraveledTo"}
-								}
-							});
-							usa_map.labels({labelColor: function(datum) { return (datum && datum.fillKey) ? '#0d1117' : '#8b949e'; }});
-						</script>
-					</div>
-				</article>
-	
-				<hr class="gradient"><br>
-	
-				<article class="post" id="world-map">
-					<header class="entry-header">
-						<h1 class="entry-title">Map of the countries I have visited</h1>
-					</header>
-					<div class="entry-content">
-						<script src="https://cdn.jsdelivr.net/npm/datamaps@0.5.9/dist/datamaps.world.min.js"></script>
-						<div id="world_map" style="position: relative; width: 100%; height: 300px;"></div>
-						<script>
-							var world_map = new Datamap({
-								scope: 'world',
-								element: document.getElementById('world_map'),
-								geographyConfig: {
-									highlightOnHover: false,
-									popupOnHover: true,
-									popupTemplate: function(geography, data) {
-										return '<div class="hoverinfo">' + geography.properties.name + '</div>';
-									}
-								},
-								fills: {
-									defaultFill: "#21262d",
-									authorHasTraveledTo: "#2da44e",
-									authorHasTraveledThrough: "#7ee787"
-								},
-	
-								data: {
-									"ARE": {"fillKey": "authorHasTraveledThrough"},
-									"AUT": {"fillKey": "authorHasTraveledTo"},
-									"BEL": {"fillKey": "authorHasTraveledThrough"},
-									"BHS": {"fillKey": "authorHasTraveledTo"},
-									"CAN": {"fillKey": "authorHasTraveledTo"},
-									"CHE": {"fillKey": "authorHasTraveledTo"},
-									"DEU": {"fillKey": "authorHasTraveledTo"},
-									"ESP": {"fillKey": "authorHasTraveledTo"},
-									"GBR": {"fillKey": "authorHasTraveledTo"},
-									"FIN": {"fillKey": "authorHasTraveledTo"},
-									"FRA": {"fillKey": "authorHasTraveledTo"},
-									"HUN": {"fillKey": "authorHasTraveledTo"},
-									"ISL": {"fillKey": "authorHasTraveledThrough"},
-									"IND": {"fillKey": "authorHasTraveledTo"},
-									"ITA": {"fillKey": "authorHasTraveledTo"},
-									"MLT": {"fillKey": "authorHasTraveledTo"},
-									"NLD": {"fillKey": "authorHasTraveledTo"},
-									"POL": {"fillKey": "authorHasTraveledTo"},
-									"SMR": {"fillKey": "authorHasTraveledTo"},
-									"USA": {"fillKey": "authorHasTraveledTo"},
-									"VAT": {"fillKey": "authorHasTraveledTo"},
-								"MEX": {"fillKey": "authorHasTraveledTo"}
-								}
-							});
-						</script>
-					</div>
-				</article>
 			</div> 
 		</div>
 	

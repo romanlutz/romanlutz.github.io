@@ -193,4 +193,67 @@ resume:
       imageLayout: side
       imageAlt: Traffic from https://pixabay.com/en/traffic-highway-lights-night-road-332857/, CC0 Public Domain
       description: Under the guidance of Christian Spann, I read up on different ways to implement concurrent programs in Java, from Threads, Runnables and Executors to thread-safe versions of data structures. Finally, I presented the different approaches and techniques in a seminar talk.
+maps:
+  - id: us-map
+    title: Map of the US states I have visited
+    content:
+      - 'green = visited, light green = transit only, dark gray = not visited'
+    mapConfiguration:
+      scope: usa
+      labels: true
+      places:
+        - { name: AK, visited: true }
+        - { name: AZ, visited: false }
+        - { name: CA, visited: true }
+        - { name: CO, visited: true }
+        - { name: CT, visited: true }
+        - { name: DC, visited: true }
+        - { name: DE, visited: true }
+        - { name: FL, visited: true }
+        - { name: ID, visited: true }
+        - { name: IL, visited: false }
+        - { name: MA, visited: true }
+        - { name: MD, visited: true }
+        - { name: ME, visited: true }
+        - { name: MN, visited: false }
+        - { name: MT, visited: true }
+        - { name: NH, visited: true }
+        - { name: NJ, visited: true }
+        - { name: NY, visited: true }
+        - { name: OR, visited: true }
+        - { name: PA, visited: true }
+        - { name: RI, visited: true }
+        - { name: SD, visited: true }
+        - { name: UT, visited: true }
+        - { name: VT, visited: true }
+        - { name: WA, visited: true }
+        - { name: WY, visited: true }
+  - id: world-map
+    title: Map of the countries I have visited
+    mapConfiguration:
+      scope: world
+      labels: false
+      places:
+        - { name: ARE, visited: false }
+        - { name: AUT, visited: true }
+        - { name: BEL, visited: false }
+        - { name: BHS, visited: true }
+        - { name: CAN, visited: true }
+        - { name: CHE, visited: true }
+        - { name: DEU, visited: true }
+        - { name: ESP, visited: true }
+        - { name: GBR, visited: true }
+        - { name: FIN, visited: true }
+        - { name: FRA, visited: true }
+        - { name: HUN, visited: true }
+        - { name: ISL, visited: false }
+        - { name: IND, visited: true }
+        - { name: ITA, visited: true }
+        - { name: MEX, visited: true }
+        - { name: MLT, visited: true }
+        - { name: NLD, visited: true }
+        - { name: POL, visited: true }
+        - { name: SMR, visited: true }
+        - { name: USA, visited: true }
+        - { name: VAT, visited: true }
 ---
