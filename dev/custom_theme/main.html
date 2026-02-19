@@ -91,8 +91,8 @@
 									{% if timelineItem.events %}
 									<div class="vt-events">
 										<div class="vt-outer-mask"></div>
-										<div class="vt-branch-in"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M1.5,0 Q1.5,10 11,10 L54.5,10 Q65.5,10 65.5,20" stroke="#238636" stroke-width="3" fill="none"/></svg></div>
-										{% if not loop.last %}<div class="vt-branch-out"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M65.5,1.5 Q65.5,10 54.5,10 L11,10 Q1.5,10 1.5,20" stroke="#238636" stroke-width="3" fill="none"/></svg></div>{% endif %}
+										<div class="vt-branch-in"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M1.5,0 Q1.5,10 11,10 L54.5,10 Q65.5,10 65.5,20"/></svg></div>
+										{% if not loop.last %}<div class="vt-branch-out"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M65.5,1.5 Q65.5,10 54.5,10 L11,10 Q1.5,10 1.5,20"/></svg></div>{% endif %}
 										{% for event in timelineItem.events %}
 										<div class="vt-event">
 											<div class="vt-node-dot vt-node-dot--minor"></div>
