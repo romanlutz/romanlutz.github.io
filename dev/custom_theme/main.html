@@ -19,34 +19,22 @@
 	<!-- Custom styles -->
 	<link rel="stylesheet" href="{{ "css/styles.css"|url }}">
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
 </head>
 <body>
 
-<header id="header">
-	<div id="head">
-		<div id="headbox">
-			<h1 id="logo">
-				<img class="profile-img" src="{{ "images/profile.jfif"|url }}" alt="">
-				<span class="title">{{ config.extra.name }}</span>
-				<span class="tagline">
-					{% for title in config.extra.titles %}{% if not loop.first %} <span class="tagline-sep">|</span> {% endif %}{{ title }}{% endfor %}
-				</span>
-			</h1>
-		</div>
+<div id="head">
+	<div id="headbox">
+		<h1 id="logo">
+			<img class="profile-img" src="{{ "images/profile.jfif"|url }}" alt="">
+			<span class="title">{{ config.extra.name }}</span>
+			<span class="tagline">
+				{% for title in config.extra.titles %}{% if not loop.first %} <span class="tagline-sep">|</span> {% endif %}{{ title }}{% endfor %}
+			</span>
+		</h1>
 	</div>
-
-	<nav class="navbar navbar-sticky">
-		<div class="navbar-inner">
-			<ul class="navbar-nav">
-				{% for nav_item in page.meta.nav %}
-				<li><a href="{{ nav_item.href }}">{{ nav_item.label }}</a></li>
-				{% endfor %}
-			</ul>
-		</div>
-	</nav>
-</header>
+</div>
 
 <main id="main">
 	<div class="container">
@@ -54,8 +42,8 @@
 		<div class="link-cards topspace">
 			{% for link in page.meta.links %}
 			<a href="{{ link.url }}" class="link-card" target="_blank">
-				{% if link.icon %}
-				<i class="{{ link.icon }}"></i>
+				{% if link.svg %}
+				<span class="link-card-icon"{% if link.color %} style="color:{{ link.color }}"{% endif %}>{{ link.svg }}</span>
 				{% elif link.image %}
 				<img src="{{ ("images/" ~ link.image)|url }}" alt="{{ link.label }}" class="link-card-img{% if link.invert %} vt-event-img-invert{% endif %}">
 				{% endif %}
@@ -185,8 +173,5 @@
 	</div>
 </footer>
 
-<!-- Icon font -->
-<script src="https://kit.fontawesome.com/a85684746e.js" crossorigin="anonymous"></script>
-<script>document.querySelector('.navbar-sticky').classList.add('stick');</script>
 </body>
 </html>

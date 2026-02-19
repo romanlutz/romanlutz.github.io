@@ -40,60 +40,6 @@ body {
 /*********************************************************************
 
 
-                            Navigation in header
-
-
-**********************************************************************/
-.navbar {
-  width: 100%;
-  background-color: rgba(13,17,23,0.95);
-  border-bottom: 1px solid var(--border-primary);
-  backdrop-filter: blur(12px);
-}
-.navbar.stick {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-.navbar-inner {
-  max-width: 1012px;
-  margin: 0 auto;
-  padding: 0 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.navbar-nav {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  text-align: center;
-}
-.navbar-nav li a {
-  display: block;
-  padding: 14px 24px;
-  color: rgba(230,237,243,0.7);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 14px;
-  transition: color 0.15s ease;
-  letter-spacing: 0.3px;
-}
-.navbar-nav li a:hover,
-.navbar-nav li a:focus {
-  color: var(--text-white);
-  text-decoration: none;
-}
-@media (max-width: 768px) {
-  .navbar {
-    display: none;
-  }
-}
-/*********************************************************************
-
-
                                 TYPOGRAPHY
 
 
@@ -213,24 +159,21 @@ h1#logo .tagline {
   transform: translateY(-2px);
   text-decoration: none !important;
 }
-.link-card i {
-  font-size: 24px;
-  color: var(--text-muted);
+.link-card-icon {
   width: 32px;
-  text-align: center;
+  height: 32px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
   transition: color 0.2s ease;
 }
-.link-card .fa-github {
-  color: var(--text-white);
+.link-card-icon svg {
+  width: 24px;
+  height: 24px;
 }
-.link-card .fa-linkedin {
-  color: var(--text-white);
-}
-.link-card .fa-bluesky {
-  color: var(--bluesky);
-}
-.link-card:hover i {
+.link-card:hover .link-card-icon {
   color: var(--blue);
 }
 .link-card-img {
@@ -676,7 +619,6 @@ img.center {
 }
 /* Utility classes */
 .text-center { text-align: center; }
-.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
 
 /* Map section layout */
 .section-content {
