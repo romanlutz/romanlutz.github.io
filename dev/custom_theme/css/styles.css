@@ -396,9 +396,9 @@ h1#logo .tagline {
   font-weight: 500;
   color: #e6edf3;
 }
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .link-cards {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 }
 /*********************************************************************
@@ -1236,6 +1236,14 @@ footer.entry-meta .meta-in {
     .vt-event-img-side,
     .vt-event-img-side-md {
         width: 100%;
+    }
+    .vt-branch-in,
+    .vt-branch-out {
+        left: -45.5px;
+        width: 54.5px;
+    }
+    .vt-outer-mask {
+        left: -48px;
     }
 }
 /*********************************************************************
