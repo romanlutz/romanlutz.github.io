@@ -20,10 +20,19 @@ body {
   font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   color: var(--text-primary);
   padding: 0;
+  margin: 0;
   background-color: var(--bg-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+.container {
+  max-width: 1012px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 .topspace {
   margin-top: 20px;
@@ -36,10 +45,10 @@ body {
 
 **********************************************************************/
 .navbar {
-  border: none;
-  border-radius: 0;
   width: 100%;
-  margin-bottom: 0;
+  background-color: rgba(13,17,23,0.95);
+  border-bottom: 1px solid var(--border-primary);
+  backdrop-filter: blur(12px);
 }
 .navbar.stick {
   position: fixed;
@@ -47,52 +56,80 @@ body {
   left: 0;
   z-index: 1000;
 }
-.navbar-collapse {
-  border-radius: 0;
-  font-weight: 500;
-  font-size: 14px;
-}
-.navbar-collapse .navbar-nav {
-  float: none;
+.navbar-inner {
+  max-width: 1012px;
   margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border-hover);
+  border-radius: 4px;
+  padding: 9px 10px;
+  cursor: pointer;
+  margin: 8px 0;
+}
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 1px;
+}
+.navbar-toggle .icon-bar + .icon-bar {
+  margin-top: 4px;
+}
+.navbar-toggle:hover,
+.navbar-toggle:focus {
+  background-color: var(--border-primary);
+}
+.navbar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
   text-align: center;
 }
-.navbar-collapse .navbar-nav > li {
-  float: none;
-  display: inline-block;
-}
-.navbar-collapse .navbar-nav > li > a {
+.navbar-nav li a {
+  display: block;
   padding: 14px 24px;
-  color: rgba(230,237,243,0.7) !important;
+  color: rgba(230,237,243,0.7);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
   transition: color 0.15s ease;
   letter-spacing: 0.3px;
 }
-.navbar-default {
-  background-color: rgba(13,17,23,0.95);
-  border-color: var(--border-primary);
-  border-bottom: 1px solid var(--border-primary);
-  backdrop-filter: blur(12px);
+.navbar-nav li a:hover,
+.navbar-nav li a:focus {
+  color: var(--text-white);
+  text-decoration: none;
 }
-.navbar-default .navbar-nav > li > a {
-  color: rgba(230,237,243,0.7);
-}
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-  color: var(--text-white) !important;
-  background-color: transparent;
-}
-.navbar-default .navbar-toggle {
-  border-color: var(--border-hover);
-}
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
-  background-color: var(--border-primary);
-}
-.navbar-default .navbar-toggle .icon-bar {
-  background-color: var(--text-primary);
-}
-.navbar-default .navbar-collapse {
-  border-color: var(--border-primary);
+@media (max-width: 768px) {
+  .navbar-inner {
+    flex-wrap: wrap;
+  }
+  .navbar-toggle {
+    display: block;
+    margin-left: auto;
+  }
+  .navbar-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    border-top: 1px solid var(--border-primary);
+  }
+  .navbar-nav.open {
+    display: flex;
+  }
+  .navbar-nav li a {
+    padding: 12px 15px;
+    text-align: left;
+  }
 }
 /*********************************************************************
 
@@ -152,10 +189,11 @@ h1#logo .tagline {
   margin: 0 auto;
   padding: 32px 32px 24px;
 }
-#head img.img-circle {
+#head .profile-img {
   display: block;
   width: 168px;
   height: 168px;
+  border-radius: 50%;
   overflow: hidden;
   border: 3px solid var(--green);
   margin: 0 auto 20px;
@@ -676,8 +714,22 @@ img.center {
 #underfooter p {
   margin: 0;
 }
-/* Max page width
-/////////////////////////////////////////////////////////////////////*/
+/* Utility classes */
+.text-center { text-align: center; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+/* Map section layout */
+.section-content {
+  max-width: 66.67%;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .section-content {
+    max-width: 100%;
+  }
+}
+
+/* Datamap tooltip */
 .hoverinfo {
   background-color: var(--bg-secondary) !important;
   color: var(--text-primary) !important;
@@ -688,9 +740,4 @@ img.center {
 .datamaps-subunit-labels text,
 .labels text {
   font-weight: 600 !important;
-}
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1012px;
-  }
 }

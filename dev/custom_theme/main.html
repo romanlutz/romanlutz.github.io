@@ -12,8 +12,6 @@
 	<link href="https://romanlutz.github.io/" rel="me">
 	<link href="https://fosstodon.org/@romanlutz" rel="me">
 
-	<!-- Bootstrap -->
-	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css">
 	<!-- Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,13 +22,13 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
 </head>
-<body class="home">
+<body>
 
 <header id="header">
 	<div id="head">
 		<div id="headbox">
-			<h1 id="logo" class="text-center">
-				<img class="img-circle" src="{{ "images/profile.jfif"|url }}" alt="">
+			<h1 id="logo">
+				<img class="profile-img" src="{{ "images/profile.jfif"|url }}" alt="">
 				<span class="title">{{ config.extra.name }}</span>
 				<span class="tagline">
 					{% for title in config.extra.titles %}{% if not loop.first %} <span class="tagline-sep">|</span> {% endif %}{{ title }}{% endfor %}
@@ -39,22 +37,20 @@
 		</div>
 	</div>
 
-	<nav class="navbar navbar-default navbar-sticky">
-		<div class="container-fluid">
-			
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-			</div>
-			
-			<div class="navbar-collapse collapse" id="navbar-collapse">
-				<ul class="nav navbar-nav">
-					{% for nav_item in page.meta.nav %}
-					<li><a href="{{ nav_item.href }}">{{ nav_item.label }}</a></li>
-					{% endfor %}
-				</ul>
-			</div><!--/.nav-collapse -->
-		</div>	
-  </nav>
+	<nav class="navbar navbar-sticky">
+		<div class="navbar-inner">
+			<button type="button" class="navbar-toggle" aria-label="Toggle navigation">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<ul class="navbar-nav">
+				{% for nav_item in page.meta.nav %}
+				<li><a href="{{ nav_item.href }}">{{ nav_item.label }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+	</nav>
 </header>
 
 <main id="main">
@@ -73,8 +69,7 @@
 			{% endfor %}
 		</div>
 	
-		<div class="row topspace">
-	
+		<div class="topspace">
 				<div id="timeline" class="vt">
 						{% for timelineItem in page.meta.resume.timeline %}
 						<div class="vt-section{% if not timelineItem.events %} vt-section--no-events{% endif %}">
@@ -129,65 +124,61 @@
 					</div>
 		</div>
 	
-	<div class="row topspace">
-			<div class="col-sm-8 col-sm-offset-2">
-	
-				{% for map_entry in page.meta.maps %}
-				<article id="{{ map_entry.id }}">
-						<h1 class="entry-title">{{ map_entry.title }}</h1>
-					<div class="entry-content">
-						{% for content_paragraph in map_entry.content %}
-						<p>{{ content_paragraph }}</p>
-						{% endfor %}
-						{% if map_entry.mapConfiguration %}
-						<script src="https://cdn.jsdelivr.net/npm/datamaps@0.5.9/dist/datamaps.{{ map_entry.mapConfiguration.scope }}.min.js"></script>
-						<div id="{{ map_entry.mapConfiguration.scope }}_map" style="position: relative; width: 100%; height: 300px;"></div>
-						<script>
-							var {{ map_entry.mapConfiguration.scope }}_map = new Datamap({
-								scope: '{{ map_entry.mapConfiguration.scope }}',
-								element: document.getElementById('{{ map_entry.mapConfiguration.scope }}_map'),
-								geographyConfig: {
-									highlightOnHover: false,
-									popupOnHover: true,
-									popupTemplate: function(geography, data) {
-										return '<div class="hoverinfo">' + geography.properties.name + '</div>';
-									}
-								},
-								fills: {
-									defaultFill: "#21262d",
-									authorHasTraveledTo: "#2da44e",
-									authorHasTraveledThrough: "#7ee787"
-								},
-								data: {
-									{% for place in map_entry.mapConfiguration.places %}
-									"{{ place.name }}": {"fillKey": {% if place.visited %}"authorHasTraveledTo"{% else %}"authorHasTraveledThrough"{% endif %}},
-									{% endfor %}
-								}
-							});
-							{% if map_entry.mapConfiguration.labels %}
-							{{ map_entry.mapConfiguration.scope }}_map.labels({labelColor: function(datum) { return (datum && datum.fillKey) ? '#0d1117' : '#8b949e'; }});
-							{% endif %}
-						</script>
-						{% endif %}
-					</div>
-				</article>
+	<div class="section-content topspace">
 
-				{% if not loop.last %}<hr class="gradient"><br>{% endif %}
-				{% endfor %}
-	
-			</div> 
+			{% for map_entry in page.meta.maps %}
+			<article id="{{ map_entry.id }}">
+					<h1 class="entry-title">{{ map_entry.title }}</h1>
+				<div class="entry-content">
+					{% for content_paragraph in map_entry.content %}
+					<p>{{ content_paragraph }}</p>
+					{% endfor %}
+					{% if map_entry.mapConfiguration %}
+					<script src="https://cdn.jsdelivr.net/npm/datamaps@0.5.9/dist/datamaps.{{ map_entry.mapConfiguration.scope }}.min.js"></script>
+					<div id="{{ map_entry.mapConfiguration.scope }}_map" style="position: relative; width: 100%; height: 300px;"></div>
+					<script>
+						var {{ map_entry.mapConfiguration.scope }}_map = new Datamap({
+							scope: '{{ map_entry.mapConfiguration.scope }}',
+							element: document.getElementById('{{ map_entry.mapConfiguration.scope }}_map'),
+							geographyConfig: {
+								highlightOnHover: false,
+								popupOnHover: true,
+								popupTemplate: function(geography, data) {
+									return '<div class="hoverinfo">' + geography.properties.name + '</div>';
+								}
+							},
+							fills: {
+								defaultFill: "#21262d",
+								authorHasTraveledTo: "#2da44e",
+								authorHasTraveledThrough: "#7ee787"
+							},
+							data: {
+								{% for place in map_entry.mapConfiguration.places %}
+								"{{ place.name }}": {"fillKey": {% if place.visited %}"authorHasTraveledTo"{% else %}"authorHasTraveledThrough"{% endif %}},
+								{% endfor %}
+							}
+						});
+						{% if map_entry.mapConfiguration.labels %}
+						{{ map_entry.mapConfiguration.scope }}_map.labels({labelColor: function(datum) { return (datum && datum.fillKey) ? '#0d1117' : '#8b949e'; }});
+						{% endif %}
+					</script>
+					{% endif %}
+				</div>
+			</article>
+
+			{% if not loop.last %}<hr class="gradient"><br>{% endif %}
+			{% endfor %}
+
 		</div>
 	
-		<div class="row topspace" id="miscellaneous">
-			<div class="col-sm-8 col-sm-offset-2">
-				<article id="misc-section">
-					<h1 class="entry-title">Miscellaneous</h1>
+		<div class="section-content topspace" id="miscellaneous">
+			<article id="misc-section">
+				<h1 class="entry-title">Miscellaneous</h1>
 				<div class="git-img-wrapper">
 					<img src="../images/git.jpg" alt="The 5 stages of git, from Navin Narra's tweet." width="80%" class="center vt-event-img-invert git-img-blend">
 				</div>
-                <p class="text-center">from Navin Narra's <a href="https://twitter.com/navinnarra/status/842112112176513024">tweet</a></p>
+				<p class="text-center">from Navin Narra's <a href="https://twitter.com/navinnarra/status/842112112176513024">tweet</a></p>
 			</article>
-			</div>
 		</div>
 
 	</div>	<!-- /container -->
@@ -199,12 +190,13 @@
 	</div>
 </footer>
 
-<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <!-- Icon font -->
 <script src="https://kit.fontawesome.com/a85684746e.js" crossorigin="anonymous"></script>
-
-<script>document.querySelector('.navbar-sticky').classList.add('stick');</script>
+<script>
+document.querySelector('.navbar-sticky').classList.add('stick');
+document.querySelector('.navbar-toggle').addEventListener('click', function() {
+  document.querySelector('.navbar-nav').classList.toggle('open');
+});
+</script>
 </body>
 </html>
