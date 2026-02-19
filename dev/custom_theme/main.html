@@ -47,22 +47,12 @@
 			</div>
 			
 			<div class="navbar-collapse collapse" id="navbar-collapse">
-				
 				<ul class="nav navbar-nav">
-					<li>
-						<a href="index.html">HOME</a>
-					</li>
-                    <li>
-                        <a href="index.html#timeline">TIMELINE</a>
-                    </li>
-                    <li>
-                        <a href="index.html#us-map">MAPS</a>
-                    </li>
-                    <li>
-                        <a href="index.html#miscellaneous">MISC</a>
-                    </li>
+					{% for nav_item in page.meta.nav %}
+					<li><a href="{{ nav_item.href }}">{{ nav_item.label }}</a></li>
+					{% endfor %}
 				</ul>
-			</div><!--/.nav-collapse -->			
+			</div><!--/.nav-collapse -->
 		</div>	
   </nav>
 </header>
@@ -114,14 +104,9 @@
 													<iframe src="{{ event.youtube }}" title="{{ event.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="vt-event-youtube"></iframe>
 												</div>
 												<div class="vt-event-desc">{{ event.description }}</div>
-												{% elif event.image and event.imageLayout == 'side' %}
+												{% elif event.image and event.imageLayout %}
 												<div class="vt-event-body-side">
-													<img src="../images/{{ event.image }}" alt="{{ event.imageAlt }}" class="vt-event-img-side{% if event.imageInvert %} vt-event-img-invert{% endif %}">
-													<div class="vt-event-desc">{{ event.description }}</div>
-												</div>
-												{% elif event.image and event.imageLayout == 'side-md' %}
-												<div class="vt-event-body-side">
-													<img src="../images/{{ event.image }}" alt="{{ event.imageAlt }}" class="vt-event-img-side-md{% if event.imageInvert %} vt-event-img-invert{% endif %}">
+													<img src="../images/{{ event.image }}" alt="{{ event.imageAlt }}" class="vt-event-img-{{ event.imageLayout }}{% if event.imageInvert %} vt-event-img-invert{% endif %}">
 													<div class="vt-event-desc">{{ event.description }}</div>
 												</div>
 												{% elif event.image %}
@@ -193,10 +178,7 @@
 			</div> 
 		</div>
 	
-	</div>	<!-- /container -->
-
-    <div class="container" id="miscellaneous">
-		<div class="row topspace">
+		<div class="row topspace" id="miscellaneous">
 			<div class="col-sm-8 col-sm-offset-2">
 				<article id="misc-section">
 					<h1 class="entry-title">Miscellaneous</h1>
@@ -207,7 +189,8 @@
 			</article>
 			</div>
 		</div>
-    </div>
+
+	</div>	<!-- /container -->
 </main>
 
 <footer id="underfooter">
