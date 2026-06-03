@@ -48,7 +48,7 @@ resume:
       title: Blind Goal-Directedness paper accepted at ICLR 2026
       image: blind_goal_directedness_paper.png
       imageAlt: Overview graphic of the pre-print including examples of blind goal-directedness in computer-use agents, the benchmark design, as well as evaluation and findings
-      description: Our paper "<a href="https://arxiv.org/abs/2510.01670">Just Do It!? Computer-Use Agents Exhibit Blind Goal-Directedness</a>" has been accepted at ICLR 2026! This was a collaboration between the AI Red Team and our friends at Microsoft Research AI Frontiers, based on Erfan Shayegani&#x27;s summer internship.
+      description: Our paper "<a href="https://arxiv.org/abs/2510.01670">Just Do It!? Computer-Use Agents Exhibit Blind Goal-Directedness</a>" has been accepted at ICLR 2026! This was a collaboration between the AI Red Team and our friends at Microsoft Research AI Frontiers, based on Erfan Shayegani&#x27;s summer internship. The work was also covered by <a href="https://www.404media.co/nvidia-and-microsoft-researchers-say-ai-agents-dont-care-about-safety-or-reliability/">404 Media</a>.
     - date: May 2025
       title: Build 2025 Lab
       image: build2025labcrew.jpg
