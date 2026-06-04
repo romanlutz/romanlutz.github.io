@@ -4,9 +4,10 @@ Roman Lutz's website
 
 ## Development process
 
-To try it out locally run the following command from the `dev` directory and check the page in your browser
+To try it out locally, install the pinned dependencies and serve the site from the `dev` directory:
 
 ```
+pip install -r requirements.txt
 mkdocs serve
 ```
 
