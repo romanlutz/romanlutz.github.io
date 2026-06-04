@@ -1,0 +1,645 @@
+:root {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-hover: #1c2333;
+  --bg-footer: #010409;
+  --border-primary: #21262d;
+  --border-hover: #30363d;
+  --text-primary: #e6edf3;
+  --text-secondary: #c9d1d9;
+  --text-muted: #8b949e;
+  --text-footer: #484f58;
+  --text-white: #ffffff;
+  --green: #238636;
+  --blue: #58a6ff;
+  --blue-light: #79c0ff;
+  --bluesky: #1185fe;
+}
+body {
+  font-size: 15px;
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: var(--text-primary);
+  padding: 0;
+  margin: 0;
+  background-color: var(--bg-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+.container {
+  max-width: 1012px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.topspace {
+  margin-top: 20px;
+}
+/*********************************************************************
+
+
+                                TYPOGRAPHY
+
+
+**********************************************************************/
+p, ul, ol {
+  margin: 0 0 16px 0;
+}
+h1 {
+  font-weight: 700;
+  color: var(--text-secondary);
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  margin: 0px 0 16px;
+  padding-bottom: .3em;
+  text-align: center;
+  letter-spacing: -0.02em;
+  border-bottom: 1px solid var(--border-primary);
+}
+a {
+  color: var(--blue);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover {
+  color: var(--blue-light);
+  text-decoration: underline;
+}
+/*********************************************************************
+
+
+                                HEADER
+
+
+**********************************************************************/
+h1#logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin: 0;
+}
+h1#logo .title {
+  display: block;
+  margin-top: 20px;
+}
+h1#logo .tagline {
+  white-space: normal;
+}
+#headbox {
+  max-width: none;
+  margin: 0 auto;
+  padding: 32px 32px 24px;
+}
+#head .profile-img {
+  display: block;
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--green);
+  margin: 0 auto 20px;
+  box-shadow: 0 0 20px rgba(35,134,54,0.3);
+}
+#head .title {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text-white);
+  letter-spacing: -0.02em;
+}
+.tagline-sep {
+  color: var(--text-muted);
+  margin: 0 8px;
+  font-weight: 400;
+}
+#head {
+  background: var(--bg-primary);
+  border-bottom: none;
+  color: var(--text-primary);
+  padding: 60px 0 30px;
+}
+#head .tagline {
+  font-size: 18px;
+  margin: 14px 0 0;
+}
+/*********************************************************************
+
+
+                                LINK CARDS
+
+
+**********************************************************************/
+.link-cards {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 12px;
+  max-width: 1012px;
+  margin: 0 auto 80px;
+}
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  color: var(--text-primary) !important;
+  text-decoration: none !important;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+}
+.link-card:hover {
+  border-color: var(--blue);
+  background-color: var(--bg-hover);
+  transform: translateY(-2px);
+  text-decoration: none !important;
+}
+.link-card-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+.link-card-icon svg {
+  width: 24px;
+  height: 24px;
+}
+.link-card:hover .link-card-icon {
+  color: var(--blue);
+}
+.link-card-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+.link-card-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+@media (max-width: 768px) {
+  .link-cards {
+    grid-template-columns: 1fr !important;
+  }
+}
+/*********************************************************************
+
+
+                                CONTENT
+
+
+**********************************************************************/
+/* horizontal ruler to use between blog posts etc. */
+hr.gradient { 
+  border: 0; 
+  height: 1px; 
+  background: var(--border-primary);
+}
+
+img {
+  max-width: 100%;
+}
+img.center {
+    display: block;
+    margin: 0 auto;
+}
+/*********************************************************************
+
+
+                                SECTIONS (Maps, Misc)
+
+
+**********************************************************************/
+.entry-title {
+  font-weight: 600;
+  font-size: 1.5em;
+  letter-spacing: -0.01em;
+}
+.entry-content {
+  margin: 0 0 40px 0;
+}
+/*********************************************************************
+
+
+                                TIMELINE
+
+
+**********************************************************************/
+/* Visual Timeline (vt) */
+.vt {
+    position: relative;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 400;
+    max-width: 1056px;
+    margin: 0 auto;
+}
+
+/* Major timeline line - starts at first dot, not top */
+.vt::before {
+    content: '';
+    position: absolute;
+    left: 14.5px;
+    top: 36px;
+    bottom: 36px;
+    width: 3px;
+    background: var(--green);
+    z-index: 1;
+}
+
+/* Section wrapper */
+.vt-section {
+    position: relative;
+    margin-bottom: 0;
+}
+
+/* Major node row */
+.vt-major-node {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding: 16px 0;
+    padding-left: 44px;
+}
+
+/* Node dots */
+.vt-node-dot {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 4;
+}
+.vt-node-dot--major {
+    left: 8px;
+    top: 28px;
+    width: 16px;
+    height: 16px;
+    background: var(--green);
+    border: 2px solid var(--bg-primary);
+    box-shadow: 0 0 0 2px var(--green);
+}
+.vt-node-dot--minor {
+    left: -22px;
+    top: 18px;
+    width: 12px;
+    height: 12px;
+    background: var(--green);
+    border: 2px solid var(--bg-secondary);
+}
+
+/* Major card */
+.vt-major-card {
+    width: 100%;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 12px;
+    padding: 16px 20px;
+    transition: border-color 0.2s ease;
+    overflow: visible;
+    position: relative;
+}
+
+/* Horizontal connector from major dot to major card */
+.vt-major-node::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 35px;
+    width: 20px;
+    height: 3px;
+    background: var(--green);
+    z-index: 3;
+}
+.vt-major-card:hover {
+    border-color: var(--border-hover);
+}
+
+.vt-major-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.vt-major-logo {
+    height: 40px;
+    width: auto;
+    flex-shrink: 0;
+    object-fit: contain;
+    order: 1;
+}
+
+.vt-major-logo--lg {
+    height: 60px;
+}
+
+.vt-major-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.vt-major-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.vt-major-meta {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* Events container - now inside major card */
+.vt-events {
+    position: relative;
+    padding: 8px 0 0 28px;
+    margin-top: 16px;
+    border-top: 1px solid var(--border-primary);
+}
+
+/* Inner sub-timeline line */
+.vt-events::before {
+    content: '';
+    position: absolute;
+    left: 13.5px;
+    top: 34px;
+    bottom: 16px;
+    width: 3px;
+    background: var(--green);
+}
+
+/* Last section: inner line ends at last dot, not at branch-out */
+.vt-section:last-child .vt-events::before {
+    bottom: 8px;
+}
+
+/* Mask to hide outer line alongside inner sub-timeline */
+.vt-outer-mask {
+    position: absolute;
+    left: -52px;
+    top: 14px;
+    bottom: -2px;
+    width: 8px;
+    background: var(--bg-primary);
+    z-index: 2;
+}
+
+/* SVG connectors */
+.vt-branch-in,
+.vt-branch-out {
+    position: absolute;
+    left: -50.5px;
+    width: 67px;
+    overflow: visible;
+    z-index: 3;
+}
+.vt-branch-in {
+    top: 14px;
+    height: 20px;
+}
+.vt-branch-out {
+    bottom: -2px;
+    height: 20px;
+}
+.vt-branch-in svg,
+.vt-branch-out svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.vt-branch-in path,
+.vt-branch-out path {
+    stroke: var(--green);
+    stroke-width: 3;
+    fill: none;
+}
+
+/* Individual event */
+.vt-event {
+    position: relative;
+    padding: 8px 0;
+}
+
+/* Horizontal connector from dot to card */
+.vt-event::before {
+    content: '';
+    position: absolute;
+    left: -16px;
+    top: 22.5px;
+    width: 16px;
+    height: 3px;
+    background: var(--green);
+}
+
+/* Minor dots positioned on inner timeline */
+.vt-event .vt-node-dot--minor {
+    left: -19px;
+}
+
+/* Event card */
+.vt-event-card {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: 10px;
+    padding: 16px 20px;
+    transition: border-color 0.2s ease;
+}
+.vt-event-card:hover {
+    border-color: var(--border-hover);
+}
+
+.vt-event-date {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.vt-event-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.vt-event-media {
+    margin-bottom: 12px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.vt-event-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.vt-event-youtube {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    display: block;
+}
+
+.vt-event-desc {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Side-by-side image layout */
+.vt-event-body-side {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.vt-event-img-side {
+    width: 240px;
+    height: auto;
+    border-radius: 8px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.vt-event-img-side-md {
+    width: 66%;
+    height: auto;
+    border-radius: 8px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.vt-event-img-invert {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+.git-img-wrapper {
+    background: var(--bg-primary);
+}
+.git-img-blend {
+    mix-blend-mode: lighten;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .vt::before {
+        left: 11px;
+    }
+    .vt-major-node {
+        padding-left: 36px;
+    }
+    .vt-node-dot--major {
+        left: 4px;
+    }
+    .vt-major-node::before {
+        left: 20px;
+        width: 16px;
+    }
+    .vt-major-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .vt-major-logo {
+        height: 32px;
+    }
+    .vt-events {
+        padding-left: 20px;
+    }
+    .vt-events::before {
+        left: 6px;
+    }
+    .vt-event .vt-node-dot--minor {
+        left: -17px;
+    }
+    .vt-event::before {
+        left: -11px;
+        width: 11px;
+    }
+    .vt-event-card {
+        padding: 12px 14px;
+    }
+    .vt-event-body-side {
+        flex-direction: column;
+    }
+    .vt-event-img-side,
+    .vt-event-img-side-md {
+        width: 100%;
+    }
+    .vt-branch-in,
+    .vt-branch-out {
+        left: -45.5px;
+        width: 54.5px;
+    }
+    .vt-outer-mask {
+        left: -48px;
+    }
+}
+/*********************************************************************
+
+
+                                FOOTER
+
+
+**********************************************************************/
+#underfooter {
+  background: var(--bg-footer);
+  padding: 16px 0;
+  color: var(--text-footer);
+  font-size: 12px;
+  border-top: 1px solid var(--border-primary);
+}
+#underfooter a {
+  color: var(--blue);
+}
+#underfooter a:hover {
+  color: var(--blue-light);
+}
+#underfooter p {
+  margin: 0;
+}
+/* Utility classes */
+.text-center { text-align: center; }
+
+/* Map section layout */
+.section-content {
+  max-width: 66.67%;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .section-content {
+    max-width: 100%;
+  }
+}
+
+/* Datamap tooltip */
+.hoverinfo {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-hover) !important;
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+.datamaps-subunit-labels text,
+.labels text {
+  font-weight: 600 !important;
+}
