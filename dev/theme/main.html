@@ -43,7 +43,7 @@
 			{% for link in page.meta.links %}
 			<a href="{{ link.url }}" class="link-card" target="_blank">
 				{% if link.svg %}
-				<span class="link-card-icon"{% if link.color %} style="color:{{ link.color }}"{% endif %}>{{ link.svg }}</span>
+				<span class="link-card-icon"{% if link.color %} style="color:{{ link.color }}"{% endif %}>{% include "images/" ~ link.svg %}</span>
 				{% elif link.image %}
 				<img src="{{ ("images/" ~ link.image)|url }}" alt="{{ link.label }}" class="link-card-img{% if link.invert %} vt-event-img-invert{% endif %}">
 				{% endif %}
