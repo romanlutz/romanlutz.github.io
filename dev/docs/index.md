@@ -90,7 +90,7 @@ resume:
       description: Our new paper is on ArXiv! Titled <a href="https://jmlr.org/papers/v24/23-0389.html">A Framework for Automated Measurement of Responsible AI Harms in Generative AI Applications</a>, it talks about some of the ways we have been evaluating LLMs. This was a joint effort of many teams at Microsoft and Microsoft Research. I am particularly happy with the emphasis on input from domain experts. This is merely a tool to help speed up evaluations, but the actual decisions about mitigations and whether a system is deployed remains (and should remain) with humans.
     - date: August 2023
       title: Fairlearn JMLR paper
-      image: JMLR.png
+      image: jmlr.png
       imageAlt: A screenshot from the JMLR website showing the new Fairlearn paper title with authors.
       description: The new <a href="https://jmlr.org/papers/v24/23-0389.html">Fairlearn paper</a> is now in the Journal for Machine Learning Research (Open Source Software section)! It captures our change from being a project under Microsoft governance to being a true open source project with open governance. As of today, half the maintainers are employed by Microsoft (including myself). Also, the focus of the project has shifted significantly since the original whitepaper. Back then, the Python toolkit was the main focus whereas now the educational materials are being prioritized. This aims to acknowledge the sociotechnical nature of fairness.
     - date: December 2021
@@ -113,12 +113,12 @@ resume:
     events:
     - date: November 2019
       title: Fairlearn announced at Ignite
-      image: fairlearn-repo.PNG
+      image: fairlearn-repo.png
       imageAlt: fairlearn repository
       description: For a little while now I have been working on <a href="https://www.microsoft.com/en-us/AI/our-approach-to-ai">Responsible AI at Microsoft</a>. Now that <a href="https://myignite.techcommunity.microsoft.com/sessions/81147">Sarah Bird announced our tools at Ignite</a> I can finally point to our tools publicly. A lot of my time over the past months went into <a href="https://github.com/fairlearn/fairlearn">Fairlearn</a>, our open source toolkit for fairness assessment and unfairness mitigation. We just released v0.3.0, so there is a lot more to come in the next months. I will be in Vancouver for NeurIPS in December to demo our tools around fairness and interpretability. Talk to me if you will be there!
     - date: November 2019
       title: Responsible AI reading group
-      image: abstraction-fairml.PNG
+      image: abstraction-fairml.png
       imageLayout: side-md
       imageAlt: Abstraction in Fairness-aware Machine Learning
       description: Since fairness is tricky to get right we have been meeting bi-weekly as a Responsible AI reading group. Today I had the honor to lead the discussion about <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3265913">"Fairness and Abstraction in Sociotechnical Systems"</a> by Andrew D. Selbst, danah boyd, Sorelle A. Friedler, Suresh Venkatasubramanian, and Janet Vertesi. I highly encourage everyone to read this paper to avoid the mentioned abstraction traps when building machine learning systems. Maybe this should be part of a mandatory checklist before releasing models... If you are interested in my slides you may download them <a href="https://github.com/romanlutz/romanlutz.github.io/blob/gh-pages/other/FairnessAndAbstractionInSociotechnicalSystems.pdf">here</a>.
