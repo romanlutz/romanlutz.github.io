@@ -10,3 +10,6 @@ extra:
 theme:
   name: null
   custom_dir: 'theme/'
+
+hooks:
+  - hooks.py

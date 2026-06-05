@@ -1,2 +1,3 @@
 .idea/
 dev/site/
+dev/**/__pycache__/
