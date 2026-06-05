@@ -14,6 +14,10 @@ timeline:
     image: blind_goal_directedness_paper.png
     imageAlt: Overview graphic of the pre-print including examples of blind goal-directedness in computer-use agents, the benchmark design, as well as evaluation and findings
     description: Our paper "<a href="https://arxiv.org/abs/2510.01670">Just Do It!? Computer-Use Agents Exhibit Blind Goal-Directedness</a>" has been accepted at ICLR 2026! This was a collaboration between the AI Red Team and our friends at Microsoft Research AI Frontiers, based on Erfan Shayegani&#x27;s summer internship. The work was also covered by <a href="https://www.404media.co/nvidia-and-microsoft-researchers-say-ai-agents-dont-care-about-safety-or-reliability/">404 Media</a>.
+  - date: September 2025
+    title: Talk Python To Me podcast
+    youtube: https://www.youtube.com/embed/N681L4BXTUw
+    description: Tori Westerhoff and I joined Michael Kennedy on the <a href="https://talkpython.fm/episodes/show/521/red-teaming-llms-and-genai-with-pyrit">Talk Python To Me podcast</a> to talk about red teaming LLMs and generative AI with PyRIT.
   - date: May 2025
     title: Build 2025 Lab
     image: build2025labcrew.jpg
