@@ -631,15 +631,27 @@ img.center {
   }
 }
 
-/* Datamap tooltip */
+/* Map container — proper aspect ratios so SVG scales naturally on mobile.
+   us-atlas pre-projected canvas is 975×610 (~1.6/1). World equal-earth
+   is rendered at 2/1. */
+.map-container {
+  position: relative;
+  width: 100%;
+}
+#usa_map.map-container   { aspect-ratio: 975 / 610; }
+#world_map.map-container { aspect-ratio: 4 / 2.054; }
+
+/* Choropleth tooltip (positioned via JS, styled here) */
 .hoverinfo {
   background-color: var(--bg-secondary) !important;
   color: var(--text-primary) !important;
   border: 1px solid var(--border-hover) !important;
   border-radius: 6px;
   padding: 6px 10px;
+  font-size: 13px;
 }
-.datamaps-subunit-labels text,
-.labels text {
-  font-weight: 600 !important;
+.hoverinfo.visited {
+  background-color: var(--green) !important;
+  color: var(--text-white) !important;
+  border-color: var(--green) !important;
 }

@@ -1,7 +1,7 @@
 - id: us-map
   title: Map of the US states I have visited
   content:
-  - green = visited, light green = transit only, dark gray = not visited
+  - flag = visited, dark gray = not visited
   mapConfiguration:
     scope: usa
     labels: true
