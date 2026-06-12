@@ -19,14 +19,16 @@
     ESP: '724', FIN: '246', FRA: '250', GBR: '826', HUN: '348',
     IND: '356', ITA: '380', MEX: '484', MLT: '470', NLD: '528',
     POL: '616', SMR: '674', USA: '840', VAT: '336',
-    ARE: '784', BEL: '056', ISL: '352'
+    ARE: '784', BEL: '056', ISL: '352',
+    ABW: '533', CUW: '531'
   };
   var COUNTRY_ALPHA2 = {
     AUT: 'at', BHS: 'bs', CAN: 'ca', CHE: 'ch', DEU: 'de',
     ESP: 'es', FIN: 'fi', FRA: 'fr', GBR: 'gb', HUN: 'hu',
     IND: 'in', ITA: 'it', MEX: 'mx', MLT: 'mt', NLD: 'nl',
     POL: 'pl', SMR: 'sm', USA: 'us', VAT: 'va',
-    ARE: 'ae', BEL: 'be', ISL: 'is'
+    ARE: 'ae', BEL: 'be', ISL: 'is',
+    ABW: 'aw', CUW: 'cw'
   };
   // US postal code → FIPS state code (used as id in us-atlas).
   var US_FIPS = {
@@ -36,6 +38,12 @@
     NH: '33', NJ: '34', NY: '36', OR: '41', PA: '42',
     RI: '44', SD: '46', UT: '49', VT: '50', WA: '53', WY: '56'
   };
+
+  // Per-country zoom override. Most countries look best at zoom 1.0 (the flag
+  // exactly fills the bbox), but very large countries on the world map need
+  // a higher zoom so off-center flag features (US canton, Iceland's cross,
+  // etc.) don't dominate one side of the visible flag.
+  var ZOOM_OVERRIDE = { USA: 2.0, CAN: 2.0, IND: 2.0, ISL: 2.0 };
 
   var TOPOJSON = {
     usa:   'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json',
@@ -118,6 +126,31 @@
     };
   }
 
+  // Yields each sub-polygon of a feature as its own Polygon-typed Feature
+  // wrapper. Each polygon will get its own flag pattern so outlying islands
+  // (Alaska, Hawaii, French overseas, Andaman, etc.) show a properly
+  // oriented full flag at their own location rather than a tile fragment of
+  // the mainland's pattern.
+  function eachPolygon(feature) {
+    var geom = feature.geometry;
+    if (!geom) return [];
+    if (geom.type === 'Polygon') {
+      return [{
+        type: 'Feature', id: feature.id, properties: feature.properties,
+        geometry: { type: 'Polygon', coordinates: [geom.coordinates[0]] }
+      }];
+    }
+    if (geom.type === 'MultiPolygon') {
+      return geom.coordinates.map(function (coords) {
+        return {
+          type: 'Feature', id: feature.id, properties: feature.properties,
+          geometry: { type: 'Polygon', coordinates: [coords[0]] }
+        };
+      });
+    }
+    return [];
+  }
+
   // Returns projected bounds of the largest sub-polygon of a feature. Sizing
   // the flag pattern to the mainland (not the whole feature) avoids cases
   // like USA, where Pacific territories (Guam, American Samoa) stretch the
@@ -183,24 +216,41 @@
     var defs = svg.append('defs');
     var g = svg.append('g');
 
-    // Render each feature as a single path. Visited features get a pattern
-    // sized to the MAINLAND (largest sub-polygon) and applied to the whole
-    // feature. The mainland is fully covered with a properly-proportioned
-    // flag; outlying territories (Alaska/Hawaii on USA, Arctic islands on
-    // Canada, Andaman on India, French overseas etc.) show the slice of the
-    // same flag that aligns with their geographic position, so the country
-    // reads as one continuous flag drape.
+    // For each feature: unvisited → one default-filled path. Visited → render
+    // each sub-polygon (mainland and every outlying island) as its own path
+    // with its own flag-fill pattern sized to that polygon's bbox. This way
+    // every chunk of the country shows a correctly-oriented full flag (e.g.,
+    // Alaska gets its own US flag with the canton in the upper-left, not a
+    // tile fragment of the continental US pattern).
     features.forEach(function (feature) {
       var place = byId[feature.id];
-      var fill = FILL_DEFAULT;
-      if (place) {
-        var href = flagUrl(scope, place.name);
+      if (!place) {
+        g.append('path')
+          .datum(feature)
+          .attr('class', 'choropleth')
+          .attr('d', path(feature))
+          .attr('stroke', STROKE)
+          .attr('stroke-width', 0.5)
+          .attr('vector-effect', 'non-scaling-stroke')
+          .attr('fill', FILL_DEFAULT);
+        return;
+      }
+
+      var href = flagUrl(scope, place.name);
+      // Default zoom 1.0 (flag exactly fills the bbox). Per-country overrides
+      // lift specific large countries to a higher zoom — see ZOOM_OVERRIDE.
+      var ZOOM = (scope === 'world' && ZOOM_OVERRIDE[place.name]) || 1.0;
+      var polys = eachPolygon(feature);
+      polys.forEach(function (polyFeature, idx) {
+        var fill = FILL_DEFAULT;
         if (href) {
-          var bounds = mainlandBounds(feature, path);
+          var bounds = path.bounds(polyFeature);
           var x = bounds[0][0], y = bounds[0][1];
           var w = bounds[1][0] - x, h = bounds[1][1] - y;
           if (w > 0 && h > 0) {
-            var patternId = 'flag-' + scope + '-' + place.name;
+            var patternId = 'flag-' + scope + '-' + place.name + '-' + idx;
+            var imgW = w * ZOOM, imgH = h * ZOOM;
+            var imgX = (w - imgW) / 2, imgY = (h - imgH) / 2;
             defs.append('pattern')
               .attr('id', patternId)
               .attr('patternUnits', 'userSpaceOnUse')
@@ -208,26 +258,21 @@
               .attr('width', w).attr('height', h)
               .append('image')
                 .attr('href', href)
-                .attr('width', w).attr('height', h)
-                // Slice: enlarge the flag to fully COVER the mainland bbox
-                // while preserving its aspect ratio. Overflow on the longer
-                // axis is clipped; the country path further clips to its
-                // shape. Result: every part of the country is covered with
-                // flag pixels, and the flag isn't distorted — just slightly
-                // zoomed and cropped at the edges when aspects don't match.
+                .attr('x', imgX).attr('y', imgY)
+                .attr('width', imgW).attr('height', imgH)
                 .attr('preserveAspectRatio', 'xMidYMid slice');
             fill = 'url(#' + patternId + ')';
           }
         }
-      }
-      g.append('path')
-        .datum(feature)
-        .attr('class', 'choropleth')
-        .attr('d', path(place ? solidGeometry(feature) : feature))
-        .attr('stroke', STROKE)
-        .attr('stroke-width', 0.5)
-        .attr('vector-effect', 'non-scaling-stroke')
-        .attr('fill', fill);
+        g.append('path')
+          .datum(feature)
+          .attr('class', 'choropleth')
+          .attr('d', path(polyFeature))
+          .attr('stroke', STROKE)
+          .attr('stroke-width', 0.5)
+          .attr('vector-effect', 'non-scaling-stroke')
+          .attr('fill', fill);
+      });
     });
 
     attachHover(svg, ensurePopup(), byId);

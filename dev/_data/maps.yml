@@ -66,6 +66,8 @@
     places:
     - name: ARE
       visited: false
+    - name: ABW
+      visited: true
     - name: AUT
       visited: true
     - name: BEL
@@ -75,6 +77,8 @@
     - name: CAN
       visited: true
     - name: CHE
+      visited: true
+    - name: CUW
       visited: true
     - name: DEU
       visited: true
