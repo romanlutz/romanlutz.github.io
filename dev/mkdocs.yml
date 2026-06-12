@@ -13,3 +13,11 @@ theme:
 
 hooks:
   - hooks.py
+
+# Live-reload extra sources during `mkdocs serve` (the theme dir, the
+# hook script, and the _data files loaded by the hook). The docs dir
+# and mkdocs.yml are watched by default.
+watch:
+  - _data
+  - hooks.py
+  - theme
