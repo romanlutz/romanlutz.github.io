@@ -7,7 +7,22 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="author"      content="{{ config.extra.name }}">
-	
+	<meta name="description" content="{{ config.site_description }}">
+
+	<!-- Open Graph / Twitter card -->
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="{{ config.extra.name }}">
+	<meta property="og:title" content="{{ config.extra.name }}">
+	<meta property="og:description" content="{{ config.site_description }}">
+	<meta property="og:url" content="{{ config.site_url }}">
+	<meta property="og:image" content="{{ config.site_url }}images/profile.jpg">
+	<meta property="og:image:alt" content="{{ config.extra.name }}">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="{{ config.extra.name }}">
+	<meta name="twitter:description" content="{{ config.site_description }}">
+	<meta name="twitter:image" content="{{ config.site_url }}images/profile.jpg">
+	<meta name="twitter:image:alt" content="{{ config.extra.name }}">
+
 	<link href="https://github.com/romanlutz" rel="me">
 	<link href="https://romanlutz.github.io/" rel="me">
 	<link href="https://fosstodon.org/@romanlutz" rel="me">
