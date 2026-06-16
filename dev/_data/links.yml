@@ -2,7 +2,7 @@
   label: GitHub
   svg: github.svg
   color: var(--text-white)
-- url: https://azure.github.io/PyRIT
+- url: https://microsoft.github.io/PyRIT/
   label: PyRIT
   image: pyrit-icon.png
   stats: pyrit
