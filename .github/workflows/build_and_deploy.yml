@@ -4,6 +4,12 @@ on:
     branches:
       - main
   workflow_dispatch:
+  # Weekly rebuild so the live link-card stats (GitHub stars/contributors,
+  # Semantic Scholar, Bluesky, Stack Overflow) refresh on their own without
+  # needing a push. The build-time hook refetches because the committed
+  # stats.json cache is older than its TTL on a weekly cadence.
+  schedule:
+    - cron: '0 6 * * 1'
 
 permissions:
   contents: read
