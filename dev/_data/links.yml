@@ -5,24 +5,30 @@
 - url: https://azure.github.io/PyRIT
   label: PyRIT
   image: pyrit-icon.png
+  stats: pyrit
 - url: https://fairlearn.github.io
   label: Fairlearn
   image: fairlearn-favicon.ico
   invert: true
+  stats: fairlearn
 - url: https://linkedin.com/in/romanlutz
   label: LinkedIn
   svg: linkedin.svg
   color: var(--text-white)
-- url: https://scholar.google.com/citations?user=romanlutz
+- url: https://scholar.google.com/citations?user=joujH5UAAAAJ
   label: Google Scholar
   image: google-scholar-favicon.ico
+  statsText: 12 papers · 1,151 citations
 - url: https://www.semanticscholar.org/author/Roman-Lutz/40451032
   label: Semantic Scholar
   image: semantic-scholar-favicon.ico
+  stats: semanticscholar
 - url: https://bsky.app/profile/romanlutz.bsky.social
   label: Bluesky
   svg: bluesky.svg
   color: var(--bluesky)
+  stats: bluesky
 - url: https://stackoverflow.com/users/11971317/roman-lutz
   label: Stack Overflow
   image: stackoverflow-favicon.ico
+  stats: stackoverflow

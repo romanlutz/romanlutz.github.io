@@ -49,7 +49,10 @@
 				{% elif link.image %}
 				<img src="{{ ("images/" ~ link.image)|url }}" alt="{{ link.label }}" class="link-card-img{% if link.invert %} vt-event-img-invert{% endif %}">
 				{% endif %}
-				<span class="link-card-label">{{ link.label }}</span>
+				<span class="link-card-text">
+					<span class="link-card-label">{{ link.label }}</span>
+					{% if link.statsText %}<span class="link-card-stats">{{ link.statsText }}</span>{% endif %}
+				</span>
 			</a>
 			{% endfor %}
 		</div>

@@ -183,10 +183,24 @@ h1#logo .tagline {
   flex-shrink: 0;
   border-radius: 4px;
 }
+.link-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
 .link-card-label {
   font-size: 15px;
   font-weight: 500;
   color: var(--text-primary);
+}
+.link-card-stats {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 @media (max-width: 768px) {
   .link-cards {

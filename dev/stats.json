@@ -1,0 +1,24 @@
+{
+  "fetched_at": "2026-06-16T14:04:14Z",
+  "stats": {
+    "pyrit": {
+      "stars": 3985,
+      "contributors": 129
+    },
+    "fairlearn": {
+      "stars": 2251,
+      "contributors": 109
+    },
+    "semanticscholar": {
+      "papers": 12,
+      "citations": 767
+    },
+    "bluesky": {
+      "followers": 408,
+      "posts": 87
+    },
+    "stackoverflow": {
+      "reputation": 48
+    }
+  }
+}
