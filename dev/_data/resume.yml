@@ -81,6 +81,10 @@ timeline:
   logoAlt: Microsoft logo
   title: Responsible AI Engineer on the Azure ML team at Microsoft
   events:
+  - date: April 2020
+    title: The Good AI fairness keynote
+    youtube: https://www.youtube.com/embed/AityHdj0pg4
+    description: I gave a keynote on fairness in algorithms for The Good AI, covering how to assess and mitigate unfairness in machine learning systems with <a href="https://github.com/fairlearn/fairlearn">Fairlearn</a>.
   - date: November 2019
     title: Fairlearn announced at Ignite
     image: fairlearn-repo.png
