@@ -1,20 +1,24 @@
 {
-  "fetched_at": "2026-06-16T14:04:14Z",
+  "fetched_at": "2026-06-18T13:31:20Z",
   "stats": {
     "pyrit": {
-      "stars": 3985,
-      "contributors": 129
+      "stars": 3995,
+      "contributors": 130
     },
     "fairlearn": {
-      "stars": 2251,
-      "contributors": 109
+      "stars": 2253,
+      "contributors": 110
+    },
+    "github": {
+      "prsMerged": 801,
+      "reviews": 2041
     },
     "semanticscholar": {
       "papers": 12,
-      "citations": 767
+      "citations": 771
     },
     "bluesky": {
-      "followers": 408,
+      "followers": 409,
       "posts": 87
     },
     "stackoverflow": {

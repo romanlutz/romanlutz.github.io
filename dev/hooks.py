@@ -19,6 +19,7 @@ import json
 import os
 import re
 import urllib.error
+import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
@@ -35,6 +36,7 @@ _USER_AGENT = "romanlutz.github.io-build"
 _STATS_TARGETS = {
     "pyrit": {"kind": "github", "repo": "microsoft/PyRIT"},
     "fairlearn": {"kind": "github", "repo": "fairlearn/fairlearn"},
+    "github": {"kind": "githubuser", "user": "romanlutz"},
     "semanticscholar": {"kind": "semanticscholar", "author": "40451032"},
     "bluesky": {"kind": "bluesky", "actor": "romanlutz.bsky.social"},
     "stackoverflow": {"kind": "stackoverflow", "user": "11971317"},
@@ -78,6 +80,29 @@ def _fetch_github(target):
     }
 
 
+def _github_search_count(query, headers):
+    # advanced_search=true matches the search mode GitHub is migrating to;
+    # per_page=1 keeps the payload tiny since we only need total_count.
+    encoded = urllib.parse.quote(query)
+    url = (
+        "https://api.github.com/search/issues"
+        f"?q={encoded}&per_page=1&advanced_search=true"
+    )
+    data, _ = _get_json(url, headers)
+    return data.get("total_count")
+
+
+def _fetch_githubuser(target):
+    headers = _github_headers()
+    user = target["user"]
+    return {
+        "prsMerged": _github_search_count(
+            f"author:{user} type:pr is:merged", headers
+        ),
+        "reviews": _github_search_count(f"reviewed-by:{user} type:pr", headers),
+    }
+
+
 def _fetch_semanticscholar(target):
     url = (
         f"https://api.semanticscholar.org/graph/v1/author/{target['author']}"
@@ -105,6 +130,7 @@ def _fetch_stackoverflow(target):
 
 _FETCHERS = {
     "github": _fetch_github,
+    "githubuser": _fetch_githubuser,
     "semanticscholar": _fetch_semanticscholar,
     "bluesky": _fetch_bluesky,
     "stackoverflow": _fetch_stackoverflow,
@@ -140,6 +166,8 @@ def _format_stats(stat_id, values):
         if contributors is not None:
             parts.append(f"{contributors} contributors")
         return " · ".join(parts) or None
+    if stat_id == "github":
+        return joined(("prsMerged", "PRs merged"), ("reviews", "reviews"))
     if stat_id == "semanticscholar":
         return joined(("papers", "papers"), ("citations", "citations"))
     if stat_id == "bluesky":
