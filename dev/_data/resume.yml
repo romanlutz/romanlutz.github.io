@@ -3,7 +3,7 @@ timeline:
   location: Remote (WA)
   logo: msft.svg
   logoAlt: Microsoft logo
-  title: Responsible AI Engineer on the AI Red Team at Microsoft
+  title: Responsible AI Engineering Lead on the AI Red Team at Microsoft
   events:
   - date: November 2025
     title: PyData Seattle talk
@@ -18,6 +18,12 @@ timeline:
     title: Talk Python To Me podcast
     youtube: https://www.youtube.com/embed/N681L4BXTUw
     description: Tori Westerhoff and I joined Michael Kennedy on the <a href="https://talkpython.fm/episodes/show/521/red-teaming-llms-and-genai-with-pyrit">Talk Python To Me podcast</a> to talk about red teaming LLMs and generative AI with PyRIT.
+  - date: July 2025
+    title: Mentored UMass Amherst students on PyRIT
+    image: umass-osap.png
+    imageLayout: side
+    imageAlt: The UMass Open Source Apprenticeship Program logo
+    description: I had the pleasure of mentoring <a href="https://www.linkedin.com/in/sarayu-poddutoori-4ab851227/">Sarayu Poddutoori</a>, <a href="https://www.linkedin.com/in/asherman19/">Amanda Sherman</a>, <a href="https://www.linkedin.com/in/varshini-balaji-132707154/">Varshini Balaji</a>, and <a href="https://www.linkedin.com/in/yen-do-0bb435325/">Yen Do</a> from UMass Amherst as they extended <a href="https://github.com/microsoft/PyRIT">PyRIT</a>. Amanda built a <a href="https://github.com/microsoft/PyRIT/pull/1005">cross-prompt injection (XPIA) example with a website target</a>, Sarayu built out result reporting in the <a href="https://github.com/microsoft/PyRIT/pull/1003">pyrit.analytics module</a>, Varshini contributed to the <a href="https://github.com/microsoft/PyRIT/pull/1049">GCG adversarial suffix attack</a>, and Yen <a href="https://github.com/microsoft/PyRIT/pull/1036">extended Tree of Attacks with Pruning to support image targets</a>.
   - date: May 2025
     title: Build 2025 Lab
     image: build2025labcrew.jpg
@@ -33,6 +39,12 @@ timeline:
     imageLayout: side
     imageAlt: The header image of the Microsoft blog post saying 8 lessons from the front lines of AI red teaming
     description: We published a new whitepaper titled "<a href="https://aka.ms/AIRTLessonsPaper">Lessons Learned from Red Teaming 100 Generative AI Products</a>" as described in <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2025/01/14/enhancing-ai-safety-insights-and-lessons-from-red-teaming/?msockid=3b9f50fd6689604c2c934393670361be">this Microsoft blog</a>.
+  - date: August 2024
+    title: Mentored Stanford ICME students on PyRIT
+    description: I mentored <a href="https://www.linkedin.com/in/naijing-guo/">Naijing Guo</a> and <a href="https://www.linkedin.com/in/salma-zainana-0490791ba/">Salma Zainana</a> from the Stanford <a href="https://icme.stanford.edu/">ICME</a> program (together with <a href="https://www.linkedin.com/in/eric-darve-0a4b48131/">Eric Darve</a> and <a href="https://www.linkedin.com/in/hansonkari/">Kari Hanson</a>) as they brought state-of-the-art jailbreaks to <a href="https://github.com/microsoft/PyRIT">PyRIT</a>. Salma implemented <a href="https://github.com/microsoft/PyRIT/pull/210">Tree of Attacks with Pruning</a> and Naijing contributed the GCG (Greedy Coordinate Gradient) adversarial suffix attack — a far more involved, optimization-based jailbreak than a simple converter — expanding PyRIT&#x27;s automated attack toolkit for probing generative AI systems.
+  - date: August 2024
+    title: Mentored Microsoft intern Safwan Ahmed
+    description: I mentored <a href="https://www.linkedin.com/in/safwan--ahmad/">Safwan Ahmed</a> during his Microsoft internship, where he implemented two well-known jailbreaks in <a href="https://github.com/microsoft/PyRIT">PyRIT</a>. He added the single-turn <a href="https://github.com/microsoft/PyRIT/pull/248">Skeleton Key</a> attack, <a href="https://www.microsoft.com/en-us/security/blog/2024/06/26/mitigating-skeleton-key-a-new-type-of-generative-ai-jailbreak-technique/?msockid=025deda99e1e63193accfbd59fce6243">disclosed by Mark Russinovich</a>, and the multi-turn <a href="https://github.com/microsoft/PyRIT/pull/275">Crescendo orchestrator</a>, giving red teamers reusable implementations of both.
   - date: July 2024
     title: Phi-3 Safety Post-Training
     description: 'PyRIT was a key part of Phi-3 Safety Post-Training which is highlighted in the associated paper <a href="https://arxiv.org/abs/2407.13833">Phi-3 Safety Post-Training: Aligning Language Models with a "Break-Fix" Cycle</a>'
@@ -64,6 +76,9 @@ timeline:
     image: jmlr.png
     imageAlt: A screenshot from the JMLR website showing the new Fairlearn paper title with authors.
     description: The new <a href="https://jmlr.org/papers/v24/23-0389.html">Fairlearn paper</a> is now in the Journal for Machine Learning Research (Open Source Software section)! It captures our change from being a project under Microsoft governance to being a true open source project with open governance. As of today, half the maintainers are employed by Microsoft (including myself). Also, the focus of the project has shifted significantly since the original whitepaper. Back then, the Python toolkit was the main focus whereas now the educational materials are being prioritized. This aims to acknowledge the sociotechnical nature of fairness.
+  - date: January 2022
+    title: Mentored MIT students on Fairlearn
+    description: I mentored <a href="https://www.linkedin.com/in/kspiekermann/">Kevin Spiekermann</a> and <a href="https://www.linkedin.com/in/britney-ting/">Britney Ting</a> from MIT on <a href="https://github.com/fairlearn/fairlearn">Fairlearn</a>. They documented the modern folktables benchmarks from Ding et al. as replacements for the dated UCI Adult dataset — Kevin added <a href="https://github.com/fairlearn/fairlearn/pull/1005">documentation and a fetch function for ACSIncome</a> and Britney added documentation for the sibling ACSPublicCoverage dataset.
   - date: December 2021
     title: Responsible AI Dashboard release
     image: rai-dashboard-release.png
@@ -81,6 +96,15 @@ timeline:
   logoAlt: Microsoft logo
   title: Responsible AI Engineer on the Azure ML team at Microsoft
   events:
+  - date: May 2021
+    title: Mentored Stanford ICME students on chest X-ray fairness
+    description: I mentored <a href="https://www.linkedin.com/in/liliankourti/">Lilian Kourti</a> and Xiaoye Yuan from the Stanford <a href="https://icme.stanford.edu/">ICME</a> program (together with <a href="https://www.linkedin.com/in/mattlungrenmd/">Matt Lungren</a>, <a href="https://www.linkedin.com/in/hansonkari/">Kari Hanson</a>, and <a href="https://www.linkedin.com/in/trevor-hastie-a6a4735/">Trevor Hastie</a>) on fairness in chest X-ray classification, studying how deep-learning diagnostic models perform across patient subgroups.
+  - date: August 2020
+    title: Mentored Stanford ICME students on Fairlearn
+    description: I mentored <a href="https://www.linkedin.com/in/davidegio/">Davide Giovanardi</a>, <a href="https://www.linkedin.com/in/lauren-pendo-209604b0/">Lauren Pendo</a>, and <a href="https://www.linkedin.com/in/andrafehmiu/">Andra Fehmiu</a> from the Stanford <a href="https://icme.stanford.edu/">ICME</a> program (together with <a href="https://www.linkedin.com/in/hansonkari/">Kari Hanson</a> and <a href="https://www.linkedin.com/in/mary-wootters-a0503231a/">Mary Wootters</a>) on <a href="https://github.com/fairlearn/fairlearn">Fairlearn</a>. Together they implemented <a href="https://github.com/fairlearn/fairlearn/pull/442">bounded group loss via exponentiated gradient</a>, extending Fairlearn&#x27;s fairness reductions to regression problems.
+  - date: April 2020
+    title: Mentored UMass Amherst students on Fairlearn
+    description: I mentored <a href="https://www.linkedin.com/in/parulgupta04/">Parul Gupta</a> and <a href="https://www.linkedin.com/in/hannanabdul55/">Abdul</a> from UMass Amherst (together with <a href="https://www.linkedin.com/in/mdudik/">Miro Dudík</a>) on <a href="https://github.com/fairlearn/fairlearn">Fairlearn</a>. Abdul added the <a href="https://github.com/fairlearn/fairlearn/pull/362">Equal Opportunity constraint</a> while Parul contributed <a href="https://github.com/fairlearn/fairlearn/pull/364">additional reduction constraints</a> and grid-search improvements to the fairness algorithms.
   - date: April 2020
     title: The Good AI fairness keynote
     youtube: https://www.youtube.com/embed/AityHdj0pg4
@@ -96,6 +120,9 @@ timeline:
     imageLayout: side-md
     imageAlt: Abstraction in Fairness-aware Machine Learning
     description: Since fairness is tricky to get right we have been meeting bi-weekly as a Responsible AI reading group. Today I had the honor to lead the discussion about <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3265913">"Fairness and Abstraction in Sociotechnical Systems"</a> by Andrew D. Selbst, danah boyd, Sorelle A. Friedler, Suresh Venkatasubramanian, and Janet Vertesi. I highly encourage everyone to read this paper to avoid the mentioned abstraction traps when building machine learning systems. Maybe this should be part of a mandatory checklist before releasing models... If you are interested in my slides you may download them <a href="https://github.com/romanlutz/romanlutz.github.io/blob/gh-pages/other/FairnessAndAbstractionInSociotechnicalSystems.pdf">here</a>.
+  - date: August 2018
+    title: Mentored ITAM student on Azure ML
+    description: I mentored <a href="https://www.linkedin.com/in/alfonso-venancio-823539175/">Emilio Alfonso Venancio</a> from the Instituto Tecnológico Autónomo de México on Azure Machine Learning.
   - date: March 2018
     title: MIT Breaking the Mold Hackathon
     description: Participating at <a href="http://www.mitbreakingthemold.com/challenges/">MIT`s Breaking the Mold Hackathon for Inclusion</a> was truly a blessing. With so many truly difficult problems to tackle, it is fantastic to see all the ideas people came up with. Big shoutout to MIT for organizing this, Microsoft for the venue (and encouraging me to go!), and Amazon for sending two inspiring mentors for my team all the way from Seattle! Thanks also to my team for creating a creative environment where everybody could express their ideas. I learned a ton from all of you, and winning 3rd prize tops it all off. I hope everybody takes some time to think about Machine Learning Bias. With ML becoming increasingly prevalent, it is more important than ever to take bias into account.
