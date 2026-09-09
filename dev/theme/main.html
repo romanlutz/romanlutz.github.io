@@ -44,8 +44,11 @@
 	<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 	<script>window.MAPS_FLAG_BASE = "{{ 'images/flags/'|url }}";</script>
 	<script src="{{ "maps.js"|url }}"></script>
+	<script src="{{ "hexagons.js"|url }}" defer></script>
 </head>
 <body>
+
+<div class="hexagon-pulse-layer" aria-hidden="true"></div>
 
 <div id="head">
 	<div id="headbox">
