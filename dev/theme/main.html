@@ -44,8 +44,31 @@
 	<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 	<script>window.MAPS_FLAG_BASE = "{{ 'images/flags/'|url }}";</script>
 	<script src="{{ "maps.js"|url }}"></script>
+	<script src="{{ "navigation.js"|url }}" defer></script>
 </head>
 <body>
+
+<nav class="site-nav" aria-label="Page sections" data-site-nav>
+	<a href="#head" class="site-nav__link is-active" data-nav-section="head" aria-current="location">home</a>
+	<span class="site-nav__timeline">
+		<a href="#timeline" class="site-nav__link" data-nav-section="timeline">timeline</a>
+		<span class="site-nav__rail" role="group" aria-label="Timeline chapters" data-timeline-rail>
+			{% for timelineItem in page.meta.resume.timeline %}
+			<a
+				href="#timeline-{{ loop.index }}"
+				class="site-nav__tick{% if loop.first %} is-active{% endif %}"
+				data-timeline-tick
+				aria-label="{{ timelineItem.title }} ({{ timelineItem.timePeriod }})"
+				title="{{ timelineItem.title }} &middot; {{ timelineItem.timePeriod }}"
+				{% if loop.first %}aria-current="step"{% endif %}
+			></a>
+			{% endfor %}
+			<span class="site-nav__marker" aria-hidden="true" data-timeline-marker></span>
+		</span>
+	</span>
+	<a href="#places" class="site-nav__link" data-nav-section="places">places</a>
+	<a href="#miscellaneous" class="site-nav__link" data-nav-section="miscellaneous">more</a>
+</nav>
 
 <div id="head">
 	<div id="headbox">
@@ -81,7 +104,7 @@
 		<div class="topspace">
 				<div id="timeline" class="vt">
 						{% for timelineItem in page.meta.resume.timeline %}
-						<div class="vt-section{% if not timelineItem.events %} vt-section--no-events{% endif %}">
+						<div id="timeline-{{ loop.index }}" class="vt-section{% if not timelineItem.events %} vt-section--no-events{% endif %}" data-timeline-chapter>
 							<div class="vt-major-node">
 								<div class="vt-node-dot vt-node-dot--major"></div>
 								<div class="vt-major-card">
@@ -133,7 +156,7 @@
 					</div>
 		</div>
 	
-	<div class="section-content topspace">
+	<div id="places" class="section-content topspace">
 
 			{% for map_entry in page.meta.maps %}
 			<article id="{{ map_entry.id }}">
