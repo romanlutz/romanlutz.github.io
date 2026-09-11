@@ -110,23 +110,29 @@ body::before {
 **********************************************************************/
 .site-nav {
   position: fixed;
-  top: 24px;
-  right: max(24px, calc((100vw - 1012px) / 2 + 15px));
+  top: 50%;
+  right: 24px;
   z-index: 100;
-  display: flex;
+  display: none;
+  flex-direction: column;
   align-items: center;
-  gap: 20px;
-  min-height: 42px;
-  padding: 4px 14px;
+  gap: 16px;
+  width: 96px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  padding: 12px;
   background: rgba(13, 17, 23, 0.94);
   border: 1px solid var(--border-primary);
   border-radius: 10px;
   box-shadow: 0 10px 28px rgba(1, 4, 9, 0.32);
+  transform: translateY(-50%);
 }
 .site-nav__timeline {
   display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 .site-nav__link {
   position: relative;
@@ -172,26 +178,25 @@ body::before {
 .site-nav__rail {
   position: relative;
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 14px;
+  grid-auto-rows: 24px;
   align-items: center;
-  height: 34px;
+  width: 32px;
 }
 .site-nav__rail::before {
   content: "";
   position: absolute;
-  top: 50%;
-  right: 7px;
-  left: 7px;
-  height: 1px;
+  top: 12px;
+  bottom: 12px;
+  left: 50%;
+  width: 1px;
   background: var(--border-hover);
 }
 .site-nav__tick {
   position: relative;
   z-index: 1;
   display: block;
-  width: 14px;
-  height: 34px;
+  width: 32px;
+  height: 24px;
   color: var(--text-muted);
   text-decoration: none;
 }
@@ -221,8 +226,8 @@ body::before {
 }
 .site-nav__marker {
   position: absolute;
-  top: 50%;
-  left: 0;
+  top: 0;
+  left: 50%;
   z-index: 2;
   width: 8px;
   height: 8px;
@@ -230,7 +235,7 @@ body::before {
   background: var(--bg-primary);
   border: 2px solid var(--green);
   border-radius: 50%;
-  transform: translate3d(3px, -50%, 0);
+  transform: translate3d(-50%, 8px, 0);
   will-change: transform;
 }
 #head,
@@ -239,22 +244,6 @@ body::before {
 #miscellaneous,
 .vt-section {
   scroll-margin-top: 80px;
-}
-@media (max-width: 768px) {
-  .site-nav {
-    top: 12px;
-    right: 12px;
-    left: 12px;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 4px 12px;
-  }
-  .site-nav__timeline {
-    gap: 0;
-  }
-  .site-nav__rail {
-    display: none;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -896,4 +885,16 @@ img.center {
   background-color: var(--green) !important;
   color: var(--text-white) !important;
   border-color: var(--green) !important;
+}
+
+@media (min-width: 1024px) {
+  .site-nav {
+    display: flex;
+  }
+  /* Matching gutters keep the page centered and clear of the fixed navigation. */
+  #head,
+  #main,
+  #underfooter {
+    padding-inline: 144px;
+  }
 }

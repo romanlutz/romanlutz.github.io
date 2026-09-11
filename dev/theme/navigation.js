@@ -77,11 +77,11 @@
     var position = timelinePosition(probeY);
     var firstTick = ticks[0];
     var lastTick = ticks[ticks.length - 1];
-    var start = firstTick.offsetLeft + firstTick.offsetWidth / 2;
-    var end = lastTick.offsetLeft + lastTick.offsetWidth / 2;
-    var markerX = start + (end - start) * position.progress - marker.offsetWidth / 2;
+    var start = firstTick.offsetTop + firstTick.offsetHeight / 2;
+    var end = lastTick.offsetTop + lastTick.offsetHeight / 2;
+    var markerY = start + (end - start) * position.progress - marker.offsetHeight / 2;
 
-    marker.style.transform = 'translate3d(' + markerX + 'px, -50%, 0)';
+    marker.style.transform = 'translate3d(-50%, ' + markerY + 'px, 0)';
 
     ticks.forEach(function (tick, index) {
       var isActive = index === position.activeIndex;
