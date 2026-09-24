@@ -28,6 +28,14 @@ jobs:
       - name: Checkout main
         uses: actions/checkout@v6
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
+      - name: Test portrait interaction
+        run: node --test dev/tests/portrait.test.cjs
+
       - name: Set up Python
         uses: actions/setup-python@v6
         with:

@@ -312,6 +312,12 @@ h1#logo .tagline {
   margin: 0 auto;
   padding: 32px 32px 24px;
 }
+.profile-portrait {
+  position: relative;
+  width: 168px;
+  height: 168px;
+  margin: 0 auto 20px;
+}
 #head .profile-img {
   display: block;
   width: 168px;
@@ -319,8 +325,23 @@ h1#logo .tagline {
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid var(--green);
-  margin: 0 auto 20px;
+  margin: 0;
   box-shadow: 0 0 20px rgba(35,134,54,0.3);
+}
+.portrait-trigger {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+.portrait-trigger:focus-visible {
+  outline: 3px solid var(--blue-light);
+  outline-offset: 5px;
 }
 #head .title {
   font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;

@@ -46,6 +46,7 @@
 	<script src="{{ "maps.js"|url }}"></script>
 	<script src="{{ "hexagons.js"|url }}" defer></script>
 	<script src="{{ "navigation.js"|url }}" defer></script>
+	<script src="{{ "portrait.js"|url }}" defer></script>
 </head>
 <body>
 
@@ -75,8 +76,11 @@
 
 <div id="head">
 	<div id="headbox">
+		<div class="profile-portrait" data-portrait data-portrait-base="{{ 'images/portrait/'|url }}">
+			<img class="profile-img" data-portrait-image src="{{ "images/profile.jpg"|url }}" width="168" height="168" alt="">
+			<button class="portrait-trigger" type="button" aria-label="Make Roman wink" title="Click or tap to wink" hidden></button>
+		</div>
 		<h1 id="logo">
-			<img class="profile-img" src="{{ "images/profile.jpg"|url }}" alt="">
 			<span class="title">{{ config.extra.name }}</span>
 			<span class="tagline">
 				{% for title in config.extra.titles %}{% if not loop.first %} <span class="tagline-sep">|</span> {% endif %}{{ title }}{% endfor %}
