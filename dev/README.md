@@ -78,6 +78,6 @@ node --test dev/tests/portrait.test.cjs
 The tests use Node's built-in runner with no npm dependencies. They cover pose
 selection, jitter prevention, input modes, loading and decoding failures,
 repeated activation, cancellation, preference changes, and the frame asset
-shape and size budget. The Pages workflow runs them before the strict MkDocs
-build. Also check the rendered effect with mouse, keyboard, touch, and reduced
-motion when changing the images or interaction.
+shape and size budget. Run them before a strict MkDocs build when changing the
+images or interaction. Also check the rendered effect with mouse, keyboard,
+touch, and reduced motion. The existing Pages deployment workflow is unchanged.
