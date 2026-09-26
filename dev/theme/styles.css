@@ -743,6 +743,93 @@ img.center {
     border-radius: 8px;
 }
 
+.vt-event-gallery {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: 12px;
+    overflow: visible;
+}
+
+.vt-event-gallery-tile {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+    background: var(--bg-secondary);
+}
+
+.vt-event-gallery-tile:first-child {
+    grid-row: span 2;
+}
+
+.vt-event-gallery-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+a.vt-event-gallery-content {
+    color: var(--blue);
+}
+
+a.vt-event-gallery-content:hover {
+    color: var(--blue-light);
+    background: var(--bg-hover);
+}
+
+a.vt-event-gallery-content:hover .vt-event-gallery-caption {
+    text-decoration: underline;
+}
+
+a.vt-event-gallery-content:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: -2px;
+    border-radius: 8px;
+}
+
+.vt-event-gallery-frame {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--bg-hover);
+}
+
+.vt-event-gallery-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.vt-event-gallery-caption {
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.vt-event-gallery-tile:first-child .vt-event-gallery-frame {
+    aspect-ratio: 7 / 10;
+}
+
+.vt-event-gallery-tile:nth-child(2) .vt-event-gallery-frame {
+    aspect-ratio: 2 / 1;
+}
+
+.vt-event-gallery-tile:nth-child(2) .vt-event-gallery-image {
+    object-fit: cover;
+}
+
+.vt-event-gallery-tile:nth-child(3) .vt-event-gallery-frame {
+    aspect-ratio: 3 / 1;
+    background: #fff;
+}
+
 .vt-event-youtube {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -836,6 +923,24 @@ img.center {
     .vt-event-img-side,
     .vt-event-img-side-md {
         width: 100%;
+    }
+    .vt-event-gallery {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .vt-event-gallery-tile:first-child {
+        grid-row: auto;
+    }
+    .vt-event-gallery-tile:first-child .vt-event-gallery-frame {
+        aspect-ratio: 817 / 1057;
+    }
+    .vt-event-gallery-tile:nth-child(2) .vt-event-gallery-frame {
+        aspect-ratio: 800 / 533;
+    }
+    .vt-event-gallery-tile:nth-child(2) .vt-event-gallery-image {
+        object-fit: contain;
+    }
+    .vt-event-gallery-tile:nth-child(3) .vt-event-gallery-frame {
+        aspect-ratio: 780 / 300;
     }
     .vt-branch-in,
     .vt-branch-out {

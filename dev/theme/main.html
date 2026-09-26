@@ -138,6 +138,20 @@
 													<iframe src="{{ event.youtube }}" title="{{ event.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="vt-event-youtube"></iframe>
 												</div>
 												<div class="vt-event-desc">{{ event.description }}</div>
+												{% elif event.gallery %}
+												<div class="vt-event-media vt-event-gallery">
+													{% for media in event.gallery %}
+													<div class="vt-event-gallery-tile">
+														{% if media.url %}<a href="{{ media.url|e }}" target="_blank" rel="noopener noreferrer" class="vt-event-gallery-content">{% else %}<div class="vt-event-gallery-content">{% endif %}
+															<span class="vt-event-gallery-frame">
+																<img src="../images/{{ media.image|e }}" alt="{{ media.imageAlt|e }}" width="{{ media.width }}" height="{{ media.height }}" loading="lazy" decoding="async" class="vt-event-gallery-image">
+															</span>
+															<span class="vt-event-gallery-caption">{{ media.caption|e }}</span>
+														{% if media.url %}</a>{% else %}</div>{% endif %}
+													</div>
+													{% endfor %}
+												</div>
+												<div class="vt-event-desc">{{ event.description }}</div>
 												{% elif event.image and event.imageLayout %}
 												<div class="vt-event-body-side">
 													<img src="../images/{{ event.image }}" alt="{{ event.imageAlt }}" class="vt-event-img-{{ event.imageLayout }}{% if event.imageInvert %} vt-event-img-invert{% endif %}">

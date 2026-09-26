@@ -13,6 +13,16 @@ mkdocs serve
 
 Then just push to `main` to trigger a rebuild.
 
+## Timeline publication galleries
+
+An event in `_data/resume.yml` can specify a `gallery` instead of a single
+`image`. Each gallery item provides an `image` filename from `theme/images/`,
+`imageAlt`, `caption`, and the image's `width` and `height`; set `url` when the
+image and caption should link to the original publication. The first item is
+the featured cover, with the remaining two stacked beside it on wider screens
+and all three stacked on mobile. Events without a gallery continue to use the
+existing single-image or video layouts.
+
 ## Section navigation
 
 The section navbar is hidden below 1024px. At desktop widths, it is a fixed vertical
