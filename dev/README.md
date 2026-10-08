@@ -15,14 +15,13 @@ Then just push to `main` to trigger a rebuild.
 
 ## Visual presentation
 
-`theme/styles.css` controls the site's charcoal and green theme, shared card
-and media radii, and responsive layout. The header uses a split layout on
-desktop and stacks on mobile. Profile links appear in four columns on wide
-screens, two on intermediate screens, and compact rows on small screens, with
-statistics wrapping rather than being truncated. On small screens, the timeline
-uses a single rail and wider event panels instead of nested indentation. Website
-copy and data remain in `mkdocs.yml` and `_data/`; the presentation does not change
-them.
+`theme/styles.css` controls the site's charcoal and green theme, timeline and
+media radii, and responsive layout. The header retains its original centered
+portrait and name. Profile links retain the original three-column grid, switching
+to a single column at 768px and below. Their separate container preserves the
+original widths and gutters without narrowing the timeline. On small screens,
+the timeline uses a single rail and wider event panels instead of nested
+indentation. Website copy and data remain in `mkdocs.yml` and `_data/`.
 
 ## Timeline publication galleries
 

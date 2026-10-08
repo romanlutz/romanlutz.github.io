@@ -5,6 +5,9 @@ timeline:
   logoAlt: Microsoft logo
   title: AI Safety Engineering Lead on the AI Red Team at Microsoft
   events:
+  - date: October 2026
+    title: MLCommons Jailbreak Benchmark v1.0
+    description: I contributed to <a href="https://arxiv.org/abs/2610.02827">MLCommons Jailbreak Benchmark v1.0</a>, collaborating with Chris Knotz on implementations for leaf nodes in the <a href="https://github.com/mlcommons/jailbreak-taxonomy">jailbreak taxonomy</a>. <a href="https://github.com/microsoft/PyRIT">PyRIT</a> provided the foundation for this work.
   - date: September 2026
     title: PyRIT v1 release
     gallery:

@@ -83,14 +83,14 @@
 		<h1 id="logo">
 			<span class="title">{{ config.extra.name }}</span>
 			<span class="tagline">
-				{% for title in config.extra.titles %}{% if not loop.first %} <span class="tagline-sep">|</span> {% endif %}<span class="tagline-item">{{ title }}</span>{% endfor %}
+				{% for title in config.extra.titles %}{% if not loop.first %} <span class="tagline-sep">|</span> {% endif %}{{ title }}{% endfor %}
 			</span>
 		</h1>
 	</div>
 </div>
 
 <main id="main">
-	<div class="container">
+	<div class="profile-links">
 
 		<div class="link-cards topspace">
 			{% for link in page.meta.links %}
@@ -104,12 +104,12 @@
 					<span class="link-card-label">{{ link.label }}</span>
 					{% if link.statsText %}<span class="link-card-stats">{{ link.statsText }}</span>{% endif %}
 				</span>
-				<svg class="link-card-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
-					<path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-				</svg>
 			</a>
 			{% endfor %}
 		</div>
+	</div>
+
+	<div class="container">
 	
 		<div class="topspace">
 				<div id="timeline" class="vt">
