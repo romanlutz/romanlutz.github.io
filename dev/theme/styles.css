@@ -877,6 +877,29 @@ a.vt-event-gallery-content:focus-visible {
     background: #fff;
 }
 
+.vt-event-gallery--single {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.vt-event-gallery--single .vt-event-gallery-tile:first-child {
+    grid-row: auto;
+}
+
+.vt-event-gallery--single .vt-event-gallery-tile:first-child .vt-event-gallery-frame {
+    aspect-ratio: auto;
+    background: var(--bg-primary);
+}
+
+.vt-event-gallery--single .vt-event-gallery-image {
+    height: auto;
+}
+
+.vt-event-gallery--single .vt-event-gallery-caption {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+}
+
 .vt-event-youtube {
     width: 100%;
     aspect-ratio: 16 / 9;

@@ -7,6 +7,13 @@ timeline:
   events:
   - date: October 2026
     title: MLCommons Jailbreak Benchmark v1.0
+    gallery:
+      - image: mlcommons-jailbreak-taxonomy.svg
+        imageAlt: Top-down MLCommons jailbreak taxonomy showing Perturbation, Encoding Abuse, Overt Carriers, and Composition and Ordering, with their categories and leaf mechanisms.
+        caption: 'Jailbreak taxonomy (Figure 2, page 18) | Open full-size'
+        url: ../images/mlcommons-jailbreak-taxonomy.svg
+        width: 1200
+        height: 1134
     description: I contributed to <a href="https://arxiv.org/abs/2610.02827">MLCommons Jailbreak Benchmark v1.0</a>, collaborating with Chris Knotz on implementations for leaf nodes in the <a href="https://github.com/mlcommons/jailbreak-taxonomy">jailbreak taxonomy</a>. <a href="https://github.com/microsoft/PyRIT">PyRIT</a> provided the foundation for this work.
   - date: September 2026
     title: PyRIT v1 release

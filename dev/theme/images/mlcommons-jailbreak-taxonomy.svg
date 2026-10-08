@@ -1,0 +1,262 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
+  width="1200" height="1134" viewBox="0 0 1200 1134" role="img" aria-labelledby="taxonomy-title taxonomy-description" xml:lang="en">
+  <title id="taxonomy-title">MLCommons jailbreak taxonomy: top-down adaptation</title>
+  <desc id="taxonomy-description">Single-turn jailbreak attacks, arranged from families to categories to leaf mechanisms. Perturbation. Plain Perturbations: Character-level Micro-edits, Local Paraphrase &amp; Rewording; Transfer Text Perturbations: Adversarial Triggers, Paraphrase-based Transfer. Encoding Abuse. Encoding Abuse: ASCII Encoding, Base64 / URL / Obfuscation, Unicode / BiDi / Zero-width; Wrappers &amp; Schemas: JSON / Markdown / Code-blocks, Length / Prefix-Suffix Wrappers. Overt Carriers. Direct Override Patterns: Simple Overrides, DAN-style Composites; Role-play &amp; Template Jailbreaks: Benign Pretext / Safety Reframing, Persona Role-play. Composition &amp; Ordering. Context Framing &amp; Deception: Benign Wrapper + Harmful Core, Scenario-based Assembly; Fragment Assembly: Token / Phrase Shuffling, Jailbreak Prompt Optimisation &amp; Search, Interleaving benign/Harmful sections.</desc>
+  <metadata>
+    <rdf:RDF><cc:Work rdf:about="">
+      <dc:title>Top-down MLCommons jailbreak taxonomy</dc:title>
+      <dc:creator>Carsten Maple et al. (source taxonomy)</dc:creator>
+      <dc:source>https://arxiv.org/abs/2610.02827v1</dc:source>
+      <dc:description>Original redraw of Figure 2 on page 18; reoriented top-down with new typography and colors. All displayed labels and parent-child relationships are retained.</dc:description>
+      <cc:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    </cc:Work></rdf:RDF>
+  </metadata>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+    .connector { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .credit { fill: #8b949e; font-size: 15px; }
+  </style>
+  <rect width="1200" height="1134" rx="12" fill="#0d1117"/>
+  <g aria-hidden="true">
+    <path class="connector" data-parent="taxonomy" data-child="perturbation" d="M 600 96 V 128 H 162 V 168" stroke="#64758b"/>
+    <path class="connector" data-parent="perturbation" data-child="plain-perturbations" d="M 162 252 V 266 H 32 V 326 H 40" stroke="#79c0ff"/>
+    <path class="connector" data-parent="plain-perturbations" data-child="character-micro-edits" d="M 170 356 V 370 H 48 V 425 H 56" stroke="#64758b"/>
+    <path class="connector" data-parent="plain-perturbations" data-child="local-paraphrase" d="M 170 356 V 370 H 48 V 519 H 56" stroke="#64758b"/>
+    <path class="connector" data-parent="perturbation" data-child="transfer-perturbations" d="M 162 252 V 266 H 32 V 647 H 40" stroke="#79c0ff"/>
+    <path class="connector" data-parent="transfer-perturbations" data-child="adversarial-triggers" d="M 170 690 V 704 H 48 V 747 H 56" stroke="#64758b"/>
+    <path class="connector" data-parent="transfer-perturbations" data-child="paraphrase-transfer" d="M 170 690 V 704 H 48 V 829 H 56" stroke="#64758b"/>
+    <path class="connector" data-parent="taxonomy" data-child="encoding-abuse" d="M 600 96 V 128 H 454 V 168" stroke="#64758b"/>
+    <path class="connector" data-parent="encoding-abuse" data-child="encoding-abuse-category" d="M 454 252 V 266 H 324 V 326 H 332" stroke="#7ee787"/>
+    <path class="connector" data-parent="encoding-abuse-category" data-child="ascii-encoding" d="M 462 356 V 370 H 340 V 413 H 348" stroke="#64758b"/>
+    <path class="connector" data-parent="encoding-abuse-category" data-child="base64-obfuscation" d="M 462 356 V 370 H 340 V 495 H 348" stroke="#64758b"/>
+    <path class="connector" data-parent="encoding-abuse-category" data-child="unicode-obfuscation" d="M 462 356 V 370 H 340 V 589 H 348" stroke="#64758b"/>
+    <path class="connector" data-parent="encoding-abuse" data-child="wrappers-schemas" d="M 454 252 V 266 H 324 V 704 H 332" stroke="#7ee787"/>
+    <path class="connector" data-parent="wrappers-schemas" data-child="structured-wrappers" d="M 462 734 V 748 H 340 V 803 H 348" stroke="#64758b"/>
+    <path class="connector" data-parent="wrappers-schemas" data-child="prefix-suffix-wrappers" d="M 462 734 V 748 H 340 V 897 H 348" stroke="#64758b"/>
+    <path class="connector" data-parent="taxonomy" data-child="overt-carriers" d="M 600 96 V 128 H 746 V 168" stroke="#64758b"/>
+    <path class="connector" data-parent="overt-carriers" data-child="direct-overrides" d="M 746 252 V 266 H 616 V 339 H 624" stroke="#f2cc60"/>
+    <path class="connector" data-parent="direct-overrides" data-child="simple-overrides" d="M 754 382 V 396 H 632 V 439 H 640" stroke="#64758b"/>
+    <path class="connector" data-parent="direct-overrides" data-child="dan-composites" d="M 754 382 V 396 H 632 V 509 H 640" stroke="#64758b"/>
+    <path class="connector" data-parent="overt-carriers" data-child="role-play-templates" d="M 746 252 V 266 H 616 V 625 H 624" stroke="#f2cc60"/>
+    <path class="connector" data-parent="role-play-templates" data-child="safety-reframing" d="M 754 668 V 682 H 632 V 737 H 640" stroke="#64758b"/>
+    <path class="connector" data-parent="role-play-templates" data-child="persona-role-play" d="M 754 668 V 682 H 632 V 819 H 640" stroke="#64758b"/>
+    <path class="connector" data-parent="taxonomy" data-child="composition-ordering" d="M 600 96 V 128 H 1038 V 168" stroke="#64758b"/>
+    <path class="connector" data-parent="composition-ordering" data-child="context-deception" d="M 1038 252 V 266 H 908 V 339 H 916" stroke="#d2a8ff"/>
+    <path class="connector" data-parent="context-deception" data-child="benign-harmful-core" d="M 1046 382 V 396 H 924 V 451 H 932" stroke="#64758b"/>
+    <path class="connector" data-parent="context-deception" data-child="scenario-assembly" d="M 1046 382 V 396 H 924 V 545 H 932" stroke="#64758b"/>
+    <path class="connector" data-parent="composition-ordering" data-child="fragment-assembly" d="M 1038 252 V 266 H 908 V 660 H 916" stroke="#d2a8ff"/>
+    <path class="connector" data-parent="fragment-assembly" data-child="token-shuffling" d="M 1046 690 V 704 H 924 V 759 H 932" stroke="#64758b"/>
+    <path class="connector" data-parent="fragment-assembly" data-child="prompt-optimisation" d="M 1046 690 V 704 H 924 V 853 H 932" stroke="#64758b"/>
+    <path class="connector" data-parent="fragment-assembly" data-child="section-interleaving" d="M 1046 690 V 704 H 924 V 947 H 932" stroke="#64758b"/>
+  </g>
+  <g id="taxonomy" data-kind="root" data-label="Taxonomy">
+    <rect x="440" y="24" width="320" height="72" rx="10" fill="#161b22" stroke="#e6edf3" stroke-width="1.5"/>
+    <text font-size="30" font-weight="600" fill="#e6edf3" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="600" y="60">Taxonomy</tspan>
+    </text>
+  </g>
+  <g id="perturbation" data-kind="family" data-label="Perturbation" data-parent="taxonomy">
+    <rect x="24" y="168" width="276" height="84" rx="10" fill="#132335" stroke="#79c0ff" stroke-width="1.5"/>
+    <text font-size="24" font-weight="600" fill="#79c0ff" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="162" y="210">Perturbation</tspan>
+    </text>
+  </g>
+  <g id="plain-perturbations" data-kind="category" data-label="Plain Perturbations" data-parent="perturbation">
+    <rect x="40" y="296" width="260" height="60" rx="10" fill="#161b22" stroke="#79c0ff" stroke-width="1.5"/>
+    <text font-size="20" font-weight="500" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="170" y="326">Plain Perturbations</tspan>
+    </text>
+  </g>
+  <g id="character-micro-edits" data-kind="leaf" data-label="Character-level Micro-edits" data-parent="plain-perturbations">
+    <rect x="56" y="384" width="244" height="82" rx="10" fill="#111822" stroke="#334153" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <text font-size="18" font-weight="400" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="178" y="413">Character-level</tspan>
+      <tspan x="178" y="437">Micro-edits</tspan>
+    </text>
+  </g>
+  <g id="local-paraphrase" data-kind="leaf" data-label="Local Paraphrase &amp; Rewording" data-parent="plain-perturbations">
+    <rect x="56" y="478" width="244" height="82" rx="10" fill="#111822" stroke="#334153" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <text font-size="18" font-weight="400" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="178" y="507">Local Paraphrase</tspan>
+      <tspan x="178" y="531">&amp; Rewording</tspan>
+    </text>
+  </g>
+  <g id="transfer-perturbations" data-kind="category" data-label="Transfer Text Perturbations" data-parent="perturbation">
+    <rect x="40" y="604" width="260" height="86" rx="10" fill="#161b22" stroke="#79c0ff" stroke-width="1.5"/>
+    <text font-size="20" font-weight="500" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="170" y="634">Transfer Text</tspan>
+      <tspan x="170" y="660">Perturbations</tspan>
+    </text>
+  </g>
+  <g id="adversarial-triggers" data-kind="leaf" data-label="Adversarial Triggers" data-parent="transfer-perturbations">
+    <rect x="56" y="718" width="244" height="58" rx="10" fill="#111822" stroke="#334153" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <text font-size="18" font-weight="400" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="178" y="747">Adversarial Triggers</tspan>
+    </text>
+  </g>
+  <g id="paraphrase-transfer" data-kind="leaf" data-label="Paraphrase-based Transfer" data-parent="transfer-perturbations">
+    <rect x="56" y="788" width="244" height="82" rx="10" fill="#111822" stroke="#334153" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <text font-size="18" font-weight="400" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="178" y="817">Paraphrase-based</tspan>
+      <tspan x="178" y="841">Transfer</tspan>
+    </text>
+  </g>
+  <g id="encoding-abuse" data-kind="family" data-label="Encoding Abuse" data-parent="taxonomy">
+    <rect x="316" y="168" width="276" height="84" rx="10" fill="#142a20" stroke="#7ee787" stroke-width="1.5"/>
+    <text font-size="24" font-weight="600" fill="#7ee787" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="454" y="195">Encoding</tspan>
+      <tspan x="454" y="225">Abuse</tspan>
+    </text>
+  </g>
+  <g id="encoding-abuse-category" data-kind="category" data-label="Encoding Abuse" data-parent="encoding-abuse">
+    <rect x="332" y="296" width="260" height="60" rx="10" fill="#161b22" stroke="#7ee787" stroke-width="1.5"/>
+    <text font-size="20" font-weight="500" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="462" y="326">Encoding Abuse</tspan>
+    </text>
+  </g>
+  <g id="ascii-encoding" data-kind="leaf" data-label="ASCII Encoding" data-parent="encoding-abuse-category">
+    <rect x="348" y="384" width="244" height="58" rx="10" fill="#111822" stroke="#334153" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <text font-size="18" font-weight="400" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="470" y="413">ASCII Encoding</tspan>
+    </text>
+  </g>
+  <g id="base64-obfuscation" data-kind="leaf" data-label="Base64 / URL / Obfuscation" data-parent="encoding-abuse-category">
+    <rect x="348" y="454" width="244" height="82" rx="10" fill="#111822" stroke="#334153" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <text font-size="18" font-weight="400" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="470" y="483">Base64 / URL /</tspan>
+      <tspan x="470" y="507">Obfuscation</tspan>
+    </text>
+  </g>
+  <g id="unicode-obfuscation" data-kind="leaf" data-label="Unicode / BiDi / Zero-width" data-parent="encoding-abuse-category">
+    <rect x="348" y="548" width="244" height="82" rx="10" fill="#111822" stroke="#334153" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <text font-size="18" font-weight="400" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="470" y="577">Unicode / BiDi /</tspan>
+      <tspan x="470" y="601">Zero-width</tspan>
+    </text>
+  </g>
+  <g id="wrappers-schemas" data-kind="category" data-label="Wrappers &amp; Schemas" data-parent="encoding-abuse">
+    <rect x="332" y="674" width="260" height="60" rx="10" fill="#161b22" stroke="#7ee787" stroke-width="1.5"/>
+    <text font-size="20" font-weight="500" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="462" y="704">Wrappers &amp; Schemas</tspan>
+    </text>
+  </g>
+  <g id="structured-wrappers" data-kind="leaf" data-label="JSON / Markdown / Code-blocks" data-parent="wrappers-schemas">
+    <rect x="348" y="762" width="244" height="82" rx="10" fill="#111822" stroke="#334153" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <text font-size="18" font-weight="400" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="470" y="791">JSON / Markdown /</tspan>
+      <tspan x="470" y="815">Code-blocks</tspan>
+    </text>
+  </g>
+  <g id="prefix-suffix-wrappers" data-kind="leaf" data-label="Length / Prefix-Suffix Wrappers" data-parent="wrappers-schemas">
+    <rect x="348" y="856" width="244" height="82" rx="10" fill="#111822" stroke="#334153" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <text font-size="18" font-weight="400" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="470" y="885">Length /</tspan>
+      <tspan x="470" y="909">Prefix-Suffix Wrappers</tspan>
+    </text>
+  </g>
+  <g id="overt-carriers" data-kind="family" data-label="Overt Carriers" data-parent="taxonomy">
+    <rect x="608" y="168" width="276" height="84" rx="10" fill="#2c2514" stroke="#f2cc60" stroke-width="1.5"/>
+    <text font-size="24" font-weight="600" fill="#f2cc60" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="746" y="195">Overt</tspan>
+      <tspan x="746" y="225">Carriers</tspan>
+    </text>
+  </g>
+  <g id="direct-overrides" data-kind="category" data-label="Direct Override Patterns" data-parent="overt-carriers">
+    <rect x="624" y="296" width="260" height="86" rx="10" fill="#161b22" stroke="#f2cc60" stroke-width="1.5"/>
+    <text font-size="20" font-weight="500" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="754" y="326">Direct Override</tspan>
+      <tspan x="754" y="352">Patterns</tspan>
+    </text>
+  </g>
+  <g id="simple-overrides" data-kind="leaf" data-label="Simple Overrides" data-parent="direct-overrides">
+    <rect x="640" y="410" width="244" height="58" rx="10" fill="#111822" stroke="#334153" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <text font-size="18" font-weight="400" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="762" y="439">Simple Overrides</tspan>
+    </text>
+  </g>
+  <g id="dan-composites" data-kind="leaf" data-label="DAN-style Composites" data-parent="direct-overrides">
+    <rect x="640" y="480" width="244" height="58" rx="10" fill="#111822" stroke="#334153" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <text font-size="18" font-weight="400" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="762" y="509">DAN-style Composites</tspan>
+    </text>
+  </g>
+  <g id="role-play-templates" data-kind="category" data-label="Role-play &amp; Template Jailbreaks" data-parent="overt-carriers">
+    <rect x="624" y="582" width="260" height="86" rx="10" fill="#161b22" stroke="#f2cc60" stroke-width="1.5"/>
+    <text font-size="20" font-weight="500" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="754" y="612">Role-play &amp; Template</tspan>
+      <tspan x="754" y="638">Jailbreaks</tspan>
+    </text>
+  </g>
+  <g id="safety-reframing" data-kind="leaf" data-label="Benign Pretext / Safety Reframing" data-parent="role-play-templates">
+    <rect x="640" y="696" width="244" height="82" rx="10" fill="#111822" stroke="#334153" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <text font-size="18" font-weight="400" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="762" y="725">Benign Pretext /</tspan>
+      <tspan x="762" y="749">Safety Reframing</tspan>
+    </text>
+  </g>
+  <g id="persona-role-play" data-kind="leaf" data-label="Persona Role-play" data-parent="role-play-templates">
+    <rect x="640" y="790" width="244" height="58" rx="10" fill="#111822" stroke="#334153" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <text font-size="18" font-weight="400" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="762" y="819">Persona Role-play</tspan>
+    </text>
+  </g>
+  <g id="composition-ordering" data-kind="family" data-label="Composition &amp; Ordering" data-parent="taxonomy">
+    <rect x="900" y="168" width="276" height="84" rx="10" fill="#241a32" stroke="#d2a8ff" stroke-width="1.5"/>
+    <text font-size="24" font-weight="600" fill="#d2a8ff" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="1038" y="195">Composition &amp;</tspan>
+      <tspan x="1038" y="225">Ordering</tspan>
+    </text>
+  </g>
+  <g id="context-deception" data-kind="category" data-label="Context Framing &amp; Deception" data-parent="composition-ordering">
+    <rect x="916" y="296" width="260" height="86" rx="10" fill="#161b22" stroke="#d2a8ff" stroke-width="1.5"/>
+    <text font-size="20" font-weight="500" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="1046" y="326">Context Framing</tspan>
+      <tspan x="1046" y="352">&amp; Deception</tspan>
+    </text>
+  </g>
+  <g id="benign-harmful-core" data-kind="leaf" data-label="Benign Wrapper + Harmful Core" data-parent="context-deception">
+    <rect x="932" y="410" width="244" height="82" rx="10" fill="#111822" stroke="#334153" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <text font-size="18" font-weight="400" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="1054" y="439">Benign Wrapper</tspan>
+      <tspan x="1054" y="463">+ Harmful Core</tspan>
+    </text>
+  </g>
+  <g id="scenario-assembly" data-kind="leaf" data-label="Scenario-based Assembly" data-parent="context-deception">
+    <rect x="932" y="504" width="244" height="82" rx="10" fill="#111822" stroke="#334153" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <text font-size="18" font-weight="400" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="1054" y="533">Scenario-based</tspan>
+      <tspan x="1054" y="557">Assembly</tspan>
+    </text>
+  </g>
+  <g id="fragment-assembly" data-kind="category" data-label="Fragment Assembly" data-parent="composition-ordering">
+    <rect x="916" y="630" width="260" height="60" rx="10" fill="#161b22" stroke="#d2a8ff" stroke-width="1.5"/>
+    <text font-size="20" font-weight="500" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="1046" y="660">Fragment Assembly</tspan>
+    </text>
+  </g>
+  <g id="token-shuffling" data-kind="leaf" data-label="Token / Phrase Shuffling" data-parent="fragment-assembly">
+    <rect x="932" y="718" width="244" height="82" rx="10" fill="#111822" stroke="#334153" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <text font-size="18" font-weight="400" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="1054" y="747">Token / Phrase</tspan>
+      <tspan x="1054" y="771">Shuffling</tspan>
+    </text>
+  </g>
+  <g id="prompt-optimisation" data-kind="leaf" data-label="Jailbreak Prompt Optimisation &amp; Search" data-parent="fragment-assembly">
+    <rect x="932" y="812" width="244" height="82" rx="10" fill="#111822" stroke="#334153" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <text font-size="18" font-weight="400" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="1054" y="841">Jailbreak Prompt</tspan>
+      <tspan x="1054" y="865">Optimisation &amp; Search</tspan>
+    </text>
+  </g>
+  <g id="section-interleaving" data-kind="leaf" data-label="Interleaving benign/Harmful sections" data-parent="fragment-assembly">
+    <rect x="932" y="906" width="244" height="82" rx="10" fill="#111822" stroke="#334153" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <text font-size="18" font-weight="400" fill="#c9d1d9" text-anchor="middle" dominant-baseline="middle">
+      <tspan x="1054" y="935">Interleaving benign/</tspan>
+      <tspan x="1054" y="959">Harmful sections</tspan>
+    </text>
+  </g>
+  <path d="M 24 1012 H 1176" stroke="#30363d"/>
+  <text class="credit" x="24" y="1034">Single-turn mechanisms | Families, categories, and leaf mechanisms flow from top to bottom.</text>
+  <text class="credit" x="24" y="1060">Carsten Maple et al. | MLCommons Jailbreak Benchmark v1.0 | Figure 2, page 18 (adopted from Jailbreak 0.7).</text>
+  <text class="credit" x="24" y="1086">Top-down adaptation | CC BY 4.0 | arxiv.org/abs/2610.02827v1 | creativecommons.org/licenses/by/4.0/</text>
+</svg>

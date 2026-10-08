@@ -30,8 +30,17 @@ An event in `_data/resume.yml` can specify a `gallery` instead of a single
 `imageAlt`, `caption`, and the image's `width` and `height`; set `url` when the
 image and caption should link to the original publication. The first item is
 the featured cover, with the remaining two stacked beside it on wider screens
-and all three stacked on mobile. Events without a gallery continue to use the
-existing single-image or video layouts.
+and all three stacked on mobile. A gallery containing one item uses the full
+available width and the image's natural aspect ratio. Events without a gallery
+continue to use the existing single-image or video layouts.
+
+The October 2026 update includes `theme/images/mlcommons-jailbreak-taxonomy.svg`,
+a top-down redraw of Figure 2 on page 18 of
+[MLCommons Jailbreak Benchmark v1.0](https://arxiv.org/abs/2610.02827v1).
+The SVG preserves every node and parent-child relationship shown in that figure,
+includes source attribution and the paper's CC BY 4.0 license, and opens at full
+size when its image or caption is activated. It adds no scripts or external
+fonts. Run `node --test dev/tests/taxonomy.test.cjs` when changing the diagram.
 
 ## Section navigation
 
