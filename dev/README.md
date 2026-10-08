@@ -13,6 +13,17 @@ mkdocs serve
 
 Then just push to `main` to trigger a rebuild.
 
+## Visual presentation
+
+`theme/styles.css` controls the site's charcoal and green theme, shared card
+and media radii, and responsive layout. The header uses a split layout on
+desktop and stacks on mobile. Profile links appear in four columns on wide
+screens, two on intermediate screens, and compact rows on small screens, with
+statistics wrapping rather than being truncated. On small screens, the timeline
+uses a single rail and wider event panels instead of nested indentation. Website
+copy and data remain in `mkdocs.yml` and `_data/`; the presentation does not change
+them.
+
 ## Timeline publication galleries
 
 An event in `_data/resume.yml` can specify a `gallery` instead of a single

@@ -83,7 +83,7 @@
 		<h1 id="logo">
 			<span class="title">{{ config.extra.name }}</span>
 			<span class="tagline">
-				{% for title in config.extra.titles %}{% if not loop.first %} <span class="tagline-sep">|</span> {% endif %}{{ title }}{% endfor %}
+				{% for title in config.extra.titles %}{% if not loop.first %} <span class="tagline-sep">|</span> {% endif %}<span class="tagline-item">{{ title }}</span>{% endfor %}
 			</span>
 		</h1>
 	</div>
@@ -104,6 +104,9 @@
 					<span class="link-card-label">{{ link.label }}</span>
 					{% if link.statsText %}<span class="link-card-stats">{{ link.statsText }}</span>{% endif %}
 				</span>
+				<svg class="link-card-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+					<path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
 			</a>
 			{% endfor %}
 		</div>
@@ -118,7 +121,7 @@
 									<div class="vt-major-header">
 										<img src="../images/{{ timelineItem.logo }}" alt="{{ timelineItem.logoAlt }}" class="vt-major-logo{% if timelineItem.logoInvert %} vt-event-img-invert{% endif %}{% if timelineItem.logoLarge %} vt-major-logo--lg{% endif %}">
 										<div class="vt-major-info">
-											<div class="vt-major-title">{{ timelineItem.title }}</div>
+											<h2 class="vt-major-title">{{ timelineItem.title }}</h2>
 											<div class="vt-major-meta">{{ timelineItem.timePeriod }} &middot; {{ timelineItem.location }}</div>
 										</div>
 									</div>
@@ -132,7 +135,7 @@
 											<div class="vt-node-dot vt-node-dot--minor"></div>
 											<div class="vt-event-card">
 												<div class="vt-event-date">{{ event.date }}</div>
-												<div class="vt-event-title">{{ event.title }}</div>
+												<h3 class="vt-event-title">{{ event.title }}</h3>
 												{% if event.youtube %}
 												<div class="vt-event-media">
 													<iframe src="{{ event.youtube }}" title="{{ event.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="vt-event-youtube"></iframe>
@@ -181,7 +184,7 @@
 
 			{% for map_entry in page.meta.maps %}
 			<article id="{{ map_entry.id }}">
-					<h1 class="entry-title">{{ map_entry.title }}</h1>
+					<h2 class="entry-title">{{ map_entry.title }}</h2>
 				<div class="entry-content">
 					{% for content_paragraph in map_entry.content %}
 					<p>{{ content_paragraph }}</p>
@@ -205,7 +208,7 @@
 	
 		<div class="section-content topspace">
 			<article id="miscellaneous">
-				<h1 class="entry-title">Miscellaneous</h1>
+				<h2 class="entry-title">Miscellaneous</h2>
 				<div class="git-img-wrapper">
 					<img src="../images/git.jpg" alt="The 5 stages of git, from Navin Narra's tweet." width="80%" class="center vt-event-img-invert git-img-blend">
 				</div>
