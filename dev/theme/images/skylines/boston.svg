@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="vt-skyline__city" data-city="boston" viewBox="0 0 640 120" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+  <desc>Original Boston silhouette with the Custom House Tower, Prudential Tower, John Hancock Tower, and Massachusetts State House dome.</desc>
+  <path vector-effect="non-scaling-stroke" d="M0 120 H24 V110 H48 V98 H77 V105 H98 V89 H125 V107 H140 V70 H148 V60 H155 V49 L165 32 L175 49 V60 H182 V70 H190 V108 H210 V85 H236 V103 H252 V45 H265 V36 H283 V18 H284 V6 H287 V18 H304 V36 H317 V45 H329 V107 H350 V87 H369 V27 L406 22 V98 H432 V77 H458 V104 H484 V86 H498 Q500 65 518 62 V56 H523 V62 Q543 65 545 86 H558 V104 H577 V92 H601 V111 H620 V120 H640"/>
+</svg>

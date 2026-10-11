@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="vt-skyline__city" data-city="ulm" viewBox="0 0 640 120" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+  <desc>Original Ulm silhouette with old-town gables, the leaning Metzgerturm, town hall, Ulm Minster's stepped Gothic spire, and Schwoerhaus.</desc>
+  <path vector-effect="non-scaling-stroke" d="M0 120 H20 V110 L35 95 L50 110 H60 V99 L77 82 L94 99 V110 H101 L107 73 L128 51 L149 73 L144 107 H160 V110 H175 V96 L194 81 L213 96 V95 L236 71 L259 95 V110 H275 V106 L297 92 H318 V78 L323 65 L328 78 V90 H329 V69 H336 V60 H342 V52 H348 V44 H352 V35 H356 V25 H360 V17 L363 5 L366 17 V25 H370 V35 H374 V44 H380 V52 H386 V60 H392 V69 H399 V101 H417 L440 88 L463 103 V110 H484 V99 H510 V82 H521 Q522 68 532 65 L535 56 L538 65 Q548 68 549 82 H560 V99 H588 V108 H610 V120 H640"/>
+</svg>

@@ -531,6 +531,7 @@ img.center {
 **********************************************************************/
 /* Visual Timeline (vt) */
 .vt {
+    --vt-skyline-height: clamp(40px, 7vw, 88px);
     position: relative;
     padding: 0;
     font-size: 16px;
@@ -550,6 +551,9 @@ img.center {
     background: var(--green);
     z-index: 1;
 }
+.vt--skylines::before {
+    top: calc(36px + var(--vt-skyline-height));
+}
 
 /* Section wrapper */
 .vt-section {
@@ -564,6 +568,9 @@ img.center {
     align-items: flex-start;
     padding: 16px 0;
     padding-left: 44px;
+}
+.vt-major-node--skyline {
+    padding-top: calc(16px + var(--vt-skyline-height));
 }
 
 /* Node dots */
@@ -580,6 +587,9 @@ img.center {
     background: var(--green);
     border: 2px solid var(--bg-primary);
     box-shadow: 0 0 0 2px var(--green);
+}
+.vt-major-node--skyline > .vt-node-dot--major {
+    top: calc(28px + var(--vt-skyline-height));
 }
 .vt-node-dot--minor {
     left: -22px;
@@ -601,6 +611,46 @@ img.center {
     overflow: visible;
     position: relative;
 }
+.vt-major-card--skyline {
+    --vt-skyline-fill: var(--bg-secondary);
+    border-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* Open rooflines join the card sides without a flat border beneath the buildings. */
+.vt-skyline {
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    bottom: 100%;
+    display: flex;
+    align-items: flex-end;
+    height: var(--vt-skyline-height);
+    color: var(--green);
+    pointer-events: none;
+}
+.vt-skyline::before,
+.vt-skyline::after {
+    content: '';
+    flex: 1 0 0;
+    height: 1px;
+    background: currentColor;
+}
+.vt-skyline__city {
+    display: block;
+    flex: 0 1 auto;
+    width: calc(var(--vt-skyline-height) * 16 / 3);
+    min-width: 0;
+    height: 100%;
+    overflow: visible;
+}
+.vt-skyline__city path {
+    fill: var(--vt-skyline-fill);
+    stroke: currentColor;
+    stroke-width: 1;
+    stroke-linejoin: round;
+}
 
 /* Horizontal connector from major dot to major card */
 .vt-major-node::before {
@@ -612,6 +662,9 @@ img.center {
     height: 3px;
     background: var(--green);
     z-index: 3;
+}
+.vt-major-node--skyline::before {
+    top: calc(35px + var(--vt-skyline-height));
 }
 .vt-major-card:hover {
     border-color: var(--border-hover);
@@ -1038,6 +1091,9 @@ a.vt-event-gallery-content:focus-visible {
         bottom: 48px;
         width: 2px;
     }
+    .vt--skylines::before {
+        top: calc(48px + var(--vt-skyline-height));
+    }
     .vt-major-node {
         padding-left: 24px;
     }
@@ -1047,17 +1103,26 @@ a.vt-event-gallery-content:focus-visible {
         width: 12px;
         height: 12px;
     }
+    .vt-major-node--skyline > .vt-node-dot--major {
+        top: calc(42px + var(--vt-skyline-height));
+    }
     .vt-major-node::before {
         left: 14px;
         top: 47px;
         width: 10px;
         height: 2px;
     }
+    .vt-major-node--skyline::before {
+        top: calc(47px + var(--vt-skyline-height));
+    }
     .vt-major-card {
         padding: 16px 0;
         border: 0;
         border-radius: 0;
         background: transparent;
+    }
+    .vt-major-card--skyline {
+        --vt-skyline-fill: var(--bg-primary);
     }
     .vt-major-title {
         font-size: 18px;

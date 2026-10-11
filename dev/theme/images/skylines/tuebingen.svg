@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="vt-skyline__city" data-city="tuebingen" viewBox="0 0 640 120" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+  <desc>Original Tuebingen silhouette with Hohentuebingen Castle, the Neckarfront's gabled houses, Stiftskirche, and Hoelderlin Tower.</desc>
+  <path vector-effect="non-scaling-stroke" d="M0 120 H22 V108 L38 93 L54 108 H64 V69 L102 55 H144 L173 69 V79 H186 V104 H198 V88 L215 72 L232 88 V104 H243 V96 L260 80 H287 V42 H292 V31 H297 V40 H309 V31 H314 V40 H330 V31 H335 V42 H341 V94 H366 V106 H374 V88 L392 72 L410 88 V106 H420 V93 L437 79 L452 93 V78 Q448 69 457 65 L474 50 L491 65 Q500 69 496 78 V109 H508 V94 L524 78 L540 94 V108 H549 V86 L565 71 L581 86 V109 H593 V103 L607 91 L621 103 V120 H640"/>
+</svg>

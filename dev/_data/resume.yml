@@ -1,6 +1,7 @@
 timeline:
 - timePeriod: November 2023 - present
   location: Remote (WA)
+  skylines: [seattle]
   logo: msft.svg
   logoAlt: Microsoft logo
   title: AI Safety Engineering Lead on the AI Red Team at Microsoft
@@ -93,6 +94,7 @@ timeline:
     description: I have joined the <a href="https://learn.microsoft.com/en-us/security/ai-red-team/">AI Red Team</a>. See these articles for some background <a href="https://www.microsoft.com/en-us/security/blog/2023/08/07/microsoft-ai-red-team-building-future-of-safer-ai/">[1]</a>, <a href="https://www.wired.com/story/microsoft-ai-red-team/">[2]</a>, and <a href="https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/red-teaming">[3]</a>.
 - timePeriod: December 2021 - November 2023
   location: Remote (MA)
+  skylines: [boston]
   logo: msft.svg
   logoAlt: Microsoft logo
   title: Responsible AI Engineer on the Azure AI team at Microsoft
@@ -117,12 +119,14 @@ timeline:
     description: We released the <a href="https://blogs.microsoft.com/ai-for-business/building-ai-responsibly-from-research-to-practice/">Responsible AI dashboard</a>. As one of the key contributors on the engineering side I am really proud of this milestone. Of course, this is only where it really starts as we can now iterate on the first version. Make sure to <a href="https://responsibleaitoolbox.ai">try it</a> and leave some feedback! The functionality is better captured by the blog and website, but something not mentioned there that I am really excited about is that we pulled this off in the open <a href="https://github.com/microsoft/responsible-ai-toolbox">on GitHub</a>. That means anyone can see what goes into this, ask for features, or even contribute bugfixes. Doing impactful work is awesome, but seeing the recognition in the entire company takes this to a whole different level. For example, I have seen tweets about this by <a href="https://twitter.com/kevin_scott/status/1468279751785828353">Microsoft CTO Kevin Scott</a> and <a href="https://twitter.com/erichorvitz/status/1468286435052572678?s=20">Chief Scientific Officer Eric Horvitz</a>.
 - timePeriod: September 2021 - November 2021
   location: Tübingen, Germany
+  skylines: [tuebingen]
   logo: mpg.svg
   logoAlt: Max Planck logo
   logoLarge: true
   title: Graduate student at the Max Planck Institute for Intelligent Systems
 - timePeriod: July 2017 - August 2021
   location: Cambridge, MA (until 2020), Bellevue, WA (2020-2021)
+  skylines: [boston, seattle]
   logo: msft.svg
   logoAlt: Microsoft logo
   title: Responsible AI Engineer on the Azure ML team at Microsoft
@@ -162,6 +166,7 @@ timeline:
     description: After a year on the Office team, I moved to the Azure Machine Learning team. We are building the infrastructure and services from scratch using lots of open source (e.g., Kubernetes, Linux, .NET core).
 - timePeriod: June 2016 - June 2017
   location: Cambridge, MA
+  skylines: [boston]
   logo: msft.svg
   logoAlt: Microsoft logo
   title: Software Engineer at Microsoft Office (Docs)
@@ -174,6 +179,7 @@ timeline:
     description: I have joined the Docs team within Microsoft Office. We enhance collaboration capabilities through the Share feature in all Office apps.
 - timePeriod: Fall 2015 - Spring 2016
   location: Amherst, MA
+  skylines: [amherst]
   logo: umass-amherst.png
   logoAlt: UMass Amherst logo
   logoInvert: true
@@ -199,11 +205,13 @@ timeline:
     description: 'Based on NFL game data we try to predict the outcome of a play in multiple different ways including Decision and Classification Trees, Nearest Neighbors, Naive Bayes, Linear Discriminant Analysis, Support Vector Machines and Regression, and Artificial Neural Networks. An application of this is the following: by plugging in various play options one could determine the best play for a given situation in real time. While the outcome of a play can be described in many ways we had the most promising results with a newly defined measure that we call "progress". We see this work as a first step to include predictive analysis into NFL playcalling. See the full paper at <a href="https://arxiv.org/abs/1601.00574">arxiv.org/abs/1601.00574</a>; in collaboration with <a href="https://www.linkedin.com/in/brendan-teich-69a1bb77/">Brendan Teich</a> and <a href="https://www.linkedin.com/in/valentin-kassarnig-5330a3124/">Valentin Kassarnig</a>.'
 - timePeriod: June 2015 - August 2015
   location: Eschborn, Germany
+  skylines: [frankfurt]
   logo: cisco.png
   logoAlt: Cisco Systems logo
   title: Systems Engineering Intern
 - timePeriod: Fall 2014 - Spring 2015
   location: Amherst, MA
+  skylines: [amherst]
   logo: umass-amherst.png
   logoAlt: UMass Amherst logo
   logoInvert: true
@@ -220,6 +228,7 @@ timeline:
     description: 'New paper! The ubiquity of professional sports and specifically the NFL have lead to an increase in popularity for Fantasy Football. Users have many tools at their disposal: statistics, predictions, rankings of experts and even recommendations of peers. There are issues with all of these, though. Especially since many people pay money to play, the prediction tools should be enhanced as they provide unbiased and easy-to-use assistance for users. This paper provides and discusses approaches to predict Fantasy Football scores of Quarterbacks with relatively limited data. See the full paper at <a href="https://arxiv.org/abs/1505.06918">arxiv.org/abs/1505.06918</a>.'
 - timePeriod: Fall 2011 - Summer 2014
   location: Ulm, Germany
+  skylines: [ulm]
   logo: uni-ulm.svg
   logoAlt: Uni Ulm logo
   logoInvert: true

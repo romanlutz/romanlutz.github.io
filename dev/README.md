@@ -42,6 +42,28 @@ includes source attribution and the paper's CC BY 4.0 license, and opens at full
 size when its image or caption is activated. It adds no scripts or external
 fonts. Run `node --test dev/tests/taxonomy.test.cjs` when changing the diagram.
 
+## Timeline skyline borders
+
+Each chapter in `_data/resume.yml` can opt into a skyline-shaped upper border
+with `skylines: [seattle]`. The available silhouettes in `theme/images/skylines/`
+are Seattle, Boston, Tübingen, UMass Amherst, Frankfurt, and Ulm. The
+Cambridge/Bellevue chapter uses `[boston, seattle]`; both Amherst chapters share
+the campus silhouette, including Du Bois Library, Old Chapel, and Campus Center.
+Chapters without `skylines` retain their original rounded cards.
+
+The SVGs are original, simplified landmark outlines, not traced photographs.
+They are included inline by `theme/main.html`, with the existing charcoal fill
+and green outline supplied by `theme/styles.css`. Their open roofline paths
+replace the top border rather than drawing buildings above a second flat line.
+All use a `640 120` viewBox, meet at the bottom corners, preserve their
+proportions, and keep a one-pixel outline as they scale. Two skylines fit side by
+side. They add no JavaScript or external requests and are hidden from assistive
+technology. On narrow screens the silhouette remains above each chapter while
+the existing full-width event panels remain unindented.
+
+From the repository root, run `node --test dev\tests\skylines.test.cjs` when
+changing the city mappings, silhouettes, template, or skyline styling.
+
 ## Section navigation
 
 The section navbar is hidden below 1024px. At desktop widths, it is a fixed vertical

@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="vt-skyline__city" data-city="frankfurt" viewBox="0 0 640 120" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+  <desc>Original Frankfurt silhouette with the pyramid-topped Messeturm, Main Tower, Commerzbank Tower, and European Central Bank towers.</desc>
+  <path vector-effect="non-scaling-stroke" d="M0 120 H23 V109 H49 V91 H75 V105 H97 V83 H121 V107 H130 V59 H136 V45 L154 20 L172 45 V59 H178 V104 H195 V89 H218 V57 Q218 48 229 48 H235 V15 H238 V48 H247 Q258 48 258 57 V101 H279 V80 H303 V48 H310 V36 H322 V26 H334 V14 H344 V4 H347 V14 H357 V26 H367 V38 H377 V50 H384 V101 H408 V70 H429 V106 H450 V48 L476 36 L491 43 V62 L515 54 V102 H536 V86 H561 V108 H583 V95 H608 V113 H621 V120 H640"/>
+</svg>

@@ -112,12 +112,19 @@
 	<div class="container">
 	
 		<div class="topspace">
-				<div id="timeline" class="vt">
+				<div id="timeline" class="vt{% if page.meta.resume.timeline[0].skylines %} vt--skylines{% endif %}">
 						{% for timelineItem in page.meta.resume.timeline %}
 						<div id="timeline-{{ loop.index }}" class="vt-section{% if not timelineItem.events %} vt-section--no-events{% endif %}" data-timeline-chapter>
-							<div class="vt-major-node">
+							<div class="vt-major-node{% if timelineItem.skylines %} vt-major-node--skyline{% endif %}">
 								<div class="vt-node-dot vt-node-dot--major"></div>
-								<div class="vt-major-card">
+								<div class="vt-major-card{% if timelineItem.skylines %} vt-major-card--skyline{% endif %}">
+									{% if timelineItem.skylines %}
+									<div class="vt-skyline" aria-hidden="true">
+										{% for skyline in timelineItem.skylines %}
+										{% include "images/skylines/" ~ skyline ~ ".svg" %}
+										{% endfor %}
+									</div>
+									{% endif %}
 									<div class="vt-major-header">
 										<img src="../images/{{ timelineItem.logo }}" alt="{{ timelineItem.logoAlt }}" class="vt-major-logo{% if timelineItem.logoInvert %} vt-event-img-invert{% endif %}{% if timelineItem.logoLarge %} vt-major-logo--lg{% endif %}">
 										<div class="vt-major-info">

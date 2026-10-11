@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="vt-skyline__city" data-city="amherst" viewBox="0 0 640 120" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+  <desc>Original UMass Amherst campus silhouette with the Fine Arts Center, Campus Center, W. E. B. Du Bois Library, Old Chapel, and Lederle towers.</desc>
+  <path vector-effect="non-scaling-stroke" d="M0 120 H22 V108 H42 V95 H126 V101 H155 V108 H180 V75 H190 V67 H245 V98 H262 V107 H291 V12 H329 V106 H355 V110 H376 L397 90 H423 V57 H430 V45 L444 24 L458 45 V57 H465 V106 H487 V93 L505 81 L523 93 V108 H543 V56 H571 V64 H596 V109 H619 V120 H640"/>
+</svg>
