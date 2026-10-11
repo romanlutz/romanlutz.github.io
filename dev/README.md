@@ -51,6 +51,11 @@ Cambridge/Bellevue chapter uses `[boston, seattle]`; both Amherst chapters share
 the two-building silhouette of Du Bois Library and Old Chapel.
 Chapters without `skylines` retain their original rounded cards.
 
+Adjacent cities have a spaced, decorative vertical divider. The green roofline
+fades toward both outer edges, including when the illustrations shrink to fill
+the available width. Skyline cards keep the same upper and lower corner radius.
+The frameless mobile chapters retain their original layout and full-width caps.
+
 The six SVGs are original landmark-led illustrations, not traced stock artwork.
 They use distinctive roof shapes, open structural supports, clocks, window bands,
 and restrained facade detail rather than attempting photographic realism.

@@ -179,6 +179,21 @@ test('remains self-contained, lightweight, and decorative when a city is repeate
   assert.match(template, /include "images\/skylines\/" ~ skyline ~ "\.svg"/);
 });
 
+test('separates adjacent cities without adding dividers to single-city chapters', () => {
+  assert.match(template, /for skyline in timelineItem\.skylines %}\s*{% if not loop\.first %}<span class="vt-skyline__divider"><\/span>{% endif %}\s*{% include/);
+  assert.match(styles, /\.vt-skyline__divider\s*\{[^}]*flex: 0 0 clamp\(16px, 2vw, 32px\);[^}]*height: clamp\(20px, 5vw, 72px\);/);
+  assert.match(styles, /\.vt-skyline__divider::before\s*\{[^}]*width: 1px;[^}]*background: linear-gradient\(to top, currentColor, transparent\);/);
+});
+
+test('fades both outer edges and retains the card radius without masking the whole card', () => {
+  const card = styles.match(/\.vt-major-card--skyline\s*\{([^}]*)\}/)[1];
+  assert.doesNotMatch(card, /border[^:]*radius:/);
+  assert.match(styles, /\.vt-major-card\s*\{[^}]*border-radius: var\(--radius-card\);/);
+  assert.match(styles, /--vt-skyline-mask: linear-gradient\(to right, transparent, #000 var\(--vt-skyline-edge-fade\), #000 calc\(100% - var\(--vt-skyline-edge-fade\)\), transparent\);/);
+  assert.match(styles, /\.vt-skyline\s*\{[^}]*left: calc\(var\(--radius-card\) - 1px\);[^}]*right: calc\(var\(--radius-card\) - 1px\);[^}]*-webkit-mask-image: var\(--vt-skyline-mask\);[^}]*mask-image: var\(--vt-skyline-mask\);/);
+  assert.doesNotMatch(card, /mask-image|overflow: hidden/);
+});
+
 test('preserves responsive proportions, connector offsets, and unindented mobile event panels', () => {
   assert.match(styles, /\.vt-major-card--skyline\s*\{[^}]*border-top: 0;/);
   assert.match(styles, /\.vt-skyline\s*\{[^}]*bottom: 100%;[^}]*display: flex;[^}]*pointer-events: none;/);
@@ -189,5 +204,6 @@ test('preserves responsive proportions, connector offsets, and unindented mobile
   assert.match(styles, /top: calc\(42px \+ var\(--vt-skyline-height\)\)/);
   const mobile = styles.slice(styles.indexOf('@media (max-width: 559px)'));
   assert.match(mobile, /\.vt-major-card--skyline\s*\{[^}]*--vt-skyline-fill: var\(--bg-primary\)/);
+  assert.match(mobile, /\.vt-skyline\s*\{[^}]*left: 0;[^}]*right: 0;/);
   assert.match(mobile, /\.vt-events\s*\{[^}]*padding-left: 0;/);
 });

@@ -121,6 +121,7 @@
 									{% if timelineItem.skylines %}
 									<div class="vt-skyline" aria-hidden="true">
 										{% for skyline in timelineItem.skylines %}
+										{% if not loop.first %}<span class="vt-skyline__divider"></span>{% endif %}
 										{% include "images/skylines/" ~ skyline ~ ".svg" %}
 										{% endfor %}
 									</div>

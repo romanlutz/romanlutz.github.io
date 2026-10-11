@@ -614,21 +614,23 @@ img.center {
 .vt-major-card--skyline {
     --vt-skyline-fill: var(--bg-secondary);
     border-top: 0;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
 }
 
 /* Open rooflines join the card sides without a flat border beneath the buildings. */
 .vt-skyline {
+    --vt-skyline-edge-fade: clamp(16px, 4vw, 48px);
+    --vt-skyline-mask: linear-gradient(to right, transparent, #000 var(--vt-skyline-edge-fade), #000 calc(100% - var(--vt-skyline-edge-fade)), transparent);
     position: absolute;
-    left: -1px;
-    right: -1px;
+    left: calc(var(--radius-card) - 1px);
+    right: calc(var(--radius-card) - 1px);
     bottom: 100%;
     display: flex;
     align-items: flex-end;
     height: var(--vt-skyline-height);
     color: var(--green);
     pointer-events: none;
+    -webkit-mask-image: var(--vt-skyline-mask);
+    mask-image: var(--vt-skyline-mask);
 }
 .vt-skyline::before,
 .vt-skyline::after {
@@ -636,6 +638,21 @@ img.center {
     flex: 1 0 0;
     height: 1px;
     background: currentColor;
+}
+.vt-skyline__divider {
+    position: relative;
+    flex: 0 0 clamp(16px, 2vw, 32px);
+    height: clamp(20px, 5vw, 72px);
+    border-bottom: 1px solid currentColor;
+}
+.vt-skyline__divider::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to top, currentColor, transparent);
 }
 .vt-skyline__city {
     display: block;
@@ -1148,6 +1165,10 @@ a.vt-event-gallery-content:focus-visible {
     }
     .vt-major-card--skyline {
         --vt-skyline-fill: var(--bg-primary);
+    }
+    .vt-skyline {
+        left: 0;
+        right: 0;
     }
     .vt-major-title {
         font-size: 18px;
