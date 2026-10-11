@@ -1,4 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="vt-skyline__city" data-city="amherst" viewBox="0 0 640 120" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
-  <desc>Original UMass Amherst campus silhouette with the Fine Arts Center, Campus Center, W. E. B. Du Bois Library, Old Chapel, and Lederle towers.</desc>
-  <path vector-effect="non-scaling-stroke" d="M0 120 H22 V108 H42 V95 H126 V101 H155 V108 H180 V75 H190 V67 H245 V98 H262 V107 H291 V12 H329 V106 H355 V110 H376 L397 90 H423 V57 H430 V45 L444 24 L458 45 V57 H465 V106 H487 V93 L505 81 L523 93 V108 H543 V56 H571 V64 H596 V109 H619 V120 H640"/>
+<svg xmlns="http://www.w3.org/2000/svg" class="vt-skyline__city" data-city="amherst" viewBox="0 0 960 200" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+  <desc>Original UMass Amherst illustration of just Old Chapel and W. E. B. Du Bois Library. The chapel has clock faces, arched belfry openings, and gables; the library has a flat roof and tall facade ribs. The chapel is less than 45 percent of the library's height.</desc>
+  <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M0 200 H256 M428 200 H547 M632 200 H960"/>
+  <g data-landmark="old-chapel">
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M256 200 V181 L281 157 L307 179 H322 V153 H319 L326 146 L334 123 V118 H336 V123 L344 146 L351 153 H348 V174 L375 155 L404 181 H428 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M258 182 H309 M263 185 V197 M280 183 V197 M296 185 V197 M321 156 H348 M322 174 H348 M323 182 H348 M348 182 H405 M362 185 V197 M380 185 V197 M397 185 V197 M335 124 V144 M353 179 L375 159 L400 181"/>
+    <path class="vt-skyline__void" vector-effect="non-scaling-stroke" d="M326 171 V163 Q329 157 332 163 V171 Z M338 171 V163 Q341 157 344 163 V171 Z M329 199 V190 Q335 182 341 190 V199 Z"/>
+    <circle class="vt-skyline__clock" vector-effect="non-scaling-stroke" cx="335" cy="150" r="3.5"/>
+    <circle class="vt-skyline__clock" vector-effect="non-scaling-stroke" cx="281" cy="175" r="4"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M335 147 V150 L337 152 M281 171 V179 M277 175 H285"/>
+  </g>
+  <g data-landmark="du-bois-library">
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M547 200 V18 L610 12 L632 20 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M550 22 L610 17 L629 24 M610 17 V199 M556 23 V198 M566 22 V198 M576 21 V198 M586 20 V198 M596 19 V198 M617 24 V198 M625 26 V198 M551 194 H608 M553 46 H607 M553 70 H607 M553 94 H607 M553 118 H607 M553 142 H607 M553 166 H607"/>
+  </g>
 </svg>

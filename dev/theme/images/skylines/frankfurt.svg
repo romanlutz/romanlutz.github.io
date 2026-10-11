@@ -1,5 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="vt-skyline__city vt-skyline__city--sourced" data-city="frankfurt" data-source="https://openclipart.org/detail/311071/frankfurt-cityscape-skyline-silhouette-ii" data-license="CC0-1.0" data-geometry-sha256="ce55e039d4ff852520428d0d8595a2808b81b9808275feee0c3bd80235e9034d" viewBox="41.575439 30.363045 2560.000000 1079.056464" style="--vt-skyline-aspect: 2.37244304134" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
-  <desc>Frankfurt Cityscape Skyline Silhouette II, published by Openclipart. Existing CC0 silhouette artwork.</desc>
-  <metadata>Source: https://openclipart.org/detail/311071/frankfurt-cityscape-skyline-silhouette-ii. Publisher: Openclipart. License: CC0 1.0, https://creativecommons.org/publicdomain/zero/1.0/. Adaptation: removed editor metadata and IDs, cropped the solid base, and inherited the site's colors. Original path geometry is unchanged.</metadata>
-  <path d="M41.719,1006.278h37.4v9.528H83.1v84.043h110.493v-53.611h12.087v-4.124h21.615v-3.129h13.225v-8.106h66.409v10.097h20.904 v20.193h39.391l8.959-3.271h20.193l19.482,8.959v2.133h7.537v35.835h15.216v-81.057h26.308v-4.977h5.119v4.551h4.408v-4.124h2.702 v4.266h2.417v2.702h6.115v-5.546h9.954v-4.124h22.753v5.546h5.119v11.661h4.124v46.43h21.686l-0.356-367.527l21.402-7.466 l24.388,2.489v-18.273h3.413v7.11h13.794v-7.181h6.47v7.039h12.585v-5.901h4.764v12.016H702.4v-13.296h19.909v12.798l46.43,4.622 l0.071,371.083h9.883v1.706h13.083v7.11h7.608v-3.555h9.599v3.128h24.815l-0.853-164.744l81.696-1.067l4.408-593.064 c0,0,2.133-6.115,13.794-7.395l34.342-2.417v-2.702h2.346l0.995,3.342l49.487,21.26l-0.64,35.267l18.842,8.035l0.071-63.352 l15.358-13.581l1.707-126.135l13.865-14.007l3.413-28.299l0.64-47.852h-1.849v-7.395h1.422l1.138-43.586h7.75l-1.422,93.286 l1.493,0.213l0.284,3.2l-1.778,0.427l4.622,31.569l4.551-3.129l3.911-0.071l4.622,3.413l1.138,6.47l8.035,4.479l-1.635,135.165 l9.812,3.413l-0.142,31.143l4.906-4.266l37.115-0.213c0,0,22.539,0.498,23.677,10.452l-2.346,252.271l53.967-1.138l11.163,20.335 l-1.635,436.568l22.611,0.498l1.493-304.246h17.847v-3.342h6.399v3.484l12.656,5.759v14.149h-6.328v19.055h11.092v-6.612h45.719 v-10.523h62.641v-9.883c0,0,38.822,0.569,46.714-8.035l61.859-2.275l-1.849,308.228h21.046l0.213-116.608l31.996-1.067l0.142-76.15 l57.308-0.64l-0.64,71.031h4.337l0.782-169.65l3.982-4.693l14.007-3.2l0.284-50.34l3.413-4.835l12.798-2.062l31.214-0.782 l9.954,2.275l-0.071,51.478l35.267,5.688l-1.849,273.032h12.087v2.489h4.764v-5.475h3.839v5.759h18.487l2.417-600.672 c0,0,7.466-9.599,28.512-13.794l0.569-9.954l10.95-6.684l10.239-2.133h5.901l-1.28-139.289l5.83-6.399l4.124,6.328l0.498,139.076 l10.025,1.209l9.528,1.422l8.461,4.195l0.64,16.14h69.182v54.891h59.015l-1.244,365.359h80.523l-0.64-75.831h2.666v-14.398 l17.278-2.666v-11.092l66.872-9.172v-39.782l31.676-0.853l12.692-3.52V680.63h48.101v9.812l21.011,7.039v-6.932h46.714 l-3.413,297.136h27.197v5.973h15.465l1.707-116.785h4.266v-8.639h1.386v-25.17h6.506v-8.426h4.159l16.958-47.141l17.491,44.261 v4.053l56.526-5.546l-1.707-128.091l26.877-4.586l82.23-3.733v-9.492l9.385-7.252v1052.562h-2560 C41.576,1729.672,44.42,1006.278,41.719,1006.278z" vector-effect="non-scaling-stroke" />
+<svg xmlns="http://www.w3.org/2000/svg" class="vt-skyline__city" data-city="frankfurt" viewBox="0 0 960 200" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+  <desc>Original Frankfurt landmark illustration with the Europaturm's observation disc, Messeturm's pencil crown, Main Tower, Commerzbank Tower's sloping crown and antenna, the Alte Oper, and Frankfurt Cathedral.</desc>
+  <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M0 200 H22 V184 H35 V176 H56 V188 H77 V200 M137 200 H157 V133 H179 V122 H201 V151 H221 V177 H238 V147 H260 V182 H282 V161 H300 V200 M364 200 H383 V98 H408 V106 H421 V166 H435 V200 M489 200 H507 V130 H522 V123 H536 V157 H551 V200 M624 200 H641 V174 H654 V200 M731 200 H748 V178 H763 V200 M817 200 H832 V171 L851 150 L870 171 V182 H882 V169 H906 V180 H921 V192 H940 V200 H960"/>
+  <g data-landmark="europaturm">
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M77 200 H101 V79 Q89 75 87 71 Q83 66 89 63 Q94 60 101 59 V52 H105 V41 H108 V29 H111 V13 H113 V29 H116 V41 H119 V52 H123 V59 Q132 60 137 64 Q141 68 134 73 L121 79 V200 H137"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M88 66 Q112 75 136 66 M93 72 H130 M102 59 H123 M106 79 V196 M117 79 V196 M105 50 H119 M109 33 H116"/>
+  </g>
+  <g data-landmark="messeturm">
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M300 200 V71 H306 V62 H311 V55 L332 22 L353 55 H358 V62 H364 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M312 56 H352 M307 63 H357 M332 26 V54 M311 75 V197 M324 69 V197 M339 69 V197 M353 75 V197 M305 90 H359 M305 112 H359 M305 134 H359 M305 156 H359 M305 178 H359"/>
+  </g>
+  <g data-landmark="main-tower">
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M435 200 V64 Q435 54 449 53 H456 V25 H458 V53 H475 Q489 54 489 64 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M441 62 H483 M441 82 H483 M441 102 H483 M441 122 H483 M441 142 H483 M441 162 H483 M441 182 H483 M449 66 V197 M475 66 V197"/>
+  </g>
+  <g data-landmark="commerzbank-tower">
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M551 200 V67 L569 53 V40 H579 V29 H588 V20 H593 V5 H596 V28 L603 35 V50 L614 59 V72 H624 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M554 78 L590 43 L620 72 M570 53 V73 M590 43 V197 M605 55 V197 M555 101 L590 83 L620 101 M555 131 L590 113 L620 131 M555 161 L590 143 L620 161 M555 191 L590 173 L620 191 M595 10 V25"/>
+  </g>
+  <g data-landmark="alte-oper">
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M654 200 V180 H662 V174 H671 L690 159 H694 V154 H698 V159 L716 174 H725 V180 H731 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M666 179 H721 M674 180 V197 M685 180 V197 M699 180 V197 M711 180 V197 M661 198 H727 M677 172 H710"/>
+  </g>
+  <g data-landmark="frankfurt-cathedral">
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M763 200 V146 H768 V133 H772 V124 L781 110 L788 99 L795 110 L804 124 V133 H809 V146 H817 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M773 134 H804 M768 147 H811 M775 153 V192 M789 151 V192 M802 153 V192 M774 175 H804 M788 108 V124"/>
+    <circle class="vt-skyline__clock" vector-effect="non-scaling-stroke" cx="789" cy="139" r="4.5"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M789 135 V139 L792 141"/>
+  </g>
 </svg>

@@ -48,34 +48,38 @@ Each chapter in `_data/resume.yml` can opt into a skyline-shaped upper border
 with `skylines: [seattle]`. The available silhouettes in `theme/images/skylines/`
 are Seattle, Boston, Tübingen, UMass Amherst, Frankfurt, and Ulm. The
 Cambridge/Bellevue chapter uses `[boston, seattle]`; both Amherst chapters share
-the campus silhouette, including Du Bois Library, Old Chapel, and Campus Center.
+the two-building silhouette of Du Bois Library and Old Chapel.
 Chapters without `skylines` retain their original rounded cards.
 
-Boston and Frankfurt use existing public-domain silhouette artwork rather than
-hand-built skyline approximations:
+The six SVGs are original landmark-led illustrations, not traced stock artwork.
+They use distinctive roof shapes, open structural supports, clocks, window bands,
+and restrained facade detail rather than attempting photographic realism.
+Seattle includes the Space Needle, Smith Tower, Columbia Center, Lumen Field's
+arched roofs at the far right, and Mount Rainier in a separate background layer.
+Boston includes the Zakim Bridge, Prudential and Hancock towers, the Custom House
+clock tower, and State House dome. Tübingen combines the Neckarfront's gabled
+houses, bridge, Hölderlin Tower, Stiftskirche, and castle. Frankfurt includes
+Messeturm, Commerzbank Tower, Main Tower, Europaturm, the Alte Oper, and cathedral.
+Ulm centers the Minster's Gothic spire, with the town hall, Metzgerturm,
+Schwörhaus, and a Danube bridge.
 
-| Asset | Source | License |
-| --- | --- | --- |
-| Boston | [Boston Cityscape Skyline Silhouette 2 by GDJ](https://openclipart.org/detail/311074/boston-cityscape-skyline-silhouette-2) | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) |
-| Frankfurt | [Frankfurt Cityscape Skyline Silhouette II](https://openclipart.org/detail/311071/frankfurt-cityscape-skyline-silhouette-ii) | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) |
+UMass has only Old Chapel and Du Bois Library. The library's height is 188 SVG
+units and the chapel's is 82, including its finial, so the chapel is 43.6% as
+tall. Keep it at or below 45% when editing the geometry. The regression test
+measures the actual roofline coordinates rather than trusting the description.
 
-The source path geometry is preserved. Editor IDs and document declarations
-are removed so repeated inline illustrations cannot conflict. Their viewBoxes
-crop the solid base, and the SVG viewport clips the original bottom edge to
-avoid adding a flat line underneath the buildings. Each asset records its source,
-license, and original geometry digest. Seattle, Tübingen, Ulm, and the UMass
-campus still use the initial simplified placeholders pending approved artwork;
-the Seattle replacement should include the Space Needle, Smith Tower, Lumen
-Field, and Mount Rainier.
+All illustrations use a `960 200` viewBox and are included inline by
+`theme/main.html`. The existing charcoal fill and green outline come from
+`theme/styles.css`; lighter green details and a quieter mountain layer preserve
+the site's palette. Open roofline paths join the cards without a second flat
+border underneath the buildings. They preserve their proportions and one-pixel
+outlines as they scale, with space for two cities side by side. The SVGs have
+named `data-landmark` groups for maintainable detail and geometric checks,
+without IDs that could conflict when a city appears more than once.
 
-All illustrations are included inline by `theme/main.html`, with the existing
-charcoal fill and green outline supplied by `theme/styles.css`. They preserve
-their proportions and a one-pixel outline as they scale. The original placeholders
-use open rooflines on a `640 120` viewBox. Sourced assets declare their own
-aspect ratio. Two skylines fit side by side. They add no JavaScript or external
-requests and are hidden from assistive technology. On narrow screens the
-silhouette remains above each chapter while the existing full-width event panels
-remain unindented.
+They add no JavaScript, fonts, or external requests and are hidden from assistive
+technology. On narrow screens the silhouettes remain above each chapter while
+the existing full-width event panels remain unindented.
 
 From the repository root, run `node --test dev\tests\skylines.test.cjs` when
 changing the city mappings, silhouettes, template, or skyline styling.

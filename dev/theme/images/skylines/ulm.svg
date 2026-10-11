@@ -1,4 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="vt-skyline__city" data-city="ulm" viewBox="0 0 640 120" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
-  <desc>Original Ulm silhouette with old-town gables, the leaning Metzgerturm, town hall, Ulm Minster's stepped Gothic spire, and Schwoerhaus.</desc>
-  <path vector-effect="non-scaling-stroke" d="M0 120 H20 V110 L35 95 L50 110 H60 V99 L77 82 L94 99 V110 H101 L107 73 L128 51 L149 73 L144 107 H160 V110 H175 V96 L194 81 L213 96 V95 L236 71 L259 95 V110 H275 V106 L297 92 H318 V78 L323 65 L328 78 V90 H329 V69 H336 V60 H342 V52 H348 V44 H352 V35 H356 V25 H360 V17 L363 5 L366 17 V25 H370 V35 H374 V44 H380 V52 H386 V60 H392 V69 H399 V101 H417 L440 88 L463 103 V110 H484 V99 H510 V82 H521 Q522 68 532 65 L535 56 L538 65 Q548 68 549 82 H560 V99 H588 V108 H610 V120 H640"/>
+<svg xmlns="http://www.w3.org/2000/svg" class="vt-skyline__city" data-city="ulm" viewBox="0 0 960 200" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+  <desc>Original Ulm landmark illustration with Ulm Minster's soaring Gothic spire and tracery, the town hall's stepped gables, the leaning Metzgerturm, Schwoerhaus, old-town roofs, and a Danube bridge.</desc>
+  <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M0 200 H18 V180 H31 V177 H45 V185 H53 V200 M157 200 H171 V178 L187 161 L204 178 V184 H214 V167 L236 147 L256 167 V185 H270 V200 M358 200 H370 V178 L384 164 V200 M574 200 H591 V175 L609 156 L628 175 V184 H641 V200 M680 200 H696 V184 L713 168 L728 184 H742 V200 M833 200 H850 V173 L871 151 L893 173 V184 H910 V176 L925 160 L943 176 V185 H951 V200 H960"/>
+  <g data-landmark="danube-bridge">
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M53 200 V188 H62 V182 H71 V186 H143 V182 H151 V188 H157 V200"/>
+    <path class="vt-skyline__void" vector-effect="non-scaling-stroke" d="M70 200 Q80 185 93 200 Z M97 200 Q108 185 121 200 Z M125 200 Q135 185 147 200 Z"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M66 185 V165 M146 185 V165 M66 166 Q105 195 146 166 M80 177 V185 M95 184 V188 M119 184 V188 M133 177 V185"/>
+  </g>
+  <g data-landmark="town-hall">
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M270 200 V171 H277 V166 H283 V160 H289 V152 H297 V145 H305 V152 H312 V160 H320 V169 H329 V160 H335 V153 H341 V147 H347 V153 H352 V166 H358 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M273 176 H355 M274 190 H355 M296 154 V166 M339 155 V167"/>
+    <path class="vt-skyline__windows" vector-effect="non-scaling-stroke" stroke-dasharray="3 6" d="M279 182 H352 M279 196 H352"/>
+  </g>
+  <g data-landmark="ulm-minster">
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M384 200 V175 H392 V117 H389 L394 98 L399 117 H403 V89 H407 V75 H412 V66 H416 V54 H420 L429 22 V10 H432 V22 L441 54 H445 V66 H449 V75 H454 V89 H458 V117 H462 L467 98 L472 117 H470 V154 L509 133 L539 150 H543 V127 H547 L552 106 L557 127 H561 V151 H565 L570 121 L574 151 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M420 55 H442 M416 67 H447 M411 77 H451 M404 91 H456 M404 116 H456 M392 147 H469 M392 172 H469 M430 24 V52 M420 57 L429 66 L440 57 M416 69 L430 77 L447 69 M411 79 L430 91 L451 79 M431 94 V143 M409 121 V144 M450 121 V144 M404 151 V168 M431 151 V168 M457 151 V168 M398 180 V197 M410 179 V197 M431 179 V197 M451 179 V197 M464 179 V197 M476 163 L507 141 L536 158 M485 166 V194 M503 157 V194 M522 165 V194 M549 130 V151 M568 151 V193"/>
+    <path class="vt-skyline__void" vector-effect="non-scaling-stroke" d="M418 139 V108 Q424 96 429 108 V139 Z M434 139 V108 Q440 96 446 108 V139 Z M422 200 V187 Q430 172 439 187 V200 Z"/>
+  </g>
+  <g data-landmark="metzgerturm">
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M641 200 L646 149 L650 143 L658 126 L660 116 L663 126 L677 146 L674 150 L680 200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M647 150 H675 M650 165 H674 M650 181 H676 M659 151 L662 198"/>
+    <path class="vt-skyline__windows" vector-effect="non-scaling-stroke" stroke-dasharray="3 7" d="M652 159 H671 M652 174 H672 M652 190 H674"/>
+  </g>
+  <g data-landmark="schwoerhaus">
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M742 200 V175 L758 160 H773 V151 Q771 145 778 142 L785 132 V123 H788 V132 L796 142 Q803 145 800 151 V160 H816 L833 175 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M750 176 H825 M774 152 H801 M774 160 H800 M786 135 V150"/>
+    <path class="vt-skyline__windows" vector-effect="non-scaling-stroke" stroke-dasharray="3 7" d="M750 184 H826 M750 195 H826"/>
+  </g>
+  <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M218 170 H253 M238 151 V166 M850 176 H891 M872 155 V171 M912 180 H941"/>
 </svg>

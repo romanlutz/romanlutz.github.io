@@ -531,7 +531,7 @@ img.center {
 **********************************************************************/
 /* Visual Timeline (vt) */
 .vt {
-    --vt-skyline-height: clamp(40px, 7vw, 88px);
+    --vt-skyline-height: clamp(72px, 12vw, 144px);
     position: relative;
     padding: 0;
     font-size: 16px;
@@ -640,19 +640,41 @@ img.center {
 .vt-skyline__city {
     display: block;
     flex: 0 1 auto;
-    width: calc(var(--vt-skyline-height) * var(--vt-skyline-aspect, 5.333333333333));
+    width: calc(var(--vt-skyline-height) * 4.8);
     min-width: 0;
     height: 100%;
     overflow: visible;
 }
-.vt-skyline__city--sourced {
-    overflow: hidden;
-}
-.vt-skyline__city path {
+.vt-skyline__city path,
+.vt-skyline__city circle {
     fill: var(--vt-skyline-fill);
     stroke: currentColor;
     stroke-width: 1;
     stroke-linejoin: round;
+}
+.vt-skyline__city .vt-skyline__detail,
+.vt-skyline__city .vt-skyline__windows {
+    fill: none;
+    stroke: var(--green-light);
+    stroke-width: 0.65;
+    opacity: 0.58;
+}
+.vt-skyline__city .vt-skyline__windows {
+    stroke-width: 1.5;
+}
+.vt-skyline__city .vt-skyline__void,
+.vt-skyline__city .vt-skyline__clock {
+    fill: var(--bg-primary);
+    stroke-width: 0.65;
+}
+.vt-skyline__city .vt-skyline__backdrop {
+    fill: var(--bg-primary);
+    opacity: 0.7;
+}
+.vt-skyline__city .vt-skyline__ridge {
+    fill: none;
+    stroke-width: 0.65;
+    opacity: 0.65;
 }
 
 /* Horizontal connector from major dot to major card */
