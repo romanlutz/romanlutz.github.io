@@ -179,10 +179,10 @@ test('remains self-contained, lightweight, and decorative when a city is repeate
   assert.match(template, /include "images\/skylines\/" ~ skyline ~ "\.svg"/);
 });
 
-test('separates adjacent cities without adding dividers to single-city chapters', () => {
+test('uses a full-height separator with only its tip faded and no dividers on single-city chapters', () => {
   assert.match(template, /for skyline in timelineItem\.skylines %}\s*{% if not loop\.first %}<span class="vt-skyline__divider"><\/span>{% endif %}\s*{% include/);
-  assert.match(styles, /\.vt-skyline__divider\s*\{[^}]*flex: 0 0 clamp\(16px, 2vw, 32px\);[^}]*height: clamp\(20px, 5vw, 72px\);/);
-  assert.match(styles, /\.vt-skyline__divider::before\s*\{[^}]*width: 1px;[^}]*background: linear-gradient\(to top, currentColor, transparent\);/);
+  assert.match(styles, /\.vt-skyline__divider\s*\{[^}]*flex: 0 0 clamp\(16px, 2vw, 32px\);[^}]*height: 100%;/);
+  assert.match(styles, /\.vt-skyline__divider::before\s*\{[^}]*width: 1px;[^}]*background: linear-gradient\(to bottom, transparent, currentColor 8px, currentColor\);/);
 });
 
 test('fades both outer edges and retains the card radius without masking the whole card', () => {

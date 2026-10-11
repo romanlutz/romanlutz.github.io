@@ -642,7 +642,7 @@ img.center {
 .vt-skyline__divider {
     position: relative;
     flex: 0 0 clamp(16px, 2vw, 32px);
-    height: clamp(20px, 5vw, 72px);
+    height: 100%;
     border-bottom: 1px solid currentColor;
 }
 .vt-skyline__divider::before {
@@ -652,7 +652,7 @@ img.center {
     top: 0;
     bottom: 0;
     width: 1px;
-    background: linear-gradient(to top, currentColor, transparent);
+    background: linear-gradient(to bottom, transparent, currentColor 8px, currentColor);
 }
 .vt-skyline__city {
     display: block;
