@@ -1,4 +1,5 @@
 const assert = require('node:assert/strict');
+const { createHash } = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
@@ -22,6 +23,16 @@ const expected = [
 ];
 const cities = [...new Set(expected.flatMap(([, skylines]) => skylines))].sort();
 const sources = new Map(cities.map(city => [city, fs.readFileSync(path.join(directory, `${city}.svg`), 'utf8')]));
+const sourced = new Map([
+  ['boston', {
+    url: 'https://openclipart.org/detail/311074/boston-cityscape-skyline-silhouette-2',
+    hash: 'a4dfe82e1ed6c052f52f3c8ae5172c56302f2ed1d5d0c00d86b5929328f1fa47'
+  }],
+  ['frankfurt', {
+    url: 'https://openclipart.org/detail/311071/frankfurt-cityscape-skyline-silhouette-ii',
+    hash: 'ce55e039d4ff852520428d0d8595a2808b81b9808275feee0c3bd80235e9034d'
+  }]
+]);
 
 test('maps every timeline chapter to its requested skyline, including both cities and both Amherst chapters', () => {
   assert.equal(chapters.length, expected.length);
@@ -53,19 +64,41 @@ test('uses distinct, self-contained silhouettes within a small asset budget', ()
   const paths = [];
   for (const [city, source] of sources) {
     const size = Buffer.byteLength(source);
-    assert.ok(size <= 4 * 1024, city);
+    assert.ok(size <= 16 * 1024, city);
     total += size;
-    assert.match(source, /<desc>Original /);
+    assert.match(source, sourced.has(city) ? /<desc>.*Existing CC0 silhouette artwork\./ : /<desc>Original /);
     assert.doesNotMatch(source, /<image\b|\bhref=|@import|@font-face/i);
     paths.push(source.match(/\bd="([^"]+)"/)[1]);
   }
   assert.equal(new Set(paths).size, cities.length);
-  assert.ok(total <= 20 * 1024);
+  assert.ok(total <= 32 * 1024);
 });
 
-test('keeps rooflines inside the shared canvas and open so their fill does not add a flat bottom stroke', () => {
+test('preserves the exact sourced artwork, its license, and proportional cropping', () => {
+  for (const [city, original] of sourced) {
+    const source = sources.get(city);
+    const paths = [...source.matchAll(/<path\b[^>]*\bd="([^"]+)"/g)].map(match => match[1].replace(/\s+/g, ''));
+    assert.equal(createHash('sha256').update(paths.join('|')).digest('hex'), original.hash, city);
+    assert.ok(source.includes(`data-source="${original.url}"`), city);
+    assert.ok(source.includes(`data-geometry-sha256="${original.hash}"`), city);
+    assert.match(source, /data-license="CC0-1.0"/);
+    assert.match(source, /https:\/\/creativecommons\.org\/publicdomain\/zero\/1\.0\//);
+    assert.match(source, /Original path geometry is unchanged/);
+    assert.match(source, /class="vt-skyline__city vt-skyline__city--sourced"/);
+    assert.doesNotMatch(source, /<!DOCTYPE|<\?xml/);
+    const viewBox = source.match(/viewBox="([^"]+)"/)[1].split(' ').map(Number);
+    assert.ok(viewBox.every(Number.isFinite), city);
+    assert.ok(viewBox[2] > 0 && viewBox[3] > 0, city);
+    const aspect = Number(source.match(/--vt-skyline-aspect: ([\d.]+)/)[1]);
+    assert.ok(Math.abs(aspect - viewBox[2] / viewBox[3]) < 0.0000001, city);
+  }
+  assert.match(styles, /\.vt-skyline__city--sourced\s*\{[^}]*overflow: hidden;/);
+});
+
+test('keeps placeholder rooflines open and within their shared canvas', () => {
   const counts = { M: 2, L: 2, H: 1, V: 1, Q: 4 };
   for (const [city, source] of sources) {
+    if (sourced.has(city)) continue;
     assert.match(source, /viewBox="0 0 640 120" preserveAspectRatio="xMidYMax meet"/);
     assert.match(source, /vector-effect="non-scaling-stroke"/);
     const roofline = source.match(/\bd="([^"]+)"/)[1];

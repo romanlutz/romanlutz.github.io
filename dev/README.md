@@ -51,15 +51,31 @@ Cambridge/Bellevue chapter uses `[boston, seattle]`; both Amherst chapters share
 the campus silhouette, including Du Bois Library, Old Chapel, and Campus Center.
 Chapters without `skylines` retain their original rounded cards.
 
-The SVGs are original, simplified landmark outlines, not traced photographs.
-They are included inline by `theme/main.html`, with the existing charcoal fill
-and green outline supplied by `theme/styles.css`. Their open roofline paths
-replace the top border rather than drawing buildings above a second flat line.
-All use a `640 120` viewBox, meet at the bottom corners, preserve their
-proportions, and keep a one-pixel outline as they scale. Two skylines fit side by
-side. They add no JavaScript or external requests and are hidden from assistive
-technology. On narrow screens the silhouette remains above each chapter while
-the existing full-width event panels remain unindented.
+Boston and Frankfurt use existing public-domain silhouette artwork rather than
+hand-built skyline approximations:
+
+| Asset | Source | License |
+| --- | --- | --- |
+| Boston | [Boston Cityscape Skyline Silhouette 2 by GDJ](https://openclipart.org/detail/311074/boston-cityscape-skyline-silhouette-2) | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| Frankfurt | [Frankfurt Cityscape Skyline Silhouette II](https://openclipart.org/detail/311071/frankfurt-cityscape-skyline-silhouette-ii) | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) |
+
+The source path geometry is preserved. Editor IDs and document declarations
+are removed so repeated inline illustrations cannot conflict. Their viewBoxes
+crop the solid base, and the SVG viewport clips the original bottom edge to
+avoid adding a flat line underneath the buildings. Each asset records its source,
+license, and original geometry digest. Seattle, Tübingen, Ulm, and the UMass
+campus still use the initial simplified placeholders pending approved artwork;
+the Seattle replacement should include the Space Needle, Smith Tower, Lumen
+Field, and Mount Rainier.
+
+All illustrations are included inline by `theme/main.html`, with the existing
+charcoal fill and green outline supplied by `theme/styles.css`. They preserve
+their proportions and a one-pixel outline as they scale. The original placeholders
+use open rooflines on a `640 120` viewBox. Sourced assets declare their own
+aspect ratio. Two skylines fit side by side. They add no JavaScript or external
+requests and are hidden from assistive technology. On narrow screens the
+silhouette remains above each chapter while the existing full-width event panels
+remain unindented.
 
 From the repository root, run `node --test dev\tests\skylines.test.cjs` when
 changing the city mappings, silhouettes, template, or skyline styling.

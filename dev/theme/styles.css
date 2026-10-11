@@ -640,10 +640,13 @@ img.center {
 .vt-skyline__city {
     display: block;
     flex: 0 1 auto;
-    width: calc(var(--vt-skyline-height) * 16 / 3);
+    width: calc(var(--vt-skyline-height) * var(--vt-skyline-aspect, 5.333333333333));
     min-width: 0;
     height: 100%;
     overflow: visible;
+}
+.vt-skyline__city--sourced {
+    overflow: hidden;
 }
 .vt-skyline__city path {
     fill: var(--vt-skyline-fill);
