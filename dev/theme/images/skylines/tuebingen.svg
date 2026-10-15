@@ -1,25 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" class="vt-skyline__city" data-city="tuebingen" viewBox="0 0 960 200" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
-  <desc>Original Tuebingen landmark illustration with Hohentuebingen Castle, the Neckarfront's irregular gables and shutters, the Neckar bridge, Hoelderlin Tower's curved conical roof, and Stiftskirche's clock and battlemented tower.</desc>
-  <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M0 200 H26 V175 L40 162 L57 175 V183 H65 V172 L81 155 L97 172 V188 H109 V200 M217 200 H228 V161 L248 139 L269 161 V178 H274 V150 L290 128 L308 150 V177 H314 V160 L334 142 L354 160 V184 H367 V200 M461 200 H477 V164 L493 144 L509 164 V180 H521 V200 M598 200 H614 V167 L634 149 L653 167 V177 H665 V200 M787 200 H803 V161 L821 143 L841 161 V178 H848 V151 L867 128 L889 151 V172 H899 V162 L920 141 L941 162 V185 H952 V200 H960"/>
+  <desc>Original Tuebingen landmark illustration with Hohentuebingen Castle, the Neckarfront's gabled houses and windows, the Neckar bridge, Hoelderlin Tower's flared conical roof, and Stiftskirche's clock and battlemented tower.</desc>
+  <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M0 200 H24 V176 L36 160 L48 176 V168 L64 148 L80 168 V184 H100 V200 M100 200 H108 M212 200 V164 L230 140 L248 164 V152 L264 128 L280 152 V168 L300 148 L320 168 V180 H336 V200 H360 M464 200 V172 L482 152 L500 172 V200 H540 M604 200 V168 L622 148 L640 168 V200 H668 M784 200 V184 H796 V164 L814 144 L832 164 V148 L852 124 L872 148 V168 L890 148 L908 168 V184 H928 V200 M928 200 H960"/>
   <g data-landmark="hohentuebingen-castle">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M109 200 V153 H113 V128 L127 108 L142 128 V140 H147 V124 L196 123 L214 139 H217 V200"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M113 141 H145 M148 141 H214 M149 128 H194 M118 158 H136 M118 173 H136 M153 158 H210 M153 173 H210 M158 150 V185 M173 150 V185 M189 150 V185 M204 150 V185"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M108 200 V136 L120 112 L132 136 V144 L148 128 H196 L212 144 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M132 144 H212"/>
+    <path class="vt-skyline__windows" vector-effect="non-scaling-stroke" d="M148 152 V160 M148 172 V180 M164 152 V160 M164 172 V180 M180 152 V160 M180 172 V180 M196 152 V160 M196 172 V180 M120 156 V164"/>
   </g>
   <g data-landmark="neckar-bridge">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M367 200 V185 H373 V180 H455 V185 H461 V200"/>
-    <path class="vt-skyline__void" vector-effect="non-scaling-stroke" d="M377 200 Q383 185 400 188 Q408 189 411 200 Z M417 200 Q423 185 440 188 Q448 189 451 200 Z"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M374 184 H455 M380 180 V175 M394 180 V175 M409 180 V175 M424 180 V175 M439 180 V175 M452 180 V175"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M360 200 V172 H464 V200"/>
+    <path class="vt-skyline__void" vector-effect="non-scaling-stroke" d="M368 200 Q380 168 392 200 Z M400 200 Q412 168 424 200 Z M432 200 Q444 168 456 200 Z"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M360 180 H464"/>
   </g>
   <g data-landmark="hoelderlin-tower">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M521 200 V173 L528 166 H537 Q535 160 540 157 Q549 150 554 131 L556 121 L558 131 Q564 150 574 157 Q580 160 577 166 H581 V162 L594 148 H598 V200"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M539 165 Q559 171 578 165 M543 158 Q558 162 574 158 M555 136 L550 160 M560 136 L565 160 M540 179 H547 M565 179 H572 M540 191 H547 M565 191 H572 M583 174 V197"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M540 200 V152 Q552 148 556 112 Q560 148 572 152 V200 M572 200 V160 L588 144 L604 160 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M540 160 H572 M572 160 H604"/>
+    <path class="vt-skyline__windows" vector-effect="non-scaling-stroke" d="M548 168 V176 M548 184 V192 M564 168 V176 M564 184 V192"/>
   </g>
   <g data-landmark="stiftskirche">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M665 200 V151 L691 126 H712 V102 H708 V94 H713 V85 H718 V92 H725 V85 H730 V92 H737 V85 H742 V94 H747 V102 H743 V146 L768 154 H787 V200"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M712 104 H743 M713 134 H741 M717 108 V123 M737 108 V123 M667 153 H711 M676 158 V192 M689 158 V192 M702 158 V192 M751 165 V194 M766 165 V194 M781 165 V194"/>
-    <circle class="vt-skyline__clock" vector-effect="non-scaling-stroke" cx="727" cy="116" r="6"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M727 111 V116 L731 119"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M668 200 V156 L704 124 V88 H712 V96 H720 V88 H728 V96 H736 V88 H744 V148 L784 164 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M704 104 H744 M704 132 H744 M716 108 V124 M732 108 V124 M680 172 V192 M692 172 V192 M756 172 V192 M768 172 V192"/>
+    <circle class="vt-skyline__clock" vector-effect="non-scaling-stroke" cx="724" cy="148" r="6"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M724 143.5 V148 L728 149.5"/>
   </g>
-  <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M230 163 H267 M250 144 V158 M276 153 H306 M290 133 V148 M317 163 H351 M335 147 V159 M480 167 H507 M806 165 H839 M822 148 V161 M851 155 H886 M867 133 V150 M902 167 H938"/>
-  <path class="vt-skyline__windows" vector-effect="non-scaling-stroke" stroke-dasharray="3 7" d="M232 172 H266 M232 186 H266 M278 165 H305 M278 180 H305 M319 172 H352 M319 185 H352 M480 176 H508 M480 189 H508 M806 176 H839 M806 189 H839 M851 167 H886 M851 182 H886 M903 178 H939 M903 191 H939"/>
+  <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M24 176 H48 M48 168 H80"/>,  <path class="vt-skyline__windows" vector-effect="non-scaling-stroke" d="M32 184 V192 M40 184 V192 M56 176 V184 M72 176 V184"/>
+  <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M212 164 H248 M248 152 H280 M280 168 H320"/>,  <path class="vt-skyline__windows" vector-effect="non-scaling-stroke" d="M220 172 V180 M230 172 V180 M240 172 V180 M220 188 V196 M230 188 V196 M240 188 V196 M256 160 V168 M272 160 V168 M256 176 V184 M272 176 V184 M288 176 V184 M300 176 V184 M312 176 V184"/>
+  <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M464 172 H500"/>,  <path class="vt-skyline__windows" vector-effect="non-scaling-stroke" d="M472 180 V188 M482 180 V188 M492 180 V188"/>
+  <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M604 168 H640"/>,  <path class="vt-skyline__windows" vector-effect="non-scaling-stroke" d="M612 176 V184 M622 176 V184 M632 176 V184"/>
+  <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M796 164 H832 M832 148 H872 M872 168 H908"/>,  <path class="vt-skyline__windows" vector-effect="non-scaling-stroke" d="M804 172 V180 M814 172 V180 M824 172 V180 M804 188 V196 M814 188 V196 M824 188 V196 M840 156 V164 M852 156 V164 M864 156 V164 M840 172 V180 M852 172 V180 M864 172 V180 M880 176 V184 M890 176 V184 M900 176 V184"/>
 </svg>

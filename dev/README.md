@@ -84,6 +84,13 @@ outlines as they scale, with space for two cities side by side. The SVGs have
 named `data-landmark` groups for maintainable detail and geometric checks,
 without IDs that could conflict when a city appears more than once.
 
+To keep the one-pixel lines crisp, horizontal and vertical edges sit on a 4-unit
+grid. Setbacks are at least 8 units, details end exactly on an outline, and thin
+masts are drawn as zero-width roofline spikes. The skyline height is rounded to a
+multiple of 50px where CSS `round()` is supported, so each grid line maps to a
+whole pixel. A half-pixel offset then puts each stroke on a single row of pixels,
+level with the cards' ground line. Keep new geometry on this grid.
+
 They add no JavaScript, fonts, or external requests and are hidden from assistive
 technology. On narrow screens the silhouettes remain above each chapter while
 the existing full-width event panels remain unindented.

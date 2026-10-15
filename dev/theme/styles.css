@@ -531,13 +531,19 @@ img.center {
 **********************************************************************/
 /* Visual Timeline (vt) */
 .vt {
-    --vt-skyline-height: clamp(72px, 12vw, 144px);
+    --vt-skyline-height: clamp(72px, 12vw, 150px);
     position: relative;
     padding: 0;
     font-size: 16px;
     font-weight: 400;
     max-width: 1056px;
     margin: 0 auto;
+}
+/* Skylines are drawn on a 4-unit grid; 100px and 150px caps put every grid line on a pixel. */
+@supports (width: round(down, 12vw, 50px)) {
+    .vt {
+        --vt-skyline-height: clamp(72px, round(down, 12vw, 50px), 150px);
+    }
 }
 
 /* Major timeline line - starts at first dot, not top */
@@ -661,37 +667,32 @@ img.center {
     min-width: 0;
     height: 100%;
     overflow: visible;
+    /* Centers 1px strokes on device pixels, matching the 1px CSS ground lines. */
+    transform: translate(-0.5px, -0.5px);
 }
 .vt-skyline__city path,
 .vt-skyline__city circle {
+    --vt-skyline-detail: color-mix(in srgb, var(--green-light) 32%, var(--vt-skyline-fill));
     fill: var(--vt-skyline-fill);
     stroke: currentColor;
     stroke-width: 1;
-    stroke-linejoin: round;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
 }
 .vt-skyline__city .vt-skyline__detail,
-.vt-skyline__city .vt-skyline__windows {
+.vt-skyline__city .vt-skyline__windows,
+.vt-skyline__city .vt-skyline__ridge {
     fill: none;
-    stroke: var(--green-light);
-    stroke-width: 0.65;
-    opacity: 0.58;
-}
-.vt-skyline__city .vt-skyline__windows {
-    stroke-width: 1.5;
+    stroke: var(--vt-skyline-detail);
 }
 .vt-skyline__city .vt-skyline__void,
 .vt-skyline__city .vt-skyline__clock {
     fill: var(--bg-primary);
-    stroke-width: 0.65;
+    stroke: var(--vt-skyline-detail);
 }
 .vt-skyline__city .vt-skyline__backdrop {
     fill: var(--bg-primary);
-    opacity: 0.7;
-}
-.vt-skyline__city .vt-skyline__ridge {
-    fill: none;
-    stroke-width: 0.65;
-    opacity: 0.65;
+    stroke: color-mix(in srgb, currentColor 70%, var(--bg-primary));
 }
 
 /* Horizontal connector from major dot to major card */

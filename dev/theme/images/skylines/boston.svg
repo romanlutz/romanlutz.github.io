@@ -1,35 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" class="vt-skyline__city" data-city="boston" viewBox="0 0 960 200" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
-  <desc>Original Boston landmark illustration with the Custom House clock tower, Massachusetts State House dome, Prudential Tower, the Zakim Bridge's cable fans, John Hancock Tower, and One International Place.</desc>
-  <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M0 200 H22 V184 L32 172 L45 184 H53 V175 H76 V187 H91 V200 M141 200 H155 V166 H163 V159 H183 V163 H191 V180 H202 V200 M275 200 H289 V125 H311 V200 M365 200 H379 V145 H400 V155 H412 V174 H425 V200 M704 200 H717 V103 H736 V200 M782 200 H799 V114 H818 V109 H832 V153 H849 V168 H863 V200 M907 200 H922 V175 H940 V184 H953 V200 H960"/>
+  <desc>Original Boston landmark illustration with the Custom House clock tower, Massachusetts State House dome, Prudential Tower, the Zakim Bridge's cable fans, John Hancock Tower, One International Place, and Old South Meeting House.</desc>
+  <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M0 200 H16 V184 H36 V172 H52 V180 H72 V164 H92 V200 M140 200 V160 H156 V168 H180 V180 H204 V200 M276 200 V172 H292 V124 H308 V200 M360 200 V144 H376 V160 H400 V176 H424 V200 M700 200 V104 H716 V136 H736 V200 M780 200 V112 H800 V152 H820 V172 H844 V184 H864 V200 M904 200 V176 H928 V188 H944 V200 H960"/>
   <g data-landmark="custom-house-tower">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M91 200 V156 H98 V145 H101 V135 H104 L113 113 V108 H116 V113 L125 135 H128 V145 H133 V156 H141 V200"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M104 136 H125 M101 145 H128 M98 157 H133 M101 163 V195 M113 163 V195 M126 163 V195 M94 178 H136"/>
-    <circle class="vt-skyline__clock" vector-effect="non-scaling-stroke" cx="114" cy="148" r="4.5"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M114 144 V148 L117 151"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M92 200 V160 H100 V120 L116 96 L132 120 V160 H140 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M100 144 H132 M108 144 V160 M116 144 V160 M124 144 V160 M92 176 H140 M100 160 V200 M132 160 V200"/>
+    <circle class="vt-skyline__clock" vector-effect="non-scaling-stroke" cx="116" cy="132" r="6"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M116 127.5 V132 L120 133.5"/>
   </g>
   <g data-landmark="state-house">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M202 200 V181 H212 V173 H220 Q220 155 233 151 V145 H237 V151 Q252 155 252 173 H263 V181 H275 V200"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M221 174 H252 M214 182 H263 M233 154 Q227 161 229 172 M238 154 Q245 161 243 172 M218 185 V198 M229 185 V198 M241 185 V198 M252 185 V198 M265 185 V198"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M204 200 V176 H220 V164 H228 V156 Q228 141 236 139 V132 L240 124 L244 132 V139 Q252 141 252 156 V164 H260 V176 H276 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M204 184 H276 M228 164 V184 M236 164 V184 M244 164 V184 M252 164 V184 M240 139 V156 M212 184 V200 M268 184 V200"/>
   </g>
   <g data-landmark="prudential-tower">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M311 200 V52 H316 V47 H311 V42 H322 V38 H335 V10 H337 V38 H351 V42 H365 V47 H360 V52 H365 V200"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M316 48 H360 M316 59 H360 M316 72 H360 M316 85 H360 M316 98 H360 M316 111 H360 M316 124 H360 M316 137 H360 M316 150 H360 M316 163 H360 M316 176 H360 M316 189 H360 M320 55 V197 M356 55 V197 M330 43 V48 M345 43 V48"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M308 200 V56 H316 V44 H324 V36 H334 V8 V36 H344 V44 H352 V56 H360 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M308 68 H360 M308 80 H360 M308 92 H360 M308 104 H360 M308 116 H360 M308 128 H360 M308 140 H360 M308 152 H360 M308 164 H360 M308 176 H360 M308 188 H360 M316 56 V200 M352 56 V200"/>
   </g>
   <g data-landmark="zakim-bridge">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M425 200 H478 L495 142 V121 L499 114 L503 121 V142 L522 200 H547 L562 142 V125 L566 118 L570 125 V142 L588 200 H636"/>
-    <path class="vt-skyline__void" vector-effect="non-scaling-stroke" d="M484 198 L498 158 L499 198 Z M503 158 L516 198 H503 Z M553 198 L565 158 L566 198 Z M570 158 L582 198 H570 Z"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M429 194 L498 137 L540 194 M445 194 L498 137 L530 194 M463 194 L498 137 L520 194 M478 194 L498 137 L511 194 M532 194 L567 141 L630 194 M543 194 L567 141 L613 194 M554 194 L567 141 L598 194 M563 194 L567 141 L584 194 M429 196 H631"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M424 200 H468 L476 148 V116 L480 108 L484 116 V148 L492 200 H572 L580 148 V116 L584 108 L588 116 V148 L596 200 H636"/>
+    <path class="vt-skyline__void" vector-effect="non-scaling-stroke" d="M474 200 L480 164 L486 200 Z M578 200 L584 164 L590 200 Z"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M476 124 L432 176 M476 132 L448 176 M476 140 L464 176 M484 124 L528 176 M484 132 L512 176 M484 140 L496 176 M580 124 L536 176 M580 132 L552 176 M580 140 L568 176 M588 124 L632 176 M588 132 L616 176 M588 140 L600 176 M424 176 H636"/>
   </g>
   <g data-landmark="john-hancock-tower">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M636 200 V36 L678 24 L704 31 V200"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M678 27 V197 M643 40 V197 M654 37 V197 M666 33 V197 M687 33 V197 M696 35 V197 M640 68 L678 58 L700 64 M640 104 L678 95 L700 100 M640 140 L678 132 L700 137 M640 177 L678 169 L700 174"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M640 200 V36 L676 24 L700 32 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M676 24 V200 M652 32 V200 M664 28 V200 M688 28 V200"/>
   </g>
   <g data-landmark="one-international-place">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M736 200 V91 H740 V82 Q741 70 753 67 V61 H756 V67 Q769 70 770 82 H775 V91 H782 V200"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M740 92 H776 M745 81 H770 M744 98 V197 M756 94 V197 M768 98 V197 M741 116 H777 M741 137 H777 M741 158 H777 M741 179 H777"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M736 200 V96 H744 V76 H772 V96 H780 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M744 96 H772 M748 76 V96 M758 76 V96 M768 76 V96 M736 120 H780 M736 144 H780 M736 168 H780"/>
   </g>
   <g data-landmark="old-south-meeting-house">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M863 200 V175 L876 165 H883 V152 H885 V142 L891 128 L897 142 V152 H900 V176 H907 V200"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M884 153 H899 M886 158 V172 M896 158 V172 M867 179 H883 M874 182 V195"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M864 200 V172 H876 V136 L884 108 L892 136 V172 H904 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M876 148 H892 M876 160 H892 M884 148 V160 M864 184 H904"/>
   </g>
 </svg>

@@ -1,30 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" class="vt-skyline__city" data-city="seattle" viewBox="0 0 960 200" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
-  <desc>Original Seattle landmark illustration: the Space Needle's open legs and saucer, downtown towers, Smith Tower's pyramid, Lumen Field's arched roofs at the right, and Mount Rainier behind the city.</desc>
+  <desc>Original Seattle landmark illustration: the Space Needle's open legs and saucer, 1201 Third Avenue's stepped crown, Columbia Center, Smith Tower's pyramid, Lumen Field's arched roof at the right, and Mount Rainier's snowcap behind the city.</desc>
   <g data-landmark="mount-rainier" data-layer="background">
-    <path class="vt-skyline__backdrop" vector-effect="non-scaling-stroke" d="M583 200 L604 182 L626 171 L646 164 L663 151 L682 148 L700 133 L719 129 L738 116 L756 110 L771 94 L790 90 L805 76 L816 78 L828 72 L842 89 L858 99 L873 112 L892 117 L910 133 L929 145 L948 151 L960 162 V200 Z"/>
-    <path class="vt-skyline__ridge" vector-effect="non-scaling-stroke" d="M805 76 L797 97 L776 113 L782 125 L752 143 M828 72 L831 94 L846 108 L838 114 L867 142 M816 78 L814 105 L798 121 L802 138 M790 90 L772 108 L760 110 M842 89 L841 99 L858 112 M646 164 L680 161 L719 138 L738 137 L753 124 M873 112 L881 134 L901 144"/>
+    <path class="vt-skyline__backdrop" vector-effect="non-scaling-stroke" d="M540 200 L596 180 L644 160 L688 136 L724 112 L752 96 L772 88 L784 84 H804 L820 90 L848 106 L880 126 L916 148 L948 164 L960 170 V200 Z"/>
+    <path class="vt-skyline__ridge" vector-effect="non-scaling-stroke" d="M724 112 L740 124 L752 116 L768 130 L784 118 L800 132 L816 120 L832 130 L848 118 L864 128 L880 126"/>
   </g>
-  <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M0 200 H17 V185 H29 V179 H49 V187 H61 V153 H66 V149 H83 V154 H88 V179 H105 V138 H111 V129 H131 V134 H141 V186 H161 V200 M240 200 H254 V147 H264 V145 H274 V128 H284 V145 H295 V180 H311 V200 M357 200 H370 V106 H385 V102 H403 V159 H417 V200 M468 200 H482 V141 H497 V164 H511 V182 H522 V200 M574 200 H588 V177 H605 V172 H630 V180 H646 V166 H672 V178 H697 V187 H719 V182 H737 V191 H758 V200 M936 200 H960"/>
+  <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M0 200 H20 V176 H44 V160 H64 V144 H92 V128 H120 V152 H140 V176 H156 V200 H172 M228 200 H240 V148 H264 V124 H284 V160 H300 V200 H312 M356 200 V80 H380 V120 H396 V100 H412 V200 M468 200 V128 H488 V144 H500 V160 H520 V200 M568 200 V172 H588 V156 H612 V176 H640 V164 H668 V180 H700 V172 H724 V200 M936 200 H960"/>
   <g data-landmark="space-needle">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M161 200 H174 C180 161 188 129 187 99 L181 57 Q162 54 153 48 Q146 44 153 41 Q167 35 187 33 Q188 29 199 27 V10 H202 V27 Q214 29 215 33 Q235 35 247 41 Q254 44 247 48 Q238 54 220 57 L213 99 C211 129 218 164 224 200 H240"/>
-    <path class="vt-skyline__void" vector-effect="non-scaling-stroke" d="M185 58 L196 61 L196 109 Q190 91 185 58 Z M205 61 L216 58 Q212 92 205 109 Z M179 196 Q187 154 196 117 V196 Z M205 117 Q214 157 219 196 H205 Z"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M155 42 Q201 53 246 42 M163 48 Q202 62 237 48 M186 34 Q201 40 217 34 M170 50 L187 59 M181 53 L192 61 M225 53 L211 61 M234 50 L216 59 M200 64 V193 M183 168 H196 M205 168 H215"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M172 200 Q188 160 188 112 Q192 84 186 60 L158 48 V44 L180 36 Q182 28 196 28 H200 V6 V28 H204 Q218 28 220 36 L242 44 V48 L214 60 Q208 84 212 112 Q212 160 228 200"/>
+    <path class="vt-skyline__void" vector-effect="non-scaling-stroke" d="M196 132 V200 H182 Q192 160 196 132 Z M204 132 V200 H218 Q208 160 204 132 Z M196 104 V68 H191 Q195 84 196 104 Z M204 104 V68 H209 Q205 84 204 104 Z"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M169 40 H231 M188 112 H212 M172 52 H228"/>
   </g>
   <g data-landmark="1201-third-avenue">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M311 200 V78 H316 V67 L322 65 L328 55 H340 L347 65 L353 67 V78 H357 V200"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M317 78 H352 M328 55 V68 H347 M323 84 V196 M345 84 V196 M316 99 H351 M316 119 H351 M316 139 H351 M316 159 H351 M316 179 H351"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M312 200 V88 L320 80 V68 L328 60 H340 L348 68 V80 L356 88 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M320 80 H348 M312 104 H356 M312 120 H356 M312 136 H356 M312 152 H356 M312 168 H356 M312 184 H356 M324 88 V200 M344 88 V200"/>
   </g>
   <g data-landmark="columbia-center">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M417 200 V45 Q417 40 424 40 H431 V31 Q431 26 438 26 H452 Q459 26 459 31 V38 H468 V200"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M431 42 V196 M459 40 V196 M422 58 H463 M422 76 H463 M422 94 H463 M422 112 H463 M422 130 H463 M422 148 H463 M422 166 H463 M422 184 H463"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M412 200 V56 H424 V20 H452 V40 H468 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M424 56 V200 M452 40 V200 M412 80 H468 M412 104 H468 M412 128 H468 M412 152 H468 M412 176 H468"/>
   </g>
   <g data-landmark="smith-tower">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M522 200 V174 H528 V146 H531 V138 H534 V134 L544 114 V108 H547 V114 L560 134 H564 V138 H567 V146 H574 V200"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M534 135 H560 M531 139 H564 M533 145 H566 M548 118 L552 134 M528 174 H573 M533 150 V169 M543 150 V169 M554 150 V169 M565 150 V169 M534 181 V196 M546 181 V196 M558 181 V196 M531 155 H567 M531 163 H567"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M520 200 V164 H532 V128 L544 92 L556 128 V164 H568 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M532 136 H556 M532 148 H556 M540 136 V164 M548 136 V164 M544 92 V128 M532 164 V200 M556 164 V200 M520 180 H568"/>
   </g>
   <g data-landmark="lumen-field">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M758 200 V183 H771 Q788 158 827 155 Q872 150 911 158 L936 169 V200"/>
-    <path class="vt-skyline__void" vector-effect="non-scaling-stroke" d="M784 180 Q803 161 836 160 Q880 155 921 166 L920 171 Q884 163 838 168 Q808 170 784 183 Z"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M758 184 Q780 167 810 167 Q847 166 874 176 L875 186 Q825 174 780 192 M794 169 L796 181 M809 164 L811 175 M827 161 L828 170 M846 159 L847 168 M866 159 L865 168 M886 161 L884 169 M906 164 L903 172 M773 190 V198 M791 185 V198 M812 181 V198 M837 181 V198 M861 186 V198 M884 179 V198 M910 179 V198 M927 183 V198"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M724 200 V176 H736 Q830 124 924 168 V176 H936 V200"/>
+    <path class="vt-skyline__void" vector-effect="non-scaling-stroke" d="M752 176 Q830 136 908 172 Q830 152 752 176 Z"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M724 184 H936 M760 184 V200 M800 184 V200 M840 184 V200 M880 184 V200 M920 184 V200 M790 152 V160 M830 148 V156 M870 152 V160"/>
   </g>
 </svg>

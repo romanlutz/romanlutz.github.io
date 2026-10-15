@@ -1,30 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" class="vt-skyline__city" data-city="frankfurt" viewBox="0 0 960 200" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
-  <desc>Original Frankfurt landmark illustration with the Europaturm's observation disc, Messeturm's pencil crown, Main Tower, Commerzbank Tower's sloping crown and antenna, the Alte Oper, and Frankfurt Cathedral.</desc>
-  <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M0 200 H22 V184 H35 V176 H56 V188 H77 V200 M137 200 H157 V133 H179 V122 H201 V151 H221 V177 H238 V147 H260 V182 H282 V161 H300 V200 M364 200 H383 V98 H408 V106 H421 V166 H435 V200 M489 200 H507 V130 H522 V123 H536 V157 H551 V200 M624 200 H641 V174 H654 V200 M731 200 H748 V178 H763 V200 M817 200 H832 V171 L851 150 L870 171 V182 H882 V169 H906 V180 H921 V192 H940 V200 H960"/>
+  <desc>Original Frankfurt landmark illustration with the Europaturm's observation pod, Messeturm's pencil crown, Main Tower, Commerzbank Tower's sloping crown and antenna, the Alte Oper, and Frankfurt Cathedral.</desc>
+  <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M0 200 H20 V184 H40 V176 H60 V188 H80 V200 H104 M120 200 H136 V152 H156 V128 H176 V144 H200 V112 H220 V160 H244 V136 H264 V168 H284 V180 H300 V200 M364 200 V108 H380 V132 H404 V156 H420 V172 H432 V200 M488 200 V104 H504 V124 H528 V96 H544 V148 H556 V200 M620 200 V160 H636 V180 H652 V200 M732 200 V180 H748 V164 H768 V200 M816 200 V172 H836 V160 H860 V176 H880 V184 H904 V200 H960"/>
   <g data-landmark="europaturm">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M77 200 H101 V79 Q89 75 87 71 Q83 66 89 63 Q94 60 101 59 V52 H105 V41 H108 V29 H111 V13 H113 V29 H116 V41 H119 V52 H123 V59 Q132 60 137 64 Q141 68 134 73 L121 79 V200 H137"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M88 66 Q112 75 136 66 M93 72 H130 M102 59 H123 M106 79 V196 M117 79 V196 M105 50 H119 M109 33 H116"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M104 200 V88 L88 76 V64 L100 56 V44 H108 L112 8 L116 44 H124 V56 L136 64 V76 L120 88 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M88 64 H136 M88 76 H136 M100 56 H124 M104 120 H120"/>
   </g>
   <g data-landmark="messeturm">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M300 200 V71 H306 V62 H311 V55 L332 22 L353 55 H358 V62 H364 V200"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M312 56 H352 M307 63 H357 M332 26 V54 M311 75 V197 M324 69 V197 M339 69 V197 M353 75 V197 M305 90 H359 M305 112 H359 M305 134 H359 M305 156 H359 M305 178 H359"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M300 200 V72 H308 V60 L332 20 L356 60 V72 H364 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M332 20 V60 M300 84 H364 M300 184 H364 M316 72 V200 M332 72 V200 M348 72 V200"/>
   </g>
   <g data-landmark="main-tower">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M435 200 V64 Q435 54 449 53 H456 V25 H458 V53 H475 Q489 54 489 64 V200"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M441 62 H483 M441 82 H483 M441 102 H483 M441 122 H483 M441 142 H483 M441 162 H483 M441 182 H483 M449 66 V197 M475 66 V197"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M432 200 V60 Q432 48 444 48 H460 V16 V48 H476 Q488 48 488 60 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M432 72 H488 M432 96 H488 M432 120 H488 M432 144 H488 M432 168 H488 M444 48 V200 M476 48 V200"/>
   </g>
   <g data-landmark="commerzbank-tower">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M551 200 V67 L569 53 V40 H579 V29 H588 V20 H593 V5 H596 V28 L603 35 V50 L614 59 V72 H624 V200"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M554 78 L590 43 L620 72 M570 53 V73 M590 43 V197 M605 55 V197 M555 101 L590 83 L620 101 M555 131 L590 113 L620 131 M555 161 L590 143 L620 161 M555 191 L590 173 L620 191 M595 10 V25"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M556 200 V64 L588 40 V4 V40 L620 64 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M588 40 V200 M556 88 H620 M556 120 H620 M556 152 H620 M556 184 H620"/>
   </g>
   <g data-landmark="alte-oper">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M654 200 V180 H662 V174 H671 L690 159 H694 V154 H698 V159 L716 174 H725 V180 H731 V200"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M666 179 H721 M674 180 V197 M685 180 V197 M699 180 V197 M711 180 V197 M661 198 H727 M677 172 H710"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M652 200 V172 H664 V160 L680 148 V140 H704 V148 L720 160 V172 H732 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M664 172 H720 M664 160 H720 M672 172 V196 M684 172 V196 M700 172 V196 M712 172 V196"/>
   </g>
   <g data-landmark="frankfurt-cathedral">
-    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M763 200 V146 H768 V133 H772 V124 L781 110 L788 99 L795 110 L804 124 V133 H809 V146 H817 V200"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M773 134 H804 M768 147 H811 M775 153 V192 M789 151 V192 M802 153 V192 M774 175 H804 M788 108 V124"/>
-    <circle class="vt-skyline__clock" vector-effect="non-scaling-stroke" cx="789" cy="139" r="4.5"/>
-    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M789 135 V139 L792 141"/>
+    <path class="vt-skyline__roofline" vector-effect="non-scaling-stroke" d="M768 200 V156 H776 V120 L784 112 V100 Q784 88 790 88 V80 L792 72 L794 80 V88 Q800 88 800 100 V112 L808 120 V156 H816 V200"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M776 128 H808 M776 156 H808 M784 156 V196 M800 156 V196 M784 112 H800"/>
+    <circle class="vt-skyline__clock" vector-effect="non-scaling-stroke" cx="792" cy="142" r="6"/>
+    <path class="vt-skyline__detail" vector-effect="non-scaling-stroke" d="M792 137.5 V142 L796 143.5"/>
   </g>
 </svg>
