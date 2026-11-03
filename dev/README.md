@@ -22,6 +22,8 @@ to a single column at 768px and below. Their separate container preserves the
 original widths and gutters without narrowing the timeline. On small screens,
 the timeline uses a single rail and wider event panels instead of nested
 indentation. Website copy and data remain in `mkdocs.yml` and `_data/`.
+The root `color-scheme: dark` declaration styles native browser controls.
+Keep the `theme-color` metadata in `theme/main.html` in sync with `--bg-primary`.
 
 ## Profile statistics
 
