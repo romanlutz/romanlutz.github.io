@@ -1,8 +1,8 @@
-// Quiet choropleth maps with flags revealed in a detail strip on interaction.
+// Green-tinted flag maps reveal full color on hover, focus, or tap.
 // All listed places, including stopovers, stay highlighted.
 // d3 and topojson are loaded synchronously before this script.
 (function () {
-  var DETAIL_HINT = 'Hover or tap a highlighted place to see its flag.';
+  var DETAIL_HINT = 'Hover, focus, or tap a flag to see it in full color.';
 
   // Map country alpha-3 codes to atlas IDs and flag filenames.
   var COUNTRY_NUM = {
@@ -33,6 +33,7 @@
     usa: 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json',
     world: 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json'
   };
+  var ZOOM_OVERRIDE = { USA: 2.0, CAN: 2.0, IND: 2.0, ISL: 2.0 };
 
   function flagUrl(scope, placeName) {
     var prefix = window.MAPS_FLAG_BASE || 'images/flags/';
@@ -55,6 +56,17 @@
 
   function placeStatus(place) {
     return place ? (place.visited ? 'Visited' : 'Stopover') : 'Not visited';
+  }
+
+  function eachPolygon(feature) {
+    var geometry = feature.geometry;
+    var polygons = geometry.type === 'MultiPolygon' ? geometry.coordinates : [geometry.coordinates];
+    return polygons.map(function (coordinates) {
+      return {
+        type: 'Feature', id: feature.id, properties: feature.properties,
+        geometry: { type: 'Polygon', coordinates: coordinates }
+      };
+    });
   }
 
   function render(scope, container, topology, places) {
@@ -83,9 +95,19 @@
       .attr('preserveAspectRatio', 'xMidYMid meet')
       .attr('role', 'group')
       .attr('aria-label', (scope === 'usa' ? 'US states' : 'Countries') + ' visited or passed through');
+    var defs = svg.append('defs');
+    var filterId = 'flag-tint-' + scope;
+    // Map flag luminance to a dark-to-light green range, retaining opaque detail.
+    defs.append('filter').attr('id', filterId)
+      .attr('color-interpolation-filters', 'sRGB')
+      .append('feColorMatrix').attr('type', 'matrix')
+      .attr('values', '0.065 0.219 0.022 0 0.102 0.087 0.292 0.029 0 0.251 0.066 0.222 0.022 0 0.169 0 0 0 1 0');
     var g = svg.append('g');
     var detail = document.getElementById(scope + '_map_detail');
     var activeRegion = null;
+    var hoveredRegion = null;
+    var focusedRegion = null;
+    var pinnedRegion = null;
 
     function clearSelection() {
       if (activeRegion) activeRegion.classList.remove('is-active');
@@ -124,22 +146,44 @@
       detail.appendChild(text);
     }
 
+    function updateSelection() {
+      var region = hoveredRegion || focusedRegion || pinnedRegion;
+      if (region) showPlace(region, region.__data__);
+      else clearSelection();
+    }
+
     features.forEach(function (feature) {
       var place = byId[feature.id];
-      var region = g.append('path')
+      var region = g.append('g')
         .datum(feature)
-        .attr('class', 'choropleth' + (place ? ' is-visited' : ''))
-        .attr('d', path(feature))
-        .attr('vector-effect', 'non-scaling-stroke')
-        .on('pointerenter', function (event, d) {
-          if (event.pointerType !== 'touch') showPlace(this, d);
+        .attr('class', 'map-region' + (place ? ' is-visited' : ''))
+        .on('pointerenter', function (event) {
+          if (event.pointerType !== 'touch') {
+            hoveredRegion = this;
+            updateSelection();
+          }
+        })
+        .on('pointerleave', function (event) {
+          if (event.pointerType !== 'touch') {
+            hoveredRegion = null;
+            updateSelection();
+          }
         });
       if (place) {
         region.attr('tabindex', 0)
           .attr('role', 'button')
-          .attr('aria-label', feature.properties.name + ', ' + placeStatus(place) + '. Show flag.')
-          .on('focus', function (event, d) { showPlace(this, d); })
-          .on('click', function (event, d) { showPlace(this, d); })
+          .attr('filter', 'url(#' + filterId + ')')
+          .attr('aria-controls', scope + '_map_detail')
+          .attr('aria-label', feature.properties.name + ', ' + placeStatus(place) + '. Show flag colors.')
+          .on('focus', function () { focusedRegion = this; updateSelection(); })
+          .on('blur', function () { focusedRegion = null; updateSelection(); })
+          .on('click', function (event) {
+            if (event.pointerType !== 'mouse') {
+              pinnedRegion = pinnedRegion === this ? null : this;
+              hoveredRegion = focusedRegion = null;
+            }
+            updateSelection();
+          })
           .on('keydown', function (event, d) {
             if (event.key === 'Enter' || event.key === ' ') {
               event.preventDefault();
@@ -149,11 +193,47 @@
       } else {
         region.attr('aria-hidden', 'true');
       }
+
+      var href = place && flagUrl(scope, place.name);
+      var polygons = place ? eachPolygon(feature) : [feature];
+      polygons.forEach(function (polygon, index) {
+        var polygonPath = region.append('path')
+          .attr('class', 'choropleth')
+          .attr('d', path(polygon))
+          .attr('vector-effect', 'non-scaling-stroke');
+        if (!href) return;
+        var bounds = path.bounds(polygon);
+        var x = bounds[0][0], y = bounds[0][1];
+        var width = bounds[1][0] - x, height = bounds[1][1] - y;
+        if (!Number.isFinite(width) || !Number.isFinite(height) || width <= 0 || height <= 0) return;
+        // Fit a full flag to each island, rather than stretching one across oceans.
+        var patternId = 'flag-' + scope + '-' + place.name + '-' + index;
+        var zoom = (scope === 'world' && ZOOM_OVERRIDE[place.name]) || 1;
+        var pattern = defs.append('pattern')
+          .attr('id', patternId)
+          .attr('patternUnits', 'userSpaceOnUse')
+          .attr('x', x).attr('y', y)
+          .attr('width', width).attr('height', height);
+        pattern.append('rect')
+          .attr('width', width).attr('height', height)
+          .attr('class', 'map-flag-fallback');
+        pattern.append('image')
+          .attr('href', href)
+          .attr('x', width * (1 - zoom) / 2).attr('y', height * (1 - zoom) / 2)
+          .attr('width', width * zoom).attr('height', height * zoom)
+          .attr('preserveAspectRatio', 'xMidYMid slice')
+          .on('error', function () {
+            this.setAttribute('visibility', 'hidden');
+            console.warn('Unable to load map flag:', href);
+          });
+        polygonPath.attr('fill', 'url(#' + patternId + ')');
+      });
     });
 
     svg.on('keydown', function (event) {
       if (event.key === 'Escape') {
         event.preventDefault();
+        hoveredRegion = focusedRegion = pinnedRegion = null;
         clearSelection();
       }
     });

@@ -1467,25 +1467,31 @@ a.vt-event-gallery-content:focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 3px;
 }
-.choropleth {
+.map-region {
   fill: #2a3038;
+}
+.choropleth {
   stroke: #484f58;
   stroke-width: 0.5;
 }
-.choropleth.is-visited {
+.map-region.is-visited {
   fill: var(--green);
   cursor: pointer;
   touch-action: manipulation;
 }
-.choropleth.is-active {
+.map-region.is-active {
+  filter: none;
+}
+.map-region.is-active:not(.is-visited) {
   fill: var(--border-hover);
 }
-.choropleth.is-visited.is-active {
-  fill: var(--green-light);
-}
-.choropleth:focus-visible {
-  outline: none;
+.map-flag-fallback {
   fill: var(--green);
+}
+.map-region:focus-visible {
+  outline: none;
+}
+.map-region:focus-visible .choropleth {
   stroke: var(--text-primary);
   stroke-width: 2;
 }

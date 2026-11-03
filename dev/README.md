@@ -43,11 +43,17 @@ Run the cache and metadata regression tests from the repository root with
 
 ## Travel maps and closing section
 
-The maps use green for all listed places, including airport stopovers, and gray
-for other places. Hovering, focusing, or tapping a highlighted place reveals its
-flag and name in a stable detail strip below the map. Stopovers remain highlighted
-but are labeled separately in the detail strip. Keyboard users can focus a
-highlighted region and press Enter or Space; Escape clears the selection.
+The maps fill all listed places, including airport stopovers, with green-tinted
+flags. Other places remain gray. Hovering, focusing, or tapping a place restores
+its flag's full color and reveals its name in a stable detail strip below the
+map. Mouse hover clears on leaving the region; keyboard focus and touch
+selection remain usable independently. Stopovers remain highlighted but are
+labeled separately in the detail strip. Keyboard users can focus a region and
+press Enter or Space; Escape clears the selection.
+
+Each island gets its own flag pattern, but each country or state has only one
+keyboard stop. The shared SVG color matrix preserves flag detail and opacity
+while mapping luminance to the site's green palette.
 Flag loading failures are logged without losing the selected place's name.
 Atlas and rendering failures are logged and show an explanatory message with a
 keyboard-accessible "Retry map" button. A retry clears the previous error and

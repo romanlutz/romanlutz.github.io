@@ -28,7 +28,7 @@ class Element {
   setAttribute(name, value) { this.attributes.set(name, String(value)); }
   querySelector(selector) {
     assert.equal(selector, '[tabindex="0"], button');
-    return descendants(this, 'path').find(node => node.attributes.get('tabindex') === '0') ||
+    return descendants(this, 'g').find(node => node.attributes.get('tabindex') === '0') ||
       descendants(this, 'button')[0];
   }
   focus() { this.focused = true; }
@@ -82,15 +82,22 @@ function harness({ features, failed = false } = {}) {
       return projectionPath;
     }
   };
+  const polygon = { type: 'Polygon', coordinates: [[[0, 0], [1, 0], [0, 1], [0, 0]]] };
   const defaultFeatures = [
-    { id: '53', properties: { name: 'Washington' }, geometry: { type: 'MultiPolygon' } },
+    { id: '53', properties: { name: 'Washington' }, geometry: {
+      type: 'MultiPolygon', coordinates: [polygon.coordinates, polygon.coordinates]
+    } },
     { id: '04', properties: { name: 'Arizona' } },
     { id: '48', properties: { name: 'Texas' } }
   ];
   const window = { MAPS_FLAG_BASE: '/images/flags/' };
   vm.runInNewContext(source, {
     window, document, d3,
-    topojson: { feature() { return { features: features || defaultFeatures }; } },
+    topojson: { feature() {
+      return { features: (features || defaultFeatures).map(feature => ({
+        ...feature, geometry: feature.geometry || polygon
+      })) };
+    } },
     console: {
       error(...args) { errors.push(args); },
       warn(...args) { warnings.push(args); }
@@ -101,13 +108,15 @@ function harness({ features, failed = false } = {}) {
     render(scope = 'usa', places = [{ name: 'WA', visited: true }, { name: 'AZ', visited: false }]) {
       return window.initDatamap({ scope, places });
     },
-    regions(scope = 'usa') { return descendants(nodes.get(scope + '_map'), 'path'); },
+    regions(scope = 'usa') {
+      return descendants(nodes.get(scope + '_map'), 'g').filter(node => node.classList.contains('map-region'));
+    },
     detail(scope = 'usa') { return nodes.get(scope + '_map_detail'); },
     svg(scope = 'usa') { return descendants(nodes.get(scope + '_map'), 'svg')[0]; }
   };
 }
 
-test('highlights visited places and stopovers without flag-filled polygons', async () => {
+test('fills visited places and stopovers with tinted flags and one focus target per region', async () => {
   const state = harness();
   await state.render();
   const [washington, arizona, texas] = state.regions();
@@ -116,12 +125,15 @@ test('highlights visited places and stopovers without flag-filled polygons', asy
     assert.ok(region.classList.contains('is-visited'));
     assert.equal(region.attributes.get('tabindex'), '0');
     assert.equal(region.attributes.get('role'), 'button');
+    assert.equal(region.attributes.get('filter'), 'url(#flag-tint-usa)');
   }
   assert.match(arizona.attributes.get('aria-label'), /Arizona, Stopover/);
   assert.ok(!texas.classList.contains('is-visited'));
   assert.equal(texas.attributes.get('tabindex'), undefined);
-  assert.equal(descendants(state.svg(), 'image').length, 0);
-  assert.equal(descendants(state.svg(), 'pattern').length, 0);
+  assert.equal(descendants(state.svg(), 'image').length, 3);
+  assert.equal(descendants(state.svg(), 'pattern').length, 3, 'each island gets a fitted flag');
+  assert.equal(descendants(washington, 'path').length, 2);
+  assert.equal(descendants(state.svg(), 'feColorMatrix').length, 1);
   assert.equal(descendants(state.detail(), 'img').length, 0);
   assert.deepEqual(state.errors, []);
 });
@@ -193,6 +205,38 @@ test('hides a failed flag image without losing the place name and logs its URL',
   assert.equal(flag.hidden, true);
   assert.match(state.detail().textContent, /Washington Visited/);
   assert.equal(state.warnings[0][1], '/images/flags/us-states/wa.png');
+});
+
+test('restores the tint on pointer exit and keeps keyboard and touch selection independent', async () => {
+  const state = harness();
+  await state.render();
+  const [washington, arizona] = state.regions();
+  fire(washington, 'pointerenter', { pointerType: 'mouse' });
+  assert.ok(washington.classList.contains('is-active'));
+  fire(washington, 'pointerleave', { pointerType: 'mouse' });
+  assert.ok(!washington.classList.contains('is-active'));
+  fire(arizona, 'focus');
+  fire(washington, 'pointerenter', { pointerType: 'mouse' });
+  assert.ok(!arizona.classList.contains('is-active'));
+  fire(washington, 'pointerleave', { pointerType: 'mouse' });
+  assert.ok(arizona.classList.contains('is-active'), 'return to the keyboard-focused region');
+  fire(arizona, 'blur');
+  assert.ok(!arizona.classList.contains('is-active'));
+  fire(washington, 'click', { pointerType: 'touch' });
+  fire(washington, 'pointerleave', { pointerType: 'touch' });
+  assert.ok(washington.classList.contains('is-active'));
+  fire(washington, 'click', { pointerType: 'touch' });
+  assert.ok(!washington.classList.contains('is-active'));
+});
+
+test('retains the green fallback when a polygon flag fails to load', async () => {
+  const state = harness();
+  await state.render();
+  const image = descendants(state.svg(), 'image')[0];
+  fire(image, 'error');
+  assert.equal(image.attributes.get('visibility'), 'hidden');
+  assert.equal(descendants(state.svg(), 'rect').length, 3);
+  assert.equal(state.warnings.length, 1);
 });
 
 test('reports loading and failure states and lets visitors retry successfully', async () => {

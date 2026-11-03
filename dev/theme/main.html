@@ -201,7 +201,7 @@
 	
 	<div id="places" class="section-content topspace">
 			<h2 class="entry-title">Places along the way</h2>
-			<p class="places-intro">Places I have visited or passed through, including airport stopovers. Explore a highlighted place to see its flag.</p>
+			<p class="places-intro">Places I have visited or passed through, including airport stopovers. Hover, focus, or tap a flag to see it in full color.</p>
 			<div class="map-legend" aria-label="Map legend">
 				<span><i class="map-legend__visited" aria-hidden="true"></i>Visited or passed through</span>
 				<span><i aria-hidden="true"></i>Not visited</span>
@@ -216,7 +216,7 @@
 					{% endfor %}
 					{% if map_entry.mapConfiguration %}
 					<div id="{{ map_entry.mapConfiguration.scope }}_map" class="map-container"></div>
-					<div id="{{ map_entry.mapConfiguration.scope }}_map_detail" class="map-detail" role="status" aria-live="polite" aria-atomic="true">Hover or tap a highlighted place to see its flag.</div>
+					<div id="{{ map_entry.mapConfiguration.scope }}_map_detail" class="map-detail" role="status" aria-live="polite" aria-atomic="true">Hover, focus, or tap a flag to see it in full color.</div>
 					<script>
 						initDatamap({{ {
 							"scope": map_entry.mapConfiguration.scope,
