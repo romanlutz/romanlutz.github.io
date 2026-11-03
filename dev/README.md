@@ -33,10 +33,10 @@ or incomplete responses are logged and retain both the previous counts and
 their original successful-update date. The legacy global `fetched_at` field
 is not treated as proof of a successful fetch.
 
-Cards show the last successful update date. Literal `statsText` values in
-`_data/links.yml`, such as Google Scholar's counts, are labeled "Manually
-maintained" and are not overwritten by an API. A cached value without a known
-successful timestamp is labeled "Last update unknown".
+Cards show counts only, without update dates or maintenance labels. Per-source
+freshness remains in the cache for refresh decisions and diagnostics. Literal
+`statsText` values in `_data/links.yml`, such as Google Scholar's counts, remain
+manually maintained and are not overwritten by an API.
 
 Run the cache and metadata regression tests from the repository root with
 `uv run --no-project --with-requirements dev\requirements.txt python -m unittest discover -s dev\tests -p "test_stats.py"`.

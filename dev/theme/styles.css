@@ -475,10 +475,6 @@ h1#logo .tagline {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.link-card-stats-note {
-  color: var(--text-muted);
-  font-size: 12px;
-}
 @media (max-width: 768px) {
   .link-cards {
     grid-template-columns: 1fr !important;

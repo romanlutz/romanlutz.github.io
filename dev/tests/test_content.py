@@ -42,6 +42,14 @@ def render_homepage():
 
 
 class ContentTests(unittest.TestCase):
+    def test_profile_cards_show_statistics_without_update_or_maintenance_labels(self):
+        html, _ = render_homepage()
+        cards = html.split('<div class="profile-links">', 1)[1].split('<div class="container">', 1)[0]
+        self.assertIn('class="link-card-stats"', cards)
+        self.assertIn("12 papers · 1,151 citations", cards)
+        self.assertNotIn("link-card-stats-note", cards)
+        self.assertNotRegex(cards, r"Updated \d{4}-\d{2}-\d{2}|Manually maintained|Last update unknown")
+
     def test_large_photos_offer_responsive_webp_sources_with_a_smaller_payload(self):
         html, _ = render_homepage()
         photos = [

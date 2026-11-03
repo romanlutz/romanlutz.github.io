@@ -127,17 +127,19 @@ class StatsTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "incomplete"):
                 hooks._github_search_count("type:pr", {})
 
-    def test_metadata_distinguishes_manual_unknown_and_dated_counts(self):
+    def test_card_metadata_keeps_counts_without_freshness_or_maintenance_labels(self):
         hooks._stats_cache = {"github": {"prsMerged": 1, "reviews": 2}, "pyrit": {"stars": 3}}
         hooks._stats_updated_at = {"github": self.old}
         page = SimpleNamespace(file=SimpleNamespace(src_uri="index.md"), meta={})
         hooks.on_page_markdown("", page, {"config_file_path": str(ROOT / "mkdocs.yml")}, None)
         cards = {card["label"]: card for card in page.meta["links"]}
-        self.assertEqual(cards["Google Scholar"]["statsNote"], "Manually maintained")
-        self.assertEqual(cards["GitHub"]["statsNote"], "Updated 2020-01-01")
-        self.assertEqual(cards["PyRIT"]["statsNote"], "Last update unknown")
+        self.assertEqual(cards["Google Scholar"]["statsText"], "12 papers · 1,151 citations")
+        self.assertEqual(cards["PyRIT"]["statsText"], "\u2605 3")
         self.assertIn("PRs reviewed", cards["GitHub"]["statsText"])
-        self.assertNotIn("statsNote", cards["LinkedIn"])
+        self.assertNotIn("statsText", cards["LinkedIn"])
+        for card in cards.values():
+            self.assertNotIn("statsNote", card)
+        self.assertEqual(hooks._stats_updated_at, {"github": self.old})
 
 
 if __name__ == "__main__":

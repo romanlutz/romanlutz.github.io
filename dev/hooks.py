@@ -287,7 +287,6 @@ def on_page_markdown(markdown, page, config, files):
         # usable API (e.g. Google Scholar, which has no public API and blocks
         # automated access, so its count is hand-maintained).
         if link.get("statsText"):
-            link["statsNote"] = "Manually maintained"
             continue
         stat_id = link.get("stats")
         if not stat_id:
@@ -295,10 +294,5 @@ def on_page_markdown(markdown, page, config, files):
         text = _format_stats(stat_id, stats.get(stat_id))
         if text:
             link["statsText"] = text
-            timestamp = _parse_timestamp(_stats_updated_at.get(stat_id))
-            link["statsNote"] = (
-                f"Updated {timestamp.date().isoformat()}"
-                if timestamp else "Last update unknown"
-            )
 
     return markdown
