@@ -42,6 +42,30 @@ def render_homepage():
 
 
 class ContentTests(unittest.TestCase):
+    def test_large_photos_offer_responsive_webp_sources_with_a_smaller_payload(self):
+        html, _ = render_homepage()
+        photos = [
+            image for image in PageElements(html).images
+            if re.search(r"/(?:pete-carroll|thomas-rawls)-\d+\.webp$", image["src"])
+        ]
+        self.assertEqual(len(photos), 2)
+        largest_bytes = 0
+        for photo in photos:
+            sources = [source.strip().split() for source in photo["srcset"].split(",")]
+            self.assertEqual([width for _, width in sources], ["480w", "960w", "1440w"])
+            self.assertTrue(photo["sizes"].startswith("auto, "))
+            self.assertEqual(photo["loading"], "lazy", "automatic sizes require lazy loading")
+            for url, _ in sources:
+                asset = ROOT / "theme" / "images" / url.split("images/", 1)[1]
+                self.assertTrue(asset.is_file())
+                self.assertEqual(asset.suffix, ".webp")
+            largest_bytes += asset.stat().st_size
+        original_bytes = sum(
+            (ROOT / "theme" / "images" / filename).stat().st_size
+            for filename in ("pete-carroll.jpg", "thomas-rawls.jpg")
+        )
+        self.assertLess(largest_bytes, original_bytes * 0.2)
+
     def test_every_static_image_reserves_space_with_positive_dimensions(self):
         html, _ = render_homepage()
         for image in PageElements(html).images:

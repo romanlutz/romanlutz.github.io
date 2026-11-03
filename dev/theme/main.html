@@ -173,12 +173,12 @@
 												<div class="vt-event-desc">{{ event.description }}</div>
 												{% elif event.image and event.imageLayout %}
 												<div class="vt-event-body-side">
-													<img src="../images/{{ event.image }}" alt="{{ event.imageAlt }}" width="{{ event.imageWidth }}" height="{{ event.imageHeight }}" loading="lazy" decoding="async" class="vt-event-img-{{ event.imageLayout }}{% if event.imageInvert %} vt-event-img-invert{% endif %}">
+													<img src="../images/{{ event.image }}" alt="{{ event.imageAlt }}" width="{{ event.imageWidth }}" height="{{ event.imageHeight }}"{% if event.imageSrcset %} srcset="{% for source in event.imageSrcset %}../images/{{ source.image|e }} {{ source.width }}w{% if not loop.last %}, {% endif %}{% endfor %}" sizes="{{ event.imageSizes|e }}"{% endif %} loading="lazy" decoding="async" class="vt-event-img-{{ event.imageLayout }}{% if event.imageInvert %} vt-event-img-invert{% endif %}">
 													<div class="vt-event-desc">{{ event.description }}</div>
 												</div>
 												{% elif event.image %}
 												<div class="vt-event-media">
-													<img src="../images/{{ event.image }}" alt="{{ event.imageAlt }}" width="{{ event.imageWidth }}" height="{{ event.imageHeight }}" loading="lazy" decoding="async" class="vt-event-img">
+													<img src="../images/{{ event.image }}" alt="{{ event.imageAlt }}" width="{{ event.imageWidth }}" height="{{ event.imageHeight }}"{% if event.imageSrcset %} srcset="{% for source in event.imageSrcset %}../images/{{ source.image|e }} {{ source.width }}w{% if not loop.last %}, {% endif %}{% endfor %}" sizes="{{ event.imageSizes|e }}"{% endif %} loading="lazy" decoding="async" class="vt-event-img">
 												</div>
 												<div class="vt-event-desc">{{ event.description }}</div>
 												{% else %}

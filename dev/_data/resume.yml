@@ -235,9 +235,17 @@ timeline:
     description: There are several NSF-funded Future Internet Architecture research projects in the US. Their focus is mostly on improving the scalability and efficiency. I am interested in how the different approaches affect (or do not affect) the privacy of users in comparison to the current Internet. My main focus was the feasibility of censorship circumvention. As an example, I picked Content-oriented Networking. See the full paper at <a href="https://arxiv.org/abs/1601.01278">arxiv.org/abs/1601.01278</a>.
   - date: January 2016
     title: NFL play prediction paper
-    image: pete-carroll.jpg
-    imageWidth: 4789
-    imageHeight: 5215
+    image: pete-carroll-960.webp
+    imageWidth: 960
+    imageHeight: 1045
+    imageSrcset:
+      - image: pete-carroll-480.webp
+        width: 480
+      - image: pete-carroll-960.webp
+        width: 960
+      - image: pete-carroll-1440.webp
+        width: 1440
+    imageSizes: "auto, (max-width: 559px) calc(100vw - 98px), (max-width: 768px) calc(100vw - 180px), 220px"
     imageLayout: side
     imageAlt: Pete Carroll - coach
     description: 'Based on NFL game data we try to predict the outcome of a play in multiple different ways including Decision and Classification Trees, Nearest Neighbors, Naive Bayes, Linear Discriminant Analysis, Support Vector Machines and Regression, and Artificial Neural Networks. An application of this is the following: by plugging in various play options one could determine the best play for a given situation in real time. While the outcome of a play can be described in many ways we had the most promising results with a newly defined measure that we call "progress". We see this work as a first step to include predictive analysis into NFL playcalling. See the full paper at <a href="https://arxiv.org/abs/1601.00574">arxiv.org/abs/1601.00574</a>; in collaboration with <a href="https://www.linkedin.com/in/brendan-teich-69a1bb77/">Brendan Teich</a> and <a href="https://www.linkedin.com/in/valentin-kassarnig-5330a3124/">Valentin Kassarnig</a>.'
@@ -264,9 +272,17 @@ timeline:
     description: I took part in Baden-Württemberg Exchange between University of Ulm and University of Massachusetts Amherst.
   - date: May 2015
     title: Fantasy Football prediction paper
-    image: thomas-rawls.jpg
-    imageWidth: 5750
-    imageHeight: 4780
+    image: thomas-rawls-960.webp
+    imageWidth: 960
+    imageHeight: 798
+    imageSrcset:
+      - image: thomas-rawls-480.webp
+        width: 480
+      - image: thomas-rawls-960.webp
+        width: 960
+      - image: thomas-rawls-1440.webp
+        width: 1440
+    imageSizes: "auto, (max-width: 559px) calc(100vw - 98px), (max-width: 768px) calc(100vw - 180px), 220px"
     imageLayout: side
     imageAlt: Thomas Rawls - player
     description: 'New paper! The ubiquity of professional sports and specifically the NFL have lead to an increase in popularity for Fantasy Football. Users have many tools at their disposal: statistics, predictions, rankings of experts and even recommendations of peers. There are issues with all of these, though. Especially since many people pay money to play, the prediction tools should be enhanced as they provide unbiased and easy-to-use assistance for users. This paper provides and discusses approaches to predict Fantasy Football scores of Quarterbacks with relatively limited data. See the full paper at <a href="https://arxiv.org/abs/1505.06918">arxiv.org/abs/1505.06918</a>.'

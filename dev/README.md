@@ -91,6 +91,20 @@ and `logoWidth`/`logoHeight` for chapter logos. Use the actual image dimensions
 size. Gallery items continue to use their existing `width`/`height` fields.
 The closing illustration uses intrinsic dimensions with responsive CSS sizing.
 
+The Pete Carroll and Thomas Rawls photographs use 480px, 960px, and 1440px WebP
+variants through `imageSrcset` (`image` and `width` per source) and `imageSizes`.
+The 960px file is the fallback `image`. Automatic sizes use the actual lazy
+image layout where supported, with explicit responsive size hints as a fallback.
+Keep the original JPEGs as source assets and for existing direct links.
+
+To regenerate these six files, apply EXIF orientation, convert to RGB, resize
+with Pillow's Lanczos filter while retaining the aspect ratio, and save WebP at
+quality 82 with method 6. The current variants were generated with Pillow 12.3.0.
+The two 480px files total 95,866 bytes versus 3,963,534 bytes for the originals
+(97.6% smaller); even the two largest variants total only 604,716 bytes.
+Run `uv run --no-project --with-requirements dev\requirements.txt python -m unittest discover -s dev\tests -p "test_content.py"`
+to check image metadata, responsive sources, payload limits, and static place lists.
+
 An event in `_data/resume.yml` can specify a `gallery` instead of a single
 `image`. Each gallery item provides an `image` filename from `theme/images/`,
 `imageAlt`, `caption`, and the image's `width` and `height`; set `url` when the
