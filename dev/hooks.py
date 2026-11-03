@@ -167,7 +167,7 @@ def _format_stats(stat_id, values):
             parts.append(f"{contributors} contributors")
         return " · ".join(parts) or None
     if stat_id == "github":
-        return joined(("prsMerged", "PRs merged"), ("reviews", "reviews"))
+        return joined(("prsMerged", "PRs merged"), ("reviews", "PRs reviewed"))
     if stat_id == "semanticscholar":
         return joined(("papers", "papers"), ("citations", "citations"))
     if stat_id == "bluesky":
