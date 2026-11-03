@@ -104,28 +104,6 @@
       });
   }
 
-  // Returns a copy of the feature with all interior holes removed from its
-  // polygons (keep only the outer ring of each). The default TopoJSON encodes
-  // interior water bodies (Hudson Bay, Great Lakes, etc.) as polygon holes,
-  // so without this the page background would show through inside countries
-  // and look like gray gaps in the flag fill.
-  function solidGeometry(feature) {
-    var geom = feature.geometry;
-    if (!geom) return feature;
-    var newCoords;
-    if (geom.type === 'Polygon') {
-      newCoords = [geom.coordinates[0]];
-    } else if (geom.type === 'MultiPolygon') {
-      newCoords = geom.coordinates.map(function (poly) { return [poly[0]]; });
-    } else {
-      return feature;
-    }
-    return {
-      type: 'Feature', id: feature.id, properties: feature.properties,
-      geometry: { type: geom.type, coordinates: newCoords }
-    };
-  }
-
   // Yields each sub-polygon of a feature as its own Polygon-typed Feature
   // wrapper. Each polygon will get its own flag pattern so outlying islands
   // (Alaska, Hawaii, French overseas, Andaman, etc.) show a properly
@@ -149,31 +127,6 @@
       });
     }
     return [];
-  }
-
-  // Returns projected bounds of the largest sub-polygon of a feature. Sizing
-  // the flag pattern to the mainland (not the whole feature) avoids cases
-  // like USA, where Pacific territories (Guam, American Samoa) stretch the
-  // bbox almost all the way around the globe and the flag becomes invisibly
-  // small on continental US.
-  function mainlandBounds(feature, path) {
-    var geom = feature.geometry;
-    if (!geom || geom.type !== 'MultiPolygon' || geom.coordinates.length <= 1) {
-      return path.bounds(feature);
-    }
-    var bestCoords = null;
-    var bestArea = -Infinity;
-    for (var i = 0; i < geom.coordinates.length; i++) {
-      var area = Math.abs(path.area({
-        type: 'Feature',
-        geometry: { type: 'Polygon', coordinates: geom.coordinates[i] }
-      }));
-      if (area > bestArea) { bestArea = area; bestCoords = geom.coordinates[i]; }
-    }
-    return path.bounds({
-      type: 'Feature',
-      geometry: { type: 'Polygon', coordinates: bestCoords }
-    });
   }
 
   function render(scope, container, topology, places) {

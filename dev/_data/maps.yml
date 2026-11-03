@@ -4,7 +4,6 @@
   - flag = visited, dark gray = not visited
   mapConfiguration:
     scope: usa
-    labels: true
     places:
     - name: AK
       visited: true
@@ -62,7 +61,6 @@
   title: Map of the countries I have visited
   mapConfiguration:
     scope: world
-    labels: false
     places:
     - name: ARE
       visited: false
