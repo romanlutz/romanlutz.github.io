@@ -1,6 +1,6 @@
 // Green-tinted flag maps reveal full color on hover, focus, or tap.
 // All listed places, including stopovers, stay highlighted.
-// d3 and topojson are loaded synchronously before this script.
+// Dependencies and atlas data load only when a map approaches the viewport.
 (function () {
   var DETAIL_HINT = 'Hover, focus, or tap a flag to see it in full color.';
 
@@ -240,6 +240,39 @@
     clearSelection();
   }
 
+  var libraryPromises = {};
+
+  function loadLibrary(name, url) {
+    if (window[name]) return Promise.resolve();
+    if (!libraryPromises[name]) {
+      var script = document.createElement('script');
+      script.src = url;
+      script.async = true;
+      libraryPromises[name] = new Promise(function (resolve, reject) {
+        script.addEventListener('load', function () {
+          if (window[name]) resolve();
+          else reject(new Error('Map library did not initialize: ' + url));
+        });
+        script.addEventListener('error', function () {
+          reject(new Error('Unable to load map library: ' + url));
+        });
+        document.head.appendChild(script);
+      }).catch(function (error) {
+        script.remove();
+        delete libraryPromises[name];
+        throw error;
+      });
+    }
+    return libraryPromises[name];
+  }
+
+  function loadDependencies() {
+    return Promise.all([
+      loadLibrary('d3', 'https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js'),
+      loadLibrary('topojson', 'https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js')
+    ]);
+  }
+
   window.initDatamap = function (config) {
     var container = document.getElementById(config.scope + '_map');
     if (!container) return;
@@ -251,7 +284,7 @@
     container.classList.add('map-container--loading');
     container.setAttribute('aria-busy', 'true');
     container.textContent = 'Loading map...';
-    return Promise.resolve().then(function () {
+    return loadDependencies().then(function () {
       return d3.json(url);
     }).then(function (topology) {
       render(config.scope, container, topology, config.places || []);
@@ -282,4 +315,40 @@
       container.setAttribute('aria-busy', 'false');
     });
   };
+
+  function startMap(container) {
+    if (container.dataset.mapStarted) return;
+    container.dataset.mapStarted = 'true';
+    var config;
+    try {
+      config = JSON.parse(container.dataset.mapConfig);
+      if (!TOPOJSON[config.scope] || !Array.isArray(config.places) ||
+          container.id !== config.scope + '_map') {
+        throw new Error('Unsupported map configuration');
+      }
+    } catch (error) {
+      container.classList.add('map-container--error');
+      container.textContent = 'Map settings could not be read. The place list is still available below.';
+      console.error('Unable to read map configuration:', error);
+      return;
+    }
+    window.initDatamap(config);
+  }
+
+  var observer = window.IntersectionObserver && new window.IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        observer.unobserve(entry.target);
+        startMap(entry.target);
+      }
+    });
+  }, { rootMargin: '300px' });
+
+  document.querySelectorAll('[data-map-config]').forEach(function (container) {
+    container.hidden = false;
+    document.getElementById(container.id + '_detail').hidden = false;
+    container.textContent = 'The map loads as you approach this section.';
+    if (observer) observer.observe(container);
+    else startMap(container);
+  });
 })();

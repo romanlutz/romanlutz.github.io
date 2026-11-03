@@ -47,7 +47,7 @@ class ContentTests(unittest.TestCase):
                     self.assertIn(f'>{escape(place["label"])}</li>', group)
             self.assertIn("<summary>Places and stopovers", section)
         self.assertIn("<noscript>", html)
-        self.assertRegex(html, r'class="map-container" hidden>')
+        self.assertRegex(html, r'class="map-container"[^>]+ hidden>')
         self.assertRegex(html, r'class="map-detail"[^>]+ hidden>')
 
 

@@ -12,6 +12,7 @@ class Element {
     this.children = [];
     this.attributes = new Map();
     this.listeners = new Map();
+    this.dataset = {};
     this.value = '';
     this.classList = {
       contains: name => this.className.split(' ').includes(name),
@@ -24,7 +25,8 @@ class Element {
   get textContent() { return this.value + this.children.map(child => child.textContent).join(' '); }
   set textContent(value) { this.value = value; this.children = []; }
   set innerHTML(value) { assert.equal(value, ''); this.textContent = ''; }
-  appendChild(child) { this.children.push(child); return child; }
+  appendChild(child) { child.parentElement = this; this.children.push(child); return child; }
+  remove() { this.parentElement.children = this.parentElement.children.filter(child => child !== this); }
   setAttribute(name, value) { this.attributes.set(name, String(value)); }
   querySelector(selector) {
     assert.equal(selector, '[tabindex="0"], button');
@@ -50,14 +52,34 @@ function fire(element, type, values = {}) {
   return event;
 }
 
-function harness({ features, failed = false } = {}) {
+function harness({ features, failed = false, lazy = false, intersection = true, librariesLoaded = true } = {}) {
   const nodes = new Map(['usa_map', 'usa_map_detail', 'usa_map_places', 'world_map', 'world_map_detail', 'world_map_places']
     .map(id => [id, new Element('div')]));
   const errors = [];
   const warnings = [];
+  const scripts = [];
+  const jsonRequests = [];
+  const observed = [];
+  const unobserved = [];
+  let intersectionCallback;
+  const mapContainers = lazy ? ['usa', 'world'].map(scope => {
+    const node = nodes.get(scope + '_map');
+    node.id = scope + '_map';
+    node.dataset.mapConfig = JSON.stringify({ scope, places: [] });
+    return node;
+  }) : [];
   const document = {
+    head: new Element('head'),
     getElementById(id) { return nodes.get(id); },
-    createElement(tag) { return new Element(tag); }
+    querySelectorAll(selector) {
+      assert.equal(selector, '[data-map-config]');
+      return mapContainers;
+    },
+    createElement(tag) {
+      const element = new Element(tag);
+      if (tag === 'script') scripts.push(element);
+      return element;
+    }
   };
   function selection(node) {
     return {
@@ -68,7 +90,8 @@ function harness({ features, failed = false } = {}) {
     };
   }
   const d3 = {
-    json() {
+    json(url) {
+      jsonRequests.push(url);
       const shouldFail = typeof failed === 'function' ? failed() : failed;
       return shouldFail ? Promise.reject(new Error('Atlas unavailable')) :
         Promise.resolve({ objects: { states: {}, countries: {} } });
@@ -91,20 +114,35 @@ function harness({ features, failed = false } = {}) {
     { id: '48', properties: { name: 'Texas' } }
   ];
   const window = { MAPS_FLAG_BASE: '/images/flags/' };
+  const topojson = { feature() {
+    return { features: (features || defaultFeatures).map(feature => ({
+      ...feature, geometry: feature.geometry || polygon
+    })) };
+  } };
+  if (librariesLoaded) Object.assign(window, { d3, topojson });
+  if (intersection) {
+    window.IntersectionObserver = class {
+      constructor(callback, options) {
+        intersectionCallback = callback;
+        assert.equal(options.rootMargin, '300px');
+      }
+      observe(node) { observed.push(node); }
+      unobserve(node) { unobserved.push(node); }
+    };
+  }
   vm.runInNewContext(source, {
-    window, document, d3,
-    topojson: { feature() {
-      return { features: (features || defaultFeatures).map(feature => ({
-        ...feature, geometry: feature.geometry || polygon
-      })) };
-    } },
+    window, document, d3, topojson,
     console: {
       error(...args) { errors.push(args); },
       warn(...args) { warnings.push(args); }
     }
   });
   return {
-    nodes, errors, warnings, document,
+    nodes, errors, warnings, document, scripts, jsonRequests, observed, unobserved,
+    window, d3, topojson,
+    intersect(scope, isIntersecting = true) {
+      intersectionCallback([{ target: nodes.get(scope + '_map'), isIntersecting }]);
+    },
     render(scope = 'usa', places = [{ name: 'WA', visited: true }, { name: 'AZ', visited: false }]) {
       return window.initDatamap({ scope, places });
     },
@@ -269,4 +307,64 @@ test('reports loading and failure states and lets visitors retry successfully', 
   assert.ok(!container.classList.contains('map-container--error'));
   assert.ok(!container.classList.contains('map-container--loading'));
   assert.equal(container.attributes.get('aria-busy'), 'false');
+});
+
+test('waits for proximity, loads dependencies once, and initializes each map only once', async () => {
+  const state = harness({ lazy: true, librariesLoaded: false });
+  assert.equal(state.observed.length, 2);
+  assert.equal(state.scripts.length, 0);
+  assert.equal(state.jsonRequests.length, 0);
+  state.intersect('usa', false);
+  assert.equal(state.scripts.length, 0);
+  state.intersect('usa');
+  state.intersect('world');
+  state.intersect('usa');
+  assert.equal(state.scripts.length, 2, 'share pending library loads between both maps');
+  assert.equal(state.jsonRequests.length, 0, 'wait for both dependencies');
+  Object.assign(state.window, { d3: state.d3, topojson: state.topojson });
+  state.scripts.forEach(script => fire(script, 'load'));
+  await new Promise(resolve => setImmediate(resolve));
+  assert.equal(state.jsonRequests.length, 2);
+  assert.match(state.jsonRequests[0], /us-atlas/);
+  assert.match(state.jsonRequests[1], /world-atlas/);
+  assert.equal(state.regions().length, 3);
+});
+
+test('falls back to deferred eager initialization without IntersectionObserver', async () => {
+  const state = harness({ lazy: true, intersection: false });
+  await new Promise(resolve => setImmediate(resolve));
+  assert.equal(state.jsonRequests.length, 2);
+  assert.equal(state.errors.length, 0);
+});
+
+test('retries a failed library without loading the successful library again', async () => {
+  const state = harness({ librariesLoaded: false });
+  const pending = state.render();
+  fire(state.scripts[0], 'error');
+  state.window.topojson = state.topojson;
+  fire(state.scripts[1], 'load');
+  await pending;
+  assert.equal(state.errors.length, 1);
+  assert.equal(state.jsonRequests.length, 0);
+  const retry = descendants(state.nodes.get('usa_map'), 'button')[0];
+  const retried = fire(retry, 'click').result;
+  assert.equal(state.scripts.length, 3);
+  assert.match(state.scripts[2].src, /d3@/);
+  state.window.d3 = state.d3;
+  fire(state.scripts[2], 'load');
+  await retried;
+  assert.equal(state.jsonRequests.length, 1);
+  assert.equal(state.regions().length, 3);
+});
+
+test('reports invalid map settings without blocking the other map', async () => {
+  const state = harness({ lazy: true });
+  state.nodes.get('usa_map').dataset.mapConfig = '{invalid';
+  state.intersect('usa');
+  state.intersect('world');
+  await new Promise(resolve => setImmediate(resolve));
+  assert.match(state.nodes.get('usa_map').textContent, /settings could not be read/);
+  assert.equal(state.jsonRequests.length, 1);
+  assert.match(state.jsonRequests[0], /world-atlas/);
+  assert.equal(state.errors.length, 1);
 });

@@ -64,6 +64,12 @@ with separate visited and airport-stopover groups. Keep each place's readable
 works without JavaScript or atlas data and opens automatically if a map fails.
 Without JavaScript, the unused map panels stay hidden rather than leaving gaps.
 
+`maps.js` is deferred. An `IntersectionObserver` starts each map within 300px of
+the viewport, then downloads D3, TopoJSON, and that map's atlas. Both maps share
+library promises, including concurrent loads; retries reload only a failed
+library. Browsers without `IntersectionObserver` initialize after HTML parsing.
+Place lists do not depend on these scripts or network requests.
+
 The closing section keeps the Git illustration and its source credit as a
 personal aside, followed by LinkedIn, GitHub, and back-to-top links.
 

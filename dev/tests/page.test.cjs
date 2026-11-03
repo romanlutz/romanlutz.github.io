@@ -23,3 +23,10 @@ test('makes skip navigation the first focusable control and targets the main lan
 test('allows profile cards to shrink around longer refreshed statistics', () => {
   assert.match(css, /\.link-cards\s*\{[^}]*grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\)/);
 });
+
+test('defers map bootstrap and leaves library downloads out of the parsing path', () => {
+  assert.match(html, /<script src="\{\{ "maps\.js"\|url \}\}" defer><\/script>/);
+  assert.doesNotMatch(html, /<script[^>]+src="[^"]*(?:d3@|topojson-client)/);
+  assert.doesNotMatch(html, /initDatamap\(/);
+  assert.match(html, /data-map-config=/);
+});
