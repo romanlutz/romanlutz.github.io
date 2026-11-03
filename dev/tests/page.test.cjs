@@ -19,3 +19,7 @@ test('makes skip navigation the first focusable control and targets the main lan
   assert.match(css, /\.skip-link\s*\{[^}]*position:\s*fixed;[^}]*transform:\s*translateY/);
   assert.match(css, /\.skip-link:focus\s*\{[^}]*transform:\s*none;[^}]*outline:\s*2px solid/);
 });
+
+test('allows profile cards to shrink around longer refreshed statistics', () => {
+  assert.match(css, /\.link-cards\s*\{[^}]*grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\)/);
+});
