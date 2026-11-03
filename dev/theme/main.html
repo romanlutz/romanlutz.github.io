@@ -129,7 +129,7 @@
 									</div>
 									{% endif %}
 									<div class="vt-major-header">
-										<img src="../images/{{ timelineItem.logo }}" alt="{{ timelineItem.logoAlt }}" class="vt-major-logo{% if timelineItem.logoInvert %} vt-event-img-invert{% endif %}{% if timelineItem.logoLarge %} vt-major-logo--lg{% endif %}">
+										<img src="../images/{{ timelineItem.logo }}" alt="{{ timelineItem.logoAlt }}" loading="lazy" decoding="async" class="vt-major-logo{% if timelineItem.logoInvert %} vt-event-img-invert{% endif %}{% if timelineItem.logoLarge %} vt-major-logo--lg{% endif %}">
 										<div class="vt-major-info">
 											<h2 id="timeline-title-{{ loop.index }}" class="vt-major-title">{{ timelineItem.title }}</h2>
 											<div class="vt-major-meta">{{ timelineItem.timePeriod }} &middot; {{ timelineItem.location }}</div>
@@ -154,7 +154,7 @@
 												<h3 class="vt-event-title">{{ event.title }}</h3>
 												{% if event.youtube %}
 												<div class="vt-event-media">
-													<iframe src="{{ event.youtube }}" title="{{ event.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="vt-event-youtube"></iframe>
+													<iframe src="{{ event.youtube }}" title="{{ event.title }}" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="vt-event-youtube"></iframe>
 												</div>
 												<div class="vt-event-desc">{{ event.description }}</div>
 												{% elif event.gallery %}
@@ -173,12 +173,12 @@
 												<div class="vt-event-desc">{{ event.description }}</div>
 												{% elif event.image and event.imageLayout %}
 												<div class="vt-event-body-side">
-													<img src="../images/{{ event.image }}" alt="{{ event.imageAlt }}" class="vt-event-img-{{ event.imageLayout }}{% if event.imageInvert %} vt-event-img-invert{% endif %}">
+													<img src="../images/{{ event.image }}" alt="{{ event.imageAlt }}" loading="lazy" decoding="async" class="vt-event-img-{{ event.imageLayout }}{% if event.imageInvert %} vt-event-img-invert{% endif %}">
 													<div class="vt-event-desc">{{ event.description }}</div>
 												</div>
 												{% elif event.image %}
 												<div class="vt-event-media">
-													<img src="../images/{{ event.image }}" alt="{{ event.imageAlt }}" class="vt-event-img">
+													<img src="../images/{{ event.image }}" alt="{{ event.imageAlt }}" loading="lazy" decoding="async" class="vt-event-img">
 												</div>
 												<div class="vt-event-desc">{{ event.description }}</div>
 												{% else %}
@@ -245,7 +245,7 @@
 			<article id="miscellaneous" class="personal-aside">
 				<h2 class="entry-title">A little Git humor</h2>
 				<figure class="git-figure">
-					<img src="../images/git.jpg" alt="The five stages of Git: denial, anger, bargaining, depression, and acceptance." width="1200" height="698" loading="lazy" class="vt-event-img-invert git-img-blend">
+					<img src="../images/git.jpg" alt="The five stages of Git: denial, anger, bargaining, depression, and acceptance." width="1200" height="698" loading="lazy" decoding="async" class="vt-event-img-invert git-img-blend">
 					<figcaption>The five stages of Git, shared by <a href="https://twitter.com/navinnarra/status/842112112176513024">Navin Narra</a>.</figcaption>
 				</figure>
 			</article>

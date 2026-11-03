@@ -2,6 +2,7 @@ import re
 import unittest
 from datetime import datetime, timezone
 from html import escape
+from html.parser import HTMLParser
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -10,6 +11,20 @@ from jinja2 import Environment, FileSystemLoader
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+class PageElements(HTMLParser):
+    def __init__(self, html):
+        super().__init__()
+        self.images = []
+        self.iframes = []
+        self.feed(html)
+
+    def handle_starttag(self, tag, attributes):
+        if tag == "img":
+            self.images.append(dict(attributes))
+        elif tag == "iframe":
+            self.iframes.append(dict(attributes))
 
 
 def render_homepage():
@@ -27,6 +42,22 @@ def render_homepage():
 
 
 class ContentTests(unittest.TestCase):
+    def test_archive_media_is_lazy_but_header_and_profile_icons_are_not(self):
+        html, _ = render_homepage()
+        elements = PageElements(html)
+        self.assertGreater(len(elements.images), 25)
+        self.assertEqual(len(elements.iframes), 3)
+        for image in elements.images:
+            with self.subTest(src=image["src"]):
+                if "profile-img" in image.get("class", "") or "link-card-img" in image.get("class", ""):
+                    self.assertNotEqual(image.get("loading"), "lazy")
+                else:
+                    self.assertEqual(image.get("loading"), "lazy")
+                    self.assertEqual(image.get("decoding"), "async")
+        for iframe in elements.iframes:
+            self.assertEqual(iframe.get("loading"), "lazy")
+            self.assertTrue(iframe.get("title"))
+
     def test_place_lists_include_every_configured_place_in_the_right_group(self):
         html, metadata = render_homepage()
         for entry in metadata["maps"]:

@@ -78,6 +78,12 @@ map rendering, interaction, or flag selection.
 
 ## Timeline publication galleries
 
+Timeline logos, event images, publication galleries, the closing illustration,
+and YouTube embeds use native lazy loading. Images also decode asynchronously.
+The portrait and above-fold profile icons remain eager. Browsers decide when
+nearby media should load; collapsed archive entries do not need to fetch their
+images before they are shown.
+
 An event in `_data/resume.yml` can specify a `gallery` instead of a single
 `image`. Each gallery item provides an `image` filename from `theme/images/`,
 `imageAlt`, `caption`, and the image's `width` and `height`; set `url` when the
