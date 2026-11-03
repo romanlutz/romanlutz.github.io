@@ -42,6 +42,16 @@ def render_homepage():
 
 
 class ContentTests(unittest.TestCase):
+    def test_every_static_image_reserves_space_with_positive_dimensions(self):
+        html, _ = render_homepage()
+        for image in PageElements(html).images:
+            with self.subTest(src=image["src"]):
+                for dimension in ("width", "height"):
+                    self.assertRegex(image.get(dimension, ""), r"^[1-9]\d*$")
+                filename = image["src"].split("images/", 1)[1]
+                self.assertTrue((ROOT / "theme" / "images" / filename).is_file())
+        self.assertNotIn('width="80%"', html)
+
     def test_archive_media_is_lazy_but_header_and_profile_icons_are_not(self):
         html, _ = render_homepage()
         elements = PageElements(html)

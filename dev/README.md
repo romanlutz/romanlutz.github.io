@@ -84,6 +84,13 @@ The portrait and above-fold profile icons remain eager. Browsers decide when
 nearby media should load; collapsed archive entries do not need to fetch their
 images before they are shown.
 
+All images include width/height metadata so their aspect ratio is known before
+loading. Set `imageWidth`/`imageHeight` for profile-card and single-event images,
+and `logoWidth`/`logoHeight` for chapter logos. Use the actual image dimensions
+(browser-reported natural dimensions for SVGs); CSS still controls the displayed
+size. Gallery items continue to use their existing `width`/`height` fields.
+The closing illustration uses intrinsic dimensions with responsive CSS sizing.
+
 An event in `_data/resume.yml` can specify a `gallery` instead of a single
 `image`. Each gallery item provides an `image` filename from `theme/images/`,
 `imageAlt`, `caption`, and the image's `width` and `height`; set `url` when the

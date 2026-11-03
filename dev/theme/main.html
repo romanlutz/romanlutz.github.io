@@ -99,7 +99,7 @@
 				{% if link.svg %}
 				<span class="link-card-icon"{% if link.color %} style="color:{{ link.color }}"{% endif %}>{% include "images/" ~ link.svg %}</span>
 				{% elif link.image %}
-				<img src="{{ ("images/" ~ link.image)|url }}" alt="{{ link.label }}" class="link-card-img{% if link.invert %} vt-event-img-invert{% endif %}">
+				<img src="{{ ("images/" ~ link.image)|url }}" alt="{{ link.label }}" width="{{ link.imageWidth }}" height="{{ link.imageHeight }}" class="link-card-img{% if link.invert %} vt-event-img-invert{% endif %}">
 				{% endif %}
 				<span class="link-card-text">
 					<span class="link-card-label">{{ link.label }}</span>
@@ -129,7 +129,7 @@
 									</div>
 									{% endif %}
 									<div class="vt-major-header">
-										<img src="../images/{{ timelineItem.logo }}" alt="{{ timelineItem.logoAlt }}" loading="lazy" decoding="async" class="vt-major-logo{% if timelineItem.logoInvert %} vt-event-img-invert{% endif %}{% if timelineItem.logoLarge %} vt-major-logo--lg{% endif %}">
+										<img src="../images/{{ timelineItem.logo }}" alt="{{ timelineItem.logoAlt }}" width="{{ timelineItem.logoWidth }}" height="{{ timelineItem.logoHeight }}" loading="lazy" decoding="async" class="vt-major-logo{% if timelineItem.logoInvert %} vt-event-img-invert{% endif %}{% if timelineItem.logoLarge %} vt-major-logo--lg{% endif %}">
 										<div class="vt-major-info">
 											<h2 id="timeline-title-{{ loop.index }}" class="vt-major-title">{{ timelineItem.title }}</h2>
 											<div class="vt-major-meta">{{ timelineItem.timePeriod }} &middot; {{ timelineItem.location }}</div>
@@ -173,12 +173,12 @@
 												<div class="vt-event-desc">{{ event.description }}</div>
 												{% elif event.image and event.imageLayout %}
 												<div class="vt-event-body-side">
-													<img src="../images/{{ event.image }}" alt="{{ event.imageAlt }}" loading="lazy" decoding="async" class="vt-event-img-{{ event.imageLayout }}{% if event.imageInvert %} vt-event-img-invert{% endif %}">
+													<img src="../images/{{ event.image }}" alt="{{ event.imageAlt }}" width="{{ event.imageWidth }}" height="{{ event.imageHeight }}" loading="lazy" decoding="async" class="vt-event-img-{{ event.imageLayout }}{% if event.imageInvert %} vt-event-img-invert{% endif %}">
 													<div class="vt-event-desc">{{ event.description }}</div>
 												</div>
 												{% elif event.image %}
 												<div class="vt-event-media">
-													<img src="../images/{{ event.image }}" alt="{{ event.imageAlt }}" loading="lazy" decoding="async" class="vt-event-img">
+													<img src="../images/{{ event.image }}" alt="{{ event.imageAlt }}" width="{{ event.imageWidth }}" height="{{ event.imageHeight }}" loading="lazy" decoding="async" class="vt-event-img">
 												</div>
 												<div class="vt-event-desc">{{ event.description }}</div>
 												{% else %}

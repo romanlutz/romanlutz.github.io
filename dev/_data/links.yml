@@ -6,10 +6,14 @@
 - url: https://microsoft.github.io/PyRIT/
   label: PyRIT
   image: pyrit-icon.png
+  imageWidth: 128
+  imageHeight: 128
   stats: pyrit
 - url: https://fairlearn.github.io
   label: Fairlearn
   image: fairlearn-favicon.ico
+  imageWidth: 158
+  imageHeight: 123
   invert: true
   stats: fairlearn
 - url: https://linkedin.com/in/romanlutz
@@ -19,10 +23,14 @@
 - url: https://scholar.google.com/citations?user=joujH5UAAAAJ
   label: Google Scholar
   image: google-scholar-favicon.ico
+  imageWidth: 48
+  imageHeight: 48
   statsText: 12 papers · 1,151 citations
 - url: https://www.semanticscholar.org/author/Roman-Lutz/40451032
   label: Semantic Scholar
   image: semantic-scholar-favicon.ico
+  imageWidth: 64
+  imageHeight: 64
   stats: semanticscholar
 - url: https://bsky.app/profile/romanlutz.bsky.social
   label: Bluesky
@@ -32,4 +40,6 @@
 - url: https://stackoverflow.com/users/11971317/roman-lutz
   label: Stack Overflow
   image: stackoverflow-favicon.ico
+  imageWidth: 32
+  imageHeight: 32
   stats: stackoverflow
