@@ -4,56 +4,82 @@
     scope: usa
     places:
     - name: AK
+      label: Alaska
       visited: true
     - name: AZ
+      label: Arizona
       visited: false
     - name: CA
+      label: California
       visited: true
     - name: CO
+      label: Colorado
       visited: true
     - name: CT
+      label: Connecticut
       visited: true
     - name: DC
+      label: District of Columbia
       visited: true
     - name: DE
+      label: Delaware
       visited: true
     - name: FL
+      label: Florida
       visited: true
     - name: ID
+      label: Idaho
       visited: true
     - name: IL
+      label: Illinois
       visited: false
     - name: MA
+      label: Massachusetts
       visited: true
     - name: MD
+      label: Maryland
       visited: true
     - name: ME
+      label: Maine
       visited: true
     - name: MN
+      label: Minnesota
       visited: false
     - name: MT
+      label: Montana
       visited: true
     - name: NH
+      label: New Hampshire
       visited: true
     - name: NJ
+      label: New Jersey
       visited: true
     - name: NY
+      label: New York
       visited: true
     - name: OR
+      label: Oregon
       visited: true
     - name: PA
+      label: Pennsylvania
       visited: true
     - name: RI
+      label: Rhode Island
       visited: true
     - name: SD
+      label: South Dakota
       visited: true
     - name: UT
+      label: Utah
       visited: true
     - name: VT
+      label: Vermont
       visited: true
     - name: WA
+      label: Washington
       visited: true
     - name: WY
+      label: Wyoming
       visited: true
 - id: world-map
   title: Around the world
@@ -61,50 +87,74 @@
     scope: world
     places:
     - name: ARE
+      label: United Arab Emirates
       visited: false
     - name: ABW
+      label: Aruba
       visited: true
     - name: AUT
+      label: Austria
       visited: true
     - name: BEL
+      label: Belgium
       visited: false
     - name: BHS
+      label: Bahamas
       visited: true
     - name: CAN
+      label: Canada
       visited: true
     - name: CHE
+      label: Switzerland
       visited: true
     - name: CUW
+      label: Curacao
       visited: true
     - name: DEU
+      label: Germany
       visited: true
     - name: ESP
+      label: Spain
       visited: true
     - name: GBR
+      label: United Kingdom
       visited: true
     - name: FIN
+      label: Finland
       visited: true
     - name: FRA
+      label: France
       visited: true
     - name: HUN
+      label: Hungary
       visited: true
     - name: ISL
+      label: Iceland
       visited: false
     - name: IND
+      label: India
       visited: true
     - name: ITA
+      label: Italy
       visited: true
     - name: MEX
+      label: Mexico
       visited: true
     - name: MLT
+      label: Malta
       visited: true
     - name: NLD
+      label: Netherlands
       visited: true
     - name: POL
+      label: Poland
       visited: true
     - name: SMR
+      label: San Marino
       visited: true
     - name: USA
+      label: United States
       visited: true
     - name: VAT
+      label: Vatican City
       visited: true

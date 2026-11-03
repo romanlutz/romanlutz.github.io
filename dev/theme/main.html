@@ -206,6 +206,7 @@
 				<span><i class="map-legend__visited" aria-hidden="true"></i>Visited or passed through</span>
 				<span><i aria-hidden="true"></i>Not visited</span>
 			</div>
+			<noscript><p>Interactive maps need JavaScript. You can still open the place lists below.</p></noscript>
 
 			{% for map_entry in page.meta.maps %}
 			<article id="{{ map_entry.id }}" class="map-article">
@@ -215,8 +216,22 @@
 					<p>{{ content_paragraph }}</p>
 					{% endfor %}
 					{% if map_entry.mapConfiguration %}
-					<div id="{{ map_entry.mapConfiguration.scope }}_map" class="map-container"></div>
-					<div id="{{ map_entry.mapConfiguration.scope }}_map_detail" class="map-detail" role="status" aria-live="polite" aria-atomic="true">Hover, focus, or tap a flag to see it in full color.</div>
+					<div id="{{ map_entry.mapConfiguration.scope }}_map" class="map-container" hidden></div>
+					<div id="{{ map_entry.mapConfiguration.scope }}_map_detail" class="map-detail" role="status" aria-live="polite" aria-atomic="true" hidden>Hover, focus, or tap a flag to see it in full color.</div>
+					<details id="{{ map_entry.mapConfiguration.scope }}_map_places" class="map-places">
+						<summary>Places and stopovers ({{ map_entry.mapConfiguration.places|length }})</summary>
+						{% for visited, heading in [(true, "Visited"), (false, "Airport stopovers")] %}
+						{% set places = map_entry.mapConfiguration.places|selectattr("visited", "equalto", visited)|sort(attribute="label") %}
+						{% if places %}
+						<h4>{{ heading }}</h4>
+						<ul class="map-place-list" data-visited="{{ 'true' if visited else 'false' }}">
+							{% for place in places %}
+							<li data-place-code="{{ place.name|e }}">{{ place.label|e }}</li>
+							{% endfor %}
+						</ul>
+						{% endif %}
+						{% endfor %}
+					</details>
 					<script>
 						initDatamap({{ {
 							"scope": map_entry.mapConfiguration.scope,

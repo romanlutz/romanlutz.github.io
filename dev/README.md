@@ -58,6 +58,11 @@ Flag loading failures are logged without losing the selected place's name.
 Atlas and rendering failures are logged and show an explanatory message with a
 keyboard-accessible "Retry map" button. A retry clears the previous error and
 reloads only that map; loading state is exposed through `aria-busy`.
+An alphabetical place list is built from `_data/maps.yml` beneath each map,
+with separate visited and airport-stopover groups. Keep each place's readable
+`label` alongside its existing code and `visited` flag. The native disclosure
+works without JavaScript or atlas data and opens automatically if a map fails.
+Without JavaScript, the unused map panels stay hidden rather than leaving gaps.
 
 The closing section keeps the Git illustration and its source credit as a
 personal aside, followed by LinkedIn, GitHub, and back-to-top links.

@@ -138,7 +138,7 @@
       }
       var text = document.createElement('div');
       var name = document.createElement('strong');
-      name.textContent = feature.properties.name;
+      name.textContent = place && place.label || feature.properties.name;
       var status = document.createElement('span');
       status.textContent = placeStatus(place);
       text.appendChild(name);
@@ -174,7 +174,7 @@
           .attr('role', 'button')
           .attr('filter', 'url(#' + filterId + ')')
           .attr('aria-controls', scope + '_map_detail')
-          .attr('aria-label', feature.properties.name + ', ' + placeStatus(place) + '. Show flag colors.')
+          .attr('aria-label', (place.label || feature.properties.name) + ', ' + placeStatus(place) + '. Show flag colors.')
           .on('focus', function () { focusedRegion = this; updateSelection(); })
           .on('blur', function () { focusedRegion = null; updateSelection(); })
           .on('click', function (event) {
@@ -245,6 +245,8 @@
     if (!container) return;
     var url = TOPOJSON[config.scope];
     if (!url) return;
+    container.hidden = false;
+    document.getElementById(config.scope + '_map_detail').hidden = false;
     container.classList.remove('map-container--error');
     container.classList.add('map-container--loading');
     container.setAttribute('aria-busy', 'true');
@@ -271,7 +273,9 @@
       });
       container.appendChild(retry);
       document.getElementById(config.scope + '_map_detail').textContent =
-        'Check your connection, then retry loading the map.';
+        'Check your connection and retry, or use the place list below.';
+      var list = document.getElementById(config.scope + '_map_places');
+      if (list) list.open = true;
       console.error('Unable to load ' + config.scope + ' map:', error);
     }).finally(function () {
       container.classList.remove('map-container--loading');

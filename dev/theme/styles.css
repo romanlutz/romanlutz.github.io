@@ -1433,6 +1433,45 @@ a.vt-event-gallery-content:focus-visible {
   position: relative;
   width: 100%;
 }
+.map-container[hidden],
+.map-detail[hidden] {
+  display: none;
+}
+.map-places {
+  margin-top: 12px;
+}
+.map-places > summary {
+  width: fit-content;
+  min-height: 44px;
+  padding-block: 10px;
+  color: var(--text-muted);
+  font-size: 13px;
+  cursor: pointer;
+}
+.map-places > summary:hover {
+  color: var(--text-primary);
+}
+.map-places > summary:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+.map-places h4 {
+  margin: 20px 0 8px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+}
+.map-place-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 6px 24px;
+  margin: 0 0 16px;
+  padding: 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+  list-style: none;
+}
 #usa_map.map-container   { aspect-ratio: 975 / 610; }
 #world_map.map-container { aspect-ratio: 4 / 2.054; }
 .map-container svg {

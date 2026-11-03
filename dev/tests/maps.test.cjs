@@ -51,7 +51,7 @@ function fire(element, type, values = {}) {
 }
 
 function harness({ features, failed = false } = {}) {
-  const nodes = new Map(['usa_map', 'usa_map_detail', 'world_map', 'world_map_detail']
+  const nodes = new Map(['usa_map', 'usa_map_detail', 'usa_map_places', 'world_map', 'world_map_detail', 'world_map_places']
     .map(id => [id, new Element('div')]));
   const errors = [];
   const warnings = [];
@@ -252,6 +252,7 @@ test('reports loading and failure states and lets visitors retry successfully', 
   assert.equal(container.attributes.get('aria-busy'), 'false');
   assert.match(state.detail().textContent, /retry/);
   assert.equal(state.errors.length, 1);
+  assert.equal(state.nodes.get('usa_map_places').open, true);
   const retry = descendants(container, 'button')[0];
   assert.equal(retry.textContent, 'Retry map');
   state.document.activeElement = retry;
