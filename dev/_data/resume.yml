@@ -103,7 +103,7 @@ timeline:
     title: LLM Evaluation Framework paper
     image: lasertag-pipeline.png
     imageAlt: A screenshot from the JMLR website showing the new Fairlearn paper title with authors.
-    description: Our new paper is on ArXiv! Titled <a href="https://jmlr.org/papers/v24/23-0389.html">A Framework for Automated Measurement of Responsible AI Harms in Generative AI Applications</a>, it talks about some of the ways we have been evaluating LLMs. This was a joint effort of many teams at Microsoft and Microsoft Research. I am particularly happy with the emphasis on input from domain experts. This is merely a tool to help speed up evaluations, but the actual decisions about mitigations and whether a system is deployed remains (and should remain) with humans.
+    description: Our new paper is on ArXiv! Titled <a href="https://arxiv.org/abs/2310.17750">A Framework for Automated Measurement of Responsible AI Harms in Generative AI Applications</a>, it talks about some of the ways we have been evaluating LLMs. This was a joint effort of many teams at Microsoft and Microsoft Research. I am particularly happy with the emphasis on input from domain experts. This is merely a tool to help speed up evaluations, but the actual decisions about mitigations and whether a system is deployed remains (and should remain) with humans.
   - date: August 2023
     title: Fairlearn JMLR paper
     image: jmlr.png
