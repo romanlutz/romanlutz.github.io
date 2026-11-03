@@ -271,6 +271,34 @@ def _load_stats(repo_dir):
     return _stats_cache
 
 
+def _validate_timeline_anchors(timeline):
+    anchors = set()
+
+    def claim(anchor):
+        if anchor in anchors:
+            raise ValueError(f"Duplicate timeline anchor: {anchor}")
+        anchors.add(anchor)
+
+    def validate_slug(item):
+        slug = item.get("slug")
+        if not isinstance(slug, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug):
+            raise ValueError(f"Missing or invalid timeline slug for {item.get('title')!r}")
+        return slug
+
+    for chapter in timeline:
+        slug = validate_slug(chapter)
+        claim(f"chapter-{slug}")
+        claim(f"chapter-{slug}-title")
+        if "legacyIndex" in chapter:
+            index = chapter["legacyIndex"]
+            if type(index) is not int or index <= 0:
+                raise ValueError(f"Invalid legacyIndex for chapter {slug!r}")
+            claim(f"timeline-{index}")
+            claim(f"timeline-title-{index}")
+        for event in chapter.get("events", []):
+            claim(f"event-{validate_slug(event)}")
+
+
 def on_page_markdown(markdown, page, config, files):
     if page.file.src_uri != "index.md":
         return markdown
@@ -281,6 +309,7 @@ def on_page_markdown(markdown, page, config, files):
             (data_dir / f"{name}.yml").read_text(encoding="utf-8")
         )
 
+    _validate_timeline_anchors(page.meta["resume"]["timeline"])
     stats = _load_stats(data_dir.parent)
     for link in page.meta.get("links") or []:
         # A literal ``statsText`` in YAML wins — used for sources without a

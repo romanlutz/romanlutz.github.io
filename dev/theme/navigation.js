@@ -1,6 +1,34 @@
 (function () {
   'use strict';
 
+  function revealTimelineFragment() {
+    var hash = window.location.hash;
+    var id;
+    try {
+      id = decodeURIComponent(hash.slice(1).split(':~:')[0]);
+    } catch (error) {
+      if (!(error instanceof URIError)) throw error;
+      console.warn('Unable to read timeline link:', hash);
+      return;
+    }
+    var target = document.getElementById(id);
+    if (!target || !target.closest('[data-timeline-chapter]')) return;
+
+    var details = target.closest('details');
+    while (details) {
+      details.open = true;
+      details = details.parentElement.closest('details');
+    }
+    window.requestAnimationFrame(function () {
+      if (window.location.hash === hash) {
+        target.scrollIntoView({ block: 'start', behavior: 'instant' });
+      }
+    });
+  }
+
+  window.addEventListener('hashchange', revealTimelineFragment);
+  revealTimelineFragment();
+
   var nav = document.querySelector('[data-site-nav]');
   if (!nav) return;
 

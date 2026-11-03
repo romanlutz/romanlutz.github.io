@@ -263,8 +263,39 @@ body::before {
 #timeline,
 #places,
 #miscellaneous,
-.vt-section {
+.vt-section,
+.vt-event,
+.vt-legacy-anchor {
   scroll-margin-top: 80px;
+}
+.vt-legacy-anchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+.timeline-permalink {
+  color: inherit;
+  text-decoration: none;
+}
+.timeline-permalink__mark {
+  color: var(--text-muted);
+  font-size: 0.85em;
+}
+.timeline-permalink:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.timeline-permalink:hover .timeline-permalink__mark {
+  color: var(--blue);
+}
+.timeline-permalink:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 @media (prefers-reduced-motion: reduce) {
   html {

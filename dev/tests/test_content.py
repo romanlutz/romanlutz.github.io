@@ -1,3 +1,5 @@
+import copy
+import importlib.util
 import re
 import unittest
 from datetime import datetime, timezone
@@ -11,6 +13,9 @@ from jinja2 import Environment, FileSystemLoader
 
 
 ROOT = Path(__file__).resolve().parents[1]
+SPEC = importlib.util.spec_from_file_location("content_hooks", ROOT / "hooks.py")
+hooks = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(hooks)
 
 
 class PageElements(HTMLParser):
@@ -18,16 +23,23 @@ class PageElements(HTMLParser):
         super().__init__()
         self.images = []
         self.iframes = []
+        self.ids = []
+        self.fragment_links = []
         self.feed(html)
 
     def handle_starttag(self, tag, attributes):
+        values = dict(attributes)
+        if "id" in values:
+            self.ids.append(values["id"])
+        if tag == "a" and values.get("href", "").startswith("#"):
+            self.fragment_links.append(values["href"][1:])
         if tag == "img":
             self.images.append(dict(attributes))
         elif tag == "iframe":
             self.iframes.append(dict(attributes))
 
 
-def render_homepage():
+def render_homepage(timeline=None):
     environment = Environment(loader=FileSystemLoader(ROOT / "theme"))
     environment.filters["url"] = lambda value: value
     metadata = {
@@ -35,6 +47,9 @@ def render_homepage():
         for name in ("links", "resume", "maps")
     }
     config = yaml.safe_load((ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
+    if timeline is not None:
+        metadata["resume"]["timeline"] = timeline
+    hooks._validate_timeline_anchors(metadata["resume"]["timeline"])
     return environment.get_template("main.html").render(
         config=config, page=SimpleNamespace(meta=metadata, title="Home"),
         build_date_utc=datetime.now(timezone.utc),
@@ -42,6 +57,71 @@ def render_homepage():
 
 
 class ContentTests(unittest.TestCase):
+    def test_all_chapters_and_events_have_unique_permalinks_and_legacy_aliases(self):
+        html, metadata = render_homepage()
+        elements = PageElements(html)
+        self.assertEqual(len(elements.ids), len(set(elements.ids)))
+        self.assertTrue(set(elements.fragment_links) <= set(elements.ids))
+        original_chapters = (
+            "ai-red-team", "azure-ai", "max-planck", "azure-ml", "microsoft-office",
+            "umass-masters", "cisco-internship", "umass-exchange", "university-of-ulm",
+        )
+        self.assertEqual(
+            {chapter["legacyIndex"]: chapter["slug"] for chapter in metadata["resume"]["timeline"]
+             if "legacyIndex" in chapter},
+            dict(enumerate(original_chapters, start=1)),
+        )
+        for chapter in metadata["resume"]["timeline"]:
+            self.assertIn(f'chapter-{chapter["slug"]}', elements.ids)
+            self.assertIn(f'chapter-{chapter["slug"]}', elements.fragment_links)
+            self.assertIn(f'timeline-{chapter["legacyIndex"]}', elements.ids)
+            self.assertIn(f'timeline-title-{chapter["legacyIndex"]}', elements.ids)
+            for event in chapter.get("events", []):
+                self.assertIn(f'event-{event["slug"]}', elements.ids)
+                self.assertIn(f'event-{event["slug"]}', elements.fragment_links)
+        self.assertEqual(html.count('class="timeline-permalink"'), 49)
+        self.assertIn('aria-describedby="chapter-azure-ai-title"', html)
+
+    def test_links_survive_new_chapters_reordering_and_title_changes(self):
+        original, metadata = render_homepage()
+        timeline = copy.deepcopy(metadata["resume"]["timeline"])
+        timeline.reverse()
+        for chapter in timeline:
+            chapter["title"] = "Updated chapter title"
+            chapter.get("events", []).reverse()
+            for event in chapter.get("events", []):
+                event["title"] = "Updated event title"
+        timeline.insert(0, {
+            "slug": "new-chapter", "title": "New chapter", "events": [
+                {"slug": "new-event", "title": "New event", "date": "2027"}
+            ],
+        })
+        revised, _ = render_homepage(timeline)
+        self.assertTrue(set(PageElements(original).ids) <= set(PageElements(revised).ids))
+        for chapter in timeline[1:]:
+            self.assertRegex(
+                revised,
+                rf'<div id="chapter-{chapter["slug"]}"[^>]*>\s*'
+                rf'<span id="timeline-{chapter["legacyIndex"]}"',
+            )
+        self.assertNotIn('id="timeline-10"', revised)
+
+    def test_build_rejects_invalid_or_duplicate_permanent_anchors(self):
+        cases = [
+            [{"title": "Missing slug"}],
+            [{"slug": "bad slug"}],
+            [{"slug": "valid", "events": [{"slug": ""}]}],
+            [{"slug": "valid", "events": [{"slug": "same"}, {"slug": "same"}]}],
+            [{"slug": "same"}, {"slug": "same"}],
+            [{"slug": "same"}, {"slug": "same-title"}],
+            [{"slug": "first", "legacyIndex": 1}, {"slug": "second", "legacyIndex": 1}],
+            [{"slug": "valid", "legacyIndex": 0}],
+            [{"slug": "valid", "legacyIndex": True}],
+        ]
+        for timeline in cases:
+            with self.subTest(timeline=timeline), self.assertRaises(ValueError):
+                hooks._validate_timeline_anchors(timeline)
+
     def test_profile_cards_show_statistics_without_update_or_maintenance_labels(self):
         html, _ = render_homepage()
         cards = html.split('<div class="profile-links">', 1)[1].split('<div class="container">', 1)[0]

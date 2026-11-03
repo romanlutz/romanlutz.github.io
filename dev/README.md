@@ -189,6 +189,26 @@ rail on the right, with matching page gutters to keep it clear of the content.
 The timeline marker moves down the rail as you scroll through the chapters and
 updates when a chapter is expanded or collapsed.
 
+### Stable timeline links
+
+Every chapter and event in `_data/resume.yml` has an explicit, permanent `slug`.
+Chapter links use `#chapter-<slug>` and individual entries use `#event-<slug>`,
+for example `#chapter-azure-ai` and `#event-llm-evaluation-framework`. The heading
+itself is a permalink, marked with a small `#`, so its URL can be copied or opened
+in a new tab using the browser's link menu.
+
+Keep slugs unchanged when editing titles, dates, or ordering. Existing chapters
+also retain a fixed `legacyIndex`, preserving the original `#timeline-1` through
+`#timeline-9` and `#timeline-title-N` bookmarks. Do not renumber or reuse those
+values; new chapters need only a new slug. The build rejects missing or invalid
+slugs, duplicate generated anchors, and invalid legacy indices.
+
+Links into collapsed chapters open the containing disclosure and scroll directly
+to the entry, both on initial navigation and when the URL fragment changes.
+Unrelated section links and unknown fragments retain native browser behavior.
+Native chapter anchors and manually expandable entries remain available without
+JavaScript.
+
 ## Collapsible timeline chapters
 
 The first (current) chapter starts expanded. Earlier chapters show their skyline,

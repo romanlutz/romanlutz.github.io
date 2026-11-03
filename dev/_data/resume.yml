@@ -1,5 +1,7 @@
 timeline:
 - timePeriod: November 2023 - present
+  slug: ai-red-team
+  legacyIndex: 1
   location: Remote (WA)
   skylines: [seattle]
   logo: msft.svg
@@ -10,6 +12,7 @@ timeline:
   events:
   - date: October 2026
     title: MLCommons Jailbreak Benchmark v1.0
+    slug: mlcommons-jailbreak-benchmark-v1
     gallery:
       - image: mlcommons-jailbreak-taxonomy.svg
         imageAlt: Top-down MLCommons jailbreak taxonomy showing Perturbation, Encoding Abuse, Overt Carriers, and Composition and Ordering, with their categories and leaf mechanisms.
@@ -20,6 +23,7 @@ timeline:
     description: I contributed to <a href="https://arxiv.org/abs/2610.02827">MLCommons Jailbreak Benchmark v1.0</a>, collaborating with Chris Knotz on implementations for leaf nodes in the <a href="https://github.com/mlcommons/jailbreak-taxonomy">jailbreak taxonomy</a>. <a href="https://github.com/microsoft/PyRIT">PyRIT</a> provided the foundation for this work.
   - date: September 2026
     title: PyRIT v1 release
+    slug: pyrit-v1-release
     gallery:
       - image: pyrit-white-paper-title-page.jpg
         imageAlt: Title page of the PyRIT white paper, with its title over pirate-themed artwork.
@@ -41,10 +45,12 @@ timeline:
     description: At the end of July, we released <a href="https://github.com/microsoft/PyRIT/releases/tag/v1.0.0">v1 of PyRIT</a>, Microsoft&#x27;s AI red teaming toolkit. Our new <a href="https://commandline.microsoft.com/pyrit-python-risk-identification-tool-ai-red-teaming-subject-matter-experts/">blog post</a> and <a href="https://commandline.microsoft.com/wp-content/uploads/2026/08/PyRIT_Whitepaper_2026.pdf">white paper</a>, co-written with <a href="https://www.linkedin.com/in/richard-lundeen/">Rich Lundeen</a> and <a href="https://www.linkedin.com/in/eugeniavkim/">Eugenia Kim</a>, trace its evolution from a research prototype into a production-grade platform used to red team hundreds of generative AI products and services. PyRIT now supports repeatable, measurable, and collaborative red teaming through the Python framework, <a href="https://microsoft.github.io/PyRIT/1.0.1/scanner/scanner/">scanner CLI</a>, <a href="https://microsoft.github.io/PyRIT/1.0.1/gui/gui/">CoPyRIT graphical user interface</a>, and <a href="https://github.com/microsoft/RAMPART">RAMPART</a>. The publications also show how <a href="https://www.linkedin.com/in/volkan-kutal/">Volkan Kutal</a> uses PyRIT for reproducible, auditable enterprise assessments and how <a href="https://mlcommons.org/">MLCommons</a> uses its attack libraries and prompt converters to power a jailbreak benchmark organized around the <a href="https://github.com/mlcommons/jailbreak-taxonomy">MLCommons Jailbreak Taxonomy</a>. Huge kudos to my fellow PyRIT maintainers <a href="https://www.linkedin.com/in/richard-lundeen/">Rich Lundeen</a>, <a href="https://www.linkedin.com/in/behnamousat/">Behnam Ousat</a>, <a href="https://www.linkedin.com/in/hannah-westra-17b771106/">Hannah Westra</a>, <a href="https://www.linkedin.com/in/justin-song-360189174/">Justin Song</a>, <a href="https://www.linkedin.com/in/varun-joginpalli/">Varun Joginpalli</a>, <a href="https://www.linkedin.com/in/tobykohlenberg/">Toby Kohlenberg</a>, <a href="https://www.linkedin.com/in/a-gavrila/">Adrian Gavrila</a>, <a href="https://www.linkedin.com/in/bjagdagdorj/">Bolor-Erdene Jagdagdorj</a>, <a href="https://www.linkedin.com/in/victor-valbuena/">Victor Valbuena</a>, <a href="https://www.linkedin.com/in/spencer-schoenberg/">Spencer Schoenberg</a>, <a href="https://www.linkedin.com/in/bashir-partovi/">Bashir Partovi</a>, and <a href="https://www.linkedin.com/in/nchikanov/">Nina Chikanov</a>.
   - date: November 2025
     title: PyData Seattle talk
+    slug: pydata-seattle-2025
     youtube: https://www.youtube.com/embed/oehEhQ93HiM?si=Iyp9nnl_k5uRoJRm
     description: 'I spoke about <em>Red Teaming AI: Getting Started with PyRIT for Safer Generative AI Systems</em> at PyData Seattle!'
   - date: October 2025
     title: Blind Goal-Directedness paper accepted at ICLR 2026
+    slug: blind-goal-directedness
     image: blind_goal_directedness_paper.png
     imageWidth: 1139
     imageHeight: 629
@@ -52,10 +58,12 @@ timeline:
     description: Our paper "<a href="https://arxiv.org/abs/2510.01670">Just Do It!? Computer-Use Agents Exhibit Blind Goal-Directedness</a>" has been accepted at ICLR 2026! This was a collaboration between the AI Red Team and our friends at Microsoft Research AI Frontiers, based on <a href="https://erfanshayegani.github.io/">Erfan Shayegani</a>&#x27;s summer internship. The work was also covered by <a href="https://www.404media.co/nvidia-and-microsoft-researchers-say-ai-agents-dont-care-about-safety-or-reliability/">404 Media</a>.
   - date: September 2025
     title: Talk Python To Me podcast
+    slug: talk-python-podcast
     youtube: https://www.youtube.com/embed/N681L4BXTUw
     description: <a href="https://www.victoriawesterhoff.com/">Tori Westerhoff</a> and I joined <a href="https://mkennedy.codes/">Michael Kennedy</a> on the <a href="https://talkpython.fm/episodes/show/521/red-teaming-llms-and-genai-with-pyrit">Talk Python To Me podcast</a> to talk about red teaming LLMs and generative AI with PyRIT.
   - date: July 2025
     title: Mentored UMass Amherst students on PyRIT
+    slug: umass-pyrit-mentoring
     image: umass-osap.png
     imageWidth: 620
     imageHeight: 772
@@ -64,6 +72,7 @@ timeline:
     description: I had the pleasure of mentoring <a href="https://www.linkedin.com/in/sarayu-poddutoori-4ab851227/">Sarayu Poddutoori</a>, <a href="https://www.linkedin.com/in/asherman19/">Amanda Sherman</a>, <a href="https://www.linkedin.com/in/varshini-balaji-132707154/">Varshini Balaji</a>, and <a href="https://www.linkedin.com/in/yen-do-0bb435325/">Yen Do</a> from UMass Amherst as they extended <a href="https://github.com/microsoft/PyRIT">PyRIT</a>. Amanda built a <a href="https://github.com/microsoft/PyRIT/pull/1005">cross-prompt injection (XPIA) example with a website target</a>, Sarayu built out result reporting in the <a href="https://github.com/microsoft/PyRIT/pull/1003">pyrit.analytics module</a>, Varshini contributed to the <a href="https://github.com/microsoft/PyRIT/pull/1049">GCG adversarial suffix attack</a>, and Yen <a href="https://github.com/microsoft/PyRIT/pull/1036">extended Tree of Attacks with Pruning to support image targets</a>.
   - date: May 2025
     title: Build 2025 Lab
+    slug: build-2025-lab
     image: build2025labcrew.jpg
     imageWidth: 2048
     imageHeight: 1536
@@ -72,9 +81,11 @@ timeline:
     description: After attending //Build for the first time last year, I co-presented the same lab on "AI security testing with PyRIT" twice, once with <a href="https://www.linkedin.com/in/richard-lundeen/">Rich Lundeen</a> and once with <a href="https://www.linkedin.com/in/nchikanov/">Nina Chikanov</a>. It was fun to see people try out PyRIT, learn about this new area, and get feedback. Shoutout to <a href="https://sarahyoung.io/">Sarah Young</a>, <a href="https://www.linkedin.com/in/sydney-lister/">Sydney Lister</a>, <a href="https://www.linkedin.com/in/joylynnkirui/">Joylynn Kirui</a>, <a href="https://www.linkedin.com/in/justin-song-360189174/">Justin Song</a>, and <a href="https://www.linkedin.com/in/juan-pablo-jp-hernandez-b30b9614/">JP Hernandez</a> for supporting the sessions.
   - date: April 2025
     title: Taxonomy of Failure Modes in Agentic AI
+    slug: agentic-ai-failure-modes
     description: Our new whitepaper "<a href="https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Taxonomy-of-Failure-Mode-in-Agentic-AI-Systems-Whitepaper.pdf">Taxonomy of Failure Modes in Agentic AI Systems</a>" is out! For a high-level idea, check out <a href="https://www.microsoft.com/en-us/security/blog/2025/04/24/new-whitepaper-outlines-the-taxonomy-of-failure-modes-in-ai-agents/?msockid=025deda99e1e63193accfbd59fce6243">this Microsoft blog</a>.
   - date: January 2025
     title: Lessons from Red Teaming 100 GenAI Products
+    slug: red-teaming-100-genai-products
     image: 8_lessons_airt.webp
     imageWidth: 1024
     imageHeight: 575
@@ -83,18 +94,23 @@ timeline:
     description: We published a new whitepaper titled "<a href="https://aka.ms/AIRTLessonsPaper">Lessons Learned from Red Teaming 100 Generative AI Products</a>" as described in <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2025/01/14/enhancing-ai-safety-insights-and-lessons-from-red-teaming/?msockid=3b9f50fd6689604c2c934393670361be">this Microsoft blog</a>.
   - date: August 2024
     title: Mentored Stanford ICME students on PyRIT
+    slug: stanford-pyrit-mentoring
     description: I mentored <a href="https://www.linkedin.com/in/naijing-guo/">Naijing Guo</a> and <a href="https://www.linkedin.com/in/salma-zainana-0490791ba/">Salma Zainana</a> from the Stanford <a href="https://icme.stanford.edu/">ICME</a> program (together with <a href="https://web.stanford.edu/~darve/">Eric Darve</a> and <a href="https://www.linkedin.com/in/hansonkari/">Kari Hanson</a>) as they brought state-of-the-art jailbreaks to <a href="https://github.com/microsoft/PyRIT">PyRIT</a>. Salma implemented <a href="https://github.com/microsoft/PyRIT/pull/210">Tree of Attacks with Pruning</a> and Naijing contributed the GCG (Greedy Coordinate Gradient) adversarial suffix attack — a far more involved, optimization-based jailbreak than a simple converter — expanding PyRIT&#x27;s automated attack toolkit for probing generative AI systems.
   - date: August 2024
     title: Mentored Microsoft intern Safwan Ahmed
+    slug: safwan-ahmed-mentoring
     description: I mentored <a href="https://www.linkedin.com/in/safwan--ahmad/">Safwan Ahmed</a> during his Microsoft internship, where he implemented two well-known jailbreaks in <a href="https://github.com/microsoft/PyRIT">PyRIT</a>. He added the single-turn <a href="https://github.com/microsoft/PyRIT/pull/248">Skeleton Key</a> attack, <a href="https://www.microsoft.com/en-us/security/blog/2024/06/26/mitigating-skeleton-key-a-new-type-of-generative-ai-jailbreak-technique/?msockid=025deda99e1e63193accfbd59fce6243">disclosed by Mark Russinovich</a>, and the multi-turn <a href="https://github.com/microsoft/PyRIT/pull/275">Crescendo orchestrator</a>, giving red teamers reusable implementations of both.
   - date: July 2024
     title: Phi-3 Safety Post-Training
+    slug: phi-3-safety-post-training
     description: 'PyRIT was a key part of Phi-3 Safety Post-Training which is highlighted in the associated paper <a href="https://arxiv.org/abs/2407.13833">Phi-3 Safety Post-Training: Aligning Language Models with a "Break-Fix" Cycle</a>'
   - date: May 2024
     title: Microsoft //Build 2024
+    slug: microsoft-build-2024
     description: One of the highlights from my perspective was going to the Microsoft //Build conference in May to talk to customers about PyRIT. After just about eight (!) years at Microsoft this was my first //Build conference. My colleagues Tori Westerhoff and <a href="https://www.linkedin.com/in/pebryan/">Pete Bryan</a> did an amazing job talking about the work of the AI Red Team in <a href="https://build.microsoft.com/en-US/sessions/0106b5b1-d727-4240-bb2e-dea325cb8519?source=sessions">their session</a>.
   - date: February 2024
     title: PyRIT release
+    slug: pyrit-release
     image: pyrit-icon-256.png
     imageWidth: 256
     imageHeight: 256
@@ -103,8 +119,11 @@ timeline:
     description: <a href="https://www.microsoft.com/en-us/security/blog/2024/02/22/announcing-microsofts-open-automation-framework-to-red-team-generative-ai-systems/?msockid=221eb3d972cd620f327ea74e7345632e">We released PyRIT</a>! Since then, we have been expanding its capabilities to allow for probing multimodal generative AI systems (rather than just text-based ones). Another focus area has been state-of-the-art attack techniques. This space moves pretty fast, but we have added (or are in the process of adding) <a href="https://arxiv.org/abs/2310.08419">PAIR</a>, <a href="https://arxiv.org/abs/2312.02119">Tree of attacks with pruning</a>, <a href="https://arxiv.org/abs/2307.15043">GCG</a>, <a href="https://arxiv.org/abs/2404.01833">Crescendo</a>, <a href="https://www.microsoft.com/en-us/security/blog/2024/06/26/mitigating-skeleton-key-a-new-type-of-generative-ai-jailbreak-technique/?msockid=221eb3d972cd620f327ea74e7345632e">Skeleton Key</a>, and several others. Some of these are our own contributions, some of them happened via collaborations or contributions facilitated via the open source repository.
   - date: November 2023
     title: Joined the AI Red Team
+    slug: joined-ai-red-team
     description: I have joined the <a href="https://learn.microsoft.com/en-us/security/ai-red-team/">AI Red Team</a>. See <a href="https://www.microsoft.com/en-us/security/blog/2023/08/07/microsoft-ai-red-team-building-future-of-safer-ai/">Microsoft&#x27;s AI Red Team overview</a>, <a href="https://www.wired.com/story/microsoft-ai-red-team/">Wired&#x27;s profile of the team</a>, and <a href="https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/red-teaming">Microsoft&#x27;s red teaming guidance</a> for background.
 - timePeriod: December 2021 - November 2023
+  slug: azure-ai
+  legacyIndex: 2
   location: Remote (MA)
   skylines: [boston]
   logo: msft.svg
@@ -115,6 +134,7 @@ timeline:
   events:
   - date: October 2023
     title: LLM Evaluation Framework paper
+    slug: llm-evaluation-framework
     image: lasertag-pipeline.png
     imageWidth: 2477
     imageHeight: 924
@@ -122,6 +142,7 @@ timeline:
     description: Our new paper is on ArXiv! Titled <a href="https://arxiv.org/abs/2310.17750">A Framework for Automated Measurement of Responsible AI Harms in Generative AI Applications</a>, it talks about some of the ways we have been evaluating LLMs. This was a joint effort of many teams at Microsoft and Microsoft Research. I am particularly happy with the emphasis on input from domain experts. This is merely a tool to help speed up evaluations, but the actual decisions about mitigations and whether a system is deployed remains (and should remain) with humans.
   - date: August 2023
     title: Fairlearn JMLR paper
+    slug: fairlearn-jmlr-paper
     image: jmlr.png
     imageWidth: 913
     imageHeight: 105
@@ -129,15 +150,19 @@ timeline:
     description: The new <a href="https://jmlr.org/papers/v24/23-0389.html">Fairlearn paper</a> is now in the Journal for Machine Learning Research (Open Source Software section)! It captures our change from being a project under Microsoft governance to being a true open source project with open governance. As of today, half the maintainers are employed by Microsoft (including myself). Also, the focus of the project has shifted significantly since the original whitepaper. Back then, the Python toolkit was the main focus whereas now the educational materials are being prioritized. This aims to acknowledge the sociotechnical nature of fairness.
   - date: January 2022
     title: Mentored MIT students on Fairlearn
+    slug: mit-fairlearn-mentoring
     description: I mentored <a href="https://www.linkedin.com/in/kspiekermann/">Kevin Spiekermann</a> and <a href="https://www.linkedin.com/in/britney-ting/">Britney Ting</a> from MIT on <a href="https://github.com/fairlearn/fairlearn">Fairlearn</a>. They documented the modern folktables benchmarks from Ding et al. as replacements for the dated UCI Adult dataset — Kevin added <a href="https://github.com/fairlearn/fairlearn/pull/1005">documentation and a fetch function for ACSIncome</a> and Britney added documentation for the sibling ACSPublicCoverage dataset.
   - date: December 2021
     title: Responsible AI Dashboard release
+    slug: responsible-ai-dashboard-release
     image: rai-dashboard-release.png
     imageWidth: 1920
     imageHeight: 1080
     imageAlt: RAI dashboard view of error analysis tool
     description: We released the <a href="https://blogs.microsoft.com/ai-for-business/building-ai-responsibly-from-research-to-practice/">Responsible AI dashboard</a>. As one of the key contributors on the engineering side I am really proud of this milestone. Of course, this is only where it really starts as we can now iterate on the first version. Make sure to <a href="https://responsibleaitoolbox.ai">try it</a> and leave some feedback! The functionality is better captured by the blog and website, but something not mentioned there that I am really excited about is that we pulled this off in the open <a href="https://github.com/microsoft/responsible-ai-toolbox">on GitHub</a>. That means anyone can see what goes into this, ask for features, or even contribute bugfixes. Doing impactful work is awesome, but seeing the recognition in the entire company takes this to a whole different level. For example, I have seen tweets about this by <a href="https://twitter.com/kevin_scott/status/1468279751785828353">Microsoft CTO Kevin Scott</a> and <a href="https://twitter.com/erichorvitz/status/1468286435052572678?s=20">Chief Scientific Officer Eric Horvitz</a>.
 - timePeriod: September 2021 - November 2021
+  slug: max-planck
+  legacyIndex: 3
   location: Tübingen, Germany
   skylines: [tuebingen]
   logo: mpg.svg
@@ -147,6 +172,8 @@ timeline:
   logoLarge: true
   title: Graduate student at the Max Planck Institute for Intelligent Systems
 - timePeriod: July 2017 - August 2021
+  slug: azure-ml
+  legacyIndex: 4
   location: Cambridge, MA (until 2020), Bellevue, WA (2020-2021)
   skylines: [boston, seattle]
   logo: msft.svg
@@ -157,19 +184,24 @@ timeline:
   events:
   - date: May 2021
     title: Mentored Stanford ICME students on chest X-ray fairness
+    slug: stanford-chest-xray-fairness
     description: I mentored <a href="https://www.linkedin.com/in/liliankourti/">Lilian Kourti</a> and Xiaoye Yuan from the Stanford <a href="https://icme.stanford.edu/">ICME</a> program (together with <a href="https://www.linkedin.com/in/mattlungrenmd/">Matt Lungren</a>, <a href="https://www.linkedin.com/in/hansonkari/">Kari Hanson</a>, and <a href="https://hastie.su.domains/">Trevor Hastie</a>) on fairness in chest X-ray classification, studying how deep-learning diagnostic models perform across patient subgroups.
   - date: August 2020
     title: Mentored Stanford ICME students on Fairlearn
+    slug: stanford-fairlearn-mentoring
     description: I mentored <a href="https://www.linkedin.com/in/davidegio/">Davide Giovanardi</a>, <a href="https://www.linkedin.com/in/lauren-pendo-209604b0/">Lauren Pendo</a>, and <a href="https://www.linkedin.com/in/andrafehmiu/">Andra Fehmiu</a> from the Stanford <a href="https://icme.stanford.edu/">ICME</a> program (together with <a href="https://www.linkedin.com/in/hansonkari/">Kari Hanson</a> and <a href="https://sites.google.com/site/marywootters/">Mary Wootters</a>) on <a href="https://github.com/fairlearn/fairlearn">Fairlearn</a>. Together they implemented <a href="https://github.com/fairlearn/fairlearn/pull/442">bounded group loss via exponentiated gradient</a>, extending Fairlearn&#x27;s fairness reductions to regression problems.
   - date: April 2020
     title: Mentored UMass Amherst students on Fairlearn
+    slug: umass-fairlearn-mentoring
     description: I mentored <a href="https://www.linkedin.com/in/parulgupta04/">Parul Gupta</a> and <a href="https://www.linkedin.com/in/hannanabdul55/">Abdul</a> from UMass Amherst (together with <a href="https://www.microsoft.com/en-us/research/people/mdudik/">Miro Dudík</a>) on <a href="https://github.com/fairlearn/fairlearn">Fairlearn</a>. Abdul added the <a href="https://github.com/fairlearn/fairlearn/pull/362">Equal Opportunity constraint</a> while Parul contributed <a href="https://github.com/fairlearn/fairlearn/pull/364">additional reduction constraints</a> and grid-search improvements to the fairness algorithms.
   - date: April 2020
     title: The Good AI fairness keynote
+    slug: good-ai-fairness-keynote
     youtube: https://www.youtube.com/embed/AityHdj0pg4
     description: I gave a keynote on fairness in algorithms for The Good AI, covering how to assess and mitigate unfairness in machine learning systems with <a href="https://github.com/fairlearn/fairlearn">Fairlearn</a>.
   - date: November 2019
     title: Fairlearn announced at Ignite
+    slug: fairlearn-ignite
     image: fairlearn-repo.png
     imageWidth: 2256
     imageHeight: 765
@@ -177,6 +209,7 @@ timeline:
     description: For a little while now I have been working on <a href="https://www.microsoft.com/en-us/AI/our-approach-to-ai">Responsible AI at Microsoft</a>. Now that <a href="https://www.microsoft.com/en-us/research/people/slbird/">Sarah Bird</a> <a href="https://myignite.techcommunity.microsoft.com/sessions/81147">announced our tools at Ignite</a> I can finally point to our tools publicly. A lot of my time over the past months went into <a href="https://github.com/fairlearn/fairlearn">Fairlearn</a>, our open source toolkit for fairness assessment and unfairness mitigation. We just released v0.3.0, so there is a lot more to come in the next months. I will be in Vancouver for NeurIPS in December to demo our tools around fairness and interpretability. Talk to me if you will be there!
   - date: November 2019
     title: Responsible AI reading group
+    slug: responsible-ai-reading-group
     image: abstraction-fairml.png
     imageWidth: 2188
     imageHeight: 1130
@@ -185,14 +218,19 @@ timeline:
     description: Since fairness is tricky to get right we have been meeting bi-weekly as a Responsible AI reading group. Today I had the honor to lead the discussion about <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3265913">"Fairness and Abstraction in Sociotechnical Systems"</a> by <a href="https://andrewselbst.com/">Andrew D. Selbst</a>, <a href="https://www.danah.org/">danah boyd</a>, <a href="https://sorelle.friedler.net/">Sorelle A. Friedler</a>, <a href="https://dsi.brown.edu/people/suresh-venkatasubramanian">Suresh Venkatasubramanian</a>, and <a href="https://janet.vertesi.com/">Janet Vertesi</a>. I highly encourage everyone to read this paper to avoid the mentioned abstraction traps when building machine learning systems. Maybe this should be part of a mandatory checklist before releasing models... You can download my <a href="https://romanlutz.github.io/other/FairnessAndAbstractionInSociotechnicalSystems.pdf">Fairness and Abstraction presentation slides (PDF)</a>.
   - date: August 2018
     title: Mentored ITAM student on Azure ML
+    slug: itam-azure-ml-mentoring
     description: I mentored <a href="https://www.linkedin.com/in/alfonso-venancio-823539175/">Emilio Alfonso Venancio</a> from the Instituto Tecnológico Autónomo de México on Azure Machine Learning.
   - date: March 2018
     title: MIT Breaking the Mold Hackathon
+    slug: mit-breaking-the-mold
     description: Participating at <a href="http://www.mitbreakingthemold.com/challenges/">MIT`s Breaking the Mold Hackathon for Inclusion</a> was truly a blessing. With so many truly difficult problems to tackle, it is fantastic to see all the ideas people came up with. Big shoutout to MIT for organizing this, Microsoft for the venue (and encouraging me to go!), and Amazon for sending two inspiring mentors for my team all the way from Seattle! Thanks also to my team for creating a creative environment where everybody could express their ideas. I learned a ton from all of you, and winning 3rd prize tops it all off. I hope everybody takes some time to think about Machine Learning Bias. With ML becoming increasingly prevalent, it is more important than ever to take bias into account.
   - date: July 2017
     title: Joined Azure Machine Learning team
+    slug: joined-azure-ml
     description: After a year on the Office team, I moved to the Azure Machine Learning team. We are building the infrastructure and services from scratch using lots of open source (e.g., Kubernetes, Linux, .NET core).
 - timePeriod: June 2016 - June 2017
+  slug: microsoft-office
+  legacyIndex: 5
   location: Cambridge, MA
   skylines: [boston]
   logo: msft.svg
@@ -203,11 +241,15 @@ timeline:
   events:
   - date: May 2017
     title: Hacking Bias in ML workshop
+    slug: hacking-bias-workshop
     description: I participated in the <a href="https://www.eventbrite.com/e/new-england-machine-learning-hackathon-hacking-bias-in-ml-tickets-32951771636?aff=NEML">Hacking Bias in ML</a> workshop at Microsoft`s New England Research and Development Center (which happens to be my office, too). My group specifically looked at gender bias in text through word embeddings. We found lots of evidence of gender bias, e.g., some words are generally more used in connection with men ("smart"), some more with women ("lovely"). You can explore the resulting <a href="https://mdml.github.io/hacking-bias-in-word-choice/#">word-choice bias demo</a>.
   - date: June 2016
     title: Joined Microsoft Office Docs
+    slug: joined-microsoft-office
     description: I have joined the Docs team within Microsoft Office. We enhance collaboration capabilities through the Share feature in all Office apps.
 - timePeriod: Fall 2015 - Spring 2016
+  slug: umass-masters
+  legacyIndex: 6
   location: Amherst, MA
   skylines: [amherst]
   logo: umass-amherst.png
@@ -219,6 +261,7 @@ timeline:
   events:
   - date: Fall 2015 - Spring 2016
     title: Cache Networks research
+    slug: cache-networks-research
     image: cache-networks-simulation-results.png
     imageWidth: 1542
     imageHeight: 1428
@@ -227,6 +270,7 @@ timeline:
     description: I had the pleasure of working as a Research Assistant in the <a href="http://www-net.cs.umass.edu/networks/people.html">Computer Networking Lab</a> with Professor <a href="https://www.cs.umass.edu/faculty/directory/towsley_donald">Don Towsley</a> and Professor <a href="http://www2.ic.uff.br/~arocha/">Antonio Rocha</a> on the Simulation of Cache Networks. The results still remain to be published, so I will write about it if that happens. Separately, I conducted experiments with cache networks for a graduate seminar on distributed systems. You can download my <a href="https://romanlutz.github.io/other/CacheNetworkSimulation.pdf">cache network simulation report (PDF)</a>.
   - date: January 2016
     title: Content-Centric Networking paper
+    slug: content-centric-networking
     image: ccn.png
     imageWidth: 900
     imageHeight: 574
@@ -235,6 +279,7 @@ timeline:
     description: There are several NSF-funded Future Internet Architecture research projects in the US. Their focus is mostly on improving the scalability and efficiency. I am interested in how the different approaches affect (or do not affect) the privacy of users in comparison to the current Internet. My main focus was the feasibility of censorship circumvention. As an example, I picked Content-oriented Networking. See the full paper at <a href="https://arxiv.org/abs/1601.01278">arxiv.org/abs/1601.01278</a>.
   - date: January 2016
     title: NFL play prediction paper
+    slug: nfl-play-prediction
     image: pete-carroll-960.webp
     imageWidth: 960
     imageHeight: 1045
@@ -250,6 +295,8 @@ timeline:
     imageAlt: Pete Carroll - coach
     description: 'Based on NFL game data we try to predict the outcome of a play in multiple different ways including Decision and Classification Trees, Nearest Neighbors, Naive Bayes, Linear Discriminant Analysis, Support Vector Machines and Regression, and Artificial Neural Networks. An application of this is the following: by plugging in various play options one could determine the best play for a given situation in real time. While the outcome of a play can be described in many ways we had the most promising results with a newly defined measure that we call "progress". We see this work as a first step to include predictive analysis into NFL playcalling. See the full paper at <a href="https://arxiv.org/abs/1601.00574">arxiv.org/abs/1601.00574</a>; in collaboration with <a href="https://www.linkedin.com/in/brendan-teich-69a1bb77/">Brendan Teich</a> and <a href="https://www.linkedin.com/in/valentin-kassarnig-5330a3124/">Valentin Kassarnig</a>.'
 - timePeriod: June 2015 - August 2015
+  slug: cisco-internship
+  legacyIndex: 7
   location: Eschborn, Germany
   skylines: [frankfurt]
   logo: cisco.png
@@ -258,6 +305,8 @@ timeline:
   logoAlt: Cisco Systems logo
   title: Systems Engineering Intern
 - timePeriod: Fall 2014 - Spring 2015
+  slug: umass-exchange
+  legacyIndex: 8
   location: Amherst, MA
   skylines: [amherst]
   logo: umass-amherst.png
@@ -269,9 +318,11 @@ timeline:
   events:
   - date: Fall 2014 - Spring 2015
     title: Baden-Württemberg Exchange
+    slug: baden-wuerttemberg-exchange
     description: I took part in Baden-Württemberg Exchange between University of Ulm and University of Massachusetts Amherst.
   - date: May 2015
     title: Fantasy Football prediction paper
+    slug: fantasy-football-prediction
     image: thomas-rawls-960.webp
     imageWidth: 960
     imageHeight: 798
@@ -287,6 +338,8 @@ timeline:
     imageAlt: Thomas Rawls - player
     description: 'New paper! The ubiquity of professional sports and specifically the NFL have lead to an increase in popularity for Fantasy Football. Users have many tools at their disposal: statistics, predictions, rankings of experts and even recommendations of peers. There are issues with all of these, though. Especially since many people pay money to play, the prediction tools should be enhanced as they provide unbiased and easy-to-use assistance for users. This paper provides and discusses approaches to predict Fantasy Football scores of Quarterbacks with relatively limited data. See the full paper at <a href="https://arxiv.org/abs/1505.06918">arxiv.org/abs/1505.06918</a>.'
 - timePeriod: Fall 2011 - Summer 2014
+  slug: university-of-ulm
+  legacyIndex: 9
   location: Ulm, Germany
   skylines: [ulm]
   logo: uni-ulm.svg
@@ -298,9 +351,11 @@ timeline:
   events:
   - date: Fall 2011 - Summer 2014
     title: BSc in Computer Science
+    slug: computer-science-bsc
     description: After a year of studying in the Mathematics Bachelor`s program with a minor in Computer Science I decided to swap major and minor. I still graduated with a BSc in Computer Science with honors. The courses covered basics in Systems, AI, and Theory.
   - date: '2014'
     title: 'Bachelor`s thesis: Adaptive Large Neighborhood Search'
+    slug: adaptive-large-neighborhood-search
     image: alns.png
     imageWidth: 1619
     imageHeight: 991
@@ -308,6 +363,7 @@ timeline:
     description: The goal of my Bachelor`s thesis was to implement the Adaptive Large Neighborhood Search (ALNS) heuristic and possibly come up with improvements. ALNS was described first by <a href="https://orbit.dtu.dk/en/persons/stefan-r%C3%B8pke/">S. Ropke</a> and <a href="https://hjemmesider.diku.dk/~pisinger/">D. Pisinger</a> and is based on P. Shaw`s Large Neighborhood Search. The idea is that some problems are difficult to solve with basic local search algorithms because of a tightly constrained search space. Small changes to a solution will rarely bring improvements. As a consequence, LNS and ALNS change larger parts based on different heuristics. For this thesis, I received the innoWake Award 2015. <a href="http://www.innowake.com">innoWake</a> was a software modernization company based in Austin, TX and had a number of branch offices including one in Germany. They have since been acquired by Deloitte.
   - date: '2013'
     title: Teaching Assistant for Algorithms and Data Structures
+    slug: algorithms-teaching-assistant
     image: graph.svg
     imageWidth: 1398
     imageHeight: 680
@@ -317,6 +373,7 @@ timeline:
     description: As a teaching assistant for Prof. <a href="https://www.uni-ulm.de/en/in/theo/m/toran/">Jacobo Toran</a>, <a href="https://www.uni-ulm.de/en/voelkel/">Gunnar Völkel</a> and <a href="https://www.linkedin.com/in/dominikus-kr%C3%BCger-5a9323143/">Dominikus Krüger</a>, I explained the solutions to weekly assignments to a group of 20 students whose work I also graded. In addition to that, I often gave a review of the material presented in class. It made me very happy to see the attendance rate constantly high throughout the semester and especially the positive feedback at the end of the course.
   - date: '2013'
     title: 'Nature-Inspired Metaheuristics: Artificial Bee Colony'
+    slug: artificial-bee-colony
     image: bees.jpg
     imageWidth: 1920
     imageHeight: 1281
@@ -325,6 +382,7 @@ timeline:
     description: As part of a seminar at Uni Ulm, I implemented and evaluated the Artificial Bee Colony (ABC) meta-heuristic by <a href="https://avesis.erciyes.edu.tr/karaboga">D. Karaboga</a>. ABC is a nature-inspired metaheuristic that projects the foraging behavior of bees on an algorithm in order to solve optimization problems. The idea behind such approaches is that many kinds of behavior of animals, bacteria etc. in nature have adapted to their specific environment due to evolution — in a way, an optimization process has taken place.
   - date: '2012'
     title: Concurrent Programming in Java seminar
+    slug: concurrent-java-seminar
     image: traffic.jpg
     imageWidth: 960
     imageHeight: 640

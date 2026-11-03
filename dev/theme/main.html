@@ -60,7 +60,7 @@
 		<span class="site-nav__rail" role="group" aria-label="Timeline chapters" data-timeline-rail>
 			{% for timelineItem in page.meta.resume.timeline %}
 			<a
-				href="#timeline-{{ loop.index }}"
+				href="#chapter-{{ timelineItem.slug }}"
 				class="site-nav__tick{% if loop.first %} is-active{% endif %}"
 				data-timeline-tick
 				aria-label="{{ timelineItem.title }} ({{ timelineItem.timePeriod }})"
@@ -115,7 +115,8 @@
 		<div class="topspace">
 				<div id="timeline" class="vt{% if page.meta.resume.timeline[0].skylines %} vt--skylines{% endif %}">
 						{% for timelineItem in page.meta.resume.timeline %}
-						<div id="timeline-{{ loop.index }}" class="vt-section{% if not timelineItem.events %} vt-section--no-events{% endif %}" data-timeline-chapter>
+						<div id="chapter-{{ timelineItem.slug }}" class="vt-section{% if not timelineItem.events %} vt-section--no-events{% endif %}" data-timeline-chapter>
+							{% if timelineItem.legacyIndex %}<span id="timeline-{{ timelineItem.legacyIndex }}" class="vt-legacy-anchor" aria-hidden="true"></span>{% endif %}
 							<div class="vt-major-node{% if timelineItem.skylines %} vt-major-node--skyline{% endif %}">
 								<div class="vt-node-dot vt-node-dot--major"></div>
 								<div class="vt-major-card{% if timelineItem.skylines %} vt-major-card--skyline{% endif %}">
@@ -130,13 +131,16 @@
 									<div class="vt-major-header">
 										<img src="../images/{{ timelineItem.logo }}" alt="{{ timelineItem.logoAlt }}" width="{{ timelineItem.logoWidth }}" height="{{ timelineItem.logoHeight }}" loading="lazy" decoding="async" class="vt-major-logo{% if timelineItem.logoInvert %} vt-event-img-invert{% endif %}{% if timelineItem.logoLarge %} vt-major-logo--lg{% endif %}">
 										<div class="vt-major-info">
-											<h2 id="timeline-title-{{ loop.index }}" class="vt-major-title">{{ timelineItem.title }}</h2>
+											<h2 id="chapter-{{ timelineItem.slug }}-title" class="vt-major-title">
+												{% if timelineItem.legacyIndex %}<span id="timeline-title-{{ timelineItem.legacyIndex }}" class="vt-legacy-anchor" aria-hidden="true"></span>{% endif %}
+												<a href="#chapter-{{ timelineItem.slug }}" class="timeline-permalink">{{ timelineItem.title }} <span class="timeline-permalink__mark" aria-hidden="true">#</span></a>
+											</h2>
 											<div class="vt-major-meta">{{ timelineItem.timePeriod }} &middot; {{ timelineItem.location }}</div>
 										</div>
 									</div>
 									{% if timelineItem.events %}
 									<details class="vt-chapter-details"{% if loop.first %} open{% endif %}>
-										<summary class="vt-chapter-toggle" aria-describedby="timeline-title-{{ loop.index }}">
+										<summary class="vt-chapter-toggle" aria-describedby="chapter-{{ timelineItem.slug }}-title">
 											<span class="vt-chapter-toggle__show">Show</span>
 											<span class="vt-chapter-toggle__hide">Hide</span>
 											{{ timelineItem.events|length }} {% if timelineItem.events|length == 1 %}entry{% else %}entries{% endif %}
@@ -146,11 +150,11 @@
 										<div class="vt-branch-in"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M1.5,0 Q1.5,10 11,10 L54.5,10 Q65.5,10 65.5,20"/></svg></div>
 										{% if not loop.last %}<div class="vt-branch-out"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M65.5,1.5 Q65.5,10 54.5,10 L11,10 Q1.5,10 1.5,20"/></svg></div>{% endif %}
 										{% for event in timelineItem.events %}
-										<div class="vt-event">
+										<div id="event-{{ event.slug }}" class="vt-event">
 											<div class="vt-node-dot vt-node-dot--minor"></div>
 											<div class="vt-event-card">
 												<div class="vt-event-date">{{ event.date }}</div>
-												<h3 class="vt-event-title">{{ event.title }}</h3>
+												<h3 class="vt-event-title"><a href="#event-{{ event.slug }}" class="timeline-permalink">{{ event.title }} <span class="timeline-permalink__mark" aria-hidden="true">#</span></a></h3>
 												{% if event.youtube %}
 												<div class="vt-event-media">
 													<iframe src="{{ event.youtube }}" title="{{ event.title }}" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="vt-event-youtube"></iframe>
