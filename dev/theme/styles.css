@@ -1440,6 +1440,33 @@ a.vt-event-gallery-content:focus-visible {
   width: 100%;
   height: auto;
 }
+.map-container--loading,
+.map-container--error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+.map-retry {
+  min-height: 44px;
+  padding: 8px 16px;
+  color: var(--text-primary);
+  font: inherit;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-hover);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.map-retry:hover {
+  background: var(--bg-hover);
+}
+.map-retry:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
 .choropleth {
   fill: #2a3038;
   stroke: #484f58;

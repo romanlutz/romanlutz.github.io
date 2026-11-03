@@ -49,6 +49,9 @@ flag and name in a stable detail strip below the map. Stopovers remain highlight
 but are labeled separately in the detail strip. Keyboard users can focus a
 highlighted region and press Enter or Space; Escape clears the selection.
 Flag loading failures are logged without losing the selected place's name.
+Atlas and rendering failures are logged and show an explanatory message with a
+keyboard-accessible "Retry map" button. A retry clears the previous error and
+reloads only that map; loading state is exposed through `aria-busy`.
 
 The closing section keeps the Git illustration and its source credit as a
 personal aside, followed by LinkedIn, GitHub, and back-to-top links.

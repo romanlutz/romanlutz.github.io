@@ -25,6 +25,13 @@ class Element {
   set textContent(value) { this.value = value; this.children = []; }
   set innerHTML(value) { assert.equal(value, ''); this.textContent = ''; }
   appendChild(child) { this.children.push(child); return child; }
+  setAttribute(name, value) { this.attributes.set(name, String(value)); }
+  querySelector(selector) {
+    assert.equal(selector, '[tabindex="0"], button');
+    return descendants(this, 'path').find(node => node.attributes.get('tabindex') === '0') ||
+      descendants(this, 'button')[0];
+  }
+  focus() { this.focused = true; }
   addEventListener(name, callback) { this.listeners.set(name, callback); }
 }
 
@@ -39,7 +46,7 @@ function fire(element, type, values = {}) {
   const event = { preventDefault() { this.defaultPrevented = true; }, ...values };
   const callback = element.listeners.get(type);
   assert.ok(callback, `missing ${type} handler`);
-  callback.call(element, event, element.__data__);
+  event.result = callback.call(element, event, element.__data__);
   return event;
 }
 
@@ -62,7 +69,8 @@ function harness({ features, failed = false } = {}) {
   }
   const d3 = {
     json() {
-      return failed ? Promise.reject(new Error('Atlas unavailable')) :
+      const shouldFail = typeof failed === 'function' ? failed() : failed;
+      return shouldFail ? Promise.reject(new Error('Atlas unavailable')) :
         Promise.resolve({ objects: { states: {}, countries: {} } });
     },
     select: selection,
@@ -89,7 +97,7 @@ function harness({ features, failed = false } = {}) {
     }
   });
   return {
-    nodes, errors, warnings,
+    nodes, errors, warnings, document,
     render(scope = 'usa', places = [{ name: 'WA', visited: true }, { name: 'AZ', visited: false }]) {
       return window.initDatamap({ scope, places });
     },
@@ -185,4 +193,35 @@ test('hides a failed flag image without losing the place name and logs its URL',
   assert.equal(flag.hidden, true);
   assert.match(state.detail().textContent, /Washington Visited/);
   assert.equal(state.warnings[0][1], '/images/flags/us-states/wa.png');
+});
+
+test('reports loading and failure states and lets visitors retry successfully', async () => {
+  let failed = true;
+  const state = harness({ failed: () => failed });
+  const container = state.nodes.get('usa_map');
+  const pending = state.render();
+  assert.equal(container.attributes.get('aria-busy'), 'true');
+  assert.equal(container.textContent, 'Loading map...');
+  await pending;
+  assert.match(container.textContent, /could not be loaded/);
+  assert.ok(container.classList.contains('map-container--error'));
+  assert.equal(container.attributes.get('aria-busy'), 'false');
+  assert.match(state.detail().textContent, /retry/);
+  assert.equal(state.errors.length, 1);
+  const retry = descendants(container, 'button')[0];
+  assert.equal(retry.textContent, 'Retry map');
+  state.document.activeElement = retry;
+  await fire(retry, 'click').result;
+  const secondRetry = descendants(container, 'button')[0];
+  assert.equal(secondRetry.focused, true, 'keep keyboard focus after a failed retry');
+
+  failed = false;
+  state.document.activeElement = secondRetry;
+  await fire(secondRetry, 'click').result;
+  assert.equal(state.regions().length, 3);
+  assert.equal(state.regions()[0].focused, true, 'move focus into the recovered map');
+  assert.equal(descendants(container, 'button').length, 0);
+  assert.ok(!container.classList.contains('map-container--error'));
+  assert.ok(!container.classList.contains('map-container--loading'));
+  assert.equal(container.attributes.get('aria-busy'), 'false');
 });

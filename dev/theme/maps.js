@@ -165,8 +165,37 @@
     if (!container) return;
     var url = TOPOJSON[config.scope];
     if (!url) return;
-    return d3.json(url).then(function (topology) {
+    container.classList.remove('map-container--error');
+    container.classList.add('map-container--loading');
+    container.setAttribute('aria-busy', 'true');
+    container.textContent = 'Loading map...';
+    return Promise.resolve().then(function () {
+      return d3.json(url);
+    }).then(function (topology) {
       render(config.scope, container, topology, config.places || []);
+    }).catch(function (error) {
+      container.textContent = 'The map could not be loaded.';
+      container.classList.add('map-container--error');
+      var retry = document.createElement('button');
+      retry.type = 'button';
+      retry.className = 'map-retry';
+      retry.textContent = 'Retry map';
+      retry.addEventListener('click', function () {
+        var restoreFocus = document.activeElement === retry;
+        return window.initDatamap(config).then(function () {
+          if (restoreFocus) {
+            var target = container.querySelector('[tabindex="0"], button');
+            if (target) target.focus();
+          }
+        });
+      });
+      container.appendChild(retry);
+      document.getElementById(config.scope + '_map_detail').textContent =
+        'Check your connection, then retry loading the map.';
+      console.error('Unable to load ' + config.scope + ' map:', error);
+    }).finally(function () {
+      container.classList.remove('map-container--loading');
+      container.setAttribute('aria-busy', 'false');
     });
   };
 })();
