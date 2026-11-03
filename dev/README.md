@@ -23,6 +23,22 @@ original widths and gutters without narrowing the timeline. On small screens,
 the timeline uses a single rail and wider event panels instead of nested
 indentation. Website copy and data remain in `mkdocs.yml` and `_data/`.
 
+## Profile statistics
+
+`hooks.py` fetches counts at build time and caches them in `stats.json`. Each
+source has its own `updated_at` timestamp and 12-hour freshness window. Failed
+or incomplete responses are logged and retain both the previous counts and
+their original successful-update date. The legacy global `fetched_at` field
+is not treated as proof of a successful fetch.
+
+Cards show the last successful update date. Literal `statsText` values in
+`_data/links.yml`, such as Google Scholar's counts, are labeled "Manually
+maintained" and are not overwritten by an API. A cached value without a known
+successful timestamp is labeled "Last update unknown".
+
+Run the cache and metadata regression tests from the repository root with
+`uv run --no-project --with-requirements dev\requirements.txt python -m unittest discover -s dev\tests -p "test_stats.py"`.
+
 ## Travel maps and closing section
 
 The maps use green for all listed places, including airport stopovers, and gray

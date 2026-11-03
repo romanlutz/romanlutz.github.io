@@ -1,25 +1,31 @@
 {
-  "fetched_at": "2026-06-18T13:31:20Z",
+  "updated_at": {
+    "pyrit": "2026-11-03T07:51:36Z",
+    "fairlearn": "2026-11-03T07:51:38Z",
+    "github": "2026-11-03T07:51:39Z",
+    "bluesky": "2026-11-03T07:51:40Z",
+    "stackoverflow": "2026-11-03T07:51:40Z"
+  },
   "stats": {
     "pyrit": {
-      "stars": 3995,
-      "contributors": 130
+      "stars": 4731,
+      "contributors": 230
     },
     "fairlearn": {
-      "stars": 2253,
-      "contributors": 110
+      "stars": 2307,
+      "contributors": 129
     },
     "github": {
-      "prsMerged": 801,
-      "reviews": 2041
+      "prsMerged": 1061,
+      "reviews": 2842
     },
     "semanticscholar": {
       "papers": 12,
       "citations": 771
     },
     "bluesky": {
-      "followers": 409,
-      "posts": 87
+      "followers": 462,
+      "posts": 102
     },
     "stackoverflow": {
       "reputation": 48

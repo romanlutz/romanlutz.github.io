@@ -16,6 +16,7 @@ the build.
 """
 
 import json
+import logging
 import os
 import re
 import urllib.error
@@ -43,6 +44,8 @@ _STATS_TARGETS = {
 }
 
 _stats_cache = None
+_stats_updated_at = {}
+_log = logging.getLogger(__name__)
 
 
 def _get_json(url, headers=None):
@@ -89,6 +92,8 @@ def _github_search_count(query, headers):
         f"?q={encoded}&per_page=1&advanced_search=true"
     )
     data, _ = _get_json(url, headers)
+    if data.get("incomplete_results"):
+        raise ValueError("GitHub search returned incomplete results")
     return data.get("total_count")
 
 
@@ -181,64 +186,88 @@ def _read_cache(cache_path):
     if not cache_path.exists():
         return None
     try:
-        return json.loads(cache_path.read_text(encoding="utf-8"))
-    except (ValueError, OSError):
+        cached = json.loads(cache_path.read_text(encoding="utf-8"))
+        if not isinstance(cached, dict) or not isinstance(cached.get("stats"), dict):
+            raise ValueError("Expected a stats object")
+        if not isinstance(cached.get("updated_at", {}), dict):
+            raise ValueError("Expected per-source update timestamps")
+        return cached
+    except (ValueError, OSError) as error:
+        _log.warning("Unable to read stats cache %s: %s", cache_path, error)
         return None
 
 
-def _cache_is_fresh(cached):
-    fetched_at = (cached or {}).get("fetched_at")
-    if not fetched_at:
-        return False
+def _parse_timestamp(value):
+    if not isinstance(value, str):
+        return None
     try:
-        timestamp = datetime.fromisoformat(fetched_at.replace("Z", "+00:00"))
+        timestamp = datetime.fromisoformat(value.replace("Z", "+00:00"))
     except ValueError:
+        return None
+    return timestamp if timestamp.tzinfo is not None else None
+
+
+def _cache_is_fresh(updated_at):
+    timestamp = _parse_timestamp(updated_at)
+    if timestamp is None:
         return False
     age = (datetime.now(timezone.utc) - timestamp).total_seconds()
-    return age < _STATS_TTL_SECONDS
+    return 0 <= age < _STATS_TTL_SECONDS
+
+
+def _valid_counts(values):
+    return isinstance(values, dict) and bool(values) and all(
+        isinstance(value, int) and not isinstance(value, bool) and value >= 0
+        for value in values.values()
+    )
 
 
 def _load_stats(repo_dir):
-    global _stats_cache
+    global _stats_cache, _stats_updated_at
     if _stats_cache is not None:
         return _stats_cache
 
     cache_path = repo_dir / "stats.json"
-    cached = _read_cache(cache_path)
-    if cached and _cache_is_fresh(cached):
-        _stats_cache = cached.get("stats", {})
-        return _stats_cache
+    cached = _read_cache(cache_path) or {}
 
-    # Start from prior values so a failed fetch keeps the last known count.
-    values = dict((cached or {}).get("stats", {}))
+    values = dict(cached.get("stats", {}))
+    # The legacy global timestamp included failed fetches, so do not reuse it.
+    updated_at = dict(cached.get("updated_at", {}))
     for stat_id, target in _STATS_TARGETS.items():
-        fetcher = _FETCHERS.get(target["kind"])
-        if fetcher is None:
+        if stat_id in values and not _valid_counts(values[stat_id]):
+            _log.warning("Ignoring invalid cached stats for %s", stat_id)
+            values.pop(stat_id)
+            updated_at.pop(stat_id, None)
+        if _parse_timestamp(updated_at.get(stat_id)) is None:
+            updated_at.pop(stat_id, None)
+        if stat_id in values and _cache_is_fresh(updated_at.get(stat_id)):
             continue
         try:
-            values[stat_id] = fetcher(target)
-        except (urllib.error.URLError, OSError, ValueError, KeyError):
-            # Keep any previously cached value for this id.
-            pass
-
-    try:
-        cache_path.write_text(
-            json.dumps(
-                {
-                    "fetched_at": datetime.now(timezone.utc).strftime(
-                        "%Y-%m-%dT%H:%M:%SZ"
-                    ),
-                    "stats": values,
-                },
-                indent=2,
+            fetched = _FETCHERS[target["kind"]](target)
+            if not _valid_counts(fetched):
+                raise ValueError("Source returned missing or invalid counts")
+        except (urllib.error.URLError, OSError, ValueError, KeyError) as error:
+            _log.warning(
+                "Unable to refresh %s stats; keeping cached values (last success: %s): %s",
+                stat_id, updated_at.get(stat_id, "unknown"), error,
             )
-            + "\n",
-            encoding="utf-8",
-        )
-    except OSError:
-        pass
+        else:
+            values[stat_id] = fetched
+            updated_at[stat_id] = datetime.now(timezone.utc).strftime(
+                "%Y-%m-%dT%H:%M:%SZ"
+            )
+
+    snapshot = {"updated_at": updated_at, "stats": values}
+    if snapshot != cached:
+        try:
+            cache_path.write_text(
+                json.dumps(snapshot, indent=2) + "\n", encoding="utf-8"
+            )
+        except OSError as error:
+            _log.warning("Unable to write stats cache %s: %s", cache_path, error)
 
     _stats_cache = values
+    _stats_updated_at = updated_at
     return _stats_cache
 
 
@@ -258,6 +287,7 @@ def on_page_markdown(markdown, page, config, files):
         # usable API (e.g. Google Scholar, which has no public API and blocks
         # automated access, so its count is hand-maintained).
         if link.get("statsText"):
+            link["statsNote"] = "Manually maintained"
             continue
         stat_id = link.get("stats")
         if not stat_id:
@@ -265,5 +295,10 @@ def on_page_markdown(markdown, page, config, files):
         text = _format_stats(stat_id, stats.get(stat_id))
         if text:
             link["statsText"] = text
+            timestamp = _parse_timestamp(_stats_updated_at.get(stat_id))
+            link["statsNote"] = (
+                f"Updated {timestamp.date().isoformat()}"
+                if timestamp else "Last update unknown"
+            )
 
     return markdown
