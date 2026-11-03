@@ -133,6 +133,10 @@ changing the city mappings, silhouettes, template, or skyline styling.
 
 ## Section navigation
 
+The first keyboard stop is a "Skip to content" link, revealed on focus. It moves
+focus to the main landmark without adding that landmark to the normal tab order.
+It works without JavaScript and remains available at every viewport width.
+
 The section navbar is hidden below 1024px. At desktop widths, it is a fixed vertical
 rail on the right, with matching page gutters to keep it clear of the content.
 The timeline marker moves down the rail as you scroll through the chapters and

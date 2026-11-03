@@ -12,3 +12,10 @@ test('declares a dark native color scheme and matching browser theme color', () 
   const background = css.match(/--bg-primary:\s*(#[0-9a-f]+);/)[1];
   assert.ok(html.includes(`<meta name="theme-color" content="${background}">`));
 });
+
+test('makes skip navigation the first focusable control and targets the main landmark', () => {
+  assert.match(html, /<body>\s*<a href="#main" class="skip-link">Skip to content<\/a>/);
+  assert.match(html, /<main id="main" tabindex="-1">/);
+  assert.match(css, /\.skip-link\s*\{[^}]*position:\s*fixed;[^}]*transform:\s*translateY/);
+  assert.match(css, /\.skip-link:focus\s*\{[^}]*transform:\s*none;[^}]*outline:\s*2px solid/);
+});

@@ -22,6 +22,23 @@
 html {
   scroll-behavior: smooth;
 }
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 200;
+  transform: translateY(calc(-100% - 24px));
+  padding: 10px 16px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-hover);
+  border-radius: 6px;
+}
+.skip-link:focus {
+  transform: none;
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
 body {
   font-size: 16px;
   font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
