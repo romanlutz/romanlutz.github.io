@@ -129,11 +129,17 @@
 									<div class="vt-major-header">
 										<img src="../images/{{ timelineItem.logo }}" alt="{{ timelineItem.logoAlt }}" class="vt-major-logo{% if timelineItem.logoInvert %} vt-event-img-invert{% endif %}{% if timelineItem.logoLarge %} vt-major-logo--lg{% endif %}">
 										<div class="vt-major-info">
-											<h2 class="vt-major-title">{{ timelineItem.title }}</h2>
+											<h2 id="timeline-title-{{ loop.index }}" class="vt-major-title">{{ timelineItem.title }}</h2>
 											<div class="vt-major-meta">{{ timelineItem.timePeriod }} &middot; {{ timelineItem.location }}</div>
 										</div>
 									</div>
 									{% if timelineItem.events %}
+									<details class="vt-chapter-details"{% if loop.first %} open{% endif %}>
+										<summary class="vt-chapter-toggle" aria-describedby="timeline-title-{{ loop.index }}">
+											<span class="vt-chapter-toggle__show">Show</span>
+											<span class="vt-chapter-toggle__hide">Hide</span>
+											{{ timelineItem.events|length }} {% if timelineItem.events|length == 1 %}entry{% else %}entries{% endif %}
+										</summary>
 									<div class="vt-events">
 										<div class="vt-outer-mask"></div>
 										<div class="vt-branch-in"><svg viewBox="0 0 67 20" preserveAspectRatio="none"><path d="M1.5,0 Q1.5,10 11,10 L54.5,10 Q65.5,10 65.5,20"/></svg></div>
@@ -180,6 +186,7 @@
 										</div>
 										{% endfor %}
 									</div>
+									</details>
 									{% endif %}
 								</div>
 							</div>

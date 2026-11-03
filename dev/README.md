@@ -102,7 +102,20 @@ changing the city mappings, silhouettes, template, or skyline styling.
 
 The section navbar is hidden below 1024px. At desktop widths, it is a fixed vertical
 rail on the right, with matching page gutters to keep it clear of the content.
-The timeline marker moves down the rail as you scroll through the chapters.
+The timeline marker moves down the rail as you scroll through the chapters and
+updates when a chapter is expanded or collapsed.
+
+## Collapsible timeline chapters
+
+The first (current) chapter starts expanded. Earlier chapters show their skyline,
+title, time period, location, and logo, with their individual entries collapsed.
+Each chapter with entries has a "Show N entries" / "Hide N entries" control;
+chapters without entries have no control. Native `details` and `summary` elements
+keep the interaction usable with a mouse, touch, keyboard, and JavaScript disabled.
+Chapter navigation links continue to target the always-visible chapter header.
+
+From the repository root, run `node --test dev\tests\timeline.test.cjs` when
+changing the disclosure markup or its navigation integration.
 
 ## Interactive portrait
 

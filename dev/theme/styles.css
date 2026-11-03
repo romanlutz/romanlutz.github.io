@@ -754,6 +754,60 @@ img.center {
     margin-top: 6px;
 }
 
+.vt-chapter-details {
+    margin-top: 16px;
+}
+
+.vt-chapter-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-media);
+    color: var(--blue);
+    background: var(--bg-primary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    list-style: none;
+}
+
+.vt-chapter-toggle::-webkit-details-marker {
+    display: none;
+}
+
+.vt-chapter-toggle::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    margin-right: 6px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+
+.vt-chapter-details[open] > .vt-chapter-toggle::before {
+    transform: rotate(45deg);
+}
+
+.vt-chapter-toggle:hover {
+    color: var(--blue-light);
+    border-color: var(--blue);
+    background: var(--bg-hover);
+}
+
+.vt-chapter-toggle:focus-visible {
+    outline: 2px solid var(--blue-light);
+    outline-offset: 4px;
+}
+
+.vt-chapter-details:not([open]) .vt-chapter-toggle__hide,
+.vt-chapter-details[open] .vt-chapter-toggle__show {
+    display: none;
+}
+
 /* Events container - now inside major card */
 .vt-events {
     position: relative;

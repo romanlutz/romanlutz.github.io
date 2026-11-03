@@ -111,5 +111,8 @@
   window.addEventListener('scroll', requestUpdate, { passive: true });
   window.addEventListener('resize', requestUpdate);
   window.addEventListener('load', requestUpdate, { once: true });
+  Array.prototype.forEach.call(document.querySelectorAll('.vt-chapter-details'), function (details) {
+    details.addEventListener('toggle', requestUpdate);
+  });
   updateNavigation();
 })();
