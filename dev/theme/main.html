@@ -198,7 +198,7 @@
 	
 	<div id="places" class="section-content topspace">
 			<h2 class="entry-title">Places along the way</h2>
-			<p class="places-intro">Places I have visited or passed through, including airport stopovers. Hover, focus, or tap a flag to see it in full color.</p>
+			<p class="places-intro">Places I have visited or passed through. Hover, focus, or tap a flag to see it in full color.</p>
 			<div class="map-legend" aria-label="Map legend">
 				<span><i class="map-legend__visited" aria-hidden="true"></i>Visited or passed through</span>
 				<span><i aria-hidden="true"></i>Not visited</span>
@@ -219,18 +219,12 @@
 					}|tojson }}' hidden></div>
 					<div id="{{ map_entry.mapConfiguration.scope }}_map_detail" class="map-detail" role="status" aria-live="polite" aria-atomic="true" hidden>Hover, focus, or tap a flag to see it in full color.</div>
 					<details id="{{ map_entry.mapConfiguration.scope }}_map_places" class="map-places">
-						<summary>Places and stopovers ({{ map_entry.mapConfiguration.places|length }})</summary>
-						{% for visited, heading in [(true, "Visited"), (false, "Airport stopovers")] %}
-						{% set places = map_entry.mapConfiguration.places|selectattr("visited", "equalto", visited)|sort(attribute="label") %}
-						{% if places %}
-						<h4>{{ heading }}</h4>
-						<ul class="map-place-list" data-visited="{{ 'true' if visited else 'false' }}">
-							{% for place in places %}
+						<summary>Places ({{ map_entry.mapConfiguration.places|length }})</summary>
+						<ul class="map-place-list">
+							{% for place in map_entry.mapConfiguration.places|sort(attribute="label") %}
 							<li data-place-code="{{ place.name|e }}">{{ place.label|e }}</li>
 							{% endfor %}
 						</ul>
-						{% endif %}
-						{% endfor %}
 					</details>
 					{% endif %}
 				</div>

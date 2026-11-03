@@ -1452,12 +1452,6 @@ a.vt-event-gallery-content:focus-visible {
   outline-offset: 3px;
   border-radius: 3px;
 }
-.map-places h4 {
-  margin: 20px 0 8px;
-  color: var(--text-secondary);
-  font-size: 14px;
-  font-weight: 500;
-}
 .map-place-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));

@@ -1,5 +1,5 @@
 // Green-tinted flag maps reveal full color on hover, focus, or tap.
-// All listed places, including stopovers, stay highlighted.
+// All listed places share the same highlighted treatment.
 // Dependencies and atlas data load only when a map approaches the viewport.
 (function () {
   var DETAIL_HINT = 'Hover, focus, or tap a flag to see it in full color.';
@@ -55,7 +55,7 @@
   }
 
   function placeStatus(place) {
-    return place ? (place.visited ? 'Visited' : 'Stopover') : 'Not visited';
+    return place ? 'Visited or passed through' : 'Not visited';
   }
 
   function eachPolygon(feature) {

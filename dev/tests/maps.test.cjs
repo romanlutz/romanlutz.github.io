@@ -143,7 +143,7 @@ function harness({ features, failed = false, lazy = false, intersection = true, 
     intersect(scope, isIntersecting = true) {
       intersectionCallback([{ target: nodes.get(scope + '_map'), isIntersecting }]);
     },
-    render(scope = 'usa', places = [{ name: 'WA', visited: true }, { name: 'AZ', visited: false }]) {
+    render(scope = 'usa', places = [{ name: 'WA' }, { name: 'AZ' }]) {
       return window.initDatamap({ scope, places });
     },
     regions(scope = 'usa') {
@@ -154,7 +154,7 @@ function harness({ features, failed = false, lazy = false, intersection = true, 
   };
 }
 
-test('fills visited places and stopovers with tinted flags and one focus target per region', async () => {
+test('fills every listed place with tinted flags and one focus target per region', async () => {
   const state = harness();
   await state.render();
   const [washington, arizona, texas] = state.regions();
@@ -165,7 +165,8 @@ test('fills visited places and stopovers with tinted flags and one focus target 
     assert.equal(region.attributes.get('role'), 'button');
     assert.equal(region.attributes.get('filter'), 'url(#flag-tint-usa)');
   }
-  assert.match(arizona.attributes.get('aria-label'), /Arizona, Stopover/);
+  assert.match(arizona.attributes.get('aria-label'), /Arizona, Visited or passed through/);
+  assert.match(washington.attributes.get('aria-label'), /Washington, Visited or passed through/);
   assert.ok(!texas.classList.contains('is-visited'));
   assert.equal(texas.attributes.get('tabindex'), undefined);
   assert.equal(descendants(state.svg(), 'image').length, 3);
@@ -186,12 +187,12 @@ test('reveals flags on hover and keeps the selected name and status in the detai
   assert.equal(flag.alt, '');
   assert.equal(flag.width, 48);
   assert.equal(flag.height, 32);
-  assert.match(state.detail().textContent, /Washington Visited/);
+  assert.match(state.detail().textContent, /Washington Visited or passed through/);
   fire(washington, 'pointerenter', { pointerType: 'mouse' });
   assert.equal(descendants(state.detail(), 'img')[0], flag, 'avoid repeated live-region updates');
 
   fire(arizona, 'pointerenter', { pointerType: 'pen' });
-  assert.match(state.detail().textContent, /Arizona Stopover/);
+  assert.match(state.detail().textContent, /Arizona Visited or passed through/);
   assert.ok(!washington.classList.contains('is-active'));
   assert.ok(arizona.classList.contains('is-active'));
   fire(texas, 'pointerenter', { pointerType: 'mouse' });
@@ -206,31 +207,33 @@ test('ignores touch hover but supports taps, keyboard activation, focus, and Esc
   fire(arizona, 'pointerenter', { pointerType: 'touch' });
   assert.equal(descendants(state.detail(), 'img').length, 0);
   fire(arizona, 'click');
-  assert.match(state.detail().textContent, /Arizona Stopover/);
+  assert.match(state.detail().textContent, /Arizona Visited or passed through/);
   assert.ok(fire(state.svg(), 'keydown', { key: 'Escape' }).defaultPrevented);
   assert.equal(descendants(state.detail(), 'img').length, 0);
   assert.ok(!arizona.classList.contains('is-active'));
 
   fire(washington, 'focus');
-  assert.match(state.detail().textContent, /Washington Visited/);
+  assert.match(state.detail().textContent, /Washington Visited or passed through/);
   for (const key of ['Enter', ' ']) {
     fire(state.svg(), 'keydown', { key: 'Escape' });
     assert.ok(fire(arizona, 'keydown', { key }).defaultPrevented);
-    assert.match(state.detail().textContent, /Arizona Stopover/);
+    assert.match(state.detail().textContent, /Arizona Visited or passed through/);
   }
 });
 
-test('uses country flags and preserves world-map stopovers', async () => {
+test('treats Iceland like every other listed country without a separate visit status', async () => {
   const state = harness({ features: [
     { id: '276', properties: { name: 'Germany' } },
     { id: '352', properties: { name: 'Iceland' } }
   ] });
-  await state.render('world', [{ name: 'DEU', visited: true }, { name: 'ISL', visited: false }]);
+  await state.render('world', [{ name: 'DEU' }, { name: 'ISL' }]);
   fire(state.regions('world')[0], 'focus');
   assert.equal(descendants(state.detail('world'), 'img')[0].src, '/images/flags/countries/de.svg');
+  assert.match(state.detail('world').textContent, /Germany Visited or passed through/);
   fire(state.regions('world')[1], 'click');
   assert.equal(descendants(state.detail('world'), 'img')[0].src, '/images/flags/countries/is.svg');
-  assert.match(state.detail('world').textContent, /Iceland Stopover/);
+  assert.match(state.detail('world').textContent, /Iceland Visited or passed through/);
+  assert.match(state.regions('world')[1].attributes.get('aria-label'), /Iceland, Visited or passed through/);
   assert.equal(state.svg('world').attributes.get('viewBox'), '0 0 975 500');
 });
 
@@ -241,7 +244,7 @@ test('hides a failed flag image without losing the place name and logs its URL',
   const flag = descendants(state.detail(), 'img')[0];
   fire(flag, 'error');
   assert.equal(flag.hidden, true);
-  assert.match(state.detail().textContent, /Washington Visited/);
+  assert.match(state.detail().textContent, /Washington Visited or passed through/);
   assert.equal(state.warnings[0][1], '/images/flags/us-states/wa.png');
 });
 

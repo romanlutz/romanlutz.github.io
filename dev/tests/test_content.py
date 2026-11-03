@@ -100,25 +100,24 @@ class ContentTests(unittest.TestCase):
             self.assertEqual(iframe.get("loading"), "lazy")
             self.assertTrue(iframe.get("title"))
 
-    def test_place_lists_include_every_configured_place_in_the_right_group(self):
+    def test_place_lists_include_every_configured_place_in_one_alphabetical_list(self):
         html, metadata = render_homepage()
         for entry in metadata["maps"]:
             config = entry["mapConfiguration"]
             list_id = f'{config["scope"]}_map_places'
             section = html.split(f'<details id="{list_id}"', 1)[1].split("</details>", 1)[0]
-            for visited in (True, False):
-                group = section.split(f'data-visited="{str(visited).lower()}">', 1)[1].split("</ul>", 1)[0]
-                expected = sorted(
-                    (place for place in config["places"] if place["visited"] is visited),
-                    key=lambda place: place["label"],
-                )
-                self.assertEqual(
-                    re.findall(r'data-place-code="([^"]+)"', group),
-                    [place["name"] for place in expected],
-                )
-                for place in expected:
-                    self.assertIn(f'>{escape(place["label"])}</li>', group)
-            self.assertIn("<summary>Places and stopovers", section)
+            self.assertEqual(section.count('<ul class="map-place-list">'), 1)
+            expected = sorted(config["places"], key=lambda place: place["label"])
+            self.assertEqual(
+                re.findall(r'data-place-code="([^"]+)"', section),
+                [place["name"] for place in expected],
+            )
+            for place in expected:
+                self.assertEqual(set(place), {"name", "label"})
+                self.assertIn(f'>{escape(place["label"])}</li>', section)
+            self.assertIn(f'<summary>Places ({len(expected)})</summary>', section)
+        self.assertIn('data-place-code="ISL">Iceland</li>', html)
+        self.assertNotRegex(html, r"(?i)stopover|airport|data-visited")
         self.assertIn("<noscript>", html)
         self.assertRegex(html, r'class="map-container"[^>]+ hidden>')
         self.assertRegex(html, r'class="map-detail"[^>]+ hidden>')

@@ -43,12 +43,12 @@ Run the cache and metadata regression tests from the repository root with
 
 ## Travel maps and closing section
 
-The maps fill all listed places, including airport stopovers, with green-tinted
-flags. Other places remain gray. Hovering, focusing, or tapping a place restores
+The maps fill all listed places with green-tinted flags, without distinguishing
+visits from passing through. Other places remain gray. Hovering, focusing, or tapping a place restores
 its flag's full color and reveals its name in a stable detail strip below the
 map. Mouse hover clears on leaving the region; keyboard focus and touch
-selection remain usable independently. Stopovers remain highlighted but are
-labeled separately in the detail strip. Keyboard users can focus a region and
+selection remain usable independently. All listed places use the same
+"Visited or passed through" label. Keyboard users can focus a region and
 press Enter or Space; Escape clears the selection.
 
 Each island gets its own flag pattern, but each country or state has only one
@@ -58,9 +58,9 @@ Flag loading failures are logged without losing the selected place's name.
 Atlas and rendering failures are logged and show an explanatory message with a
 keyboard-accessible "Retry map" button. A retry clears the previous error and
 reloads only that map; loading state is exposed through `aria-busy`.
-An alphabetical place list is built from `_data/maps.yml` beneath each map,
-with separate visited and airport-stopover groups. Keep each place's readable
-`label` alongside its existing code and `visited` flag. The native disclosure
+One alphabetical place list is built from `_data/maps.yml` beneath each map.
+Each place needs only its code (`name`) and readable `label`; there is no
+separate visit status for countries or US states. The native disclosure
 works without JavaScript or atlas data and opens automatically if a map fails.
 Without JavaScript, the unused map panels stay hidden rather than leaving gaps.
 
