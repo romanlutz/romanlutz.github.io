@@ -22,6 +22,8 @@ test('uses native disclosures only for chapters with entries and opens only the 
 
 test('provides state-specific labels, visible keyboard focus, and a touch-sized control', () => {
   assert.match(styles, /\.vt-chapter-toggle\s*\{[^}]*min-height: 44px;/);
+  assert.match(styles, /\.vt-chapter-toggle\s*\{[^}]*color: var\(--text-muted\);/);
+  assert.match(styles, /\.vt-chapter-toggle:hover\s*\{[^}]*color: var\(--text-primary\);/);
   assert.match(styles, /\.vt-chapter-toggle:focus-visible\s*\{[^}]*outline: 2px solid var\(--blue-light\);/);
   assert.match(styles, /\.vt-chapter-details:not\(\[open\]\) \.vt-chapter-toggle__hide,\s*\.vt-chapter-details\[open\] \.vt-chapter-toggle__show\s*\{\s*display: none;/);
 });

@@ -1,7 +1,5 @@
 - id: us-map
-  title: Map of the US states I have visited
-  content:
-  - flag = visited, dark gray = not visited
+  title: Across the United States
   mapConfiguration:
     scope: usa
     places:
@@ -58,7 +56,7 @@
     - name: WY
       visited: true
 - id: world-map
-  title: Map of the countries I have visited
+  title: Around the world
   mapConfiguration:
     scope: world
     places:

@@ -1,19 +1,10 @@
-// Choropleth helper that fills each "visited" country / US state with its
-// flag (via SVG <pattern>) and each "transit-only" entry with a solid
-// light green. Built on D3 v7 + TopoJSON v3.
-//
-// Usage from the mkdocs template (one call per map):
-//   initDatamap({scope: "usa",   places: [{name: "AK", visited: true}, ...]});
-//   initDatamap({scope: "world", places: [{name: "DEU", visited: true}, ...]});
-//
-// The helper assumes a wrapper element exists with id `${scope}_map`.
-// d3 and topojson are loaded synchronously above this script.
+// Quiet choropleth maps with flags revealed in a detail strip on interaction.
+// All listed places, including stopovers, stay highlighted.
+// d3 and topojson are loaded synchronously before this script.
 (function () {
-  var FILL_DEFAULT = '#2a3038';
-  var STROKE = '#484f58';
+  var DETAIL_HINT = 'Hover or tap a highlighted place to see its flag.';
 
-  // Visited-country alpha-3 → ISO 3166-1 numeric (used as id in
-  // world-atlas) and alpha-2 (used as the flag filename).
+  // Map country alpha-3 codes to atlas IDs and flag filenames.
   var COUNTRY_NUM = {
     AUT: '040', BHS: '044', CAN: '124', CHE: '756', DEU: '276',
     ESP: '724', FIN: '246', FRA: '250', GBR: '826', HUN: '348',
@@ -30,7 +21,7 @@
     ARE: 'ae', BEL: 'be', ISL: 'is',
     ABW: 'aw', CUW: 'cw'
   };
-  // US postal code → FIPS state code (used as id in us-atlas).
+  // US postal code to atlas FIPS state code.
   var US_FIPS = {
     AK: '02', AZ: '04', CA: '06', CO: '08', CT: '09',
     DC: '11', DE: '10', FL: '12', ID: '16', IL: '17',
@@ -38,105 +29,40 @@
     NH: '33', NJ: '34', NY: '36', OR: '41', PA: '42',
     RI: '44', SD: '46', UT: '49', VT: '50', WA: '53', WY: '56'
   };
-
-  // Per-country zoom override. Most countries look best at zoom 1.0 (the flag
-  // exactly fills the bbox), but very large countries on the world map need
-  // a higher zoom so off-center flag features (US canton, Iceland's cross,
-  // etc.) don't dominate one side of the visible flag.
-  var ZOOM_OVERRIDE = { USA: 2.0, CAN: 2.0, IND: 2.0, ISL: 2.0 };
-
   var TOPOJSON = {
-    usa:   'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json',
+    usa: 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json',
     world: 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json'
   };
 
   function flagUrl(scope, placeName) {
+    var prefix = window.MAPS_FLAG_BASE || 'images/flags/';
     if (scope === 'usa') {
-      var prefix = (window.MAPS_FLAG_BASE || 'images/flags/');
       return prefix + 'us-states/' + placeName.toLowerCase() + '.png';
     }
     var alpha2 = COUNTRY_ALPHA2[placeName];
-    if (!alpha2) return null;
-    var prefix2 = (window.MAPS_FLAG_BASE || 'images/flags/');
-    return prefix2 + 'countries/' + alpha2 + '.svg';
+    return alpha2 ? prefix + 'countries/' + alpha2 + '.svg' : null;
   }
 
-  // Build {topoFeatureId → place} so renderers can look up by feature id.
   function buildPlacesByFeatureId(scope, places) {
     var byId = {};
     for (var i = 0; i < places.length; i++) {
-      var p = places[i];
-      var id = scope === 'usa' ? US_FIPS[p.name] : COUNTRY_NUM[p.name];
-      if (id) byId[id] = p;
+      var place = places[i];
+      var id = scope === 'usa' ? US_FIPS[place.name] : COUNTRY_NUM[place.name];
+      if (id) byId[id] = place;
     }
     return byId;
   }
 
-  function ensurePopup() {
-    var popup = document.getElementById('map-hoverinfo');
-    if (popup) return popup;
-    popup = document.createElement('div');
-    popup.id = 'map-hoverinfo';
-    popup.className = 'hoverinfo';
-    popup.style.position = 'fixed';
-    popup.style.pointerEvents = 'none';
-    popup.style.display = 'none';
-    popup.style.zIndex = '1000';
-    document.body.appendChild(popup);
-    return popup;
-  }
-
-  function attachHover(svgSel, popup, byId) {
-    svgSel.selectAll('path.choropleth')
-      .on('pointerenter', function (event, d) {
-        var name = (d.properties && d.properties.name) || '';
-        var visited = !!(d && byId[d.id]);
-        popup.textContent = visited ? '\u2713 ' + name : name;
-        popup.classList.toggle('visited', visited);
-        popup.style.display = 'block';
-      })
-      .on('pointermove', function (event) {
-        popup.style.left = (event.clientX + 12) + 'px';
-        popup.style.top  = (event.clientY + 12) + 'px';
-      })
-      .on('pointerleave', function () {
-        popup.style.display = 'none';
-      });
-  }
-
-  // Yields each sub-polygon of a feature as its own Polygon-typed Feature
-  // wrapper. Each polygon will get its own flag pattern so outlying islands
-  // (Alaska, Hawaii, French overseas, Andaman, etc.) show a properly
-  // oriented full flag at their own location rather than a tile fragment of
-  // the mainland's pattern.
-  function eachPolygon(feature) {
-    var geom = feature.geometry;
-    if (!geom) return [];
-    if (geom.type === 'Polygon') {
-      return [{
-        type: 'Feature', id: feature.id, properties: feature.properties,
-        geometry: { type: 'Polygon', coordinates: [geom.coordinates[0]] }
-      }];
-    }
-    if (geom.type === 'MultiPolygon') {
-      return geom.coordinates.map(function (coords) {
-        return {
-          type: 'Feature', id: feature.id, properties: feature.properties,
-          geometry: { type: 'Polygon', coordinates: [coords[0]] }
-        };
-      });
-    }
-    return [];
+  function placeStatus(place) {
+    return place ? (place.visited ? 'Visited' : 'Stopover') : 'Not visited';
   }
 
   function render(scope, container, topology, places) {
     var objectKey = scope === 'usa' ? 'states' : 'countries';
     var features = topojson.feature(topology, topology.objects[objectKey]).features;
     var byId = buildPlacesByFeatureId(scope, places);
-
     var path, viewBox;
     if (scope === 'usa') {
-      // us-atlas states-10m.json is in raw lat/long; project with AlbersUsa to a 975×610 canvas.
       var width = 975;
       var height = 610;
       var usaProj = d3.geoAlbersUsa();
@@ -144,91 +70,94 @@
       path = d3.geoPath(usaProj);
       viewBox = [0, 0, width, height];
     } else {
-      // Project the sphere and use its actual extent as the viewBox so there's no
-      // empty band above/below the map.
-      var targetWidth = 975;
-      var projection = d3.geoEqualEarth().fitWidth(targetWidth, { type: 'Sphere' });
+      // Use the sphere's bounds to avoid an empty band around the world map.
+      var projection = d3.geoEqualEarth().fitWidth(975, { type: 'Sphere' });
       path = d3.geoPath(projection);
       var bounds = path.bounds({ type: 'Sphere' });
-      viewBox = [
-        bounds[0][0],
-        bounds[0][1],
-        bounds[1][0] - bounds[0][0],
-        bounds[1][1] - bounds[0][1]
-      ];
+      viewBox = [bounds[0][0], bounds[0][1], bounds[1][0] - bounds[0][0], bounds[1][1] - bounds[0][1]];
     }
 
     container.innerHTML = '';
     var svg = d3.select(container).append('svg')
       .attr('viewBox', viewBox.join(' '))
       .attr('preserveAspectRatio', 'xMidYMid meet')
-      .style('width', '100%')
-      .style('height', 'auto')
-      .style('display', 'block');
-
-    var defs = svg.append('defs');
+      .attr('role', 'group')
+      .attr('aria-label', (scope === 'usa' ? 'US states' : 'Countries') + ' visited or passed through');
     var g = svg.append('g');
+    var detail = document.getElementById(scope + '_map_detail');
+    var activeRegion = null;
 
-    // For each feature: unvisited → one default-filled path. Visited → render
-    // each sub-polygon (mainland and every outlying island) as its own path
-    // with its own flag-fill pattern sized to that polygon's bbox. This way
-    // every chunk of the country shows a correctly-oriented full flag (e.g.,
-    // Alaska gets its own US flag with the canton in the upper-left, not a
-    // tile fragment of the continental US pattern).
+    function clearSelection() {
+      if (activeRegion) activeRegion.classList.remove('is-active');
+      activeRegion = null;
+      detail.textContent = DETAIL_HINT;
+    }
+
+    function showPlace(region, feature) {
+      if (activeRegion === region) return;
+      clearSelection();
+      activeRegion = region;
+      region.classList.add('is-active');
+      var place = byId[feature.id];
+      var href = place && flagUrl(scope, place.name);
+      detail.textContent = '';
+      if (href) {
+        var image = document.createElement('img');
+        image.className = 'map-detail__flag';
+        image.alt = '';
+        image.width = 48;
+        image.height = 32;
+        image.addEventListener('error', function () {
+          image.hidden = true;
+          console.warn('Unable to load map flag:', href);
+        });
+        image.src = href;
+        detail.appendChild(image);
+      }
+      var text = document.createElement('div');
+      var name = document.createElement('strong');
+      name.textContent = feature.properties.name;
+      var status = document.createElement('span');
+      status.textContent = placeStatus(place);
+      text.appendChild(name);
+      text.appendChild(status);
+      detail.appendChild(text);
+    }
+
     features.forEach(function (feature) {
       var place = byId[feature.id];
-      if (!place) {
-        g.append('path')
-          .datum(feature)
-          .attr('class', 'choropleth')
-          .attr('d', path(feature))
-          .attr('stroke', STROKE)
-          .attr('stroke-width', 0.5)
-          .attr('vector-effect', 'non-scaling-stroke')
-          .attr('fill', FILL_DEFAULT);
-        return;
+      var region = g.append('path')
+        .datum(feature)
+        .attr('class', 'choropleth' + (place ? ' is-visited' : ''))
+        .attr('d', path(feature))
+        .attr('vector-effect', 'non-scaling-stroke')
+        .on('pointerenter', function (event, d) {
+          if (event.pointerType !== 'touch') showPlace(this, d);
+        });
+      if (place) {
+        region.attr('tabindex', 0)
+          .attr('role', 'button')
+          .attr('aria-label', feature.properties.name + ', ' + placeStatus(place) + '. Show flag.')
+          .on('focus', function (event, d) { showPlace(this, d); })
+          .on('click', function (event, d) { showPlace(this, d); })
+          .on('keydown', function (event, d) {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              showPlace(this, d);
+            }
+          });
+      } else {
+        region.attr('aria-hidden', 'true');
       }
-
-      var href = flagUrl(scope, place.name);
-      // Default zoom 1.0 (flag exactly fills the bbox). Per-country overrides
-      // lift specific large countries to a higher zoom — see ZOOM_OVERRIDE.
-      var ZOOM = (scope === 'world' && ZOOM_OVERRIDE[place.name]) || 1.0;
-      var polys = eachPolygon(feature);
-      polys.forEach(function (polyFeature, idx) {
-        var fill = FILL_DEFAULT;
-        if (href) {
-          var bounds = path.bounds(polyFeature);
-          var x = bounds[0][0], y = bounds[0][1];
-          var w = bounds[1][0] - x, h = bounds[1][1] - y;
-          if (w > 0 && h > 0) {
-            var patternId = 'flag-' + scope + '-' + place.name + '-' + idx;
-            var imgW = w * ZOOM, imgH = h * ZOOM;
-            var imgX = (w - imgW) / 2, imgY = (h - imgH) / 2;
-            defs.append('pattern')
-              .attr('id', patternId)
-              .attr('patternUnits', 'userSpaceOnUse')
-              .attr('x', x).attr('y', y)
-              .attr('width', w).attr('height', h)
-              .append('image')
-                .attr('href', href)
-                .attr('x', imgX).attr('y', imgY)
-                .attr('width', imgW).attr('height', imgH)
-                .attr('preserveAspectRatio', 'xMidYMid slice');
-            fill = 'url(#' + patternId + ')';
-          }
-        }
-        g.append('path')
-          .datum(feature)
-          .attr('class', 'choropleth')
-          .attr('d', path(polyFeature))
-          .attr('stroke', STROKE)
-          .attr('stroke-width', 0.5)
-          .attr('vector-effect', 'non-scaling-stroke')
-          .attr('fill', fill);
-      });
     });
 
-    attachHover(svg, ensurePopup(), byId);
+    svg.on('keydown', function (event) {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        clearSelection();
+      }
+    });
+    clearSelection();
   }
 
   window.initDatamap = function (config) {
@@ -236,9 +165,8 @@
     if (!container) return;
     var url = TOPOJSON[config.scope];
     if (!url) return;
-    d3.json(url).then(function (topology) {
+    return d3.json(url).then(function (topology) {
       render(config.scope, container, topology, config.places || []);
     });
   };
 })();
-

@@ -23,6 +23,21 @@ original widths and gutters without narrowing the timeline. On small screens,
 the timeline uses a single rail and wider event panels instead of nested
 indentation. Website copy and data remain in `mkdocs.yml` and `_data/`.
 
+## Travel maps and closing section
+
+The maps use green for all listed places, including airport stopovers, and gray
+for other places. Hovering, focusing, or tapping a highlighted place reveals its
+flag and name in a stable detail strip below the map. Stopovers remain highlighted
+but are labeled separately in the detail strip. Keyboard users can focus a
+highlighted region and press Enter or Space; Escape clears the selection.
+Flag loading failures are logged without losing the selected place's name.
+
+The closing section keeps the Git illustration and its source credit as a
+personal aside, followed by LinkedIn, GitHub, and back-to-top links.
+
+From the repository root, run `node --test dev\tests\maps.test.cjs` when changing
+map rendering, interaction, or flag selection.
+
 ## Timeline publication galleries
 
 An event in `_data/resume.yml` can specify a `gallery` instead of a single

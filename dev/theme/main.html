@@ -196,16 +196,23 @@
 		</div>
 	
 	<div id="places" class="section-content topspace">
+			<h2 class="entry-title">Places along the way</h2>
+			<p class="places-intro">Places I have visited or passed through, including airport stopovers. Explore a highlighted place to see its flag.</p>
+			<div class="map-legend" aria-label="Map legend">
+				<span><i class="map-legend__visited" aria-hidden="true"></i>Visited or passed through</span>
+				<span><i aria-hidden="true"></i>Not visited</span>
+			</div>
 
 			{% for map_entry in page.meta.maps %}
-			<article id="{{ map_entry.id }}">
-					<h2 class="entry-title">{{ map_entry.title }}</h2>
+			<article id="{{ map_entry.id }}" class="map-article">
+				<h3>{{ map_entry.title }}</h3>
 				<div class="entry-content">
 					{% for content_paragraph in map_entry.content %}
 					<p>{{ content_paragraph }}</p>
 					{% endfor %}
 					{% if map_entry.mapConfiguration %}
 					<div id="{{ map_entry.mapConfiguration.scope }}_map" class="map-container"></div>
+					<div id="{{ map_entry.mapConfiguration.scope }}_map_detail" class="map-detail" role="status" aria-live="polite" aria-atomic="true">Hover or tap a highlighted place to see its flag.</div>
 					<script>
 						initDatamap({{ {
 							"scope": map_entry.mapConfiguration.scope,
@@ -216,18 +223,17 @@
 				</div>
 			</article>
 
-			{% if not loop.last %}<hr class="gradient"><br>{% endif %}
 			{% endfor %}
 
 		</div>
 	
 		<div class="section-content topspace">
-			<article id="miscellaneous">
-				<h2 class="entry-title">Miscellaneous</h2>
-				<div class="git-img-wrapper">
-					<img src="../images/git.jpg" alt="The 5 stages of git, from Navin Narra's tweet." width="80%" class="center vt-event-img-invert git-img-blend">
-				</div>
-				<p class="text-center">from Navin Narra's <a href="https://twitter.com/navinnarra/status/842112112176513024">tweet</a></p>
+			<article id="miscellaneous" class="personal-aside">
+				<h2 class="entry-title">A little Git humor</h2>
+				<figure class="git-figure">
+					<img src="../images/git.jpg" alt="The five stages of Git: denial, anger, bargaining, depression, and acceptance." width="1200" height="698" loading="lazy" class="vt-event-img-invert git-img-blend">
+					<figcaption>The five stages of Git, shared by <a href="https://twitter.com/navinnarra/status/842112112176513024">Navin Narra</a>.</figcaption>
+				</figure>
 			</article>
 		</div>
 
@@ -236,7 +242,20 @@
 
 <footer id="underfooter">
 	<div class="container">
-		<p class="text-center">Copyright &copy; {{ build_date_utc.year }}, Roman Lutz</p>
+		<div class="footer-contact">
+			<div>
+				<h2>Let's connect.</h2>
+				<p>Find me on LinkedIn or follow my open-source work on GitHub.</p>
+			</div>
+			<div class="footer-links">
+				<a href="https://linkedin.com/in/romanlutz">LinkedIn <span aria-hidden="true">&rarr;</span></a>
+				<a href="https://github.com/romanlutz">GitHub <span aria-hidden="true">&rarr;</span></a>
+			</div>
+		</div>
+		<div class="footer-meta">
+			<p>Copyright &copy; {{ build_date_utc.year }}, Roman Lutz</p>
+			<a href="#head">Back to top</a>
+		</div>
 	</div>
 </footer>
 
