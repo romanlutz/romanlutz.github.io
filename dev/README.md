@@ -25,6 +25,29 @@ indentation. Website copy and data remain in `mkdocs.yml` and `_data/`.
 The root `color-scheme: dark` declaration styles native browser controls.
 Keep the `theme-color` metadata in `theme/main.html` in sync with `--bg-primary`.
 
+## Engineer field guide
+
+`docs/junior-engineer-guide.md` is the editable source for
+`/junior-engineer-guide/`. Its `template: guide.html` metadata selects a separate
+reading layout without changing the homepage template. `theme/guide.css` extends
+the existing site palette and typography with a four-part route, a desktop
+contents rail, mobile layout, and print styles. `theme/guide.js` progressively
+adds the print button and highlights visible chapter headings. Reading, chapter
+links, and labeled checklist controls work without JavaScript.
+
+Checklist marks are only for the current visit. They are not stored or sent to
+a server. Printing or saving as PDF preserves the current marks; use the browser's
+print dialog to select just the checklist pages if desired.
+
+The November 2026 entry in `_data/resume.yml` links here using `article`.
+Keep its permanent `engineer-field-guide` slug so the article's return links
+continue to work. When changing chapter headings, update the cover's four route
+links too; the sidebar follows MkDocs' generated table of contents.
+
+Run the guide regression checks from the repository root with
+`uv run --no-project --with-requirements dev\requirements.txt python -m unittest discover -s dev\tests -p "test_guide.py"`
+and `node --test dev\tests\guide.test.cjs`.
+
 ## Profile statistics
 
 `hooks.py` fetches counts at build time and caches them in `stats.json`. Each

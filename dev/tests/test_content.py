@@ -79,7 +79,11 @@ class ContentTests(unittest.TestCase):
             for event in chapter.get("events", []):
                 self.assertIn(f'event-{event["slug"]}', elements.ids)
                 self.assertIn(f'event-{event["slug"]}', elements.fragment_links)
-        self.assertEqual(html.count('class="timeline-permalink"'), 49)
+        self.assertEqual(
+            html.count('class="timeline-permalink"'),
+            sum(1 + len(chapter.get("events", []))
+                for chapter in metadata["resume"]["timeline"]),
+        )
         self.assertIn('aria-describedby="chapter-azure-ai-title"', html)
 
     def test_links_survive_new_chapters_reordering_and_title_changes(self):

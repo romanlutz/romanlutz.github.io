@@ -187,6 +187,9 @@
 												{% else %}
 												<div class="vt-event-desc">{{ event.description }}</div>
 												{% endif %}
+												{% if event.article %}
+												<p><a href="{{ event.article|url }}" class="vt-article-link">Read the field guide <span aria-hidden="true">&rarr;</span></a></p>
+												{% endif %}
 											</div>
 										</div>
 										{% endfor %}

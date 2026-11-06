@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+THESIS: Career growth is a journey of trust, not a race through tickets.
+OWN-WORLD: Inherit the site's charcoal, green, Space Grotesk, and open rails.
+STORY: Read the premise, follow four chapters, choose one habit to practice.
+FIRST VIEWPORT: Wide title and promise, followed by a four-stop chapter route.
+FORM: A continuous field guide with a desktop contents rail, not a card grid.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d1117">
+  <title>{{ page.title|e }} | {{ config.extra.name|e }}</title>
+  <meta name="author" content="{{ config.extra.name|e }}">
+  <meta name="description" content="{{ page.meta.description|e }}">
+  <link rel="canonical" href="{{ page.canonical_url|e }}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="{{ config.extra.name|e }}">
+  <meta property="og:title" content="{{ page.title|e }}">
+  <meta property="og:description" content="{{ page.meta.description|e }}">
+  <meta property="og:url" content="{{ page.canonical_url|e }}">
+  <meta property="og:image" content="{{ config.site_url }}images/profile.jpg">
+  <meta property="og:image:alt" content="{{ config.extra.name|e }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ page.title|e }}">
+  <meta name="twitter:description" content="{{ page.meta.description|e }}">
+  <meta name="twitter:image" content="{{ config.site_url }}images/profile.jpg">
+  <meta name="twitter:image:alt" content="{{ config.extra.name|e }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ 'favicon-32x32.png'|url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ 'apple-touch-icon.png'|url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ 'styles.css'|url }}">
+  <link rel="stylesheet" href="{{ 'guide.css'|url }}">
+  <script src="{{ 'guide.js'|url }}" defer></script>
+</head>
+<body class="guide-page">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="guide-masthead">
+    <a class="guide-home" href="{{ '.'|url }}/">{{ config.extra.name|e }} <span>/ writing</span></a>
+    <a href="{{ '.'|url }}/#event-engineer-field-guide">Back to timeline <span aria-hidden="true">&nearr;</span></a>
+  </header>
+  <main id="main" tabindex="-1">
+    <header class="guide-cover" id="top">
+      <div>
+        <h1>A field guide<br>for new engineers<span class="guide-period">.</span></h1>
+        <p class="guide-subtitle">{{ page.meta.subtitle|e }}</p>
+        <p class="guide-byline">By {{ config.extra.name|e }} <span aria-hidden="true">&middot;</span> <time datetime="2026-11">November 2026</time></p>
+      </div>
+      <blockquote class="guide-promise">
+        <p>Being new is<br> not a weakness.</p>
+        <span>It&rsquo;s a map of where the road leads,<br> not a list of ways you&rsquo;re falling short.</span>
+      </blockquote>
+    </header>
+    <nav class="guide-route" aria-label="The four parts of the guide">
+      <a href="#part-1-become-someone-people-can-rely-on"><span>1</span>Earn trust<small>Become reliable</small></a>
+      <a href="#part-2-go-from-reliable-to-remarkable"><span>2</span>Multiply impact<small>Go beyond the task</small></a>
+      <a href="#part-3-build-a-genuinely-good-relationship-with-your-manager"><span>3</span>Build a partnership<small>Work with your manager</small></a>
+      <a href="#part-4-take-the-long-view-and-invest-in-yourself"><span>4</span>Play the long game<small>Invest in yourself</small></a>
+    </nav>
+    <div class="guide-layout">
+      <aside class="guide-sidebar">
+        <nav aria-label="Guide contents">
+          <h2>In this guide</h2>
+          {% for item in page.toc %}
+          <a href="#{{ item.id|e }}">{{ item.title|e }}</a>
+          {% for child in item.children %}
+          <a href="#{{ child.id|e }}">{{ child.title|e }}</a>
+          {% endfor %}
+          {% endfor %}
+        </nav>
+        <div class="guide-tools">
+          <a href="#one-page-checklist">Jump to the checklist <span aria-hidden="true">&darr;</span></a>
+          <button type="button" data-print-guide hidden>Print / save as PDF <span aria-hidden="true">&nearr;</span></button>
+        </div>
+        <p class="guide-sidebar-note">Start with one habit.<br>Add another next week.</p>
+      </aside>
+      <article class="guide-prose" aria-label="{{ page.title|e }}">
+        {{ page.content }}
+      </article>
+    </div>
+  </main>
+  <footer class="guide-footer">
+    <p>A career, not a week. Enjoy the climb.</p>
+    <a href="#top">Back to the beginning &uarr;</a>
+    <a href="{{ '.'|url }}/#event-engineer-field-guide">Return to the timeline &rarr;</a>
+  </footer>
+</body>
+</html>
