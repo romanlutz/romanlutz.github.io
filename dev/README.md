@@ -48,6 +48,37 @@ Run the guide regression checks from the repository root with
 `uv run --no-project --with-requirements dev\requirements.txt python -m unittest discover -s dev\tests -p "test_guide.py"`
 and `node --test dev\tests\guide.test.cjs`.
 
+## Lutz's Law
+
+`docs/lutzs-law.md` supplies the article at `/lutzs-law/`, using `theme/law.html`
+and `theme/law.css`. The first law, second law, company-internal reversal,
+AI caveat, and practical advice share a full-width layout with a large heading,
+text on the left, and a conceptual illustration on the right, stacking on
+mobile. The second law's
+cumulative-time comparison shows the smaller PRs reviewed sequentially, not in
+parallel. The reversal's comparison shows a rubber-stamped large PR landing
+sooner than properly reviewed smaller ones. Neither comparison is empirical
+data. The AI and practical sections use inline SVG drawings: AI review alongside
+human judgment, and small PRs carrying their own tests along a stepped merge
+path. Captions describe the drawings without requiring vision or JavaScript.
+The opening explains
+the October 21, 2021 origin and credits Adrin through a link to his homepage.
+The receipts section contains only a link to the original tweet thread, without
+screenshots, transcriptions, or embedded posts. The page needs no JavaScript.
+The company-internal reversal and AI-assisted review caveat are dated November
+6, 2026 and kept separate from the original posts. The cover links directly to
+that commentary so the historical laws are not presented as universal current
+rules.
+
+The homepage links to the law from `#miscellaneous`, not from a timeline event.
+The article's return links point to that same section. Timeline articles use `article`
+for the relative route and `articleLabel` for the link's visible text; supply
+both for each article event. Keep the five opening section links in `law.html`
+in sync when changing article headings.
+
+Run the article regression checks from the repository root with
+`uv run --no-project --with-requirements dev\requirements.txt python -m unittest discover -s dev\tests -p "test_law.py"`.
+
 ## Profile statistics
 
 `hooks.py` fetches counts at build time and caches them in `stats.json`. Each

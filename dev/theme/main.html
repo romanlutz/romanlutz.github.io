@@ -188,7 +188,7 @@
 												<div class="vt-event-desc">{{ event.description }}</div>
 												{% endif %}
 												{% if event.article %}
-												<p><a href="{{ event.article|url }}" class="vt-article-link">Read the field guide <span aria-hidden="true">&rarr;</span></a></p>
+												<p><a href="{{ event.article|url }}" class="vt-article-link">{{ event.articleLabel|e }} <span aria-hidden="true">&rarr;</span></a></p>
 												{% endif %}
 											</div>
 										</div>
@@ -243,7 +243,9 @@
 	
 		<div class="section-content topspace">
 			<article id="miscellaneous" class="personal-aside">
-				<h2 class="entry-title">A little Git humor</h2>
+				<h2 class="entry-title">Miscellaneous</h2>
+				<p>I coined <a href="{{ 'lutzs-law/'|url }}">Lutz's Law</a> after providing plenty of examples of oversized pull requests getting stuck in review. Read the two laws, the company-internal reversal, and what AI-assisted review changes.</p>
+				<h3>A little Git humor</h3>
 				<figure class="git-figure">
 					<img src="../images/git.jpg" alt="The five stages of Git: denial, anger, bargaining, depression, and acceptance." width="1200" height="698" loading="lazy" decoding="async" class="vt-event-img-invert git-img-blend">
 					<figcaption>The five stages of Git, shared by <a href="https://twitter.com/navinnarra/status/842112112176513024">Navin Narra</a>.</figcaption>

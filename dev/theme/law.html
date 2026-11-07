@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+THESIS: An oversized review loop makes a memorable engineering rule tangible.
+OWN-WORLD: Inherit the site's charcoal, green, Space Grotesk, and open rails.
+STORY: Understand both laws, their limits, and their origin.
+FIRST VIEWPORT: Large title, plain-language premise, contrasting review paths.
+FORM: Visual essay with a dated origin and a link to the original thread.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d1117">
+  <title>{{ page.title|e }} | {{ config.extra.name|e }}</title>
+  <meta name="author" content="{{ config.extra.name|e }}">
+  <meta name="description" content="{{ page.meta.description|e }}">
+  <link rel="canonical" href="{{ page.canonical_url|e }}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="{{ config.extra.name|e }}">
+  <meta property="og:title" content="{{ page.title|e }}">
+  <meta property="og:description" content="{{ page.meta.description|e }}">
+  <meta property="og:url" content="{{ page.canonical_url|e }}">
+  <meta property="og:image" content="{{ config.site_url }}images/profile.jpg">
+  <meta property="og:image:alt" content="{{ config.extra.name|e }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ page.title|e }}">
+  <meta name="twitter:description" content="{{ page.meta.description|e }}">
+  <meta name="twitter:image" content="{{ config.site_url }}images/profile.jpg">
+  <meta name="twitter:image:alt" content="{{ config.extra.name|e }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ 'favicon-32x32.png'|url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ 'apple-touch-icon.png'|url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ 'styles.css'|url }}">
+  <link rel="stylesheet" href="{{ 'law.css'|url }}">
+</head>
+<body class="law-page">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="law-masthead law-width">
+    <a class="law-home" href="{{ '.'|url }}/">{{ config.extra.name|e }} <span>/ writing</span></a>
+    <a href="{{ '.'|url }}/#miscellaneous">Back to miscellaneous <span aria-hidden="true">&nearr;</span></a>
+  </header>
+  <main id="main" tabindex="-1">
+    <article aria-label="{{ page.title|e }}">
+      <header class="law-cover law-width" id="top" aria-labelledby="law-title">
+        <h1 id="law-title">Lutz&rsquo;s Law<span>.</span></h1>
+        <div class="law-opening">
+          <div class="law-premise">
+            <p class="law-deck">The bigger the pull request, the further away the merge.</p>
+            <blockquote class="law-statement">
+              <p>In open source, as the size of a pull request grows, its probability of being merged tends toward zero.</p>
+            </blockquote>
+            <p class="law-byline">I coined this on <time datetime="2021-10-21">October 21, 2021</time>, because I had provided so many examples of oversized pull requests getting stuck in review. Credit also goes to <a href="https://adrin.info/pages/about.html">Adrin Jalali</a> for helping me get them unstuck.</p>
+            <p class="law-context">Originally about human review in open source. <a href="#where-the-laws-bend">Internal PRs and AI change the picture.</a></p>
+          </div>
+          <figure class="law-diagram">
+            <div class="law-path-heading"><span>One large pull request</span><span>Still in review</span></div>
+            <svg viewBox="0 0 480 112" aria-hidden="true" focusable="false">
+              <path class="law-track" d="M16 72H464"/>
+              <path class="law-long-path" d="M16 72H64C88 72 88 16 132 16H268C332 16 332 100 268 100H224C176 100 176 40 224 40H368C404 40 404 72 432 72"/>
+              <path class="law-unfinished" d="M432 72H464"/>
+              <circle class="law-open-node" cx="16" cy="72" r="6"/>
+              <circle class="law-open-node" cx="464" cy="72" r="6"/>
+            </svg>
+            <div class="law-path-heading law-path-heading--small"><span>Small, reviewable changes</span><span>Merged in steps</span></div>
+            <svg viewBox="0 0 480 100" aria-hidden="true" focusable="false">
+              <path class="law-track" d="M16 72H464"/>
+              <path class="law-small-path" d="M16 72H36C54 72 54 22 82 22H102C130 22 130 72 154 72H172C190 72 190 22 218 22H238C266 22 266 72 290 72H308C326 72 326 22 354 22H374C402 22 402 72 426 72H464"/>
+              <circle class="law-merged-node" cx="154" cy="72" r="7"/>
+              <circle class="law-merged-node" cx="290" cy="72" r="7"/>
+              <circle class="law-merged-node" cx="426" cy="72" r="7"/>
+              <path class="law-check" d="m151 72 2 2 4-5m130 3 2 2 4-5m130 3 2 2 4-5"/>
+            </svg>
+            <figcaption>One change stuck in a review loop. Smaller changes landing along the way. An illustration, not measured data.</figcaption>
+          </figure>
+        </div>
+        <nav class="law-route" aria-label="On this page">
+          <a href="#lutzs-second-law">The second law</a>
+          <a href="#where-the-laws-bend">The internal reversal</a>
+          <a href="#ai-changes-the-bottleneck">AI review</a>
+          <a href="#put-it-into-practice">In practice</a>
+          <a href="#the-receipts">The receipts <span aria-hidden="true">&darr;</span></a>
+        </nav>
+      </header>
+      <div class="law-prose">
+        {{ page.content }}
+      </div>
+      <footer class="law-closing law-width">
+        <p>Less work waiting.<br><strong>More work landing.</strong></p>
+        <a href="{{ 'junior-engineer-guide/'|url }}">Read the field guide <span aria-hidden="true">&rarr;</span></a>
+      </footer>
+    </article>
+  </main>
+  <footer class="law-footer law-width">
+    <a href="{{ '.'|url }}/#miscellaneous">Return to miscellaneous <span aria-hidden="true">&rarr;</span></a>
+    <a href="#top">Back to the beginning <span aria-hidden="true">&uarr;</span></a>
+  </footer>
+</body>
+</html>

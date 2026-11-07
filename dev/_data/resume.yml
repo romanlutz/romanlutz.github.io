@@ -14,6 +14,7 @@ timeline:
     title: A Field Guide for New Engineers
     slug: engineer-field-guide
     article: junior-engineer-guide/
+    articleLabel: Read the field guide
     description: 'Being new is not a weakness. I wrote a practical guide to growing from getting tasks done to becoming someone the team can rely on: earn trust, multiply your impact, build a strong partnership with your manager, and invest in yourself. Start with one habit, not all of them at once.'
   - date: October 2026
     title: MLCommons Jailbreak Benchmark v1.0
